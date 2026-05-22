@@ -1,4 +1,4 @@
-export type ServiceType = "home" | "video-editing" | "social-media" | "crm";
+export type ServiceType = "video-editing" | "social-media" | "crm";
 
 export interface ServiceInfo {
   id: ServiceType;
