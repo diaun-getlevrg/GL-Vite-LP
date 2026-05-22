@@ -1,7 +1,7 @@
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import { renderToString } from "react-dom/server";
 import { useNavigate, Routes, Route, StaticRouter } from "react-router-dom";
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect, useCallback } from "react";
 import { useInView, motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, X, Menu, Megaphone, Video, Globe, Target, Rocket, HeartHandshake, Layers, Check, ChevronDownIcon, Zap, CalendarDays, TrendingUp, Star, Lock, Mail, Shield, UserX, AlertTriangle, DollarSign, UserCheck, CheckCircle, ClipboardList, Users, Clock, ChevronLeft, ChevronRight, Quote, Trophy, MessageCircle, Phone, RotateCcw, Clapperboard, Play, Film, Sparkles, Palette, Briefcase, Smartphone, Eye, BookOpen, ThumbsUp, LayoutGrid, PiggyBank, Building2, CheckCircle2, XCircle, Calendar, BarChart3, Scale, Lightbulb, CalendarCheck, Heart, Share2, Activity, AlertOctagon, Settings, RefreshCw, Database, Search, Brush } from "lucide-react";
 import { Slot } from "@radix-ui/react-slot";
@@ -10,11 +10,7 @@ import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-const useIsMounted = () => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  return mounted;
-};
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 function AnimatedSection({
   children,
   className = "",
@@ -23,11 +19,19 @@ function AnimatedSection({
   once = true,
   stagger = 0
 }) {
-  const mounted = useIsMounted();
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-80px" });
+  const wasVisible = useRef(false);
+  const [mounted, setMounted] = useState(false);
+  useIsomorphicLayoutEffect(() => {
+    if (ref.current) {
+      const r = ref.current.getBoundingClientRect();
+      wasVisible.current = r.top < window.innerHeight && r.bottom > 0;
+    }
+    setMounted(true);
+  }, []);
   if (!mounted) {
-    return /* @__PURE__ */ jsx("div", { className, children });
+    return /* @__PURE__ */ jsx("div", { ref, className, children });
   }
   const directionMap = {
     up: { y: 40, x: 0 },
@@ -37,12 +41,15 @@ function AnimatedSection({
     none: { x: 0, y: 0 }
   };
   const offset = directionMap[direction];
+  const vis = { opacity: 1, x: 0, y: 0 };
+  const hid = { opacity: 0, ...offset };
+  const skip = wasVisible.current;
   return /* @__PURE__ */ jsx(
     motion.div,
     {
       ref,
-      initial: { opacity: 0, ...offset },
-      animate: isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...offset },
+      initial: skip ? vis : hid,
+      animate: skip || isInView ? vis : hid,
       transition: {
         duration: 0.6,
         delay: delay + stagger,
@@ -58,23 +65,31 @@ function StaggerContainer({
   className = "",
   staggerDelay = 0.1
 }) {
-  const mounted = useIsMounted();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const wasVisible = useRef(false);
+  const [mounted, setMounted] = useState(false);
+  useIsomorphicLayoutEffect(() => {
+    if (ref.current) {
+      const r = ref.current.getBoundingClientRect();
+      wasVisible.current = r.top < window.innerHeight && r.bottom > 0;
+    }
+    setMounted(true);
+  }, []);
   if (!mounted) {
     return /* @__PURE__ */ jsx("div", { className, children });
   }
+  const skip = wasVisible.current;
+  const state = skip || isInView ? "visible" : "hidden";
   return /* @__PURE__ */ jsx(
     motion.div,
     {
       ref,
-      initial: "hidden",
-      animate: isInView ? "visible" : "hidden",
+      initial: skip ? "visible" : "hidden",
+      animate: state,
       variants: {
         hidden: {},
-        visible: {
-          transition: { staggerChildren: staggerDelay }
-        }
+        visible: { transition: { staggerChildren: staggerDelay } }
       },
       className,
       children
@@ -85,10 +100,6 @@ function StaggerItem({
   children,
   className = ""
 }) {
-  const mounted = useIsMounted();
-  if (!mounted) {
-    return /* @__PURE__ */ jsx("div", { className, children });
-  }
   return /* @__PURE__ */ jsx(
     motion.div,
     {

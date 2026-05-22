@@ -1,14 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-// SSR guard — components render as plain visible divs until JS hydrates,
-// then framer-motion takes over for scroll-triggered animations.
-const useIsMounted = () => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  return mounted;
-};
-
 interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
@@ -26,13 +18,8 @@ export function AnimatedSection({
   once = true,
   stagger = 0,
 }: AnimatedSectionProps) {
-  const mounted = useIsMounted();
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-80px" });
-
-  if (!mounted) {
-    return <div className={className}>{children}</div>;
-  }
 
   const directionMap = {
     up: { y: 40, x: 0 },
@@ -70,13 +57,8 @@ export function StaggerContainer({
   className?: string;
   staggerDelay?: number;
 }) {
-  const mounted = useIsMounted();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
-
-  if (!mounted) {
-    return <div className={className}>{children}</div>;
-  }
 
   return (
     <motion.div
@@ -103,12 +85,6 @@ export function StaggerItem({
   children: React.ReactNode;
   className?: string;
 }) {
-  const mounted = useIsMounted();
-
-  if (!mounted) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
     <motion.div
       variants={{
@@ -137,12 +113,6 @@ export function FloatingElement({
   amplitude?: number;
   duration?: number;
 }) {
-  const mounted = useIsMounted();
-
-  if (!mounted) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
     <motion.div
       animate={{ y: [-amplitude, amplitude, -amplitude] }}
