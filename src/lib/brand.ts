@@ -1,4 +1,4 @@
-export type ServiceType = "video-editing" | "social-media" | "crm";
+export type ServiceType = "video-editing" | "social-media" | "crm" | "fractional-marketing-team";
 
 export interface ServiceInfo {
   id: ServiceType;
@@ -9,6 +9,14 @@ export interface ServiceInfo {
 }
 
 export const services: ServiceInfo[] = [
+  {
+    id: "fractional-marketing-team",
+    label: "Fractional Marketing & Sales Execution Team",
+    shortLabel: "FMT",
+    description:
+      "A coordinated offshore execution team for content, campaigns, CRM, outbound, video, and operations. Deploy in 7 days. 40–70% cost savings.",
+    icon: "Users",
+  },
   {
     id: "video-editing",
     label: "Video Editing",

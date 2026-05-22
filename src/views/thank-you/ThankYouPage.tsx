@@ -9,6 +9,7 @@ import {
   Video,
   Share2,
   Database,
+  Users,
   Star,
   Quote,
   ChevronLeft,
@@ -25,7 +26,7 @@ import { ServiceCapabilities } from "@/components/shared/ServiceCapabilities";
    SERVICE-SPECIFIC CONFIG
    ════════════════════════════════════════════════════════════════════════════ */
 
-type ServiceType = "video-editing" | "social-media" | "crm";
+type ServiceType = "video-editing" | "social-media" | "crm" | "fractional-marketing-team";
 
 interface ServiceConfig {
   label: string;
@@ -168,6 +169,47 @@ const serviceConfigs: Record<ServiceType, ServiceConfig> = {
       },
     ],
   },
+  "fractional-marketing-team": {
+    label: "Fractional Marketing Team",
+    icon: Users,
+    videoTitle: "Watch the 90-Second Overview",
+    videoSubtitle: "Fractional Team — What Happens Next",
+    rightColumnTitle: "What Happens on the Call",
+    rightColumnDescription:
+      "This isn't a sales pitch. It's a 15-minute discovery conversation where we learn about your execution needs and build a custom team plan around them.",
+    rightColumnBullets: [
+      "We'll assess your current team structure and identify execution gaps",
+      "You'll get a custom team plan tailored to your growth priorities",
+      "We'll share honest pricing — no surprises, no hidden fees",
+      "Your full execution team can be live within 7 days of sign-off",
+    ],
+    testimonials: [
+      {
+        quote:
+          "We started on Wednesday and they were delivering by Monday. The speed is unlike anything we've experienced with any other vendor or hire. It just works.",
+        name: "Thomas Buchanan",
+        initials: "TB",
+        title: "CRO",
+        company: "Sales Tempo",
+      },
+      {
+        quote:
+          "Get Levrg is able to get us right in front of our top-tier ICP. The targeting, the content, the outreach — it's all coordinated in a way our internal team couldn't pull off alone.",
+        name: "Marché Kaanehe",
+        initials: "MK",
+        title: "Manager of Product Marketing",
+        company: "Cengage Group",
+      },
+      {
+        quote:
+          "Communication with Get Levrg has been very reliable. They show up every week, hit their deliverables, and flag issues before they become problems. That consistency alone is worth it.",
+        name: "Jay Francis",
+        initials: "JF",
+        title: "Marketing Coordinator",
+        company: "Oxford Medical Simulation Inc.",
+      },
+    ],
+  },
 };
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -229,7 +271,7 @@ function ThankYouBanner({ config }: { config: ServiceConfig }) {
       </div>
 
       <div className="relative z-10 max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <div className="text-center max-w-3xl mx-auto">
+        <div className="text-center max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -248,8 +290,7 @@ function ThankYouBanner({ config }: { config: ServiceConfig }) {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-h1 sm:text-display text-gray-900 mb-4"
           >
-            Thanks! We&apos;ll Be{" "}
-            <span className="text-[#51B027]"><br />In Touch Shortly</span>
+            Thanks! We&apos;ll Be{" "}<span className="text-[#51B027]">In Touch Shortly</span>
           </motion.h1>
 
           <motion.p

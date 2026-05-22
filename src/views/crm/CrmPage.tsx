@@ -381,7 +381,7 @@ function HeroSection() {
             <div className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 sm:p-8">
               <div className="mb-6">
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">
-                  Get Your HubSpot Audit
+                  Claim Free HubSpot Audit
                 </h3>
                 <p className="text-sm-body text-gray-500">
                   See what&apos;s broken and how much revenue you&apos;re missing.
@@ -1602,6 +1602,7 @@ function FinalCtaSection() {
               </Button>
               <Button
                 variant="ghost"
+                onClick={() => document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })}
                 className="bg-void hover:bg-surface-dark text-white hover:text-white font-semibold px-8 h-12 rounded-lg text-base border-0 transition-all"
               >
                 <Phone className="mr-2 h-4 w-4" />
@@ -1615,81 +1616,6 @@ function FinalCtaSection() {
     </section>
   );
 }
-
-// ─── Inline Fractional Team Section ───
-// function FractionalTeamSection() {
-//   const capabilities = [
-//     {
-//       icon: Share2,
-//       title: "Social Media & Content Marketing",
-//       subtitle: "Stay Consistent Across Every Channel",
-//       items: ["Content planning & scheduling", "Social post creation", "Engagement & publishing", "Performance tracking"],
-//     },
-//     {
-//       icon: Globe,
-//       title: "Website Development & CRO",
-//       subtitle: "Turn More Traffic Into Revenue",
-//       items: ["Landing page development", "Website optimization", "Technical improvements", "Conversion-focused updates"],
-//     },
-//     {
-//       icon: Send,
-//       title: "GTM Outbound & LinkedIn",
-//       subtitle: "Keep Pipeline Generation Running",
-//       items: ["LinkedIn management", "Cold email outreach", "Prospect research", "Inbox & reply handling"],
-//     },
-//     {
-//       icon: Database,
-//       title: "CRM & Sales Operations",
-//       subtitle: "Clean Systems. Better Decisions.",
-//       items: ["CRM management", "Workflow automation", "Dashboard reporting", "Pipeline organization"],
-//     },
-//     {
-//       icon: Layers,
-//       title: "Marketing Operations Support",
-//       subtitle: "Execution Without the Chaos",
-//       items: ["Campaign coordination", "Asset organization", "Timeline management", "Cross-team execution support"],
-//     },
-//   ];
-
-//   return (
-//     <section className="py-16 sm:py-24 bg-gray-50">
-//       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-//         <AnimatedSection className="text-center mb-14">
-//           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
-//             More Than Video Editing. Your <span className="text-[#307A0F]">Fractional Marketing Execution Team.</span>
-//           </h2>
-//           <p className="text-body text-gray-500 max-w-2xl mx-auto">
-//             Scale content, outbound, websites, and operations with dedicated support teams that plug directly into your workflow without adding full-time overhead.
-//           </p>
-//         </AnimatedSection>
-//         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6" staggerDelay={0.06}>
-//           {capabilities.map((cap, i) => {
-//             const Icon = cap.icon;
-//             return (
-//               <StaggerItem key={i}>
-//                 <div className="h-full p-6 sm:p-7 rounded-2xl bg-white border border-gray-100 hover:border-spark-300 hover:shadow-lg hover:shadow-spark-100/50 transition-all duration-300">
-//                   <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-spark-50 text-spark-600 mb-4">
-//                     <Icon className="h-5 w-5" />
-//                   </div>
-//                   <h3 className="text-sub font-bold text-gray-900 mb-1">{cap.title}</h3>
-//                   <p className="text-sm-body text-spark-700 font-medium mb-4">{cap.subtitle}</p>
-//                   <ul className="space-y-2">
-//                     {cap.items.map((item, j) => (
-//                       <li key={j} className="flex items-start gap-2 text-sm-body text-gray-600">
-//                         <Check className="h-4 w-4 text-[#307A0F] mt-0.5 shrink-0" />
-//                         <span>{item}</span>
-//                       </li>
-//                     ))}
-//                   </ul>
-//                 </div>
-//               </StaggerItem>
-//             );
-//           })}
-//         </StaggerContainer>
-//       </div>
-//     </section>
-//   );
-// }
 
 /* ════════════════════════════════════════════════════════════════════════
    MAIN EXPORT

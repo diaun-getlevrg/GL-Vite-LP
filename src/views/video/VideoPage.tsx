@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -299,7 +299,7 @@ function VideoAnimation() {
         <p className="text-[11px] text-gray-500 mb-2 font-medium">Timeline</p>
         <div className="relative">
           <div className="flex items-stretch gap-0.5 h-7 rounded-lg overflow-hidden bg-gray-100">
-            {timelineClips.map((clip, i) => (
+            {timelineClips.map((clip) => (
               <motion.div
                 key={clip.label}
                 initial={{ scaleX: 0, opacity: 0 }}
@@ -543,7 +543,7 @@ function HeroSection() {
 
               <div className="mb-6">
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">
-                  Get Your Video Editing Team
+                  Claim Free Custom Pricing
                 </h3>
 
                 <p className="text-sm-body text-gray-500">
@@ -1403,6 +1403,10 @@ function FAQSection() {
    10. FINAL CTA SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 function FinalCTASection() {
+  const scrollToHero = () => {
+    document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section className="py-16 sm:py-24 bg-spark-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -1418,23 +1422,19 @@ function FinalCTASection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               variant="ghost"
-              asChild
+              onClick={scrollToHero}
               className="bg-white text-spark-800 hover:bg-spark-50 hover:text-spark-800 px-8 py-6 text-base rounded-xl shadow-lg transition-all hover:shadow-xl"
             >
-              <a href="#lead-form">
-                Get Your Video Editing Team
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              Get Your Video Editing Team
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               variant="ghost"
-              asChild
+              onClick={scrollToHero}
               className="bg-void hover:bg-surface-dark text-white hover:text-white px-8 py-6 text-base rounded-xl border-0 transition-all"
             >
-              <a href="#lead-form">
-                <Phone className="mr-2 h-4 w-4" />
-                Schedule a Call
-              </a>
+              <Phone className="mr-2 h-4 w-4" />
+              Schedule a Call
             </Button>
           </div>
           <p className="text-sm-body text-spark-300 mt-6">
@@ -1445,85 +1445,6 @@ function FinalCTASection() {
     </section>
   );
 }
-
-/* ════════════════════════════════════════════════════════════════════════════
-   INLINE: Fractional Team Section
-   ════════════════════════════════════════════════════════════════════════════ */
-
-// ─── Inline Fractional Team Section ───
-// function FractionalTeamSection() {
-//   const capabilities = [
-//     {
-//       icon: Share2,
-//       title: "Social Media & Content Marketing",
-//       subtitle: "Stay Consistent Across Every Channel",
-//       items: ["Content planning & scheduling", "Social post creation", "Engagement & publishing", "Performance tracking"],
-//     },
-//     {
-//       icon: Globe,
-//       title: "Website Development & CRO",
-//       subtitle: "Turn More Traffic Into Revenue",
-//       items: ["Landing page development", "Website optimization", "Technical improvements", "Conversion-focused updates"],
-//     },
-//     {
-//       icon: Send,
-//       title: "GTM Outbound & LinkedIn",
-//       subtitle: "Keep Pipeline Generation Running",
-//       items: ["LinkedIn management", "Cold email outreach", "Prospect research", "Inbox & reply handling"],
-//     },
-//     {
-//       icon: Database,
-//       title: "CRM & Sales Operations",
-//       subtitle: "Clean Systems. Better Decisions.",
-//       items: ["CRM management", "Workflow automation", "Dashboard reporting", "Pipeline organization"],
-//     },
-//     {
-//       icon: Layers,
-//       title: "Marketing Operations Support",
-//       subtitle: "Execution Without the Chaos",
-//       items: ["Campaign coordination", "Asset organization", "Timeline management", "Cross-team execution support"],
-//     },
-//   ];
-
-//   return (
-//     <section className="py-16 sm:py-24 bg-gray-50">
-//       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-//         <AnimatedSection className="text-center mb-14">
-//           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
-//             More Than Video Editing. Your <span className="text-[#307A0F]">Fractional Marketing Execution Team.</span>
-//           </h2>
-//           <p className="text-body text-gray-500 max-w-2xl mx-auto">
-//             Scale content, outbound, websites, and operations with dedicated support teams that plug directly into your workflow without adding full-time overhead.
-//           </p>
-//         </AnimatedSection>
-//         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6" staggerDelay={0.06}>
-//           {capabilities.map((cap, i) => {
-//             const Icon = cap.icon;
-//             return (
-//               <StaggerItem key={i}>
-//                 <div className="h-full p-6 sm:p-7 rounded-2xl bg-white border border-gray-100 hover:border-spark-300 hover:shadow-lg hover:shadow-spark-100/50 transition-all duration-300">
-//                   <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-spark-50 text-spark-600 mb-4">
-//                     <Icon className="h-5 w-5" />
-//                   </div>
-//                   <h3 className="text-sub font-bold text-gray-900 mb-1">{cap.title}</h3>
-//                   <p className="text-sm-body text-spark-700 font-medium mb-4">{cap.subtitle}</p>
-//                   <ul className="space-y-2">
-//                     {cap.items.map((item, j) => (
-//                       <li key={j} className="flex items-start gap-2 text-sm-body text-gray-600">
-//                         <Check className="h-4 w-4 text-[#307A0F] mt-0.5 shrink-0" />
-//                         <span>{item}</span>
-//                       </li>
-//                     ))}
-//                   </ul>
-//                 </div>
-//               </StaggerItem>
-//             );
-//           })}
-//         </StaggerContainer>
-//       </div>
-//     </section>
-//   );
-// }
 
 /* ════════════════════════════════════════════════════════════════════════════
    EXPORT: VideoPage

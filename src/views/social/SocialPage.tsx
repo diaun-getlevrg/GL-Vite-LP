@@ -312,7 +312,7 @@ function HeroSection() {
           <HeroFormIntro>
             <div className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 sm:p-8">
               <div className="mb-6">
-                <h3 className="text-sub font-bold text-gray-900 mb-1.5">Get Your Social Media Team</h3>
+                <h3 className="text-sub font-bold text-gray-900 mb-1.5">Claim Free Content Calendar</h3>
                 <p className="text-sm-body text-gray-500">Custom content calendar + pricing in 24 hours. Zero obligation.</p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -1101,7 +1101,7 @@ function FinalCTASection() {
                 Get Your Social Media Team
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="lg" className="bg-void hover:bg-surface-dark text-white hover:text-white px-8 py-6 text-base font-semibold rounded-xl border-0 transition-all">
+              <Button variant="ghost" size="lg" className="bg-void hover:bg-surface-dark text-white hover:text-white px-8 py-6 text-base font-semibold rounded-xl border-0 transition-all" onClick={() => document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })}>
                 <CalendarCheck className="mr-2 h-5 w-5" />
                 Schedule a Strategy Call
               </Button>

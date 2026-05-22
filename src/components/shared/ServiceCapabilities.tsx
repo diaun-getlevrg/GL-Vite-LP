@@ -283,10 +283,10 @@ export function ServiceCapabilities() {
     >
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-spark-50 rounded-full mb-4">
+          {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-spark-50 rounded-full mb-4">
             <Layers className="w-4 h-4 text-spark-800" />
             <span className="text-sm-body font-semibold text-spark-800">Full-Service Execution</span>
-          </div>
+          </div> */}
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
             One Partner Across<span className="text-spark-600"><br />Content, Growth & Operations</span>
           </h2>
