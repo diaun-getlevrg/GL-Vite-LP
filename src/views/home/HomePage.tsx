@@ -704,18 +704,25 @@ const serviceCapabilitiesCategories = [
 function ServiceCapabilities() {
   const [activeTab, setActiveTab] = useState(0);
   const [hoveredDeliverable, setHoveredDeliverable] = useState<number | null>(null);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
+    if (paused) return;
     const timer = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % serviceCapabilitiesCategories.length);
-    }, 6000);
+    }, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [paused]);
 
   const active = serviceCapabilitiesCategories[activeTab];
 
   return (
-    <section id="services-capabilities" className="py-16 sm:py-24 bg-void">
+    <section
+      id="services-capabilities"
+      className="py-16 sm:py-24 bg-void"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <AnimatedSection className="text-center mb-10">
