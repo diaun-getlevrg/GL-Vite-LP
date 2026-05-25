@@ -219,7 +219,7 @@ function HeroSection() {
   return (
     <section id="lead-form" className="relative overflow-hidden bg-white min-h-[500px] sm:min-h-[680px]">
       <div className="absolute inset-0">
-        <img src="/images/hero/social-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/hero/fmt-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-[#061512]/95 via-[#061512]/70 to-transparent" />
 
@@ -596,7 +596,7 @@ function WhoWeServeSection() {
       tag: "Executive",
       problem: "Need execution without building a massive internal team.",
       details: "You're a visionary spending most of your day fighting operational fires. Every hour on admin is an hour stolen from building the business.",
-      image: "/images/work-samples/crm-work-1.png",
+      image: "/images/fmt/executive.png",
       overlayColor: "from-[#061512]/80 via-[#061512]/40",
     },
     {
@@ -605,7 +605,7 @@ function WhoWeServeSection() {
       tag: "Marketing",
       problem: "Need more output without increasing payroll.",
       details: "You have brilliant campaign ideas but only execute a fraction. You need more hands to create content, manage channels, and scale your marketing engine.",
-      image: "/images/work-samples/social-work-1.png",
+      image: "/images/fmt/marketing.png",
       overlayColor: "from-spark-900/80 via-spark-700/40",
     },
     {
@@ -614,7 +614,7 @@ function WhoWeServeSection() {
       tag: "Revenue",
       problem: "Need operational support to keep pipeline moving.",
       details: "You should be closing deals, not qualifying leads, updating CRM, and chasing inbound inquiries. You need an execution layer so you can focus on revenue.",
-      image: "/images/work-samples/crm-work-2.png",
+      image: "/images/fmt/revenue.png",
       overlayColor: "from-amber-900/80 via-amber-700/40",
     },
     {
@@ -623,7 +623,7 @@ function WhoWeServeSection() {
       tag: "White-Label",
       problem: "Need backend fulfillment and scalable production capacity.",
       details: "Your clients demand more, but hiring full-time headcount for every service line kills your margins. A white-label execution team solves that permanently.",
-      image: "/images/work-samples/social-work-2.png",
+      image: "/images/fmt/white-label.png",
       overlayColor: "from-violet-900/80 via-violet-700/40",
     },
     {
@@ -632,7 +632,7 @@ function WhoWeServeSection() {
       tag: "GTM",
       problem: "Need coordinated GTM execution across channels.",
       details: "Growth requires more than a great product. Outbound, content, CRM, and campaigns all need dedicated execution — without doubling your headcount.",
-      image: "/images/work-samples/crm-work-3.png",
+      image: "/images/fmt/gtm.png",
       overlayColor: "from-sky-900/80 via-sky-700/40",
     },
     {
@@ -641,7 +641,7 @@ function WhoWeServeSection() {
       tag: "Scale",
       problem: "Need predictable weekly momentum.",
       details: "Inconsistent output kills compounding. You need a team that shows up every week, hits deliverables, and keeps your pipeline and content engine moving.",
-      image: "/images/work-samples/social-work-3.png",
+      image: "/images/fmt/scale.png",
       overlayColor: "from-emerald-900/80 via-emerald-700/40",
     },
   ];
