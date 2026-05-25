@@ -59,22 +59,22 @@ interface ToolItem {
 
 const videoTools: ToolItem[] = [
   { src: "/logos/applogos/Adobe-Premiere-Pro.webp", alt: "Premiere Pro" },
-  { src: "/logos/applogos/Adobe-After-Effects.png", alt: "After Effects" },
-  { src: "/logos/applogos/Adobe-Photoshop.png", alt: "Photoshop" },
-  { src: "/logos/applogos/Adobe-Illustrator.png", alt: "Illustrator" },
+  { src: "/logos/applogos/Adobe-After-Effects.webp", alt: "After Effects" },
+  { src: "/logos/applogos/Adobe-Photoshop.webp", alt: "Photoshop" },
+  { src: "/logos/applogos/Adobe-Illustrator.webp", alt: "Illustrator" },
   { src: "/logos/applogos/Adobe-Audition.webp", alt: "Audition" },
   { src: "/logos/applogos/Adobe-Media-Encoder.webp", alt: "Media Encoder" },
   { src: "/logos/applogos/Adobe-Firefly.svg", alt: "Firefly" },
-  { src: "/logos/applogos/InDesign.png", alt: "InDesign" },
-  { src: "/logos/applogos/CapCut.png", alt: "CapCut" },
-  { src: "/logos/applogos/Descript.png", alt: "Descript" },
-  { src: "/logos/applogos/Submagic.png", alt: "Submagic" },
-  { src: "/logos/applogos/HeyGen.png", alt: "HeyGen" },
-  { src: "/logos/applogos/ElevenLabs.png", alt: "ElevenLabs" },
-  { src: "/logos/applogos/Leonardo-AI.png", alt: "Leonardo AI" },
-  { src: "/logos/applogos/Ideogram.png", alt: "Ideogram" },
+  { src: "/logos/applogos/InDesign.webp", alt: "InDesign" },
+  { src: "/logos/applogos/CapCut.webp", alt: "CapCut" },
+  { src: "/logos/applogos/Descript.webp", alt: "Descript" },
+  { src: "/logos/applogos/Submagic.webp", alt: "Submagic" },
+  { src: "/logos/applogos/HeyGen.webp", alt: "HeyGen" },
+  { src: "/logos/applogos/ElevenLabs.webp", alt: "ElevenLabs" },
+  { src: "/logos/applogos/Leonardo-AI.webp", alt: "Leonardo AI" },
+  { src: "/logos/applogos/Ideogram.webp", alt: "Ideogram" },
   { src: "/logos/applogos/ChatGPT.webp", alt: "ChatGPT" },
-  { src: "/logos/applogos/Envato.png", alt: "Envato" },
+  { src: "/logos/applogos/Envato.webp", alt: "Envato" },
   { src: "/logos/applogos/Audacity.webp", alt: "Audacity" },
 ];
 
@@ -136,6 +136,8 @@ function ToolsWeUseSection() {
                         alt={tool.alt}
                         width={140}
                         height={56}
+                        loading="lazy"
+                        decoding="async"
                         className="h-10 sm:h-14 lg:h-16 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>
@@ -161,9 +163,9 @@ interface WorkSample {
 }
 
 const videoSamples: WorkSample[] = [
-  { src: "/images/work-samples/video-work-1.png", alt: "Video Editing Portfolio", label: "Editing Portfolio" },
-  { src: "/images/work-samples/video-work-2.png", alt: "Motion Graphics & Reels", label: "Motion Graphics" },
-  { src: "/images/work-samples/video-work-3.png", alt: "Editing Workflow", label: "Production Workflow" },
+  { src: "/images/work-samples/video-work-1.webp", alt: "Video Editing Portfolio", label: "Editing Portfolio" },
+  { src: "/images/work-samples/video-work-2.webp", alt: "Motion Graphics & Reels", label: "Motion Graphics" },
+  { src: "/images/work-samples/video-work-3.webp", alt: "Editing Workflow", label: "Production Workflow" },
 ];
 
 const videoSamplesTitle = { before: "See Our Video", accent: "Editing Work", after: "" };
@@ -203,6 +205,8 @@ function WorkSampleBentoGrid() {
                   <img
                     src={sample.src}
                     alt={sample.alt}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Overlay label */}
@@ -223,7 +227,7 @@ function WorkSampleBentoGrid() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   INLINE: HeroFormIntro (Video only — VideoAnimation + Form swap)
+   INLINE: HeroFormIntro (Video only VideoAnimation + Form swap)
    ════════════════════════════════════════════════════════════════════════════ */
 
 const INTRO_DURATION = 6000;
@@ -429,6 +433,8 @@ function HeroSection() {
           src="/images/hero/video-hero.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          decoding="async"
         />
       </div>
 
@@ -537,7 +543,7 @@ function HeroSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT COLUMN — FORM WITH INTRO ANIMATION */}
+          {/* RIGHT COLUMN FORM WITH INTRO ANIMATION */}
           <HeroFormIntro>
             <div className="rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-xl shadow-2xl p-6 sm:p-8">
 
@@ -795,10 +801,10 @@ function SEOSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/video-work-1.png", alt: "Video editing portfolio", span: "row-span-2" },
-    { src: "/images/work-samples/video-work-2.png", alt: "Motion graphics and reels", span: "" },
+    { src: "/images/work-samples/video-work-1.webp", alt: "Video editing portfolio", span: "row-span-2" },
+    { src: "/images/work-samples/video-work-2.webp", alt: "Motion graphics and reels", span: "" },
     { src: "/images/hero/video-hero.webp", alt: "Video production workflow", span: "" },
-    { src: "/images/work-samples/video-work-3.png", alt: "Social media video production", span: "col-span-2" },
+    { src: "/images/work-samples/video-work-3.webp", alt: "Social media video production", span: "col-span-2" },
   ];
 
   return (
@@ -823,7 +829,7 @@ function SEOSection() {
 
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* LEFT — content + checklist */}
+          {/* LEFT content + checklist */}
           <div>
             <AnimatedSection className="mb-8" delay={0.2}>
               <p className="text-body text-gray-600">
@@ -850,7 +856,7 @@ function SEOSection() {
             </AnimatedSection>
           </div>
 
-          {/* RIGHT — bento image grid */}
+          {/* RIGHT bento image grid */}
           <AnimatedSection delay={0.15} direction="left">
             <div className="grid grid-cols-2 grid-rows-3 gap-3 sm:gap-4 h-[480px] sm:h-[560px]">
               {bentoImages.map((img, i) => (
@@ -861,6 +867,8 @@ function SEOSection() {
                   <img
                     src={img.src}
                     alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* subtle gradient overlay */}
@@ -957,10 +965,10 @@ function ComparisonSection() {
                   <th className="text-left px-6 py-4 bg-gray-50 text-gray-600 font-semibold w-1/3 border-b border-gray-200">
                     Factor
                   </th>
-                  <th className="text-center px-6 py-4 bg-gray-50 text-gray-600 font-semibold w-1/3 border-b border-gray-200">
+                  <th className="text-left px-6 py-4 bg-gray-50 text-gray-600 font-semibold w-1/3 border-b border-gray-200">
                     Hire in North America
                   </th>
-                  <th className="text-center px-6 py-4 bg-spark-50 text-sm-body text-[#51B027] font-semibold w-1/3 border-b border-spark-200">
+                  <th className="text-left px-6 py-4 bg-spark-50 text-sm-body text-[#51B027] font-semibold w-1/3 border-b border-spark-200">
                     Partner With Us
                   </th>
                 </tr>
@@ -972,14 +980,14 @@ function ComparisonSection() {
                     className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50/50 transition-colors"
                   >
                     <td className="px-6 py-4 font-medium text-gray-900">{row.label}</td>
-                    <td className="px-6 py-4 text-center text-gray-500">
-                      <div className="flex items-center justify-center gap-2">
+                    <td className="px-6 py-4 text-left text-gray-500">
+                      <div className="flex items-left justify-left gap-2">
                         <X className="h-4 w-4 text-red-400 shrink-0" />
                         <span>{row.na}</span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-center text-sm-body text-[#51B027] font-medium bg-spark-50/50">
-                      <div className="flex items-center justify-center gap-2">
+                    <td className="px-6 py-4 text-left text-sm-body text-[#51B027] font-medium bg-spark-50/50">
+                      <div className="flex items-left justify-left gap-2">
                         <CheckCircle className="h-4 w-4 text-spark-500 shrink-0" />
                         <span>{row.us}</span>
                       </div>

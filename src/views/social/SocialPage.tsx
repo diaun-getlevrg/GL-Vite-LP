@@ -54,14 +54,14 @@ import { PageShell } from "@/components/layout/PageShell";
 // ─── Inline ToolsWeUseSection (Social Only) ───
 function ToolsWeUseSection() {
   const tools = [
-    { src: "/logos/applogos/Canva.png", alt: "Canva" }, { src: "/logos/applogos/Figma.png", alt: "Figma" },
-    { src: "/logos/applogos/ChatGPT.webp", alt: "ChatGPT" }, { src: "/logos/applogos/Gemini-Pro.png", alt: "Gemini Pro" },
-    { src: "/logos/applogos/Taplio.png", alt: "Taplio" }, { src: "/logos/applogos/High-Level.png", alt: "GoHighLevel" },
-    { src: "/logos/applogos/Hubspot.png", alt: "HubSpot" }, { src: "/logos/applogos/Ahrefs.png", alt: "Ahrefs" },
-    { src: "/logos/applogos/Semrush.png", alt: "Semrush" }, { src: "/logos/applogos/Slack.webp", alt: "Slack" },
-    { src: "/logos/applogos/Calendly.png", alt: "Calendly" }, { src: "/logos/applogos/Zapier.png", alt: "Zapier" },
-    { src: "/logos/applogos/Klaviyo.png", alt: "Klaviyo" }, { src: "/logos/applogos/Livestorm.png", alt: "Livestorm" },
-    { src: "/logos/applogos/Google-Chat.png", alt: "Google Chat" }, { src: "/logos/applogos/Google-Meet.webp", alt: "Google Meet" },
+    { src: "/logos/applogos/Canva.webp", alt: "Canva" }, { src: "/logos/applogos/Figma.webp", alt: "Figma" },
+    { src: "/logos/applogos/ChatGPT.webp", alt: "ChatGPT" }, { src: "/logos/applogos/Gemini-Pro.webp", alt: "Gemini Pro" },
+    { src: "/logos/applogos/Taplio.webp", alt: "Taplio" }, { src: "/logos/applogos/High-Level.webp", alt: "GoHighLevel" },
+    { src: "/logos/applogos/Hubspot.webp", alt: "HubSpot" }, { src: "/logos/applogos/Ahrefs.webp", alt: "Ahrefs" },
+    { src: "/logos/applogos/Semrush.webp", alt: "Semrush" }, { src: "/logos/applogos/Slack.webp", alt: "Slack" },
+    { src: "/logos/applogos/Calendly.webp", alt: "Calendly" }, { src: "/logos/applogos/Zapier.webp", alt: "Zapier" },
+    { src: "/logos/applogos/Klaviyo.webp", alt: "Klaviyo" }, { src: "/logos/applogos/Livestorm.webp", alt: "Livestorm" },
+    { src: "/logos/applogos/Google-Chat.webp", alt: "Google Chat" }, { src: "/logos/applogos/Google-Meet.webp", alt: "Google Meet" },
     { src: "/logos/applogos/Email.webp", alt: "Email" }, { src: "/logos/applogos/Freepik.webp", alt: "Freepik" },
   ];
   const content = {
@@ -100,7 +100,7 @@ function ToolsWeUseSection() {
                 <div className="grid grid-cols-3 gap-3 sm:gap-4">
                   {[...tools, ...tools, ...tools, ...tools].map((tool, i) => (
                     <div key={i} className="flex items-center justify-center rounded-xl bg-white border border-gray-100 p-3 sm:p-4 lg:p-5 hover:bg-gray-50 hover:border-gray-200 transition-all duration-300 group">
-                      <img src={tool.src} alt={tool.alt} width={140} height={56} className="h-10 sm:h-14 lg:h-16 w-auto object-contain group-hover:scale-110 transition-transform duration-300" />
+                      <img src={tool.src} alt={tool.alt} width={140} height={56} loading="lazy" decoding="async" className="h-10 sm:h-14 lg:h-16 w-auto object-contain group-hover:scale-110 transition-transform duration-300" />
                     </div>
                   ))}
                 </div>
@@ -116,9 +116,9 @@ function ToolsWeUseSection() {
 // ─── Inline WorkSampleBentoGrid (Social Only) ───
 function WorkSampleBentoGrid() {
   const samples = [
-    { src: "/images/work-samples/social-work-1.png", alt: "Content Calendar Design", label: "Content Calendar" },
-    { src: "/images/work-samples/social-work-2.png", alt: "Social Media Post Designs", label: "Post Designs" },
-    { src: "/images/work-samples/social-work-3.png", alt: "Engagement Analytics", label: "Engagement Analytics" },
+    { src: "/images/work-samples/social-work-1.webp", alt: "Content Calendar Design", label: "Content Calendar" },
+    { src: "/images/work-samples/social-work-2.webp", alt: "Social Media Post Designs", label: "Post Designs" },
+    { src: "/images/work-samples/social-work-3.webp", alt: "Engagement Analytics", label: "Engagement Analytics" },
   ];
   const title = { before: "See Our Social Media", accent: "Content Work", after: "" };
   const carouselItems = [...samples, ...samples, ...samples, ...samples];
@@ -138,7 +138,7 @@ function WorkSampleBentoGrid() {
             <div key={i} className="flex-shrink-0 mx-3 sm:mx-4 w-[320px] sm:w-[400px] lg:w-[480px] group">
               <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <div className="relative h-[220px] sm:h-[260px] lg:h-[300px]">
-                  <img src={sample.src} alt={sample.alt} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={sample.src} alt={sample.alt} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/90 backdrop-blur-sm text-sm-body font-semibold text-gray-900">{sample.label}</span>
@@ -254,7 +254,7 @@ function HeroSection() {
   return (
     <section id="lead-form" className="relative overflow-hidden min-h-[500px] sm:min-h-[600px]">
       <div className="absolute inset-0">
-        <img src="/images/hero/social-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/hero/social-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" decoding="async" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-[#061512]/95 via-[#061512]/70 to-transparent" />
 
@@ -498,10 +498,10 @@ function SEOSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/video-work-1.png", alt: "Video editing portfolio", span: "row-span-2" },
-    { src: "/images/work-samples/video-work-2.png", alt: "Motion graphics and reels", span: "" },
+    { src: "/images/work-samples/video-work-1.webp", alt: "Video editing portfolio", span: "row-span-2" },
+    { src: "/images/work-samples/video-work-2.webp", alt: "Motion graphics and reels", span: "" },
     { src: "/images/hero/video-hero.webp", alt: "Video production workflow", span: "" },
-    { src: "/images/work-samples/video-work-3.png", alt: "Social media video production", span: "col-span-2" },
+    { src: "/images/work-samples/video-work-3.webp", alt: "Social media video production", span: "col-span-2" },
   ];
 
   return (
@@ -552,7 +552,7 @@ function SEOSection() {
             <div className="grid grid-cols-2 grid-rows-3 gap-3 sm:gap-4 h-[480px] sm:h-[560px]">
               {bentoImages.map((img, i) => (
                 <div key={i} className={`relative rounded-2xl overflow-hidden border border-gray-100 bg-gray-50 group ${img.span}`}>
-                  <img src={img.src} alt={img.alt} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
               ))}

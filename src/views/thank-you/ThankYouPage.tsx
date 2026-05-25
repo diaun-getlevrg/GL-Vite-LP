@@ -173,14 +173,14 @@ const serviceConfigs: Record<ServiceType, ServiceConfig> = {
     label: "Fractional Marketing Team",
     icon: Users,
     videoTitle: "Watch the 90-Second Overview",
-    videoSubtitle: "Fractional Team — What Happens Next",
+    videoSubtitle: "Fractional Team What Happens Next",
     rightColumnTitle: "What Happens on the Call",
     rightColumnDescription:
       "This isn't a sales pitch. It's a 15-minute discovery conversation where we learn about your execution needs and build a custom team plan around them.",
     rightColumnBullets: [
       "We'll assess your current team structure and identify execution gaps",
       "You'll get a custom team plan tailored to your growth priorities",
-      "We'll share honest pricing — no surprises, no hidden fees",
+      "We'll share honest pricing no surprises, no hidden fees",
       "Your full execution team can be live within 7 days of sign-off",
     ],
     testimonials: [
@@ -194,7 +194,7 @@ const serviceConfigs: Record<ServiceType, ServiceConfig> = {
       },
       {
         quote:
-          "Get Levrg is able to get us right in front of our top-tier ICP. The targeting, the content, the outreach — it's all coordinated in a way our internal team couldn't pull off alone.",
+          "Get Levrg is able to get us right in front of our top-tier ICP. The targeting, the content, the outreach it's all coordinated in a way our internal team couldn't pull off alone.",
         name: "Marché Kaanehe",
         initials: "MK",
         title: "Manager of Product Marketing",
@@ -667,9 +667,9 @@ export function ThankYouPage() {
       ctaTarget="#calendar"
       showCapabilities={false}
       meta={{
-        title: "Thank You — Book Your Discovery Call | Get Levrg",
+        title: "Thank You Book Your Discovery Call | Get Levrg",
         description:
-          "Book your free 15-minute discovery call. We'll build a custom plan for your video editing, social media, or CRM needs — no pitch deck, no commitment.",
+          "Book your free 15-minute discovery call. We'll build a custom plan for your video editing, social media, or CRM needs no pitch deck, no commitment.",
         ogTitle: "Book Your Discovery Call | Get Levrg",
         ogDescription:
           "15 minutes. Custom plan. No pitch deck. No commitment.",

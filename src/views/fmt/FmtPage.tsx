@@ -56,7 +56,7 @@ import {
 } from "@/components/ui/accordion";
 
 /* ════════════════════════════════════════════════════════════════════════════
-   INLINE: Hero Intro Animation (FMT — Execution Team Dashboard)
+   INLINE: Hero Intro Animation (FMT Execution Team Dashboard)
    ════════════════════════════════════════════════════════════════════════════ */
 
 const INTRO_DURATION = 6000;
@@ -219,7 +219,7 @@ function HeroSection() {
   return (
     <section id="lead-form" className="relative overflow-hidden bg-white min-h-[500px] sm:min-h-[680px]">
       <div className="absolute inset-0">
-        <img src="/images/hero/fmt-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/hero/fmt-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" decoding="async" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-[#061512]/95 via-[#061512]/70 to-transparent" />
 
@@ -256,7 +256,7 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-body sm:text-sub text-gray-300 max-w-2xl mb-8"
             >
-              A fully managed execution team handling content, campaigns, CRM, outbound, video, and operations — so your internal team focuses on growth, leadership, and revenue.
+              A fully managed execution team handling content, campaigns, CRM, outbound, video, and operations so your internal team focuses on growth, leadership, and revenue.
             </motion.p>
 
             <motion.div
@@ -293,7 +293,7 @@ function HeroSection() {
                 <span className="ml-2 text-caption text-spark-300">Power Testimonial</span>
               </div>
               <p className="text-sm-body sm:text-body text-gray-200 italic mb-3">
-                &ldquo;We got our Sundays back. Get Levrg took everything off our plate — LinkedIn, content, CRM — so our team could focus entirely on closing. We doubled output and{" "}
+                &ldquo;We got our Sundays back. Get Levrg took everything off our plate LinkedIn, content, CRM so our team could focus entirely on closing. We doubled output and{" "}
                 <span className="text-spark-400 font-semibold not-italic">cut our operational cost by 60%</span>.&rdquo;
               </p>
               <div className="flex items-center gap-3">
@@ -357,7 +357,7 @@ function HeroSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   2. STATS BENTO SECTION — Asymmetric impact grid
+   2. STATS BENTO SECTION Asymmetric impact grid
    ════════════════════════════════════════════════════════════════════════════ */
 
 function StatsBentoSection() {
@@ -372,15 +372,15 @@ function StatsBentoSection() {
             <span className="text-[#51B027]">Every Partnership</span>
           </h2>
           <p className="text-body text-gray-500 max-w-xl mx-auto mt-3">
-            Real outcomes across 72+ partnerships — from day one to long-term scale.
+            Real outcomes across 72+ partnerships from day one to long-term scale.
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
-          {/* Bento grid — 12-col base */}
+          {/* Bento grid 12-col base */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 auto-rows-auto">
 
-            {/* Tile A — Large: Companies served */}
+            {/* Tile A Large: Companies served */}
             <div className="lg:col-span-4 sm:col-span-1 rounded-2xl bg-[#061512] p-7 flex flex-col justify-between min-h-[220px] group">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-spark-600/30 flex items-center justify-center">
@@ -392,11 +392,11 @@ function StatsBentoSection() {
                 <p className="text-[64px] font-black text-white leading-none mb-2">
                   <CountUp target={72} className="tabular-nums" /><span className="text-spark-400">+</span>
                 </p>
-                <p className="text-sm-body text-gray-400">B2B SaaS, agencies, professional services, and enterprise teams — all running on Get Levrg.</p>
+                <p className="text-sm-body text-gray-400">B2B SaaS, agencies, professional services, and enterprise teams all running on Get Levrg.</p>
               </div>
             </div>
 
-            {/* Tile B — Large: Annual savings */}
+            {/* Tile B Large: Annual savings */}
             <div className="lg:col-span-5 sm:col-span-1 rounded-2xl bg-spark-600 p-7 flex flex-col justify-between min-h-[220px]">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
@@ -419,7 +419,7 @@ function StatsBentoSection() {
               </div>
             </div>
 
-            {/* Tile C — Small: Deploy time */}
+            {/* Tile C Small: Deploy time */}
             <div className="lg:col-span-3 sm:col-span-2 rounded-2xl bg-gray-50 border border-gray-200 p-7 flex flex-col justify-between min-h-[220px]">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-spark-50 flex items-center justify-center">
@@ -431,11 +431,11 @@ function StatsBentoSection() {
                 <p className="text-[56px] font-black text-gray-900 leading-none mb-1">
                   <CountUp target={7} className="tabular-nums" /><span className="text-spark-600 text-[36px]"> days</span>
                 </p>
-                <p className="text-sm-body text-gray-500">From first call to first deliverables — no ramp-up, no delays.</p>
+                <p className="text-sm-body text-gray-500">From first call to first deliverables no ramp-up, no delays.</p>
               </div>
             </div>
 
-            {/* Tile D — Wide: The Math tile */}
+            {/* Tile D Wide: The Math tile */}
             <div className="lg:col-span-7 sm:col-span-2 rounded-2xl border-2 border-spark-200 bg-spark-50 p-7 flex flex-col justify-between min-h-[200px]">
               <p className="text-caption text-spark-600 uppercase tracking-widest mb-4">The Levrg Equation</p>
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -467,7 +467,7 @@ function StatsBentoSection() {
               <p className="text-sm-body text-gray-500 mt-4">Based on the 1.72× fully-burdened cost multiplier for a US mid-level marketer at $96K/yr base.</p>
             </div>
 
-            {/* Tile E — Small: Output multiplier */}
+            {/* Tile E Small: Output multiplier */}
             <div className="lg:col-span-2 sm:col-span-1 rounded-2xl bg-[#061512] p-6 flex flex-col justify-between min-h-[200px]">
               <div className="w-8 h-8 rounded-lg bg-spark-600/30 flex items-center justify-center mb-4">
                 <TrendingUp className="h-4 w-4 text-spark-400" />
@@ -480,7 +480,7 @@ function StatsBentoSection() {
               </div>
             </div>
 
-            {/* Tile F — Small: Deliverables */}
+            {/* Tile F Small: Deliverables */}
             <div className="lg:col-span-3 sm:col-span-1 rounded-2xl bg-white border border-gray-200 p-6 flex flex-col justify-between min-h-[200px]">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center">
@@ -492,7 +492,7 @@ function StatsBentoSection() {
                 <p className="text-[52px] font-black text-gray-900 leading-none">
                   <CountUp target={82} className="tabular-nums" /><span className="text-emerald-500">+</span>
                 </p>
-                <p className="text-sm-body text-gray-500 mt-1">Across 6 service categories — all available in one plan.</p>
+                <p className="text-sm-body text-gray-500 mt-1">Across 6 service categories all available in one plan.</p>
               </div>
             </div>
 
@@ -504,7 +504,7 @@ function StatsBentoSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   3. PROBLEM SECTION — Three Resource Constraints
+   3. PROBLEM SECTION Three Resource Constraints
    ════════════════════════════════════════════════════════════════════════════ */
 
 function ProblemSection() {
@@ -513,7 +513,7 @@ function ProblemSection() {
       icon: Clock,
       title: "The Time Trap",
       headline: "Your Best People Are Doing $5/hr Work",
-      body: "There are only so many hours in a day. Your top talent — the ones who should be driving strategy — spend the majority of their time on repetitive, low-value execution tasks.",
+      body: "There are only so many hours in a day. Your top talent the ones who should be driving strategy spend the majority of their time on repetitive, low-value execution tasks.",
       painPoint: "Every hour your leader spends on execution is an hour not spent on $500/hr value creation.",
       stat: "67% of leaders say time is their #1 growth constraint.",
     },
@@ -521,7 +521,7 @@ function ProblemSection() {
       icon: DollarSign,
       title: "The Money Problem",
       headline: "Hiring Locally Is Breaking Your Unit Economics",
-      body: "A single mid-level marketer in the US costs $80–120K fully loaded with benefits, taxes, and overhead. The same caliber talent on a fractional model costs a fraction of that — with multiples in ROI.",
+      body: "A single mid-level marketer in the US costs $80–120K fully loaded with benefits, taxes, and overhead. The same caliber talent on a fractional model costs a fraction of that with multiples in ROI.",
       painPoint: "You're getting one skill set when you need six. You're paying full price for partial output.",
       stat: "3–5× cost advantage with a properly structured fractional execution model.",
     },
@@ -529,8 +529,8 @@ function ProblemSection() {
       icon: Activity,
       title: "The Energy Drain",
       headline: "Your Team Is Burning Out Wearing Too Many Hats",
-      body: "When your team is stretched thin, quality drops, morale suffers, and your best people start looking elsewhere. Burnout isn't just a wellness issue — it's a revenue issue.",
-      painPoint: "Burned-out teams don't grow companies. They maintain them — badly.",
+      body: "When your team is stretched thin, quality drops, morale suffers, and your best people start looking elsewhere. Burnout isn't just a wellness issue it's a revenue issue.",
+      painPoint: "Burned-out teams don't grow companies. They maintain them badly.",
       stat: "72% of marketing and sales leaders report burnout from wearing too many hats.",
     },
   ];
@@ -585,7 +585,7 @@ function ProblemSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   4. WHO WE SERVE — ICP Section
+   4. WHO WE SERVE ICP Section
    ════════════════════════════════════════════════════════════════════════════ */
 
 function WhoWeServeSection() {
@@ -596,7 +596,7 @@ function WhoWeServeSection() {
       tag: "Executive",
       problem: "Need execution without building a massive internal team.",
       details: "You're a visionary spending most of your day fighting operational fires. Every hour on admin is an hour stolen from building the business.",
-      image: "/images/fmt/executive.png",
+      image: "/images/fmt/executive.webp",
       overlayColor: "from-[#061512]/80 via-[#061512]/40",
     },
     {
@@ -605,7 +605,7 @@ function WhoWeServeSection() {
       tag: "Marketing",
       problem: "Need more output without increasing payroll.",
       details: "You have brilliant campaign ideas but only execute a fraction. You need more hands to create content, manage channels, and scale your marketing engine.",
-      image: "/images/fmt/marketing.png",
+      image: "/images/fmt/marketing.webp",
       overlayColor: "from-spark-900/80 via-spark-700/40",
     },
     {
@@ -614,7 +614,7 @@ function WhoWeServeSection() {
       tag: "Revenue",
       problem: "Need operational support to keep pipeline moving.",
       details: "You should be closing deals, not qualifying leads, updating CRM, and chasing inbound inquiries. You need an execution layer so you can focus on revenue.",
-      image: "/images/fmt/revenue.png",
+      image: "/images/fmt/revenue.webp",
       overlayColor: "from-amber-900/80 via-amber-700/40",
     },
     {
@@ -623,7 +623,7 @@ function WhoWeServeSection() {
       tag: "White-Label",
       problem: "Need backend fulfillment and scalable production capacity.",
       details: "Your clients demand more, but hiring full-time headcount for every service line kills your margins. A white-label execution team solves that permanently.",
-      image: "/images/fmt/white-label.png",
+      image: "/images/fmt/white-label.webp",
       overlayColor: "from-violet-900/80 via-violet-700/40",
     },
     {
@@ -631,8 +631,8 @@ function WhoWeServeSection() {
       role: "B2B SaaS Companies",
       tag: "GTM",
       problem: "Need coordinated GTM execution across channels.",
-      details: "Growth requires more than a great product. Outbound, content, CRM, and campaigns all need dedicated execution — without doubling your headcount.",
-      image: "/images/fmt/gtm.png",
+      details: "Growth requires more than a great product. Outbound, content, CRM, and campaigns all need dedicated execution without doubling your headcount.",
+      image: "/images/fmt/gtm.webp",
       overlayColor: "from-sky-900/80 via-sky-700/40",
     },
     {
@@ -641,7 +641,7 @@ function WhoWeServeSection() {
       tag: "Scale",
       problem: "Need predictable weekly momentum.",
       details: "Inconsistent output kills compounding. You need a team that shows up every week, hits deliverables, and keeps your pipeline and content engine moving.",
-      image: "/images/fmt/scale.png",
+      image: "/images/fmt/scale.webp",
       overlayColor: "from-emerald-900/80 via-emerald-700/40",
     },
   ];
@@ -669,18 +669,24 @@ function WhoWeServeSection() {
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={p.image}
+                      srcSet={`${p.image} 662w, ${p.image.replace(".webp", "@2x.webp")} 1324w`}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       alt={p.role}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                      width={662}
+                      height={369}
                     />
                     {/* Dark gradient overlay */}
                     <div className={`absolute inset-0 bg-gradient-to-t ${p.overlayColor} to-transparent`} />
-                    {/* Tag — top left */}
+                    {/* Tag top left */}
                     <div className="absolute top-3 left-3 z-10">
                       <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-sm border border-white/30 text-white">
                         {p.tag}
                       </span>
                     </div>
-                    {/* Icon — bottom left over image */}
+                    {/* Icon bottom left over image */}
                     <div className="absolute bottom-3 left-4 z-10">
                       <div className="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <Icon className="h-5 w-5 text-white" />
@@ -735,21 +741,21 @@ function BeforeAfterSection() {
               <thead>
                 <tr>
                   <th className="text-left px-6 py-4 bg-gray-50 text-gray-600 font-semibold w-1/3 border-b border-gray-200">Area</th>
-                  <th className="text-center px-6 py-4 bg-red-50 text-red-700 font-semibold w-1/3 border-b border-red-200">Before Get Levrg</th>
-                  <th className="text-center px-6 py-4 bg-spark-50 text-[#51B027] font-semibold w-1/3 border-b border-spark-200">After Get Levrg</th>
+                  <th className="text-left px-6 py-4 bg-red-50 text-red-700 font-semibold w-1/3 border-b border-red-200">Before Get Levrg</th>
+                  <th className="text-left px-6 py-4 bg-spark-50 text-[#51B027] font-semibold w-1/3 border-b border-spark-200">After Get Levrg</th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((row, i) => (
                   <tr key={i} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50/50 transition-colors">
                     <td className="px-6 py-4 font-medium text-gray-900">{row.label}</td>
-                    <td className="px-6 py-4 text-center text-red-600 bg-red-50/30">
-                      <div className="flex items-center justify-center gap-2">
+                    <td className="px-6 py-4 text-left text-red-600 bg-red-50/30">
+                      <div className="flex items-left justify-left gap-2">
                         <X className="h-4 w-4 text-red-400 shrink-0" /><span>{row.before}</span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-center text-sm-body text-[#51B027] font-medium bg-spark-50/30">
-                      <div className="flex items-center justify-center gap-2">
+                    <td className="px-6 py-4 text-left text-sm-body text-[#51B027] font-medium bg-spark-50/30">
+                      <div className="flex items-left justify-left gap-2">
                         <CheckCircle className="h-4 w-4 text-spark-500 shrink-0" /><span>{row.after}</span>
                       </div>
                     </td>
@@ -774,14 +780,14 @@ function BeforeAfterSection() {
 //       icon: Share2,
 //       title: "Creative Services",
 //       subtitle: "Stay Consistent Across Every Channel",
-//       desc: "Content creation, social media management, design systems, and copywriting — executed on a consistent weekly cadence.",
+//       desc: "Content creation, social media management, design systems, and copywriting executed on a consistent weekly cadence.",
 //       items: ["Content planning & scheduling", "Social post creation & publishing", "Graphic design & brand assets", "Copywriting & campaign copy"],
 //     },
 //     {
 //       icon: Layers,
 //       title: "Video Production",
 //       subtitle: "Content That Converts and Scales",
-//       desc: "Short-form editing, long-form content, podcast production, reels, and YouTube — handled end-to-end by dedicated video specialists.",
+//       desc: "Short-form editing, long-form content, podcast production, reels, and YouTube handled end-to-end by dedicated video specialists.",
 //       items: ["Short-form reels & TikTok editing", "Long-form YouTube & podcast", "Motion graphics & thumbnails", "B2B product demo videos"],
 //     },
 //     {
@@ -795,21 +801,21 @@ function BeforeAfterSection() {
 //       icon: Database,
 //       title: "GTM Engineering",
 //       subtitle: "Clean Systems. Better Decisions.",
-//       desc: "CRM setup, workflows, automation, dashboards, and reporting — everything your revenue team needs to operate at full capacity.",
+//       desc: "CRM setup, workflows, automation, dashboards, and reporting everything your revenue team needs to operate at full capacity.",
 //       items: ["CRM setup & data cleanup", "Workflow automation", "Dashboard & reporting", "Lead scoring & pipeline management"],
 //     },
 //     {
 //       icon: Send,
 //       title: "GTM Orchestration",
 //       subtitle: "Keep Pipeline Generation Running",
-//       desc: "Outbound campaigns, LinkedIn management, email sequences, and prospect research — consistent pipeline generation without the overhead.",
+//       desc: "Outbound campaigns, LinkedIn management, email sequences, and prospect research consistent pipeline generation without the overhead.",
 //       items: ["LinkedIn profile management", "Cold email outreach sequences", "Prospect research & enrichment", "Inbox & reply handling"],
 //     },
 //     {
 //       icon: HeadphonesIcon,
 //       title: "Customer Operations",
 //       subtitle: "Execution Without the Chaos",
-//       desc: "Calendar management, reporting, support coordination, and admin execution — the operational layer that keeps everything moving.",
+//       desc: "Calendar management, reporting, support coordination, and admin execution the operational layer that keeps everything moving.",
 //       items: ["Calendar & scheduling management", "Weekly reporting & insights", "Support coordination", "Admin & operations execution"],
 //     },
 //   ];
@@ -860,7 +866,7 @@ function BeforeAfterSection() {
 // }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   7. OPERATING SYSTEM SECTION — People, Process, Technology
+   7. OPERATING SYSTEM SECTION People, Process, Technology
    ════════════════════════════════════════════════════════════════════════════ */
 
 function OperatingSystemSection() {
@@ -884,7 +890,7 @@ function OperatingSystemSection() {
       items: [
         "5-stage onboarding methodology",
         "Monday.com project management",
-        "SOP-driven execution — no guesswork",
+        "SOP-driven execution no guesswork",
         "Weekly async standups + monthly syncs",
         "Quality assurance checkpoints",
       ],
@@ -948,7 +954,7 @@ function OperatingSystemSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   8. HOW IT WORKS — 5-Step Process
+   8. HOW IT WORKS 5-Step Process
    ════════════════════════════════════════════════════════════════════════════ */
 
 function HowItWorksSection() {
@@ -1151,7 +1157,7 @@ function TestimonialsSection() {
       metric: "Full team live in 4 days",
     },
     {
-      quote: "Get Levrg is able to get us right in front of our top-tier ICP. The targeting, the content, the outreach — it's all coordinated in a way our internal team couldn't pull off alone.",
+      quote: "Get Levrg is able to get us right in front of our top-tier ICP. The targeting, the content, the outreach it's all coordinated in a way our internal team couldn't pull off alone.",
       name: "Marché Kaanehe",
       title: "Manager of Product Marketing",
       company: "Cengage Group",
@@ -1165,7 +1171,7 @@ function TestimonialsSection() {
       metric: "Zero missed deliverables",
     },
     {
-      quote: "We were paying one senior person to do the work of six. With Get Levrg, we have six specialists doing six jobs — for less than we were paying that one person. The math is undeniable.",
+      quote: "We were paying one senior person to do the work of six. With Get Levrg, we have six specialists doing six jobs for less than we were paying that one person. The math is undeniable.",
       name: "Sarah Mitchell",
       title: "VP of Marketing",
       company: "B2B SaaS, $12M ARR",
@@ -1273,7 +1279,7 @@ function TestimonialsSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   11. MID-PAGE FULL-BLEED CTA — Interrupt section
+   11. MID-PAGE FULL-BLEED CTA Interrupt section
    ════════════════════════════════════════════════════════════════════════════ */
 
 function MidPageCTASection() {
@@ -1385,7 +1391,7 @@ function WhyChooseUsSection() {
     {
       icon: MessageCircle,
       title: "Feels Like an Internal Team",
-      desc: "Your dedicated PM is a Slack message away. Weekly standups, async reporting, and full transparency — it doesn't feel like a vendor. It feels like having a team.",
+      desc: "Your dedicated PM is a Slack message away. Weekly standups, async reporting, and full transparency it doesn't feel like a vendor. It feels like having a team.",
     },
     {
       icon: UserCheck,
@@ -1395,7 +1401,7 @@ function WhyChooseUsSection() {
     {
       icon: Rocket,
       title: "Built for Long-Term Momentum",
-      desc: "Start with one capability. Scale to a full execution team. Same PM, same workflow, same quality — just more capacity as your business grows. No ramp-up needed.",
+      desc: "Start with one capability. Scale to a full execution team. Same PM, same workflow, same quality just more capacity as your business grows. No ramp-up needed.",
     },
   ];
 
@@ -1438,11 +1444,11 @@ function FAQSection() {
   const faqs = [
     {
       q: "How is this different from hiring a freelancer or agency?",
-      a: "A freelancer gives you one person with one skill set. A traditional agency adds overhead, account management layers, and retainer fees. Get Levrg gives you a coordinated execution team — multiple specialists, a dedicated PM, proven workflows, and direct accountability — at a fraction of the cost of either.",
+      a: "A freelancer gives you one person with one skill set. A traditional agency adds overhead, account management layers, and retainer fees. Get Levrg gives you a coordinated execution team multiple specialists, a dedicated PM, proven workflows, and direct accountability at a fraction of the cost of either.",
     },
     {
       q: "What does 'fractional' mean in practice?",
-      a: "Fractional means you get a full-capability team without the full-time overhead. Instead of hiring six specialists at $80–120K each, you access dedicated specialists across content, CRM, outbound, video, web, and operations — all managed under one coordinated execution framework.",
+      a: "Fractional means you get a full-capability team without the full-time overhead. Instead of hiring six specialists at $80–120K each, you access dedicated specialists across content, CRM, outbound, video, web, and operations all managed under one coordinated execution framework.",
     },
     {
       q: "How fast can the team be deployed?",
@@ -1458,7 +1464,7 @@ function FAQSection() {
     },
     {
       q: "Can we scale up or down based on our needs?",
-      a: "Yes. You can increase capacity for campaign-heavy periods, product launches, or revenue pushes — and scale back during slower cycles. No penalties, no long-term contracts. We flex with your business.",
+      a: "Yes. You can increase capacity for campaign-heavy periods, product launches, or revenue pushes and scale back during slower cycles. No penalties, no long-term contracts. We flex with your business.",
     },
   ];
 
@@ -1573,7 +1579,7 @@ export function FmtPage() {
           "fractional marketing team, fractional sales team, marketing execution team, outsourced marketing team, marketing operations, fractional CMO team",
         ogTitle: "Fractional Marketing & Sales Execution Team | Get Levrg",
         ogDescription:
-          "Stop paying senior talent to do execution work. Get a dedicated team across content, CRM, outbound, and operations — live in 7 days.",
+          "Stop paying senior talent to do execution work. Get a dedicated team across content, CRM, outbound, and operations live in 7 days.",
       }}
     >
       <HeroSection />

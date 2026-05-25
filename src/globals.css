@@ -90,6 +90,18 @@
   100% { transform: translateY(-25%); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right,
+  .animate-marquee-up,
+  .animate-marquee-left-slow {
+    animation-play-state: paused;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

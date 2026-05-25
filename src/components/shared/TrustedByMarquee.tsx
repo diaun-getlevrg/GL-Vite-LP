@@ -18,7 +18,7 @@ const trustedLogos = [
   { src: "/logos/b2b/HPBS.webp", alt: "HPBS" },
   { src: "/logos/b2b/HubSync.webp", alt: "HubSync" },
   { src: "/logos/b2b/Ixopay.webp", alt: "Ixopay" },
-  { src: "/logos/b2b/Jama-Software.png", alt: "Jama Software" },
+  { src: "/logos/b2b/Jama-Software.webp", alt: "Jama Software" },
   { src: "/logos/b2b/Kairoi.webp", alt: "Kairoi" },
   { src: "/logos/b2b/Legacy-Biome.webp", alt: "Legacy Biome" },
   { src: "/logos/b2b/Message-Gears.webp", alt: "Message Gears" },
@@ -69,6 +69,8 @@ export function TrustedByMarquee() {
                 alt={`${logo.alt} company logo`}
                 width={140}
                 height={56}
+                loading="lazy"
+                decoding="async"
                 className="h-10 sm:h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
               />
             </div>
@@ -90,6 +92,8 @@ export function TrustedByMarquee() {
                 alt={`${logo.alt} company logo`}
                 width={140}
                 height={56}
+                loading="lazy"
+                decoding="async"
                 className="h-10 sm:h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
               />
             </div>

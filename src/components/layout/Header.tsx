@@ -49,7 +49,7 @@ export function Header({
     >
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <img src="/logo.png" alt="Get Levrg" width={120} height={32} />
+          <img src="/logo.webp" alt="Get Levrg" width={120} height={32} decoding="async" />
 
           <nav className="hidden md:flex items-center gap-0.5">
             {navItems.map((item) => (

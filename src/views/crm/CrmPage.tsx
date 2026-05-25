@@ -48,15 +48,15 @@ import { PageShell } from "@/components/layout/PageShell";
 // ─── Inline ToolsWeUseSection (CRM) ───
 function ToolsWeUseSection() {
   const tools = [
-    { src: "/logos/applogos/Hubspot.png", alt: "HubSpot" }, { src: "/logos/applogos/Hubspot-CMS.png", alt: "HubSpot CMS" },
-    { src: "/logos/applogos/Salesforce.png", alt: "Salesforce" }, { src: "/logos/applogos/Sales-Navigator.png", alt: "Sales Navigator" },
-    { src: "/logos/applogos/Apollo.png", alt: "Apollo" }, { src: "/logos/applogos/ZoomInfo.png", alt: "ZoomInfo" },
-    { src: "/logos/applogos/Clay.png", alt: "Clay" }, { src: "/logos/applogos/Instantly.png", alt: "Instantly" },
-    { src: "/logos/applogos/Expandi.png", alt: "Expandi" }, { src: "/logos/applogos/Heyreach.png", alt: "HeyReach" },
-    { src: "/logos/applogos/6sense.png", alt: "6sense" }, { src: "/logos/applogos/Calendly.png", alt: "Calendly" },
-    { src: "/logos/applogos/Zapier.png", alt: "Zapier" }, { src: "/logos/applogos/Slack.webp", alt: "Slack" },
-    { src: "/logos/applogos/Google-Ads.png", alt: "Google Ads" }, { src: "/logos/applogos/Monday.png", alt: "Monday" },
-    { src: "/logos/applogos/Microsoft-Dynamic.png", alt: "Microsoft Dynamics" }, { src: "/logos/applogos/Zoho.png", alt: "Zoho" },
+    { src: "/logos/applogos/Hubspot.webp", alt: "HubSpot" }, { src: "/logos/applogos/Hubspot-CMS.webp", alt: "HubSpot CMS" },
+    { src: "/logos/applogos/Salesforce.webp", alt: "Salesforce" }, { src: "/logos/applogos/Sales-Navigator.webp", alt: "Sales Navigator" },
+    { src: "/logos/applogos/Apollo.webp", alt: "Apollo" }, { src: "/logos/applogos/ZoomInfo.webp", alt: "ZoomInfo" },
+    { src: "/logos/applogos/Clay.webp", alt: "Clay" }, { src: "/logos/applogos/Instantly.webp", alt: "Instantly" },
+    { src: "/logos/applogos/Expandi.webp", alt: "Expandi" }, { src: "/logos/applogos/Heyreach.webp", alt: "HeyReach" },
+    { src: "/logos/applogos/6sense.webp", alt: "6sense" }, { src: "/logos/applogos/Calendly.webp", alt: "Calendly" },
+    { src: "/logos/applogos/Zapier.webp", alt: "Zapier" }, { src: "/logos/applogos/Slack.webp", alt: "Slack" },
+    { src: "/logos/applogos/Google-Ads.webp", alt: "Google Ads" }, { src: "/logos/applogos/Monday.webp", alt: "Monday" },
+    { src: "/logos/applogos/Microsoft-Dynamic.webp", alt: "Microsoft Dynamics" }, { src: "/logos/applogos/Zoho.webp", alt: "Zoho" },
   ];
   const content = {
     title: "The Tools We Use to Optimize Your CRM",
@@ -94,7 +94,7 @@ function ToolsWeUseSection() {
                 <div className="grid grid-cols-3 gap-3 sm:gap-4">
                   {[...tools, ...tools, ...tools, ...tools].map((tool, i) => (
                     <div key={i} className="flex items-center justify-center rounded-xl bg-white border border-gray-100 p-3 sm:p-4 lg:p-5 hover:bg-gray-50 hover:border-gray-200 transition-all duration-300 group">
-                      <img src={tool.src} alt={tool.alt} width={140} height={56} className="h-10 sm:h-14 lg:h-16 w-auto object-contain group-hover:scale-110 transition-transform duration-300" />
+                      <img src={tool.src} alt={tool.alt} width={140} height={56} loading="lazy" decoding="async" className="h-10 sm:h-14 lg:h-16 w-auto object-contain group-hover:scale-110 transition-transform duration-300" />
                     </div>
                   ))}
                 </div>
@@ -110,9 +110,9 @@ function ToolsWeUseSection() {
 // ─── Inline WorkSampleBentoGrid (CRM) ───
 function WorkSampleBentoGrid() {
   const samples = [
-    { src: "/images/work-samples/crm-work-1.png", alt: "CRM Dashboard Optimization", label: "Dashboard Optimization" },
-    { src: "/images/work-samples/crm-work-2.png", alt: "Sales Pipeline Analytics", label: "Pipeline Analytics" },
-    { src: "/images/work-samples/crm-work-3.png", alt: "Data Cleanup Workflow", label: "Data Cleanup Process" },
+    { src: "/images/work-samples/crm-work-1.webp", alt: "CRM Dashboard Optimization", label: "Dashboard Optimization" },
+    { src: "/images/work-samples/crm-work-2.webp", alt: "Sales Pipeline Analytics", label: "Pipeline Analytics" },
+    { src: "/images/work-samples/crm-work-3.webp", alt: "Data Cleanup Workflow", label: "Data Cleanup Process" },
   ];
   const title = { before: "See Our CRM", accent: "Optimization Work", after: "" };
   const carouselItems = [...samples, ...samples, ...samples, ...samples];
@@ -132,7 +132,7 @@ function WorkSampleBentoGrid() {
             <div key={i} className="flex-shrink-0 mx-3 sm:mx-4 w-[320px] sm:w-[400px] lg:w-[480px] group">
               <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-shadow duration-300">
                 <div className="relative h-[220px] sm:h-[260px] lg:h-[300px]">
-                  <img src={sample.src} alt={sample.alt} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={sample.src} alt={sample.alt} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/90 backdrop-blur-sm text-sm-body font-semibold text-gray-900">{sample.label}</span>
@@ -274,6 +274,8 @@ function HeroSection() {
           src="/images/hero/crm-hero.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          decoding="async"
         />
       </div>
 
@@ -699,10 +701,10 @@ function SEOSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/crm-work-1.png", alt: "HubSpot CRM dashboard optimization", span: "row-span-2" },
-    { src: "/images/work-samples/crm-work-2.png", alt: "Sales pipeline configuration", span: "" },
+    { src: "/images/work-samples/crm-work-1.webp", alt: "HubSpot CRM dashboard optimization", span: "row-span-2" },
+    { src: "/images/work-samples/crm-work-2.webp", alt: "Sales pipeline configuration", span: "" },
     { src: "/images/hero/crm-hero.webp", alt: "CRM data cleanup and enrichment", span: "" },
-    { src: "/images/work-samples/crm-work-3.png", alt: "Revenue reporting and attribution", span: "col-span-2" },
+    { src: "/images/work-samples/crm-work-3.webp", alt: "Revenue reporting and attribution", span: "col-span-2" },
   ];
 
   return (
@@ -717,7 +719,7 @@ function SEOSection() {
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            Most HubSpot portals are only 20–30% utilized. Dirty data, broken pipelines, and zero automation mean your CRM is storing contacts — not driving revenue. We fix that in 14 days.
+            Most HubSpot portals are only 20–30% utilized. Dirty data, broken pipelines, and zero automation mean your CRM is storing contacts not driving revenue. We fix that in 14 days.
           </p>
         </AnimatedSection>
       </div>
@@ -753,7 +755,7 @@ function SEOSection() {
             <div className="grid grid-cols-2 grid-rows-3 gap-3 sm:gap-4 h-[480px] sm:h-[560px]">
               {bentoImages.map((img, i) => (
                 <div key={i} className={`relative rounded-2xl overflow-hidden border border-gray-100 bg-gray-50 group ${img.span}`}>
-                  <img src={img.src} alt={img.alt} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
               ))}
@@ -1028,16 +1030,20 @@ function ComparisonSection() {
         <AnimatedSection>
           <div className="rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
 
-            <div className="grid grid-cols-3 text-center border-b border-gray-200">
-              <div className="py-4 px-4 bg-gray-50" />
+            <div className="grid grid-cols-3 text-left border-b border-gray-200">
+              <div className="py-4 px-4 bg-gray-50" >
+                <p className="text-sm-body font-bold text-gray-900">
+                  Category
+                </p>
+              </div>
               <div className="py-4 px-4 bg-red-50">
-                <p className="text-sm font-bold text-red-700 flex items-center justify-center gap-1.5">
+                <p className="text-sm font-bold text-red-700 flex items-left justify-left gap-1.5">
                   <XCircle className="h-4 w-4" />
                   Broken CRM
                 </p>
               </div>
               <div className="py-4 px-4 bg-spark-50">
-                <p className="text-sm-body font-bold text-[#51B027] flex items-center justify-center gap-1.5">
+                <p className="text-sm-body font-bold text-[#51B027] flex items-left justify-left gap-1.5">
                   <CheckCircle className="h-4 w-4" />
                   Optimized CRM
                 </p>
@@ -1053,10 +1059,10 @@ function ComparisonSection() {
                 <div className="py-3.5 px-4 text-sm-body font-medium text-gray-900">
                   {row.category}
                 </div>
-                <div className="py-3.5 px-4 text-sm text-red-600 text-center bg-red-50/30">
+                <div className="py-3.5 px-4 text-sm text-red-600 text-left bg-red-50/30">
                   {row.broken}
                 </div>
-                <div className="py-3.5 px-4 text-sm-body text-[#51B027] font-medium text-center bg-spark-50/30">
+                <div className="py-3.5 px-4 text-sm-body text-[#51B027] font-medium text-left bg-spark-50/30">
                   {row.optimized}
                 </div>
               </div>
