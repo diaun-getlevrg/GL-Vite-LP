@@ -107,7 +107,7 @@ function ToolsWeUseSection() {
               <ul className="space-y-3">
                 {videoToolsContent.bullets.map((bullet, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-[#307A0F] mt-0.5 shrink-0" />
+                    <Check className="h-5 w-5 text-[#51B027] mt-0.5 shrink-0" />
                     <span className="text-sm-body text-gray-700">{bullet}</span>
                   </li>
                 ))}
@@ -178,7 +178,7 @@ function WorkSampleBentoGrid() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
-            {videoSamplesTitle.before} <span className="text-[#307A0F]">{videoSamplesTitle.accent}</span>
+            {videoSamplesTitle.before} <span className="text-[#51B027]">{videoSamplesTitle.accent}</span>
             {videoSamplesTitle.after ? ` ${videoSamplesTitle.after}` : ""}
           </h2>
           <p className="text-body text-gray-500 max-w-xl mx-auto">
@@ -242,7 +242,7 @@ function VideoAnimation() {
 
   const deliverables = [
     { icon: Film, label: "Long-form Edit", value: "4/mo", delay: 0.5, accent: "bg-sky-50 border-sky-200", iconColor: "text-sky-500", valueColor: "text-sky-700" },
-    { icon: Video, label: "Shorts / Reels", value: "12/mo", delay: 0.8, accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", valueColor: "text-[#307A0F]" },
+    { icon: Video, label: "Shorts / Reels", value: "12/mo", delay: 0.8, accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", valueColor: "text-[#51B027]" },
     { icon: Sparkles, label: "Motion Graphics", value: "8/mo", delay: 1.1, accent: "bg-teal-50 border-teal-200", iconColor: "text-teal-500", valueColor: "text-teal-700" },
     { icon: Palette, label: "Thumbnails", value: "6/mo", delay: 1.4, accent: "bg-amber-50 border-amber-200", iconColor: "text-amber-500", valueColor: "text-amber-700" },
   ];

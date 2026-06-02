@@ -79,7 +79,7 @@ function ToolsWeUseSection() {
               <ul className="space-y-3">
                 {content.bullets.map((bullet, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-[#307A0F] mt-0.5 shrink-0" />
+                    <Check className="h-5 w-5 text-[#51B027] mt-0.5 shrink-0" />
                     <span className="text-sm-body text-gray-700">{bullet}</span>
                   </li>
                 ))}
@@ -120,7 +120,7 @@ function WorkSampleBentoGrid() {
     <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">
-          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">{title.before} <span className="text-[#307A0F]">{title.accent}</span>{title.after ? ` ${title.after}` : ""}</h2>
+          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">{title.before} <span className="text-[#51B027]">{title.accent}</span>{title.after ? ` ${title.after}` : ""}</h2>
           <p className="text-body text-gray-500 max-w-xl mx-auto">Real results from real clients. Here&apos;s a glimpse of what we deliver.</p>
         </AnimatedSection>
       </div>
@@ -159,7 +159,7 @@ function CrmAnimation() {
   ];
   const metrics = [
     { icon: Database, label: "Duplicates Found", value: "1,247", delay: 0.3, accent: "bg-blue-50 border-blue-200", iconColor: "text-blue-500", valueColor: "text-blue-700" },
-    { icon: BarChart3, label: "Pipeline Accuracy", value: "87%", delay: 0.6, accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", valueColor: "text-[#307A0F]" },
+    { icon: BarChart3, label: "Pipeline Accuracy", value: "87%", delay: 0.6, accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", valueColor: "text-[#51B027]" },
     { icon: TrendingUp, label: "Revenue Recovered", value: "$840K", delay: 0.9, accent: "bg-emerald-50 border-emerald-200", iconColor: "text-emerald-500", valueColor: "text-emerald-700" },
     { icon: Users, label: "Deals Discovered", value: "47", delay: 1.2, accent: "bg-amber-50 border-amber-200", iconColor: "text-amber-500", valueColor: "text-amber-700" },
   ];

@@ -27,10 +27,10 @@ async function toWebP(src, dest, options = {}) {
     saved += delta;
     console.log(`  ✓ ${basename(src)} → ${basename(dest)}  ${kb(before)} → ${kb(after)} (-${kb(delta)})`);
   } else {
-    // Already smaller as PNG — keep original, delete the webp we just made
+    // Already smaller as PNG keep original, delete the webp we just made
     await unlink(dest);
     skipped++;
-    console.log(`  – ${basename(src)} already smaller as PNG (${kb(before)}) — skipped`);
+    console.log(`  – ${basename(src)} already smaller as PNG (${kb(before)}) skipped`);
   }
 }
 

@@ -64,7 +64,7 @@ const INTRO_DURATION = 6000;
 function FmtAnimation() {
   const workstreams = [
     { icon: Share2, label: "Content & Social", status: "Active", tasks: "12 posts queued", accent: "bg-sky-50 border-sky-200", iconColor: "text-sky-500", statusColor: "text-sky-600" },
-    { icon: Send, label: "GTM Outbound", status: "Active", tasks: "340 sequences live", accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", statusColor: "text-[#307A0F]" },
+    { icon: Send, label: "GTM Outbound", status: "Active", tasks: "340 sequences live", accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", statusColor: "text-[#51B027]" },
     { icon: Database, label: "CRM & RevOps", status: "Active", tasks: "87% pipeline clean", accent: "bg-emerald-50 border-emerald-200", iconColor: "text-emerald-500", statusColor: "text-emerald-700" },
     { icon: Globe, label: "Web & CRO", status: "Active", tasks: "3 pages live", accent: "bg-amber-50 border-amber-200", iconColor: "text-amber-500", statusColor: "text-amber-700" },
   ];
@@ -454,7 +454,7 @@ function StatsBentoSection() {
                 </div>
                 <div className="text-h2 font-black text-gray-300">=</div>
                 <div className="text-center">
-                  <p className="text-[28px] sm:text-[36px] font-black text-[#307A0F] leading-none">
+                  <p className="text-[28px] sm:text-[36px] font-black text-[#51B027] leading-none">
                     $<CountUp target={10763} className="tabular-nums" />
                   </p>
                   <p className="text-[11px] text-gray-500 mt-1">saved / month</p>
@@ -850,7 +850,7 @@ function BeforeAfterSection() {
 //                   <ul className="space-y-2">
 //                     {s.items.map((item, j) => (
 //                       <li key={j} className="flex items-start gap-2 text-sm-body text-gray-600">
-//                         <Check className="h-4 w-4 text-[#307A0F] mt-0.5 shrink-0" />
+//                         <Check className="h-4 w-4 text-[#51B027] mt-0.5 shrink-0" />
 //                         <span>{item}</span>
 //                       </li>
 //                     ))}
