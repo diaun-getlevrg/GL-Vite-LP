@@ -90,7 +90,7 @@ const videoToolsContent = {
   ],
 };
 
-function ToolsWeUseSection() {
+export function ToolsWeUseSection() {
   return (
     <section className="py-16 sm:py-24 bg-spark-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -170,7 +170,7 @@ const videoSamples: WorkSample[] = [
 
 const videoSamplesTitle = { before: "See Our Video", accent: "Editing Work", after: "" };
 
-function WorkSampleBentoGrid() {
+export function WorkSampleBentoGrid() {
   const carouselItems = [...videoSamples, ...videoSamples, ...videoSamples, ...videoSamples];
 
   return (
@@ -232,19 +232,39 @@ function WorkSampleBentoGrid() {
 
 const INTRO_DURATION = 6000;
 
-function VideoAnimation() {
+export interface VideoAnimationStat {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  value: string;
+  delay: number;
+  accent: string;
+  iconColor: string;
+  valueColor: string;
+}
+
+export interface VideoAnimationConfig {
+  headerIcon?: React.ComponentType<{ className?: string }>;
+  headerTitle?: string;
+  stats?: VideoAnimationStat[];
+}
+
+const defaultStats: VideoAnimationStat[] = [
+  { icon: Film, label: "Long-form Edit", value: "4/mo", delay: 0.5, accent: "bg-sky-50 border-sky-200", iconColor: "text-sky-500", valueColor: "text-sky-700" },
+  { icon: Video, label: "Shorts / Reels", value: "12/mo", delay: 0.8, accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", valueColor: "text-[#51B027]" },
+  { icon: Sparkles, label: "Motion Graphics", value: "8/mo", delay: 1.1, accent: "bg-teal-50 border-teal-200", iconColor: "text-teal-500", valueColor: "text-teal-700" },
+  { icon: Palette, label: "Thumbnails", value: "6/mo", delay: 1.4, accent: "bg-amber-50 border-amber-200", iconColor: "text-amber-500", valueColor: "text-amber-700" },
+];
+
+export function VideoAnimation({ config }: { config?: VideoAnimationConfig } = {}) {
+  const HeaderIcon = config?.headerIcon ?? Clapperboard;
+  const headerTitle = config?.headerTitle ?? "Video Production";
+  const deliverables = config?.stats ?? defaultStats;
+
   const timelineClips = [
     { label: "Intro", color: "bg-sky-400", width: "15%", delay: 0.2 },
     { label: "A-Roll", color: "bg-spark-400", width: "35%", delay: 0.5 },
     { label: "B-Roll", color: "bg-rose-400", width: "20%", delay: 0.8 },
     { label: "Outro", color: "bg-amber-400", width: "12%", delay: 1.1 },
-  ];
-
-  const deliverables = [
-    { icon: Film, label: "Long-form Edit", value: "4/mo", delay: 0.5, accent: "bg-sky-50 border-sky-200", iconColor: "text-sky-500", valueColor: "text-sky-700" },
-    { icon: Video, label: "Shorts / Reels", value: "12/mo", delay: 0.8, accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", valueColor: "text-[#51B027]" },
-    { icon: Sparkles, label: "Motion Graphics", value: "8/mo", delay: 1.1, accent: "bg-teal-50 border-teal-200", iconColor: "text-teal-500", valueColor: "text-teal-700" },
-    { icon: Palette, label: "Thumbnails", value: "6/mo", delay: 1.4, accent: "bg-amber-50 border-amber-200", iconColor: "text-amber-500", valueColor: "text-amber-700" },
   ];
 
   return (
@@ -260,9 +280,9 @@ function VideoAnimation() {
         className="relative flex items-center gap-2 mb-5"
       >
         <div className="w-7 h-7 rounded-lg bg-spark-100 flex items-center justify-center">
-          <Clapperboard className="h-3.5 w-3.5 text-spark-600" />
+          <HeaderIcon className="h-3.5 w-3.5 text-spark-600" />
         </div>
-        <span className="text-sm font-semibold text-gray-900 tracking-wide">Video Production</span>
+        <span className="text-sm font-semibold text-gray-900 tracking-wide">{headerTitle}</span>
         <div className="ml-auto flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
           <span className="text-[11px] text-red-500 font-medium">REC</span>
@@ -351,7 +371,7 @@ function VideoAnimation() {
   );
 }
 
-function HeroFormIntro({ children }: { children: React.ReactNode }) {
+export function HeroFormIntro({ children, animation }: { children: React.ReactNode; animation?: React.ReactNode }) {
   const [showIntro, setShowIntro] = useState(true);
   const [introKey, setIntroKey] = useState(0);
 
@@ -380,7 +400,7 @@ function HeroFormIntro({ children }: { children: React.ReactNode }) {
             transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative min-h-[480px] sm:min-h-[520px]"
           >
-            <VideoAnimation />
+            {animation ?? <VideoAnimation />}
           </motion.div>
         ) : (
           <motion.div
@@ -417,7 +437,7 @@ function HeroFormIntro({ children }: { children: React.ReactNode }) {
 
 function HeroSection() {
   const navigate = useNavigate();
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate("/thank-you?service=video-editing");
   };
@@ -652,7 +672,7 @@ function HeroSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    2. PROBLEMS SECTION
    ════════════════════════════════════════════════════════════════════════════ */
-function ProblemSection() {
+export function ProblemSection() {
   const problems = [
     {
       icon: Video,
@@ -724,7 +744,7 @@ function ProblemSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    3. SOLUTION SECTION
    ════════════════════════════════════════════════════════════════════════════ */
-function SolutionSection() {
+export function SolutionSection() {
   const differentiators = [
     {
       icon: Shield,
@@ -789,7 +809,7 @@ function SolutionSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    3b. SEO SECTION  2-col: checklist left + bento image grid right
    ════════════════════════════════════════════════════════════════════════════ */
-function SEOSection() {
+export function SEOSection() {
   const capabilities = [
     "Short-form video editing for Reels, Shorts, and TikTok",
     "Long-form YouTube and podcast editing",
@@ -886,7 +906,7 @@ function SEOSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    4. ROI / RESULTS SECTION
    ════════════════════════════════════════════════════════════════════════════ */
-function ROISection() {
+export function ROISection() {
   const stats = [
     {
       value: "5x",
@@ -900,7 +920,7 @@ function ROISection() {
     },
     {
       value: "$500/hr \u2192 $20/hr",
-      label: "Your Strategies Executed at Scale",
+      label: "Scale Your Strategy",
       author: "Miles Kaiburn, CEO | Old Town Media",
     },
   ];
@@ -935,7 +955,7 @@ function ROISection() {
 /* ════════════════════════════════════════════════════════════════════════════
    5. COMPARISON SECTION
    ════════════════════════════════════════════════════════════════════════════ */
-function ComparisonSection() {
+export function ComparisonSection() {
   const rows = [
     { label: "Monthly Cost", na: "$6,500+", us: "Up to 80% less" },
     { label: "Setup Timeline", na: "3 months", us: "14 days" },
@@ -1006,7 +1026,7 @@ function ComparisonSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    6. HOW IT WORKS SECTION
    ════════════════════════════════════════════════════════════════════════════ */
-function HowItWorksSection() {
+export function HowItWorksSection() {
   const steps = [
     {
       icon: ClipboardList,
@@ -1119,7 +1139,7 @@ function HowItWorksSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    7. TESTIMONIALS SECTION
    ════════════════════════════════════════════════════════════════════════════ */
-function TestimonialsSection() {
+export function TestimonialsSection() {
   const testimonials = [
     {
       quote: "We added video as a service line without hiring a single editor. Our margins went up 40% on video projects in the first quarter.",
@@ -1271,7 +1291,7 @@ function TestimonialsSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    8. WHY CHOOSE US SECTION
    ════════════════════════════════════════════════════════════════════════════ */
-function WhyChooseUsSection() {
+export function WhyChooseUsSection() {
   const items = [
     {
       icon: Trophy,
@@ -1329,7 +1349,7 @@ function WhyChooseUsSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    9. FAQ SECTION
    ════════════════════════════════════════════════════════════════════════════ */
-function FAQSection() {
+export function FAQSection() {
   const faqs = [
     {
       q: "How fast can my video editing team be up and running?",
@@ -1410,7 +1430,7 @@ function FAQSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    10. FINAL CTA SECTION
    ════════════════════════════════════════════════════════════════════════════ */
-function FinalCTASection() {
+export function FinalCTASection() {
   const scrollToHero = () => {
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -1497,3 +1517,4 @@ export function VideoPage() {
     </PageShell>
   );
 }
+

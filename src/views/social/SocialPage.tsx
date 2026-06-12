@@ -51,8 +51,8 @@ import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
 import { PageShell } from "@/components/layout/PageShell";
 
 
-// ─── Inline ToolsWeUseSection (Social Only) ───
-function ToolsWeUseSection() {
+// â”€â”€â”€ Inline ToolsWeUseSection (Social Only) â”€â”€â”€
+export function ToolsWeUseSection() {
   const tools = [
     { src: "/logos/applogos/Canva.webp", alt: "Canva" }, { src: "/logos/applogos/Figma.webp", alt: "Figma" },
     { src: "/logos/applogos/ChatGPT.webp", alt: "ChatGPT" }, { src: "/logos/applogos/Gemini-Pro.webp", alt: "Gemini Pro" },
@@ -113,8 +113,8 @@ function ToolsWeUseSection() {
   );
 }
 
-// ─── Inline WorkSampleBentoGrid (Social Only) ───
-function WorkSampleBentoGrid() {
+// â”€â”€â”€ Inline WorkSampleBentoGrid (Social Only) â”€â”€â”€
+export function WorkSampleBentoGrid() {
   const samples = [
     { src: "/images/work-samples/social-work-1.webp", alt: "Content Calendar Design", label: "Content Calendar" },
     { src: "/images/work-samples/social-work-2.webp", alt: "Social Media Post Designs", label: "Post Designs" },
@@ -153,10 +153,10 @@ function WorkSampleBentoGrid() {
   );
 }
 
-// ─── Inline HeroFormIntro (Social Only) ───
+// â”€â”€â”€ Inline HeroFormIntro (Social Only) â”€â”€â”€
 const INTRO_DURATION = 6000;
 
-function SocialAnimation() {
+export function SocialAnimation() {
   const posts = [
     { platform: "LinkedIn", icon: MessageCircle, color: "text-blue-600", bg: "bg-blue-50 border-blue-200", iconBg: "bg-blue-100", content: "5 Tax Strategies Your CPA Isn't Telling You About", likes: 142, shares: 38, views: "2.4K", checkColor: "text-blue-500" },
     { platform: "Instagram", icon: Heart, color: "text-pink-600", bg: "bg-pink-50 border-pink-200", iconBg: "bg-pink-100", content: "Behind the Scenes: How We Helped a Law Firm 3x Their Inbound", likes: 89, shares: 24, views: "1.8K", checkColor: "text-pink-500" },
@@ -212,7 +212,7 @@ function SocialAnimation() {
   );
 }
 
-function HeroFormIntro({ children }: { children: React.ReactNode }) {
+export function HeroFormIntro({ children }: { children: React.ReactNode }) {
   const [showIntro, setShowIntro] = useState(true);
   const [introKey, setIntroKey] = useState(0);
   useEffect(() => {
@@ -241,9 +241,9 @@ function HeroFormIntro({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 1  HERO (2-column layout with form)
-   ──────────────────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function HeroSection() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -356,10 +356,10 @@ function HeroSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 2  PROBLEMS
-   ──────────────────────────────────────────── */
-function ProblemSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function ProblemSection() {
   const problems = [
     {
       icon: Eye,
@@ -420,10 +420,10 @@ function ProblemSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 3  SOLUTION
-   ──────────────────────────────────────────── */
-function SolutionSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function SolutionSection() {
   const differentiators = [
     {
       icon: Target,
@@ -486,7 +486,7 @@ function SolutionSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    3b. SEO SECTION  2-col: checklist left + bento image grid right
    ════════════════════════════════════════════════════════════════════════════ */
-function SEOSection() {
+export function SEOSection() {
   const capabilities = [
     "LinkedIn content strategy and posting",
     "Facebook and Instagram content management",
@@ -564,10 +564,10 @@ function SEOSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 4  CLIENT IMPACT
-   ──────────────────────────────────────────── */
-function ClientImpactSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function ClientImpactSection() {
   const stats = [
     {
       value: 57,
@@ -625,10 +625,10 @@ function ClientImpactSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 5  CASE EXAMPLES
-   ──────────────────────────────────────────── */
-function CaseExamplesSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function CaseExamplesSection() {
   const cases = [
     {
       firm: "CPA Firm",
@@ -689,10 +689,10 @@ function CaseExamplesSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 6  COST COMPARISON
-   ──────────────────────────────────────────── */
-function CostComparisonSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function CostComparisonSection() {
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -782,10 +782,10 @@ function CostComparisonSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 7  HOW IT WORKS
-   ──────────────────────────────────────────── */
-function HowItWorksSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function HowItWorksSection() {
   const steps = [
     { icon: Phone, title: "Kickoff Interview (Day 1-2)", desc: "30-min call with partners to understand your firm's expertise, ideal clients, voice, and positioning." },
     { icon: Calendar, title: "Content Strategy + Calendar (Day 3-7)", desc: "We build a 90-day content plan aligned to your specialties, compliance requirements, and growth goals." },
@@ -856,10 +856,10 @@ function HowItWorksSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 9  TESTIMONIALS
-   ──────────────────────────────────────────── */
-function TestimonialsSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function TestimonialsSection() {
   const testimonials = [
     {
       quote: "Our LinkedIn presence went from nonexistent to the most visible firm in our market. Not one partner had to write a post. We're getting inquiries from businesses who've been following our content for months.",
@@ -975,10 +975,10 @@ function TestimonialsSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 10  WHY CHOOSE US
-   ──────────────────────────────────────────── */
-function WhyChooseUsSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function WhyChooseUsSection() {
   const items = [
     { icon: Scale, title: "Built for Professional Services", desc: "We don't work with restaurants, e-commerce, or lifestyle brands. Every strategy, post, and calendar is designed for firms like yours." },
     { icon: Lightbulb, title: "Content That Demonstrates Expertise", desc: "Not generic motivational quotes. Real thought leadership that positions your partners as the authorities they are." },
@@ -1022,10 +1022,10 @@ function WhyChooseUsSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 11  FAQ
-   ──────────────────────────────────────────── */
-function FAQSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function FAQSection() {
   const faqs = [
     { q: "How much partner time is required?", a: "Your partners do not need to write posts or manage the content process. We usually need a short kickoff conversation, occasional input on key topics, and quick approval on planned content. The goal is to capture your firm\u2019s expertise without turning your experts into content managers." },
     { q: "What platforms do you post on?", a: "We typically support LinkedIn, Facebook, and Instagram. For many professional services and B2B firms, LinkedIn is the primary channel because it is where decision-makers, referral partners, and industry peers are most active." },
@@ -1081,10 +1081,10 @@ function FAQSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 12  FINAL CTA
-   ──────────────────────────────────────────── */
-function FinalCTASection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function FinalCTASection() {
   return (
     <section className="py-16 sm:py-24 bg-spark-800">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1114,7 +1114,7 @@ function FinalCTASection() {
   );
 }
 
-// // ─── Inline Fractional Team Section ───
+// // â”€â”€â”€ Inline Fractional Team Section â”€â”€â”€
 // function FractionalTeamSection() {
 //   const capabilities = [
 //     {
@@ -1189,9 +1189,9 @@ function FinalCTASection() {
 //   );
 // }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    MAIN EXPORT
-   ──────────────────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 export function SocialPage() {
   return (
     <PageShell
@@ -1232,3 +1232,4 @@ export function SocialPage() {
     </PageShell>
   );
 }
+

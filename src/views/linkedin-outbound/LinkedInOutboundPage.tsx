@@ -124,7 +124,7 @@ function WorkSampleBentoGrid() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">See Our LinkedIn &amp; Outbound <span className="text-[#51B027]">Campaign Work</span></h2>
-          <p className="text-body text-gray-500 max-w-xl mx-auto">Real campaigns. Real pipeline. Here&apos;s a glimpse of what we build and deliver.</p>
+          <p className="text-body text-gray-500 max-w-xl mx-auto">Real campaigns. Real pipeline Here&apos;s a glimpse of what we build and deliver</p>
         </AnimatedSection>
       </div>
       <div className="relative overflow-hidden">
@@ -246,7 +246,7 @@ function HeroSection() {
   return (
     <section id="lead-form" className="relative overflow-hidden min-h-[500px] sm:min-h-[600px]">
       <div className="absolute inset-0">
-        <img src="/images/hero/crm-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" decoding="async" />
+        <img src="/images/hero/linkedin-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" decoding="async" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-[#061512]/95 via-[#061512]/70 to-transparent" />
 
@@ -259,7 +259,8 @@ function HeroSection() {
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-h1 sm:text-display lg:text-display-sm text-white mb-6">
-              Your Best Clients Are on LinkedIn.
+              Your Best Clients Are <br />
+              on LinkedIn But
               <br />
               <span className="text-spark-400">Are You in Their Inbox?</span>
             </motion.h1>
@@ -384,7 +385,7 @@ function ProblemSection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-6">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
-            Your Pipeline Problem Isn&apos;t Effort. <span className="text-[#51B027]"><br />It&apos;s the Lack of a System.</span>
+            Your Pipeline Problem Isn&apos;t Effort <span className="text-[#51B027]"><br />It&apos;s the Lack of a System</span>
           </h2>
         </AnimatedSection>
 

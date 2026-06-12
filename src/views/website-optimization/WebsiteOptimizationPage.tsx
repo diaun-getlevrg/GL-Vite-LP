@@ -46,8 +46,8 @@ import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
 import { PageShell } from "@/components/layout/PageShell";
 
 
-// ─── Inline ToolsWeUseSection (Website Optimization) ───
-function ToolsWeUseSection() {
+// â”€â”€â”€ Inline ToolsWeUseSection (Website Optimization) â”€â”€â”€
+export function ToolsWeUseSection() {
   const tools = [
     { src: "/logos/applogos/Webflow.webp", alt: "Webflow" }, { src: "/logos/applogos/Wix.webp", alt: "Wix" },
     { src: "/logos/applogos/Hubspot-CMS.webp", alt: "HubSpot CMS" }, { src: "/logos/applogos/High-Level.webp", alt: "GoHighLevel" },
@@ -107,8 +107,8 @@ function ToolsWeUseSection() {
   );
 }
 
-// ─── Inline WorkSampleBentoGrid (Website Optimization) ───
-function WorkSampleBentoGrid() {
+// â”€â”€â”€ Inline WorkSampleBentoGrid (Website Optimization) â”€â”€â”€
+export function WorkSampleBentoGrid() {
   const samples = [
     { src: "/images/work-samples/social-work-1.webp", alt: "Website Redesign Project", label: "Full Website Redesign" },
     { src: "/images/work-samples/social-work-2.webp", alt: "Landing Page Optimization", label: "Landing Page CRO" },
@@ -148,7 +148,7 @@ function WorkSampleBentoGrid() {
   );
 }
 
-// ─── Inline HeroFormIntro (Website Optimization) ───
+// â”€â”€â”€ Inline HeroFormIntro (Website Optimization) â”€â”€â”€
 const INTRO_DURATION = 6000;
 
 function WebsiteAnimation() {
@@ -202,7 +202,7 @@ function WebsiteAnimation() {
   );
 }
 
-function HeroFormIntro({ children }: { children: React.ReactNode }) {
+export function HeroFormIntro({ children }: { children: React.ReactNode }) {
   const [showIntro, setShowIntro] = useState(true);
   const [introKey, setIntroKey] = useState(0);
   useEffect(() => {
@@ -231,9 +231,9 @@ function HeroFormIntro({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 1  HERO (2-column layout with form)
-   ──────────────────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function HeroSection() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -346,10 +346,10 @@ function HeroSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 2  PROBLEMS
-   ──────────────────────────────────────────── */
-function ProblemSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function ProblemSection() {
   const problems = [
     {
       icon: Zap,
@@ -421,10 +421,10 @@ function ProblemSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 3  SOLUTION
-   ──────────────────────────────────────────── */
-function SolutionSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function SolutionSection() {
   const differentiators = [
     {
       icon: Monitor,
@@ -493,10 +493,10 @@ function SolutionSection() {
   );
 }
 
-/* ════════════════════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    3b. DELIVERABLES SECTION  2-col: checklist left + bento image grid right
-   ════════════════════════════════════════════════════════════════════════════ */
-function DeliverablesSection() {
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+export function DeliverablesSection() {
   const deliverables = [
     "Website wireframing & page layout design",
     "Page creation & landing pages",
@@ -579,10 +579,10 @@ function DeliverablesSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 4  AUDIT FINDINGS / CASE STUDY
-   ──────────────────────────────────────────── */
-function AuditFindingsSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function AuditFindingsSection() {
   return (
     <section id="results" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -682,10 +682,10 @@ function AuditFindingsSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 5  ROI STATS
-   ──────────────────────────────────────────── */
-function RoiSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function RoiSection() {
   const stats = [
     { target: 30, prefix: "", suffix: " days", label: "From Kickoff to Live Site", icon: Clock },
     { target: 312, prefix: "", suffix: "%", label: "Average Lead Increase", icon: TrendingUp },
@@ -724,10 +724,10 @@ function RoiSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 6  COMPARISON TABLE
-   ──────────────────────────────────────────── */
-function ComparisonSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function ComparisonSection() {
   const rows = [
     { category: "Page Load Time", broken: "8–12 seconds", optimized: "< 2 seconds" },
     { category: "Google Ranking", broken: "Page 3–6 (invisible)", optimized: "Page 1, position 1–5" },
@@ -770,10 +770,10 @@ function ComparisonSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 7  HOW IT WORKS
-   ──────────────────────────────────────────── */
-function HowItWorksSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function HowItWorksSection() {
   const steps = [
     { icon: Search, title: "Discovery & Audit (Days 1–5)", desc: "Full website audit covering SEO, performance, security, and conversion gaps plus a strategy brief aligned to your goals and audience." },
     { icon: Brush, title: "Design & Build (Days 6–21)", desc: "Wireframing, copy, design, and development pages built for conversion, SEO-optimized from the ground up, and integrated with your CRM." },
@@ -845,10 +845,10 @@ function HowItWorksSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 8  TESTIMONIALS
-   ──────────────────────────────────────────── */
-function TestimonialsSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function TestimonialsSection() {
   const testimonials = [
     {
       quote: "We'd been 'meaning to update the website' for three years. Within 30 days we had a completely new site and within 90 days we had more inbound leads than the entire previous year combined. It's not just a website, it's our best salesperson.",
@@ -963,10 +963,10 @@ function TestimonialsSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 9  WHY CHOOSE US
-   ──────────────────────────────────────────── */
-function WhyChooseUsSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function WhyChooseUsSection() {
   const items = [
     { icon: Layers, title: "Full-Stack Web Team", desc: "Designer, developer, SEO strategist, and content writer all under one retainer. No juggling contractors. One team, one point of contact, full ownership." },
     { icon: Zap, title: "30-Day Launch Guarantee", desc: "No 6-month timelines. No endless revision cycles. We go from kickoff to live site in 30 days with a process built for speed without cutting corners on quality." },
@@ -1010,10 +1010,10 @@ function WhyChooseUsSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 10  FAQ
-   ──────────────────────────────────────────── */
-function FAQSection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function FAQSection() {
   const faqs = [
     { q: "What's included in the 14 deliverables?", a: "Website wireframing & page layout design, page creation & landing pages, website content creation & updates, blog creation & optimization, on-page SEO / AEO / GEO optimization, technical SEO, CRO setup & optimization, CRM/CMS integrations, dynamic personalization, plugin & theme updates, security monitoring & maintenance, hosting & performance management, backup & version control, and custom development & integrations. All included in your monthly retainer." },
     { q: "How long does a full website build take?", a: "We go from kickoff to live site in 30 days for most projects. Day 1–5 is discovery and audit, days 6–21 is design and build on a staging environment, and days 22–30 is QA, optimization, and launch. Complex custom builds may take slightly longer, but we set timelines in writing before we start." },
@@ -1069,10 +1069,10 @@ function FAQSection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 11  FINAL CTA
-   ──────────────────────────────────────────── */
-function FinalCTASection() {
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+export function FinalCTASection() {
   return (
     <section className="py-16 sm:py-24 bg-spark-800">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1102,9 +1102,9 @@ function FinalCTASection() {
   );
 }
 
-/* ────────────────────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    MAIN EXPORT
-   ──────────────────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 export function WebsiteOptimizationPage() {
   return (
     <PageShell
@@ -1142,3 +1142,4 @@ export function WebsiteOptimizationPage() {
     </PageShell>
   );
 }
+
