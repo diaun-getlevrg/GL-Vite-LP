@@ -54,7 +54,7 @@ export default function App() {
         {/* Social LP variants */}
         <Route path="/social-accounting" element={<SocialAccountingPage />} />
         <Route path="/social-architecture" element={<SocialArchitecturePage />} />
-        <Route path="/social-commercial-re" element={<SocialCommercialREPage />} />
+        <Route path="/social-commercial" element={<SocialCommercialREPage />} />
         <Route path="/social-consulting" element={<SocialConsultingPage />} />
         <Route path="/social-engineering" element={<SocialEngineeringPage />} />
         <Route path="/social-financial-advisory" element={<SocialFinancialAdvisoryPage />} />
