@@ -49,7 +49,7 @@ import { PageShell } from "@/components/layout/PageShell";
 
 
 // ─── Inline ToolsWeUseSection (LinkedIn & Outbound) ───
-function ToolsWeUseSection() {
+export function ToolsWeUseSection() {
   const tools = [
     { src: "/logos/applogos/Sales-Navigator.webp", alt: "Sales Navigator" }, { src: "/logos/applogos/Apollo.webp", alt: "Apollo" },
     { src: "/logos/applogos/Clay.webp", alt: "Clay" }, { src: "/logos/applogos/Expandi.webp", alt: "Expandi" },
@@ -110,7 +110,7 @@ function ToolsWeUseSection() {
 }
 
 // ─── Inline WorkSampleBentoGrid (LinkedIn & Outbound) ───
-function WorkSampleBentoGrid() {
+export function WorkSampleBentoGrid() {
   const samples = [
     { src: "/images/work-samples/crm-work-1.webp", alt: "LinkedIn Campaign Dashboard", label: "Campaign Dashboard" },
     { src: "/images/work-samples/crm-work-2.webp", alt: "Pipeline Analytics", label: "Pipeline Analytics" },
@@ -204,7 +204,7 @@ function LinkedInAnimation() {
   );
 }
 
-function HeroFormIntro({ children }: { children: React.ReactNode }) {
+export function HeroFormIntro({ children }: { children: React.ReactNode }) {
   const [showIntro, setShowIntro] = useState(true);
   const [introKey, setIntroKey] = useState(0);
   useEffect(() => {
@@ -352,7 +352,7 @@ function HeroSection() {
 /* ────────────────────────────────────────────
    SECTION 2  PROBLEMS
    ──────────────────────────────────────────── */
-function ProblemSection() {
+export function ProblemSection() {
   const problems = [
     {
       icon: AlertOctagon,
@@ -427,7 +427,7 @@ function ProblemSection() {
 /* ────────────────────────────────────────────
    SECTION 3  SOLUTION
    ──────────────────────────────────────────── */
-function SolutionSection() {
+export function SolutionSection() {
   const differentiators = [
     {
       icon: Target,
@@ -501,7 +501,7 @@ function SolutionSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    3b. CAPABILITIES SECTION  2-col: checklist left + bento image grid right
    ════════════════════════════════════════════════════════════════════════════ */
-function CapabilitiesSection() {
+export function CapabilitiesSection() {
   const capabilities = [
     "ICP definition & buyer persona development",
     "LinkedIn profile optimization for conversion",
@@ -585,7 +585,7 @@ function CapabilitiesSection() {
 /* ────────────────────────────────────────────
    SECTION 4  CAMPAIGN FINDINGS / CASE STUDY
    ──────────────────────────────────────────── */
-function CampaignFindingsSection() {
+export function CampaignFindingsSection() {
   return (
     <section id="results" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -688,7 +688,7 @@ function CampaignFindingsSection() {
 /* ────────────────────────────────────────────
    SECTION 5  ROI STATS
    ──────────────────────────────────────────── */
-function RoiSection() {
+export function RoiSection() {
   const stats = [
     { target: 14, prefix: "", suffix: " days", label: "From Kickoff to First Outreach Live", icon: Zap },
     { target: 47, prefix: "", suffix: "%", label: "Average Connection Acceptance Rate", icon: UserPlus },
@@ -730,7 +730,7 @@ function RoiSection() {
 /* ────────────────────────────────────────────
    SECTION 6  COMPARISON TABLE
    ──────────────────────────────────────────── */
-function ComparisonSection() {
+export function ComparisonSection() {
   const rows = [
     { category: "Prospect Research", broken: "Manual hours per week", optimized: "Automated + verified lists" },
     { category: "Message Quality", broken: "Generic templates", optimized: "Personalized, industry-specific" },
@@ -776,7 +776,7 @@ function ComparisonSection() {
 /* ────────────────────────────────────────────
    SECTION 7  HOW IT WORKS
    ──────────────────────────────────────────── */
-function HowItWorksSection() {
+export function HowItWorksSection() {
   const steps = [
     { icon: Search, title: "ICP Workshop & Audit (Days 1–5)", desc: "We define your ideal client profile, audit your LinkedIn presence, and build the foundational targeting strategy industry, title, company size, signals, and messaging angles." },
     { icon: BarChart3, title: "Sequence & List Build (Days 6–10)", desc: "We build verified prospect lists, write all connection requests, InMail sequences, email cadences, and objection responses personalized for your ICP and tested before launch." },
@@ -851,7 +851,7 @@ function HowItWorksSection() {
 /* ────────────────────────────────────────────
    SECTION 8  TESTIMONIALS
    ──────────────────────────────────────────── */
-function TestimonialsSection() {
+export function TestimonialsSection() {
   const testimonials = [
     {
       quote: "We were purely referral-dependent for 11 years. In 90 days with Get Levrg we had a systematic outbound motion generating 18 qualified meetings a month. We've added four new clients directly from outbound something we never thought possible as a CPA firm.",
@@ -969,7 +969,7 @@ function TestimonialsSection() {
 /* ────────────────────────────────────────────
    SECTION 9  WHY CHOOSE US
    ──────────────────────────────────────────── */
-function WhyChooseUsSection() {
+export function WhyChooseUsSection() {
   const items = [
     { icon: Layers, title: "Done-For-You, Not a Tool or Training", desc: "We don't hand you a playbook and wish you luck. We build your sequences, run your campaigns, handle your inbox, and book your meetings. You show up to calls. That's it." },
     { icon: Send, title: "Multi-Channel From Day One", desc: "LinkedIn alone misses 40% of your prospects. We run LinkedIn connection requests, InMail, and cold email simultaneously coordinated sequences that hit prospects across channels without being spammy." },
@@ -1016,7 +1016,7 @@ function WhyChooseUsSection() {
 /* ────────────────────────────────────────────
    SECTION 10  FAQ
    ──────────────────────────────────────────── */
-function FAQSection() {
+export function FAQSection() {
   const faqs = [
     { q: "Is this done-for-us or do we manage the campaigns ourselves?", a: "100% done-for-you. We build the ICP, write every message, run every campaign, manage the inbox, handle replies, and book meetings directly into your calendar. You review a weekly report and show up to discovery calls. No tools to learn, no sequences to manage." },
     { q: "Will this get our LinkedIn account banned or restricted?", a: "No provided we're the ones running it. We use enterprise-grade automation tools with safe daily activity limits, account warming protocols, and human oversight on every account. We've never had a client account banned. Going above LinkedIn's limits without these safeguards is what gets accounts flagged." },
@@ -1075,7 +1075,7 @@ function FAQSection() {
 /* ────────────────────────────────────────────
    SECTION 11  FINAL CTA
    ──────────────────────────────────────────── */
-function FinalCTASection() {
+export function FinalCTASection() {
   return (
     <section className="py-16 sm:py-24 bg-spark-800">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">

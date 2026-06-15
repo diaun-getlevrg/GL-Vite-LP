@@ -31,6 +31,17 @@ import { WebsiteOptimizationITServicesPage } from "@/views/website-optimization/
 import { WebsiteOptimizationLegalPage } from "@/views/website-optimization/WebsiteOptimizationLegalPage";
 import { WebsiteOptimizationSaaSPage } from "@/views/website-optimization/WebsiteOptimizationSaaSPage";
 import { LinkedInOutboundPage } from "@/views/linkedin-outbound/LinkedInOutboundPage";
+import { LinkedInAccountingPage } from "@/views/linkedin-outbound/LinkedInAccountingPage";
+import { LinkedInArchitecturePage } from "@/views/linkedin-outbound/LinkedInArchitecturePage";
+import { LinkedInCommercialREPage } from "@/views/linkedin-outbound/LinkedInCommercialREPage";
+import { LinkedInConsultingPage } from "@/views/linkedin-outbound/LinkedInConsultingPage";
+import { LinkedInEngineeringPage } from "@/views/linkedin-outbound/LinkedInEngineeringPage";
+import { LinkedInFinancialAdvisoryPage } from "@/views/linkedin-outbound/LinkedInFinancialAdvisoryPage";
+import { LinkedInITServicesPage } from "@/views/linkedin-outbound/LinkedInITServicesPage";
+import { LinkedInLegalPage } from "@/views/linkedin-outbound/LinkedInLegalPage";
+import { LinkedInSaaSPage } from "@/views/linkedin-outbound/LinkedInSaaSPage";
+import { LinkedInStaffingPage } from "@/views/linkedin-outbound/LinkedInStaffingPage";
+import { LinkedInVPMarketingPage } from "@/views/linkedin-outbound/LinkedInVPMarketingPage";
 import { ThankYouPage } from "@/views/thank-you/ThankYouPage";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -76,6 +87,18 @@ export default function App() {
         <Route path="/website-optimization-legal" element={<WebsiteOptimizationLegalPage />} />
         <Route path="/website-optimization-saas" element={<WebsiteOptimizationSaaSPage />} />
         <Route path="/linkedin-outbound" element={<LinkedInOutboundPage />} />
+        {/* LinkedIn & Outbound LP variants */}
+        <Route path="/linkedin-accounting" element={<LinkedInAccountingPage />} />
+        <Route path="/linkedin-architecture" element={<LinkedInArchitecturePage />} />
+        <Route path="/linkedin-commercial" element={<LinkedInCommercialREPage />} />
+        <Route path="/linkedin-consulting" element={<LinkedInConsultingPage />} />
+        <Route path="/linkedin-engineering" element={<LinkedInEngineeringPage />} />
+        <Route path="/linkedin-financial-advisory" element={<LinkedInFinancialAdvisoryPage />} />
+        <Route path="/linkedin-it-services" element={<LinkedInITServicesPage />} />
+        <Route path="/linkedin-legal" element={<LinkedInLegalPage />} />
+        <Route path="/linkedin-saas" element={<LinkedInSaaSPage />} />
+        <Route path="/linkedin-staffing" element={<LinkedInStaffingPage />} />
+        <Route path="/linkedin-vp-marketing" element={<LinkedInVPMarketingPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
       </Routes>
       <Toaster />
