@@ -46,7 +46,7 @@ import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
 import { PageShell } from "@/components/layout/PageShell";
 
 // ─── Inline ToolsWeUseSection (CRM) ───
-function ToolsWeUseSection() {
+export function ToolsWeUseSection() {
   const tools = [
     { src: "/logos/applogos/Hubspot.webp", alt: "HubSpot" }, { src: "/logos/applogos/Hubspot-CMS.webp", alt: "HubSpot CMS" },
     { src: "/logos/applogos/Salesforce.webp", alt: "Salesforce" }, { src: "/logos/applogos/Sales-Navigator.webp", alt: "Sales Navigator" },
@@ -108,7 +108,7 @@ function ToolsWeUseSection() {
 }
 
 // ─── Inline WorkSampleBentoGrid (CRM) ───
-function WorkSampleBentoGrid() {
+export function WorkSampleBentoGrid() {
   const samples = [
     { src: "/images/work-samples/crm-work-1.webp", alt: "CRM Dashboard Optimization", label: "Dashboard Optimization" },
     { src: "/images/work-samples/crm-work-2.webp", alt: "Sales Pipeline Analytics", label: "Pipeline Analytics" },
@@ -201,7 +201,7 @@ function CrmAnimation() {
   );
 }
 
-function HeroFormIntro({ children }: { children: React.ReactNode }) {
+export function HeroFormIntro({ children }: { children: React.ReactNode }) {
   const [showIntro, setShowIntro] = useState(true);
   const [introKey, setIntroKey] = useState(0);
   useEffect(() => {
@@ -537,7 +537,7 @@ const problems = [
   },
 ];
 
-function ProblemSection() {
+export function ProblemSection() {
   return (
     <section id="problems" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -625,7 +625,7 @@ const solutionItems = [
   },
 ];
 
-function SolutionSection() {
+export function SolutionSection() {
   return (
     <section id="solution" className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -689,7 +689,7 @@ function SolutionSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    3b. SEO SECTION  2-col: checklist left + bento image grid right
    ════════════════════════════════════════════════════════════════════════════ */
-function SEOSection() {
+export function SEOSection() {
   const capabilities = [
     "HubSpot CRM setup, configuration, and custom property buildout",
     "Contact, company, and deal pipeline cleanup and deduplication",
@@ -771,7 +771,7 @@ function SEOSection() {
 /* ════════════════════════════════════════════════════════════════════════
    4. AUDIT FINDINGS / CASE STUDY (id="results", bg-gray-50)
    ════════════════════════════════════════════════════════════════════════ */
-function AuditFindingsSection() {
+export function AuditFindingsSection() {
   return (
     <section id="results" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -939,7 +939,7 @@ function AuditFindingsSection() {
 /* ════════════════════════════════════════════════════════════════════════
    5. ROI STATS (white bg)
    ════════════════════════════════════════════════════════════════════════ */
-function RoiSection() {
+export function RoiSection() {
   return (
     <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1015,7 +1015,7 @@ const comparisonRows = [
   { category: "Team Trust", broken: '"The data is wrong"', optimized: '"We can trust this"' },
 ];
 
-function ComparisonSection() {
+export function ComparisonSection() {
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1124,7 +1124,7 @@ const phases = [
   },
 ];
 
-function HowItWorksSection() {
+export function HowItWorksSection() {
   return (
     <section id="process" className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1290,7 +1290,7 @@ const bentoTestimonials = [
   },
 ];
 
-function TestimonialsSection() {
+export function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -1440,7 +1440,7 @@ const whyUs = [
   },
 ];
 
-function WhyChooseUsSection() {
+export function WhyChooseUsSection() {
   return (
     <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1523,7 +1523,7 @@ const faqItems = [
   },
 ];
 
-function FaqSection() {
+export function FaqSection() {
   const col1 = faqItems.slice(0, 4);
   const col2 = faqItems.slice(4, 8);
 
@@ -1579,7 +1579,7 @@ function FaqSection() {
 /* ════════════════════════════════════════════════════════════════════════
    11. FINAL CTA (white bg)
    ════════════════════════════════════════════════════════════════════════ */
-function FinalCtaSection() {
+export function FinalCtaSection() {
   return (
     <section className="py-16 sm:py-24 bg-spark-800">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">

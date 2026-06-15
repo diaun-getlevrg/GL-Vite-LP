@@ -30,6 +30,13 @@ import { WebsiteOptimizationFinancialAdvisoryPage } from "@/views/website-optimi
 import { WebsiteOptimizationITServicesPage } from "@/views/website-optimization/WebsiteOptimizationITServicesPage";
 import { WebsiteOptimizationLegalPage } from "@/views/website-optimization/WebsiteOptimizationLegalPage";
 import { WebsiteOptimizationSaaSPage } from "@/views/website-optimization/WebsiteOptimizationSaaSPage";
+import { CrmAccountingPage } from "@/views/crm/CrmAccountingPage";
+import { CrmConsultingPage } from "@/views/crm/CrmConsultingPage";
+import { CrmFinancialAdvisoryPage } from "@/views/crm/CrmFinancialAdvisoryPage";
+import { CrmITServicesPage } from "@/views/crm/CrmITServicesPage";
+import { CrmLegalPage } from "@/views/crm/CrmLegalPage";
+import { CrmSaaSPage } from "@/views/crm/CrmSaaSPage";
+import { CrmStaffingPage } from "@/views/crm/CrmStaffingPage";
 import { LinkedInOutboundPage } from "@/views/linkedin-outbound/LinkedInOutboundPage";
 import { LinkedInAccountingPage } from "@/views/linkedin-outbound/LinkedInAccountingPage";
 import { LinkedInArchitecturePage } from "@/views/linkedin-outbound/LinkedInArchitecturePage";
@@ -75,6 +82,14 @@ export default function App() {
         <Route path="/social-staffing" element={<SocialStaffingPage />} />
         {/* Other pages */}
         <Route path="/crm" element={<CrmPage />} />
+        {/* CRM LP variants */}
+        <Route path="/crm-accounting" element={<CrmAccountingPage />} />
+        <Route path="/crm-consulting" element={<CrmConsultingPage />} />
+        <Route path="/crm-financial-advisory" element={<CrmFinancialAdvisoryPage />} />
+        <Route path="/crm-it-services" element={<CrmITServicesPage />} />
+        <Route path="/crm-legal" element={<CrmLegalPage />} />
+        <Route path="/crm-saas" element={<CrmSaaSPage />} />
+        <Route path="/crm-staffing" element={<CrmStaffingPage />} />
         <Route path="/fmt" element={<FmtPage />} />
         <Route path="/website-optimization" element={<WebsiteOptimizationPage />} />
         {/* Website Optimization LP variants */}
