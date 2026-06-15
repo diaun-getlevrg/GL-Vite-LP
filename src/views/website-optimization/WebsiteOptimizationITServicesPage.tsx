@@ -38,7 +38,7 @@ function HeroSection() {
   return (
     <section id="lead-form" className="relative overflow-hidden min-h-[500px] sm:min-h-[600px]">
       <div className="absolute inset-0">
-        <img src="/images/hero/social-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" decoding="async" />
+        <img src="/images/hero/website-optimization-it-services-hero.webp" alt="" className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" decoding="async" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-r from-[#061512]/95 via-[#061512]/70 to-transparent" />
 
