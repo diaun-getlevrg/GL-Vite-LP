@@ -110,11 +110,11 @@ export function ToolsWeUseSection() {
 // â”€â”€â”€ Inline WorkSampleBentoGrid (Website Optimization) â”€â”€â”€
 export function WorkSampleBentoGrid() {
   const samples = [
-    { src: "/images/work-samples/social-work-1.webp", alt: "Website Redesign Project", label: "Full Website Redesign" },
-    { src: "/images/work-samples/social-work-2.webp", alt: "Landing Page Optimization", label: "Landing Page CRO" },
-    { src: "/images/work-samples/crm-work-1.webp", alt: "SEO & Content Strategy", label: "SEO Content Build-Out" },
-    { src: "/images/work-samples/social-work-3.webp", alt: "Mobile-Optimized Design", label: "Mobile-First Design" },
-    { src: "/images/work-samples/crm-work-2.webp", alt: "Analytics & CRO Dashboard", label: "CRO & Analytics Setup" },
+    { src: "/images/work-samples/website-operations.webp", alt: "Website Redesign Project", label: "Full Website Redesign" },
+    { src: "/images/work-samples/design-development.webp", alt: "Landing Page Optimization", label: "Landing Page CRO" },
+    { src: "/images/work-samples/personalization-optimization.webp", alt: "SEO & Content Strategy", label: "SEO Content Build-Out" },
+    { src: "/images/work-samples/website-strategy.webp", alt: "Mobile-Optimized Design", label: "Mobile-First Design" },
+    { src: "/images/work-samples/hubspot-setup.webp", alt: "Analytics & CRO Dashboard", label: "CRO & Analytics Setup" },
   ];
   const carouselItems = [...samples, ...samples, ...samples, ...samples];
   return (
@@ -515,10 +515,10 @@ export function DeliverablesSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/social-work-1.webp", alt: "Website wireframing and page design", span: "row-span-2" },
-    { src: "/images/work-samples/social-work-2.webp", alt: "Landing page and CRO optimization", span: "" },
-    { src: "/images/hero/social-hero.webp", alt: "SEO and content strategy", span: "" },
-    { src: "/images/work-samples/crm-work-1.webp", alt: "CRM integrations and analytics", span: "col-span-2" },
+    { src: "/images/work-samples/website-operations.webp", alt: "Website wireframing and page design", span: "row-span-2" },
+    { src: "/images/work-samples/design-development.webp", alt: "Landing page and CRO optimization", span: "" },
+    { src: "/images/work-samples/website-strategy.webp", alt: "SEO and content strategy", span: "" },
+    { src: "/images/work-samples/personalization-optimization.webp", alt: "CRM integrations and analytics", span: "col-span-2" },
   ];
 
   return (

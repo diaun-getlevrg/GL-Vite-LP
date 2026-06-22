@@ -110,9 +110,9 @@ export function ToolsWeUseSection() {
 // ─── Inline WorkSampleBentoGrid (CRM) ───
 export function WorkSampleBentoGrid() {
   const samples = [
-    { src: "/images/work-samples/crm-work-1.webp", alt: "CRM Dashboard Optimization", label: "Dashboard Optimization" },
-    { src: "/images/work-samples/crm-work-2.webp", alt: "Sales Pipeline Analytics", label: "Pipeline Analytics" },
-    { src: "/images/work-samples/crm-work-3.webp", alt: "Data Cleanup Workflow", label: "Data Cleanup Process" },
+    { src: "/images/work-samples/workflow-automation.webp", alt: "CRM Dashboard Optimization", label: "Dashboard Optimization" },
+    { src: "/images/work-samples/hubspot-setup.webp", alt: "Sales Pipeline Analytics", label: "Pipeline Analytics" },
+    { src: "/images/work-samples/reporting-pipeline.webp", alt: "Data Cleanup Workflow", label: "Data Cleanup Process" },
   ];
   const title = { before: "See Our CRM", accent: "Optimization Work", after: "" };
   const carouselItems = [...samples, ...samples, ...samples, ...samples];
@@ -701,10 +701,10 @@ export function SEOSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/crm-work-1.webp", alt: "HubSpot CRM dashboard optimization", span: "row-span-2" },
-    { src: "/images/work-samples/crm-work-2.webp", alt: "Sales pipeline configuration", span: "" },
-    { src: "/images/hero/crm-hero.webp", alt: "CRM data cleanup and enrichment", span: "" },
-    { src: "/images/work-samples/crm-work-3.webp", alt: "Revenue reporting and attribution", span: "col-span-2" },
+    { src: "/images/work-samples/workflow-automation.webp", alt: "HubSpot CRM dashboard optimization", span: "row-span-2" },
+    { src: "/images/work-samples/hubspot-setup.webp", alt: "Sales pipeline configuration", span: "" },
+    { src: "/images/work-samples/crm-data-cleanup.webp", alt: "CRM data cleanup and enrichment", span: "" },
+    { src: "/images/work-samples/reporting-pipeline.webp", alt: "Revenue reporting and attribution", span: "col-span-2" },
   ];
 
   return (

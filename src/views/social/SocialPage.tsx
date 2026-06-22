@@ -116,9 +116,9 @@ export function ToolsWeUseSection() {
 // â”€â”€â”€ Inline WorkSampleBentoGrid (Social Only) â”€â”€â”€
 export function WorkSampleBentoGrid() {
   const samples = [
-    { src: "/images/work-samples/social-work-1.webp", alt: "Content Calendar Design", label: "Content Calendar" },
-    { src: "/images/work-samples/social-work-2.webp", alt: "Social Media Post Designs", label: "Post Designs" },
-    { src: "/images/work-samples/social-work-3.webp", alt: "Engagement Analytics", label: "Engagement Analytics" },
+    { src: "/images/work-samples/multi-channel-social-media-operations-hub.webp", alt: "Multi-channel social media operations hub showing content calendar and publishing workflow", label: "Content Calendar" },
+    { src: "/images/work-samples/social-media-production-pipeline.webp", alt: "Social media production pipeline with post designs and creative assets for professional firms", label: "Post Designs" },
+    { src: "/images/work-samples/your-dedicated-social-media-department.webp", alt: "Dedicated social media department delivering engagement analytics and reporting", label: "Engagement Analytics" },
   ];
   const title = { before: "See Our Social Media", accent: "Content Work", after: "" };
   const carouselItems = [...samples, ...samples, ...samples, ...samples];
@@ -498,10 +498,10 @@ export function SEOSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/video-work-1.webp", alt: "Video editing portfolio", span: "row-span-2" },
-    { src: "/images/work-samples/video-work-2.webp", alt: "Motion graphics and reels", span: "" },
-    { src: "/images/hero/video-hero.webp", alt: "Video production workflow", span: "" },
-    { src: "/images/work-samples/video-work-3.webp", alt: "Social media video production", span: "col-span-2" },
+    { src: "/images/work-samples/multi-channel-social-media-operations-hub.webp", alt: "Multi-channel social media operations hub for professional firms", span: "row-span-2" },
+    { src: "/images/work-samples/social-media-production-pipeline.webp", alt: "Social media production pipeline and content calendar workflow", span: "" },
+    { src: "/images/work-samples/extension-of-the-client's-team.webp", alt: "Extension of the client's team — dedicated social media management support", span: "" },
+    { src: "/images/work-samples/your-dedicated-social-media-department.webp", alt: "Your dedicated social media department for B2B and professional firms", span: "col-span-2" },
   ];
 
   return (

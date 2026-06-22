@@ -163,9 +163,9 @@ interface WorkSample {
 }
 
 const videoSamples: WorkSample[] = [
-  { src: "/images/work-samples/video-work-1.webp", alt: "Video Editing Portfolio", label: "Editing Portfolio" },
-  { src: "/images/work-samples/video-work-2.webp", alt: "Motion Graphics & Reels", label: "Motion Graphics" },
-  { src: "/images/work-samples/video-work-3.webp", alt: "Editing Workflow", label: "Production Workflow" },
+  { src: "/images/work-samples/endless-stream-of-published-content.webp", alt: "Endless stream of published video content — high-volume video editing output for agencies", label: "Editing Portfolio" },
+  { src: "/images/work-samples/high-volume-social-video-editing-team.webp", alt: "High-volume social video editing team producing reels, shorts, and social content", label: "Motion Graphics" },
+  { src: "/images/work-samples/managed-video-editing-team-supporting-marketing-operations.webp", alt: "Managed video editing team supporting marketing operations and content production", label: "Production Workflow" },
 ];
 
 const videoSamplesTitle = { before: "See Our Video", accent: "Editing Work", after: "" };
@@ -821,10 +821,10 @@ export function SEOSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/video-work-1.webp", alt: "Video editing portfolio", span: "row-span-2" },
-    { src: "/images/work-samples/video-work-2.webp", alt: "Motion graphics and reels", span: "" },
-    { src: "/images/hero/video-hero.webp", alt: "Video production workflow", span: "" },
-    { src: "/images/work-samples/video-work-3.webp", alt: "Social media video production", span: "col-span-2" },
+    { src: "/images/work-samples/endless-stream-of-published-content.webp", alt: "Endless stream of published video content from a dedicated editing team", span: "row-span-2" },
+    { src: "/images/work-samples/high-volume-social-video-editing-team.webp", alt: "High-volume social video editing team delivering reels and short-form content", span: "" },
+    { src: "/images/hero/video-hero.webp", alt: "Professional video production workflow and editing studio setup", span: "" },
+    { src: "/images/work-samples/managed-video-editing-team-supporting-marketing-operations.webp", alt: "Managed video editing team supporting marketing operations and client campaigns", span: "col-span-2" },
   ];
 
   return (

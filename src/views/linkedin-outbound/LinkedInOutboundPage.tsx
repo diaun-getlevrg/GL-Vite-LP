@@ -112,11 +112,11 @@ export function ToolsWeUseSection() {
 // ─── Inline WorkSampleBentoGrid (LinkedIn & Outbound) ───
 export function WorkSampleBentoGrid() {
   const samples = [
-    { src: "/images/work-samples/crm-work-1.webp", alt: "LinkedIn Campaign Dashboard", label: "Campaign Dashboard" },
-    { src: "/images/work-samples/crm-work-2.webp", alt: "Pipeline Analytics", label: "Pipeline Analytics" },
-    { src: "/images/work-samples/social-work-1.webp", alt: "Outbound Sequence Build", label: "Sequence Build-Out" },
-    { src: "/images/work-samples/crm-work-3.webp", alt: "Lead List & Targeting", label: "ICP List Building" },
-    { src: "/images/work-samples/social-work-2.webp", alt: "Meeting Booking Report", label: "Meeting Attribution" },
+    { src: "/images/work-samples/outbound-machine.webp", alt: "LinkedIn Campaign Dashboard", label: "Campaign Dashboard" },
+    { src: "/images/work-samples/pipeline-management.webp", alt: "Pipeline Analytics", label: "Pipeline Analytics" },
+    { src: "/images/work-samples/outreach-operations.webp", alt: "Outbound Sequence Build", label: "Sequence Build-Out" },
+    { src: "/images/work-samples/prospect-intelligence.webp", alt: "Lead List & Targeting", label: "ICP List Building" },
+    { src: "/images/work-samples/outreach-operations.webp", alt: "Meeting Booking Report", label: "Meeting Attribution" },
   ];
   const carouselItems = [...samples, ...samples, ...samples, ...samples];
   return (
@@ -518,10 +518,10 @@ export function CapabilitiesSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/crm-work-1.webp", alt: "LinkedIn campaign dashboard", span: "row-span-2" },
-    { src: "/images/work-samples/crm-work-2.webp", alt: "Outbound sequence analytics", span: "" },
-    { src: "/images/hero/crm-hero.webp", alt: "Pipeline reporting", span: "" },
-    { src: "/images/work-samples/crm-work-3.webp", alt: "Lead list and ICP targeting", span: "col-span-2" },
+    { src: "/images/work-samples/outbound-machine.webp", alt: "LinkedIn campaign dashboard", span: "row-span-2" },
+    { src: "/images/work-samples/pipeline-management.webp", alt: "Outbound sequence analytics", span: "" },
+    { src: "/images/work-samples/outreach-operations.webp", alt: "Pipeline reporting", span: "" },
+    { src: "/images/work-samples/prospect-intelligence.webp", alt: "Lead list and ICP targeting", span: "col-span-2" },
   ];
 
   return (

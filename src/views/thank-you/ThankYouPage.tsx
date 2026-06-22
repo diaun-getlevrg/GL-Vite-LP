@@ -6,10 +6,6 @@ import {
   Clock,
   Mail,
   CalendarDays,
-  Video,
-  Share2,
-  Database,
-  Users,
   Star,
   Quote,
   ChevronLeft,
@@ -21,196 +17,6 @@ import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { PageShell } from "@/components/layout/PageShell";
 import { ServiceCapabilities } from "@/components/shared/ServiceCapabilities";
-
-/* ════════════════════════════════════════════════════════════════════════════
-   SERVICE-SPECIFIC CONFIG
-   ════════════════════════════════════════════════════════════════════════════ */
-
-type ServiceType = "video-editing" | "social-media" | "crm" | "fractional-marketing-team";
-
-interface ServiceConfig {
-  label: string;
-  icon: React.ElementType;
-  videoTitle: string;
-  videoSubtitle: string;
-  rightColumnTitle: string;
-  rightColumnDescription: string;
-  rightColumnBullets: string[];
-  testimonials: {
-    quote: string;
-    name: string;
-    initials: string;
-    title: string;
-    company: string;
-  }[];
-}
-
-const serviceConfigs: Record<ServiceType, ServiceConfig> = {
-  "video-editing": {
-    label: "Video Editing",
-    icon: Video,
-    videoTitle: "Watch the 90-Second Overview",
-    videoSubtitle: "Video Editing  What Happens Next",
-    rightColumnTitle: "What Happens on the Call",
-    rightColumnDescription:
-      "This isn't a sales pitch. It's a 15-minute discovery conversation where we learn about your video needs and build a custom plan around them.",
-    rightColumnBullets: [
-      "We'll assess your current video workflow and identify bottlenecks",
-      "You'll get a custom team plan tailored to your content goals",
-      "We'll share honest pricing  no surprises, no hidden fees",
-      "Your dedicated video team can be live within 14 days of sign-off",
-    ],
-    testimonials: [
-      {
-        quote:
-          "We added video as a service line without hiring a single editor. Our margins went up 40% on video projects in the first quarter.",
-        name: "Miles Kaiburn",
-        initials: "MK",
-        title: "CEO",
-        company: "Old Town Media",
-      },
-      {
-        quote:
-          "The quality is indistinguishable from our in-house team. Our clients never know the difference, and our margins have never been better.",
-        name: "Brendan Taylor",
-        initials: "BT",
-        title: "CEO",
-        company: "Maverick VFX",
-      },
-      {
-        quote:
-          "Onboarding took 3 days, not 3 months. Our first deliverables were client-ready by the end of week one.",
-        name: "David Park",
-        initials: "DP",
-        title: "Founder",
-        company: "Northstar Digital",
-      },
-    ],
-  },
-  "social-media": {
-    label: "Social Media",
-    icon: Share2,
-    videoTitle: "Watch the 90-Second Overview",
-    videoSubtitle: "Social Media  What Happens Next",
-    rightColumnTitle: "What Happens on the Call",
-    rightColumnDescription:
-      "This isn't a sales pitch. It's a 15-minute discovery conversation where we learn about your firm's visibility goals and build a content strategy around them.",
-    rightColumnBullets: [
-      "We'll assess your current social media presence and gaps",
-      "You'll get a custom content calendar tailored to your firm",
-      "We'll share honest pricing  no surprises, no hidden fees",
-      "Your first posts can go live within 14 days of sign-off",
-    ],
-    testimonials: [
-      {
-        quote:
-          "Our LinkedIn presence went from nonexistent to the most visible firm in our market. Not one partner had to write a post.",
-        name: "Sarah Thompson",
-        initials: "ST",
-        title: "Partner",
-        company: "Thompson & Associates CPAs",
-      },
-      {
-        quote:
-          "We tried having one partner post occasionally. Never happened. Now we have consistent content that actually sounds like us.",
-        name: "Michael Chen",
-        initials: "MC",
-        title: "Managing Partner",
-        company: "Chen Employment Law",
-      },
-      {
-        quote:
-          "Financial advisory is relationship-driven. Their team understands our compliance requirements and creates posts that build trust without crossing lines.",
-        name: "David Rodriguez",
-        initials: "DR",
-        title: "Wealth Advisor",
-        company: "Rodriguez Financial Group",
-      },
-    ],
-  },
-  crm: {
-    label: "CRM Optimization",
-    icon: Database,
-    videoTitle: "Watch the 90-Second Overview",
-    videoSubtitle: "CRM Optimization  What Happens Next",
-    rightColumnTitle: "What Happens on the Call",
-    rightColumnDescription:
-      "This isn't a sales pitch. It's a 15-minute discovery conversation where we learn about your CRM challenges and build a custom optimization plan.",
-    rightColumnBullets: [
-      "We'll assess your current HubSpot setup and identify what's broken",
-      "You'll get a custom audit plan with prioritized fixes",
-      "We'll share honest pricing  no surprises, no hidden fees",
-      "Your CRM can go from chaos to fully operational within 14 days",
-    ],
-    testimonials: [
-      {
-        quote:
-          "We thought we needed to upgrade our HubSpot tier. Turns out, we just needed someone to actually set it up properly. We went from 20% utilization to using 90% of features.",
-        name: "VP Revenue Operations",
-        initials: "VP",
-        title: "VP RevOps",
-        company: "Series A SaaS ($15M ARR)",
-      },
-      {
-        quote:
-          "10% total employee costs cut. Our CRM finally drives revenue instead of just storing data.",
-        name: "Steven Riskey",
-        initials: "SR",
-        title: "CEO",
-        company: "Strop Insights",
-      },
-      {
-        quote:
-          "The audit found $840K in opportunities we didn't know existed. That alone paid for a year of service in week one.",
-        name: "Operations Lead",
-        initials: "OL",
-        title: "Operations Lead",
-        company: "B2B SaaS ($8M ARR)",
-      },
-    ],
-  },
-  "fractional-marketing-team": {
-    label: "Fractional Marketing Team",
-    icon: Users,
-    videoTitle: "Watch the 90-Second Overview",
-    videoSubtitle: "Fractional Team What Happens Next",
-    rightColumnTitle: "What Happens on the Call",
-    rightColumnDescription:
-      "This isn't a sales pitch. It's a 15-minute discovery conversation where we learn about your execution needs and build a custom team plan around them.",
-    rightColumnBullets: [
-      "We'll assess your current team structure and identify execution gaps",
-      "You'll get a custom team plan tailored to your growth priorities",
-      "We'll share honest pricing no surprises, no hidden fees",
-      "Your full execution team can be live within 7 days of sign-off",
-    ],
-    testimonials: [
-      {
-        quote:
-          "We started on Wednesday and they were delivering by Monday. The speed is unlike anything we've experienced with any other vendor or hire. It just works.",
-        name: "Thomas Buchanan",
-        initials: "TB",
-        title: "CRO",
-        company: "Sales Tempo",
-      },
-      {
-        quote:
-          "Get Levrg is able to get us right in front of our top-tier ICP. The targeting, the content, the outreach it's all coordinated in a way our internal team couldn't pull off alone.",
-        name: "Marché Kaanehe",
-        initials: "MK",
-        title: "Manager of Product Marketing",
-        company: "Cengage Group",
-      },
-      {
-        quote:
-          "Communication with Get Levrg has been very reliable. They show up every week, hit their deliverables, and flag issues before they become problems. That consistency alone is worth it.",
-        name: "Jay Francis",
-        initials: "JF",
-        title: "Marketing Coordinator",
-        company: "Oxford Medical Simulation Inc.",
-      },
-    ],
-  },
-};
 
 /* ════════════════════════════════════════════════════════════════════════════
    HUBSPOT CALENDAR EMBED
@@ -248,21 +54,10 @@ function HubSpotCalendar() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   GET SERVICE FROM HASH
-   ════════════════════════════════════════════════════════════════════════════ */
-
-function getServiceFromHash(): ServiceType {
-  if (typeof window === "undefined") return "crm";
-  const hash = window.location.hash;
-  const params = new URLSearchParams(hash.split("?")[1] || "");
-  return (params.get("service") || "crm") as ServiceType;
-}
-
-/* ════════════════════════════════════════════════════════════════════════════
    1. THANK YOU BANNER
    ════════════════════════════════════════════════════════════════════════════ */
 
-function ThankYouBanner({ config }: { config: ServiceConfig }) {
+function ThankYouBanner() {
   return (
     <section className="relative overflow-hidden bg-white border-b border-gray-100">
       <div className="absolute inset-0 pointer-events-none select-none">
@@ -299,9 +94,7 @@ function ThankYouBanner({ config }: { config: ServiceConfig }) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-body sm:text-sub text-gray-500 leading-relaxed"
           >
-            We received your {config.label.toLowerCase()} request and will get
-            back to you soon. In the meantime, book a convenient time below to
-            receive your personalized call.
+            We received your inquiry and will get back to you soon. If you&apos;d like to move things forward faster, book a convenient time below to connect with our team.
           </motion.p>
         </div>
       </div>
@@ -313,13 +106,14 @@ function ThankYouBanner({ config }: { config: ServiceConfig }) {
    2. CALENDAR + VIDEO  Two-column layout
    ════════════════════════════════════════════════════════════════════════════ */
 
-function VideoEmbed({
-  config,
-  ServiceIcon,
-}: {
-  config: ServiceConfig;
-  ServiceIcon: React.ElementType;
-}) {
+const CALL_BULLETS = [
+  "Discuss your current situation and goals",
+  "Identify opportunities for improvement and efficiency",
+  "Share relevant recommendations and insights",
+  "Outline possible next steps based on your needs",
+];
+
+function VideoEmbed() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoId = "jj7srGIWk08";
 
@@ -348,11 +142,10 @@ function VideoEmbed({
             </div>
             <div className="text-center">
               <p className="text-body font-bold text-white drop-shadow mb-0.5">
-                {config.videoTitle}
+                Watch the 90-Second Overview
               </p>
-              <p className="text-sm-body text-white/80 flex items-center justify-center gap-1.5 drop-shadow">
-                <ServiceIcon className="h-3.5 w-3.5" />
-                {config.videoSubtitle}
+              <p className="text-sm-body text-white/80 drop-shadow">
+                What Happens Next
               </p>
             </div>
           </div>
@@ -362,13 +155,7 @@ function VideoEmbed({
   );
 }
 
-function CalendarAndVideoSection({
-  config,
-  ServiceIcon,
-}: {
-  config: ServiceConfig;
-  ServiceIcon: React.ElementType;
-}) {
+function CalendarAndVideoSection() {
   return (
     <section className="relative bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
@@ -384,7 +171,7 @@ function CalendarAndVideoSection({
               <div className="px-5 py-4 border-b border-gray-100 bg-white">
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-spark-50 flex items-center justify-center shrink-0">
-                    <CalendarDays className="h-4.5 w-4.5 text-spark-600" />
+                    <CalendarDays className="h-4 w-4 text-spark-600" />
                   </div>
                   <div>
                     <h3 className="text-sub font-bold text-gray-900">
@@ -419,17 +206,17 @@ function CalendarAndVideoSection({
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-2 space-y-6"
           >
-            <VideoEmbed config={config} ServiceIcon={ServiceIcon} />
+            <VideoEmbed />
 
             <div className="rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm">
               <h3 className="text-sub font-bold text-gray-900 mb-3">
-                {config.rightColumnTitle}
+                What Happens on the Call
               </h3>
               <p className="text-sm-body text-gray-600 mb-5 leading-relaxed">
-                {config.rightColumnDescription}
+                We&apos;ll spend a few minutes learning about your business, understanding your objectives, and exploring the best way to support your growth.
               </p>
               <ul className="space-y-3">
-                {config.rightColumnBullets.map((bullet, i) => (
+                {CALL_BULLETS.map((bullet, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="mt-1 h-5 w-5 rounded-full bg-spark-100 flex items-center justify-center shrink-0">
                       <CheckCircle className="h-3 w-3 text-spark-600" />
@@ -465,30 +252,53 @@ function CalendarAndVideoSection({
    3. TESTIMONIALS (carousel)
    ════════════════════════════════════════════════════════════════════════════ */
 
-function TestimonialsSection({ config }: { config: ServiceConfig }) {
-  const testimonials = config.testimonials;
+const TESTIMONIALS = [
+  {
+    quote: "We started on Wednesday and they were delivering by Monday. The speed is unlike anything we've experienced with any other vendor or hire. It just works.",
+    name: "Thomas Buchanan",
+    initials: "TB",
+    title: "CRO",
+    company: "Sales Tempo",
+  },
+  {
+    quote: "Get Levrg is able to get us right in front of our top-tier ICP. The targeting, the content, the outreach — it's all coordinated in a way our internal team couldn't pull off alone.",
+    name: "Marché Kaanehe",
+    initials: "MK",
+    title: "Manager of Product Marketing",
+    company: "Cengage Group",
+  },
+  {
+    quote: "Communication with Get Levrg has been very reliable. They show up every week, hit their deliverables, and flag issues before they become problems. That consistency alone is worth it.",
+    name: "Jay Francis",
+    initials: "JF",
+    title: "Marketing Coordinator",
+    company: "Oxford Medical Simulation Inc.",
+  },
+];
+
+function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setDirection(1);
-      setCurrent((prev) => (prev + 1) % testimonials.length);
+      setCurrent((prev) => (prev + 1) % TESTIMONIALS.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [testimonials.length]);
+  }, []);
 
   const goNext = () => {
     setDirection(1);
-    setCurrent((prev) => (prev + 1) % testimonials.length);
+    setCurrent((prev) => (prev + 1) % TESTIMONIALS.length);
   };
 
   const goPrev = () => {
     setDirection(-1);
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrent((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
   };
 
-  const t = testimonials[current];
+  const t = TESTIMONIALS[current];
 
   const slideVariants = {
     enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
@@ -561,7 +371,7 @@ function TestimonialsSection({ config }: { config: ServiceConfig }) {
           </div>
 
           <div className="flex items-center justify-center gap-2 mt-6">
-            {testimonials.map((_, i) => (
+            {TESTIMONIALS.map((_, i) => (
               <button
                 key={i}
                 onClick={() => {
@@ -585,13 +395,7 @@ function TestimonialsSection({ config }: { config: ServiceConfig }) {
    4. FINAL CTA
    ════════════════════════════════════════════════════════════════════════════ */
 
-function FinalCTASection({
-  config,
-  ServiceIcon,
-}: {
-  config: ServiceConfig;
-  ServiceIcon: React.ElementType;
-}) {
+function FinalCTASection() {
   const scrollToCalendar = () => {
     const el = document.querySelector(".meetings-iframe-container");
     if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -604,17 +408,11 @@ function FinalCTASection({
           <div className="relative rounded-2xl border border-spark-200 bg-white shadow-sm overflow-hidden">
             <div className="h-1 bg-gradient-to-r from-spark-400 via-spark-500 to-spark-600" />
             <div className="px-6 sm:px-10 py-10 sm:py-14 text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-spark-50 mb-6">
-                <ServiceIcon className="h-6 w-6 text-spark-600" />
-              </div>
               <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
-                Ready to Get Your{" "}
-                <span className="text-[#51B027]">{config.label} Breakdown?</span>
+                Ready to <span className="text-[#51B027]">Get Started?</span>
               </h2>
               <p className="text-body text-gray-500 max-w-xl mx-auto mb-8 leading-relaxed">
-                Your custom breakdown is just one call away. Book a 15-minute
-                discovery call and we&apos;ll deliver something tailored  not a
-                template.
+                Book a 15-minute discovery call and we&apos;ll put together a custom plan tailored to your business — not a template.
               </p>
               <Button
                 variant="ghost"
@@ -637,26 +435,6 @@ function FinalCTASection({
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   PAGE CONTENT
-   ════════════════════════════════════════════════════════════════════════════ */
-
-function ThankYouPageContent() {
-  const [serviceType] = useState<ServiceType>(() => getServiceFromHash());
-  const config = serviceConfigs[serviceType] || serviceConfigs.crm;
-  const ServiceIcon = config.icon;
-
-  return (
-    <div className="relative">
-      <ThankYouBanner config={config} />
-      <CalendarAndVideoSection config={config} ServiceIcon={ServiceIcon} />
-      <ServiceCapabilities />
-      <TestimonialsSection config={config} />
-      <FinalCTASection config={config} ServiceIcon={ServiceIcon} />
-    </div>
-  );
-}
-
-/* ════════════════════════════════════════════════════════════════════════════
    EXPORT
    ════════════════════════════════════════════════════════════════════════════ */
 
@@ -667,15 +445,19 @@ export function ThankYouPage() {
       ctaTarget="#calendar"
       showCapabilities={false}
       meta={{
-        title: "Thank You Book Your Discovery Call | Get Levrg",
+        title: "Thank You — Book Your Discovery Call | Get Levrg",
         description:
-          "Book your free 15-minute discovery call. We'll build a custom plan for your video editing, social media, or CRM needs no pitch deck, no commitment.",
+          "Book your free 15-minute discovery call. We'll learn about your business and outline the best way to support your growth. No pitch deck, no commitment.",
         ogTitle: "Book Your Discovery Call | Get Levrg",
         ogDescription:
           "15 minutes. Custom plan. No pitch deck. No commitment.",
       }}
     >
-      <ThankYouPageContent />
+      <ThankYouBanner />
+      <CalendarAndVideoSection />
+      <ServiceCapabilities />
+      <TestimonialsSection />
+      <FinalCTASection />
     </PageShell>
   );
 }
