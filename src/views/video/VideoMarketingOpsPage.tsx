@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, Zap, TrendingUp, Shield, Star, CalendarDays, Lock, Mail,
-  BarChart2, Film, Video, Sparkles, Palette,
-  AlertTriangle, UserX,
-  CheckCircle, DollarSign, UserCheck, Users,
+  LayoutGrid, Film, Video, Sparkles, Palette,
+  AlertTriangle, ClipboardList, UserX, Users,
+  UserCheck, RefreshCw, CheckCircle, Clock,
   Trophy, MessageCircle, Rocket,
   Quote, ChevronLeft, ChevronRight,
   Phone,
@@ -28,7 +28,6 @@ import {
   ToolsWeUseSection,
   WorkSampleBentoGrid,
   ComparisonSection,
-  HowItWorksSection,
 } from "./VideoPage";
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -49,7 +48,7 @@ function HeroSection() {
     >
       <div className="absolute inset-0">
         <img
-          src="/images/hero/video-vp-marketing-hero.webp"
+          src="/images/hero/video-marketing-ops-hero.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           fetchPriority="high"
@@ -81,10 +80,10 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-h1 sm:text-display lg:text-display-sm text-white mb-6"
             >
-              Scale Video Output
+              Stop Managing Editors
               <br />
               <span className="text-[#51B027]">
-                Without Hiring Editors
+                Start Shipping Content
               </span>
             </motion.h1>
 
@@ -94,19 +93,19 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-body sm:text-sub text-gray-300 max-w-2xl mb-8"
             >
-              Get a dedicated video editing team that handles your entire post-production pipeline from raw footage to polished, multi-platform content at a fraction of the cost of in-house editors.
+              A dedicated video team and project manager handle your backlog end to end, so your content calendar stops depending on who you can find this week.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10"
+              className="flex flex-wrap items-center gap-3 sm:gap-4"
             >
               {[
                 { icon: Zap, text: "Launch in 7 Days" },
-                { icon: CalendarDays, text: "48-Hour Standard Turnaround" },
-                { icon: TrendingUp, text: "80% Cost Savings" },
+                { icon: UserCheck, text: "Dedicated PM, Zero Management" },
+                { icon: TrendingUp, text: "Up to 80% Less Than In-House" },
               ].map((m, i) => {
                 const Icon = m.icon;
                 return (
@@ -120,42 +119,15 @@ function HeroSection() {
                 );
               })}
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="relative p-5 sm:p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm max-w-2xl"
-            >
-              <div className="flex items-center gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 text-spark-500 fill-spark-500" />
-                ))}
-                <span className="ml-2 text-caption text-spark-300">Power Testimonial</span>
-              </div>
-              <p className="text-sm-body sm:text-body text-gray-200 italic mb-3">
-                &ldquo;We went from publishing one product video a quarter to four per month. Clients have no idea the editing isn&apos;t in-house. This single service line generates{" "}
-                <span className="text-spark-400 font-semibold not-italic">$12K monthly recurring</span>.&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">MK</span>
-                </div>
-                <div>
-                  <p className="text-sm-body font-semibold text-white">Miles Kaiburn</p>
-                  <p className="text-xs text-gray-400">CEO | Old Town Media</p>
-                </div>
-              </div>
-            </motion.div>
           </div>
 
           <HeroFormIntro animation={<VideoAnimation config={{
-            headerIcon: BarChart2,
-            headerTitle: "Marketing Production",
+            headerIcon: LayoutGrid,
+            headerTitle: "Content Ops",
             stats: [
-              { icon: Film, label: "Campaign Videos", value: "8/mo", delay: 0.5, accent: "bg-sky-50 border-sky-200", iconColor: "text-sky-500", valueColor: "text-sky-700" },
-              { icon: Video, label: "Social Content", value: "20/mo", delay: 0.8, accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", valueColor: "text-[#51B027]" },
-              { icon: Sparkles, label: "Brand Assets", value: "6/mo", delay: 1.1, accent: "bg-teal-50 border-teal-200", iconColor: "text-teal-500", valueColor: "text-teal-700" },
+              { icon: Film, label: "Reels & Shorts", value: "16/mo", delay: 0.5, accent: "bg-sky-50 border-sky-200", iconColor: "text-sky-500", valueColor: "text-sky-700" },
+              { icon: Video, label: "Long-Form", value: "4/mo", delay: 0.8, accent: "bg-spark-50 border-spark-200", iconColor: "text-spark-600", valueColor: "text-[#51B027]" },
+              { icon: Sparkles, label: "Motion Graphics", value: "6/mo", delay: 1.1, accent: "bg-teal-50 border-teal-200", iconColor: "text-teal-500", valueColor: "text-teal-700" },
               { icon: Palette, label: "Ad Creatives", value: "8/mo", delay: 1.4, accent: "bg-amber-50 border-amber-200", iconColor: "text-amber-500", valueColor: "text-amber-700" },
             ],
           }} />}>
@@ -221,25 +193,25 @@ function HeroSection() {
 function ProblemSection() {
   const problems = [
     {
-      icon: Video,
-      title: "The Capacity Trap",
-      headline: "Video Demand Is Outpacing Your Team",
-      body: "Every channel on your plan now expects video, and it’s the most requested, least resourced format on the calendar.",
-      painPoint: "Every hour spent on coordination is an hour NOT spent on strategy or delivering results.",
+      icon: ClipboardList,
+      title: "The Backlog Trap",
+      headline: "The Backlog Never Clears",
+      body: "Requests pile up faster than your team or your freelancers can turn them around.",
+      painPoint: "Every unpublished asset is a campaign that's already late.",
     },
     {
       icon: UserX,
-      title: "The Hiring Nightmare",
-      headline: "In-House Hiring Doesn’t Pencil Out",
-      body: "A full-time editor runs $6,500+/month before benefits and a 90-day ramp. That’s budget committed before you see one deliverable.",
-      painPoint: "That’s $20K+ spent before your first real deliverable.",
+      title: "The Freelancer Problem",
+      headline: "Freelancers Aren't a System",
+      body: "Missed deadlines. Inconsistent quality. A different style every time.",
+      painPoint: "You're doing quality control on top of your actual job.",
     },
     {
-      icon: AlertTriangle,
-      title: "The Freelancer Problem",
-      headline: "Freelancer Coordination Is Its Own Overhead",
-      body: "Managing five different freelancers for consistency becomes a part-time job for someone already stretched.",
-      painPoint: "You didn’t become a marketing leader to become a freelance project manager.",
+      icon: Users,
+      title: "The Hiring Gap",
+      headline: "Hiring Doesn't Fix It Either",
+      body: "A full-time editor takes months to hire and ramp.",
+      painPoint: "Your backlog can't wait that long.",
     },
   ];
 
@@ -248,8 +220,8 @@ function ProblemSection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900 max-w-3xl mx-auto">
-            You&apos;re Facing the Same Bottleneck{" "}
-            <span className="text-[#51B027]"><br />35+ B2B Companies Already Solved</span>
+            You&apos;re Facing the Same Bottleneck That{" "}
+            <span className="text-[#51B027]"><br />35+ B2B Marketing Teams Already Solved</span>
           </h2>
         </AnimatedSection>
 
@@ -290,24 +262,24 @@ function ProblemSection() {
 function SolutionSection() {
   const differentiators = [
     {
-      icon: Users,
-      title: "Fixed Capability, Not Fixed Headcount",
-      desc: "Add editing capacity without adding a line to the org chart.",
+      icon: UserCheck,
+      title: "Single Point of Contact",
+      desc: "A dedicated PM owns your brief, deadlines, and quality checks.",
     },
     {
       icon: Zap,
       title: "Live in 7 Days",
-      desc: "Talent matched and onboarded in a week, not a quarter.",
+      desc: "Talent matched to your content type within 24 hours. First deliverables by day 7.",
     },
     {
-      icon: UserCheck,
-      title: "One Owner, Full Accountability",
-      desc: "A dedicated PM runs briefs, quality, and delivery, so output doesn’t depend on any single person’s calendar.",
+      icon: RefreshCw,
+      title: "Recurring Volume",
+      desc: "A workflow designed for weekly/monthly output, not one-off requests.",
     },
     {
-      icon: DollarSign,
-      title: "Cost Predictability",
-      desc: "One monthly rate replaces salary, benefits, and the hidden cost of a bad freelancer hire.",
+      icon: CheckCircle,
+      title: "You Approve, We Execute",
+      desc: "You review and sign off. We handle briefing, editing, and revisions.",
     },
   ];
 
@@ -324,7 +296,7 @@ function SolutionSection() {
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            We match you with pre-vetted video editors who understand the pace and standards of a marketing department. Your dedicated PM manages the workflow, deadlines, and quality checks so your team can publish more without managing more.
+            We match you with a dedicated video editor who has B2B content experience, then manage the workflow, deadlines, and quality checks, so you get reliable output without adding another person to manage.
           </p>
         </AnimatedSection>
 
@@ -360,7 +332,7 @@ function SEOSection() {
     "B2B product demo videos",
     "Social media video production",
     "Motion graphics and branded video assets",
-    "In-house team augmentation for marketing departments",
+    "Ongoing video editing support built around your publishing calendar",
   ];
 
   const bentoImages = [
@@ -375,14 +347,14 @@ function SEOSection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-6">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-5">
-            Video Editing Services Built for <br />
-            <span className="text-[#51B027]">Marketing Departments</span>
+            Video Editing Services Built for Marketing Teams <br />
+            <span className="text-[#51B027]">That Need Consistent Output</span>
           </h2>
         </AnimatedSection>
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            Get Levrg gives you a professional video team that can support:
+            Need more videos without adding another full-time hire? Get Levrg gives you a managed video editing team that supports recurring content production across social, YouTube, paid media, and internal campaigns.
           </p>
         </AnimatedSection>
       </div>
@@ -390,6 +362,12 @@ function SEOSection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div>
+            <AnimatedSection className="mb-8" delay={0.2}>
+              <p className="text-body text-gray-600">
+                Get Levrg gives you a professional video team that can support:
+              </p>
+            </AnimatedSection>
+
             <StaggerContainer className="space-y-3" staggerDelay={0.06}>
               {capabilities.map((cap, i) => (
                 <StaggerItem key={i}>
@@ -439,9 +417,9 @@ function SEOSection() {
 
 function ROISection() {
   const stats = [
-    { value: "80%", label: "Lower Cost Per Video" },
-    { value: "2–15", label: "Videos a Month, Zero New Headcount" },
-    { value: "2×", label: "Demo Request Rate" },
+    { value: "4-day", label: "Average Turnaround" },
+    { value: "2–15", label: "Videos a Month, No New Hires" },
+    { value: "35+", label: "B2B Teams Across North America and Europe" },
   ];
 
   return (
@@ -471,11 +449,131 @@ function ROISection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
+   6. HOW IT WORKS SECTION (local — "Day 5-7" instead of "Day 7")
+   ════════════════════════════════════════════════════════════════════════════ */
+
+function HowItWorksSection() {
+  const steps = [
+    {
+      icon: ClipboardList,
+      title: "Submit Your Brief",
+      timeline: "Day 1",
+      desc: "10 minutes is all it takes. Share your requirements, brand guidelines, and content goals.",
+    },
+    {
+      icon: Users,
+      title: "Meet Your Team",
+      timeline: "Day 2-3",
+      desc: "Intro call with your dedicated PM. Workflow setup, tool access, and communication channels configured.",
+    },
+    {
+      icon: CheckCircle,
+      title: "First Deliverables",
+      timeline: "Day 5-7",
+      desc: "Brand-compliant edits delivered. Revision rounds included. Production-grade quality from day one.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Scale On Your Terms",
+      timeline: "Week 2+",
+      desc: "Monthly flexibility. Scale up for big campaigns or down during slow periods. No penalties.",
+    },
+  ];
+
+  return (
+    <section id="process" className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Live in One Week{" "}
+            <span className="text-[#51B027]">Not One Quarter</span>
+          </h2>
+        </AnimatedSection>
+
+        {/* Desktop: horizontal flow */}
+        <div className="hidden lg:flex items-start justify-between gap-0 items-stretch">
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <React.Fragment key={i}>
+                <div className="flex-1 min-w-0">
+                  <div className="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-300 group h-full">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {i + 1}
+                      </div>
+                      <div className="w-8 h-8 rounded-lg bg-spark-50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="h-4 w-4 text-spark-600" />
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
+                        <Clock className="h-2.5 w-2.5" />
+                        {step.timeline}
+                      </span>
+                    </div>
+                    <h3 className="text-body font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-sl text-gray-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+                {i < steps.length - 1 && (
+                  <div className="flex items-center px-1 pt-8">
+                    <ArrowRight className="h-5 w-5 text-spark-300 shrink-0" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+
+        {/* Mobile/Tablet: vertical stack */}
+        <div className="lg:hidden space-y-4">
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <React.Fragment key={i}>
+                <AnimatedSection direction="up" delay={i * 0.08}>
+                  <div className="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-300 group">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {i + 1}
+                      </div>
+                      <div className="w-8 h-8 rounded-lg bg-spark-50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="h-4 w-4 text-spark-600" />
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
+                        <Clock className="h-2.5 w-2.5" />
+                        {step.timeline}
+                      </span>
+                    </div>
+                    <h3 className="text-body font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-sl text-gray-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </AnimatedSection>
+                {i < steps.length - 1 && (
+                  <div className="flex justify-center py-1">
+                    <ArrowRight className="h-5 w-5 text-spark-300 rotate-90" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
    7. TESTIMONIALS SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
 function TestimonialsSection() {
   const testimonials = [
+    {
+      quote: "We went from 2 videos a month to 15 without adding anyone to the team. The ROI is absurd.",
+      name: "VP Marketing",
+      title: "Mid-Market B2B Company",
+      initials: "VM",
+    },
     {
       quote: "We went from publishing one product video a quarter to four per month. Our demo request rate doubled.",
       name: "Head of Marketing",
@@ -483,16 +581,10 @@ function TestimonialsSection() {
       initials: "HM",
     },
     {
-      quote: "We publish a weekly video from each practice area now. Client inquiries from our website are up 35%.",
-      name: "Chief Marketing Officer",
-      title: "Regional Law Firm",
-      initials: "CM",
-    },
-    {
-      quote: "We went from publishing one product video a quarter to four per month. Clients have no idea the editing isn’t in-house. This single service line generates $12K monthly recurring.",
-      name: "Miles Kaiburn",
-      title: "CEO · Old Town Media",
-      initials: "MK",
+      quote: "Our managing partners went from invisible online to regularly getting inbound from their LinkedIn videos.",
+      name: "Head of Marketing",
+      title: "Management Consulting Firm",
+      initials: "MC",
     },
   ];
 
@@ -530,7 +622,7 @@ function TestimonialsSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Companies That Don&apos;t{" "}
+            Teams That Don&apos;t{" "}
             <span className="text-[#51B027]">Look Back</span>
           </h2>
         </AnimatedSection>
@@ -617,7 +709,7 @@ function WhyChooseUsSection() {
     {
       icon: Trophy,
       title: "Proven Track Record",
-      desc: "35+ B2B companies trust us with their video output. We’ve delivered thousands of edits with a 98% satisfaction rate.",
+      desc: "35+ B2B teams trust us with their video output. We've delivered thousands of edits with a 98% satisfaction rate.",
     },
     {
       icon: MessageCircle,
@@ -675,27 +767,27 @@ function FAQSection() {
   const faqs = [
     {
       q: "How fast can my video editing team be up and running?",
-      a: "Most teams can start within 7 days.",
+      a: "Most teams can start within 7 days. We use the first few days to understand your brand, content goals, editing style, review process, and publishing needs. From there, your project manager sets up the workflow and starts moving the first deliverables through production.",
     },
     {
       q: "What types of videos can your team edit?",
-      a: "Short-form social videos, YouTube videos, podcast clips, product demos, B2B explainers, promotional videos, motion graphics, thumbnails.",
+      a: "We support short-form social videos, YouTube videos, podcast clips, product demos, B2B explainers, promotional videos, motion graphics, thumbnails, and recurring social video content.",
     },
     {
       q: "Is this the same as hiring a freelance video editor?",
-      a: "No. A freelancer gives you one person to manage. Get Levrg gives you a managed video editing service with vetted editors, project management, and quality checks.",
+      a: "No. A freelancer usually gives you one person to manage. Get Levrg gives you a managed video editing service with vetted editors, project management, quality checks, and backup capacity.",
     },
     {
-      q: "Does this replace our in-house team?",
-      a: "It extends it. Most marketing teams use us for overflow and recurring production so in-house staff can stay focused on strategy.",
+      q: "Does this replace or support our in-house team?",
+      a: "It supports it. Most teams use us to clear overflow and recurring requests so their in-house team can focus on strategy and higher-priority projects, not to replace the team itself.",
     },
     {
       q: "How do you keep videos on-brand?",
-      a: "We start with your brand guidelines, examples, editing preferences, and feedback loops.",
+      a: "We start with your brand guidelines, examples, editing preferences, and feedback loops. Your dedicated project manager keeps those standards documented, so each new edit becomes easier to brief, review, and approve.",
     },
     {
       q: "Can I scale video output up or down?",
-      a: "Yes, based on campaign volume and monthly production needs.",
+      a: "Yes. The team can scale based on campaign volume, client demand, and monthly production needs.",
     },
   ];
 
@@ -763,10 +855,10 @@ function FinalCTASection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <AnimatedSection>
           <h2 className="text-h2 sm:text-h1 text-white mb-6">
-            Ready to See What We Can Do Together?
+            Ready to Clear Your Backlog?
           </h2>
           <p className="text-body text-spark-200 max-w-2xl mx-auto mb-10">
-            Your dedicated video editing team is one form away. Get custom pricing and a proposed team structure in 24 hours.
+            Get custom pricing and a proposed team structure in 24 hours.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
@@ -796,10 +888,10 @@ function FinalCTASection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   EXPORT: VideoVPMarketingPage
+   EXPORT: VideoMarketingOpsPage
    ════════════════════════════════════════════════════════════════════════════ */
 
-export function VideoVPMarketingPage() {
+export function VideoMarketingOpsPage() {
   return (
     <PageShell
       navItems={[
@@ -811,11 +903,11 @@ export function VideoVPMarketingPage() {
       ctaText="See How It Works"
       ctaTarget="#lead-form"
       meta={{
-        title: "Scale Video Output for Marketing Teams | Get Levrg",
-        description: "Scale video production without hiring in-house editors. Dedicated post-production team for marketing teams — raw footage to polished multi-platform content.",
-        keywords: "scale video production, video editing for marketing teams, outsourced video post-production",
-        ogTitle: "Scale Video Output for Marketing Teams | Get Levrg",
-        ogDescription: "Scale video output without hiring editors. Dedicated post-production team for marketing.",
+        title: "Stop Managing Editors — Start Shipping Content | Get Levrg",
+        description: "A dedicated video editing team and project manager handle your backlog end to end. Launch in 7 days, up to 80% less than in-house.",
+        keywords: "video editing for marketing teams, marketing ops video editing, dedicated video editor for marketing",
+        ogTitle: "Stop Managing Editors — Start Shipping Content | Get Levrg",
+        ogDescription: "Dedicated video team and PM handle your backlog end to end. Launch in 7 days.",
       }}
     >
       <HeroSection />

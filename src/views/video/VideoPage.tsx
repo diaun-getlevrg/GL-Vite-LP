@@ -937,7 +937,7 @@ export function ROISection() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
           {stats.map((stat, i) => (
             <StaggerItem key={i}>
-              <div className="p-8 rounded-xl border border-gray-100 bg-white text-center group hover:shadow-lg transition-shadow duration-300">
+              <div className="h-full p-8 rounded-xl border border-gray-100 bg-white text-center group hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center">
                 <div className="text-h1 sm:text-h2 lg:text-display-sm text-[#51B027] mb-4">
                   {stat.value}
                 </div>
