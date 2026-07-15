@@ -82,9 +82,13 @@ function HeroSection() {
                 &ldquo;We were too busy doing client work to build our own brand. That changed completely. Our consultants are now recognized as thought leaders, and the inbound speaks for itself.&rdquo;
               </p>
               <div className="flex items-center gap-3 pl-8">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">PM</span>
-                </div>
+                <img
+                  src="/images/client/jay-francis.webp"
+                  alt="Patricia Martinez"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-white">Patricia Martinez</p>
                   <p className="text-xs text-gray-400">Founder | Martinez Organizational Development</p>
@@ -126,11 +130,6 @@ function HeroSection() {
                   Get Your Social Media Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" /> No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" /> No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" /> Cancel anytime</span>
-                </div>
               </form>
             </div>
           </HeroFormIntro>

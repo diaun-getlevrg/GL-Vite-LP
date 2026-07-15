@@ -256,21 +256,21 @@ const TESTIMONIALS = [
   {
     quote: "We started on Wednesday and they were delivering by Monday. The speed is unlike anything we've experienced with any other vendor or hire. It just works.",
     name: "Thomas Buchanan",
-    initials: "TB",
+    image: "/images/client/thomas-buchanan.webp",
     title: "CRO",
     company: "Sales Tempo",
   },
   {
     quote: "Get Levrg is able to get us right in front of our top-tier ICP. The targeting, the content, the outreach — it's all coordinated in a way our internal team couldn't pull off alone.",
     name: "Marché Kaanehe",
-    initials: "MK",
+    image: "/images/client/marche-kaanehe.webp",
     title: "Manager of Product Marketing",
     company: "Cengage Group",
   },
   {
     quote: "Communication with Get Levrg has been very reliable. They show up every week, hit their deliverables, and flag issues before they become problems. That consistency alone is worth it.",
     name: "Jay Francis",
-    initials: "JF",
+    image: "/images/client/jay-francis.webp",
     title: "Marketing Coordinator",
     company: "Oxford Medical Simulation Inc.",
   },
@@ -357,9 +357,13 @@ function TestimonialsSection() {
                 </div>
                 <div className="pt-5 border-t border-gray-200">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-spark-100 flex items-center justify-center">
-                      <span className="text-sl font-bold text-spark-700">{t.initials}</span>
-                    </div>
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
                     <div>
                       <p className="text-sm-body font-semibold text-gray-900">{t.name}</p>
                       <p className="text-sl text-gray-500">{t.title} &middot; {t.company}</p>

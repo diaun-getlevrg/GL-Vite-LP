@@ -19,8 +19,6 @@ import {
   CalendarDays,
   Quote,
   Phone,
-  Lock,
-  Mail,
   ChevronLeft,
   ChevronRight,
   Check,
@@ -43,6 +41,7 @@ import {
 } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem, CountUp } from "@/components/shared/AnimatedSection";
 import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
+import { FaqSchema } from "@/components/shared/FaqSchema";
 import { PageShell } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -297,9 +296,13 @@ function HeroSection() {
                 <span className="text-spark-400 font-semibold not-italic">cut our operational cost by 60%</span>.&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">TB</span>
-                </div>
+                <img
+                  src="/images/client/thomas-buchanan.webp"
+                  alt="Thomas Buchanan"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-white">Thomas Buchanan</p>
                   <p className="text-xs text-gray-400">CRO | Sales Tempo</p>
@@ -341,11 +344,6 @@ function HeroSection() {
                   Get Your Fractional Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" />No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" />No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" />Cancel anytime</span>
-                </div>
               </form>
             </div>
           </HeroFormIntro>
@@ -1152,6 +1150,7 @@ function TestimonialsSection() {
     {
       quote: "We started on Wednesday and they were delivering by Monday. The speed is unlike anything we've experienced with any other vendor or hire. It just works.",
       name: "Thomas Buchanan",
+      image: "/images/client/thomas-buchanan.webp",
       title: "CRO",
       company: "Sales Tempo",
       metric: "Full team live in 4 days",
@@ -1159,6 +1158,7 @@ function TestimonialsSection() {
     {
       quote: "Get Levrg is able to get us right in front of our top-tier ICP. The targeting, the content, the outreach it's all coordinated in a way our internal team couldn't pull off alone.",
       name: "Marché Kaanehe",
+      image: "/images/client/marche-kaanehe.webp",
       title: "Manager of Product Marketing",
       company: "Cengage Group",
       metric: "Pipeline quality improved significantly",
@@ -1166,6 +1166,7 @@ function TestimonialsSection() {
     {
       quote: "Communication with Get Levrg has been very reliable. They show up every week, hit their deliverables, and flag issues before they become problems. That consistency alone is worth it.",
       name: "Jay Francis",
+      image: "/images/client/jay-francis.webp",
       title: "Marketing Coordinator",
       company: "Oxford Medical Simulation Inc.",
       metric: "Zero missed deliverables",
@@ -1173,6 +1174,7 @@ function TestimonialsSection() {
     {
       quote: "We were paying one senior person to do the work of six. With Get Levrg, we have six specialists doing six jobs for less than we were paying that one person. The math is undeniable.",
       name: "Sarah Mitchell",
+      image: "/images/client/phil-wittmer.webp",
       title: "VP of Marketing",
       company: "B2B SaaS, $12M ARR",
       metric: "60% cost reduction",
@@ -1180,6 +1182,7 @@ function TestimonialsSection() {
     {
       quote: "I was skeptical at first. Six months in, I can honestly say these are some of the most professional, responsive, and skilled operators I've ever worked with. They feel internal.",
       name: "Derek Okafor",
+      image: "/images/client/sean-kelly.webp",
       title: "Founder",
       company: "Growth Stage Agency",
       metric: "6 months, zero turnover",
@@ -1252,9 +1255,13 @@ function TestimonialsSection() {
                 </div>
                 <div className="pt-5 border-t border-gray-200">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-spark-100 flex items-center justify-center">
-                      <span className="text-sl font-bold text-spark-700">{t.name.split(" ").map((n: string) => n[0]).join("")}</span>
-                    </div>
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
                     <div>
                       <p className="text-sm-body font-semibold text-gray-900">{t.name}</p>
                       <p className="text-sl text-gray-500">{t.title} &middot; {t.company}</p>
@@ -1362,11 +1369,6 @@ function MidPageCTASection() {
                   Get Your Fractional Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" />No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" />No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" />Cancel anytime</span>
-                </div>
               </form>
             </div>
           </AnimatedSection>
@@ -1473,11 +1475,11 @@ function FAQSection() {
 
   return (
     <section className="py-16 sm:py-24 bg-white">
+      <FaqSchema faqs={faqs} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Common{" "}
-            <span className="text-[#51B027]">Questions Answered</span>
+            Frequently Asked <span className="text-[#51B027]">Questions</span>
           </h2>
         </AnimatedSection>
 

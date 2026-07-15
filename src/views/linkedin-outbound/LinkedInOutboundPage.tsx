@@ -16,8 +16,6 @@ import {
   X,
   Clock,
   Phone,
-  Mail,
-  Lock,
   Shield,
   Quote,
   ChevronLeft,
@@ -45,6 +43,7 @@ import {
 } from "@/components/ui/accordion";
 import { AnimatedSection, StaggerContainer, StaggerItem, CountUp } from "@/components/shared/AnimatedSection";
 import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
+import { FaqSchema } from "@/components/shared/FaqSchema";
 import { PageShell } from "@/components/layout/PageShell";
 
 
@@ -111,43 +110,8 @@ export function ToolsWeUseSection() {
 
 // ─── Inline WorkSampleBentoGrid (LinkedIn & Outbound) ───
 export function WorkSampleBentoGrid() {
-  const samples = [
-    { src: "/images/work-samples/outbound-machine.webp", alt: "LinkedIn Campaign Dashboard", label: "Campaign Dashboard" },
-    { src: "/images/work-samples/pipeline-management.webp", alt: "Pipeline Analytics", label: "Pipeline Analytics" },
-    { src: "/images/work-samples/outreach-operations.webp", alt: "Outbound Sequence Build", label: "Sequence Build-Out" },
-    { src: "/images/work-samples/prospect-intelligence.webp", alt: "Lead List & Targeting", label: "ICP List Building" },
-    { src: "/images/work-samples/outreach-operations.webp", alt: "Meeting Booking Report", label: "Meeting Attribution" },
-  ];
-  const carouselItems = [...samples, ...samples, ...samples, ...samples];
-  return (
-    <section className="py-16 sm:py-24 bg-white">
-      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">See Our LinkedIn &amp; Outbound <span className="text-[#51B027]">Campaign Work</span></h2>
-          <p className="text-body text-gray-500 max-w-xl mx-auto">Real campaigns. Real pipeline Here&apos;s a glimpse of what we build and deliver</p>
-        </AnimatedSection>
-      </div>
-      <div className="relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-        <div className="flex w-max animate-marquee-left-slow will-change-transform">
-          {[...carouselItems, ...carouselItems].map((sample, i) => (
-            <div key={i} className="flex-shrink-0 mx-3 sm:mx-4 w-[320px] sm:w-[400px] lg:w-[480px] group">
-              <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                <div className="relative h-[220px] sm:h-[260px] lg:h-[300px]">
-                  <img src={sample.src} alt={sample.alt} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/90 backdrop-blur-sm text-sm-body font-semibold text-gray-900">{sample.label}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  // "Real results" title/subtitle + carousel removed from all pages.
+  return null;
 }
 
 // ─── Inline HeroFormIntro (LinkedIn & Outbound) ───
@@ -291,9 +255,13 @@ function HeroSection() {
                 &ldquo;We had zero outbound motion. Within 60 days of launching with Get Levrg we had 23 qualified meetings booked and $1.2M in new pipeline opportunities. This is the most predictable pipeline we&apos;ve ever had.&rdquo;
               </p>
               <div className="flex items-center gap-3 pl-8">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">VP</span>
-                </div>
+                <img
+                  src="/images/client/shaina-cahill-phd.webp"
+                  alt="VP of Sales"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-white">VP of Sales</p>
                   <p className="text-xs text-gray-400">B2B SaaS Company ($4M ARR)</p>
@@ -335,11 +303,6 @@ function HeroSection() {
                   Get My Free Outbound Audit
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" /> No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" /> No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" /> Cancel anytime</span>
-                </div>
               </form>
             </div>
           </HeroFormIntro>
@@ -856,6 +819,7 @@ export function TestimonialsSection() {
     {
       quote: "We were purely referral-dependent for 11 years. In 90 days with Get Levrg we had a systematic outbound motion generating 18 qualified meetings a month. We've added four new clients directly from outbound something we never thought possible as a CPA firm.",
       name: "David Kowalski",
+      image: "/images/client/sean-kelly.webp",
       title: "Managing Partner",
       firm: "Accounting Firm, 14 partners",
       metric: "18 meetings/month from zero",
@@ -863,6 +827,7 @@ export function TestimonialsSection() {
     {
       quote: "LinkedIn outreach for a law firm felt impossible compliance, reputation, all of it. Get Levrg built us a sequence that's professional, compliant, and actually gets responses. We booked 11 discovery calls in the first 30 days without a single partner writing a message.",
       name: "Priya Nair",
+      image: "/images/client/shahrokh-sheikh.webp",
       title: "Partner",
       firm: "Commercial Litigation Practice",
       metric: "11 discovery calls, month one",
@@ -870,6 +835,7 @@ export function TestimonialsSection() {
     {
       quote: "As a staffing firm, sourcing candidates and reaching clients at the same time was always a bandwidth problem. Get Levrg runs two separate outbound tracks one for client acquisition, one for candidate pipeline. Both running simultaneously, zero extra headcount.",
       name: "James Whitfield",
+      image: "/images/client/shaina-cahill-phd.webp",
       title: "CEO",
       firm: "B2B Staffing & Talent Agency",
       metric: "Dual-track campaigns, 2x output",
@@ -877,6 +843,7 @@ export function TestimonialsSection() {
     {
       quote: "Our VP of Sales was spending 25 hours a week on LinkedIn. That stopped in week two. Now Get Levrg runs the entire outbound operation, she reviews the report on Fridays, and meetings appear in the calendar. It's the best leverage we've ever had.",
       name: "Natalie Cruz",
+      image: "/images/client/ivan-ong.webp",
       title: "COO",
       firm: "B2B SaaS, $8M ARR",
       metric: "25 hrs/week saved for VP Sales",
@@ -884,6 +851,7 @@ export function TestimonialsSection() {
     {
       quote: "We're an IT managed services firm competing against 30 other providers in our region. Outbound is the only way to break through the noise before RFP season. Get Levrg targeted the exact personas we wanted, and we went from 3 new opportunities a quarter to 14.",
       name: "Carlos Mendez",
+      image: "/images/client/jeff-klaumann.webp",
       title: "Director of Business Development",
       firm: "Managed IT Services, Regional",
       metric: "3 → 14 new opportunities/quarter",
@@ -942,9 +910,13 @@ export function TestimonialsSection() {
                 )}
                 <div className="pt-5 border-t border-gray-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-spark-100 flex items-center justify-center">
-                      <span className="text-sl font-bold text-spark-700">{t.name.split(" ").map((n: string) => n[0]).join("")}</span>
-                    </div>
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
                     <div>
                       <p className="text-sm-body font-semibold text-gray-900">{t.name}</p>
                       <p className="text-sl text-gray-500">{t.title} &middot; {t.firm}</p>
@@ -1033,6 +1005,7 @@ export function FAQSection() {
 
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
+      <FaqSchema faqs={faqs} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">

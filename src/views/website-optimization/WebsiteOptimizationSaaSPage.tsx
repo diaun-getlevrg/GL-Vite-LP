@@ -82,9 +82,13 @@ function HeroSection() {
                 &ldquo;We went from page 5 on Google to position 2 for our main keyword in 8 weeks. Inbound leads tripled without spending an extra dollar on ads.&rdquo;
               </p>
               <div className="flex items-center gap-3 pl-8">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">CM</span>
-                </div>
+                <img
+                  src="/images/client/ivan-ong.webp"
+                  alt="Chief Marketing Officer"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-white">Chief Marketing Officer</p>
                   <p className="text-xs text-gray-400">B2B SaaS Platform ($12M ARR)</p>
@@ -126,11 +130,6 @@ function HeroSection() {
                   Get My Free Website Audit
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" /> No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" /> No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" /> Cancel anytime</span>
-                </div>
               </form>
             </div>
           </HeroFormIntro>

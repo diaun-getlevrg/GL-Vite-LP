@@ -13,6 +13,7 @@ import {
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
 import { PageShell } from "@/components/layout/PageShell";
 import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
+import { FaqSchema } from "@/components/shared/FaqSchema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -136,9 +137,6 @@ function HeroSection() {
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">
                   Claim Free Custom Pricing
                 </h3>
-                <p className="text-sm-body text-gray-500">
-                  Custom pricing + team structure in 24 hours. Zero obligation.
-                </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
@@ -171,11 +169,6 @@ function HeroSection() {
                   Get Your Video Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" />No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" />No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" />Cancel anytime</span>
-                </div>
               </form>
             </div>
           </HeroFormIntro>
@@ -258,7 +251,7 @@ function SolutionSection() {
     {
       icon: Zap,
       title: "Live in 14 Days",
-      desc: "We onboard in the first week and have your workflow producing by the second; once you're running, turnaround is 48 hours.",
+      desc: "We onboard in the first week and have your workflow producing by the second; once you're running, turnaround time is 48 hours.",
     },
     {
       icon: RefreshCw,
@@ -285,7 +278,7 @@ function SolutionSection() {
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            Our team already has the editors: people with real B2B content experience who own the workflow, the deadlines, and the quality checks. You will get reliable output without putting one more person on your plate to manage.
+            Our team already has the editors: people with real B2B content experience who own the workflow, the deadlines, and the quality checks.<br /> You will get reliable output without putting one more person on your plate to manage.
           </p>
         </AnimatedSection>
 
@@ -325,10 +318,10 @@ function SEOSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/endless-stream-of-published-content.webp", alt: "Endless stream of published video content from a dedicated editing team", span: "row-span-2" },
+    { src: "/images/work-samples/socialvideo.webp", alt: "Endless stream of published video content from a dedicated editing team", span: "row-span-2" },
     { src: "/images/work-samples/high-volume-social-video-editing-team.webp", alt: "High-volume social video editing team delivering reels and short-form content", span: "" },
-    { src: "/images/hero/video-hero.webp", alt: "Professional video production workflow and editing studio setup", span: "" },
-    { src: "/images/work-samples/managed-video-editing-team-supporting-marketing-operations.webp", alt: "Managed video editing team supporting marketing operations and client campaigns", span: "col-span-2" },
+    { src: "/images/work-samples/podcast.webp", alt: "Professional video production workflow and editing studio setup", span: "" },
+    { src: "/images/work-samples/shots.webp", alt: "Managed video editing team supporting marketing operations and client campaigns", span: "col-span-2" },
   ];
 
   return (
@@ -343,7 +336,7 @@ function SEOSection() {
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            Need more videos without adding another full-time hire? Get Levrg gives you a managed video editing team that supports recurring content production across social, YouTube, paid media, and internal campaigns.
+             Get Levrg gives you a managed video editing team that supports recurring content production across social, YouTube, paid media, and internal campaigns.
           </p>
         </AnimatedSection>
       </div>
@@ -368,11 +361,7 @@ function SEOSection() {
               ))}
             </StaggerContainer>
 
-            <AnimatedSection className="mt-8" delay={0.2}>
-              <p className="text-body text-gray-600">
-                You bring the content goals. We bring the editors, workflow, project management, and production rhythm to keep publishing consistent.
-              </p>
-            </AnimatedSection>
+
           </div>
 
           <AnimatedSection delay={0.15} direction="left">
@@ -406,9 +395,9 @@ function SEOSection() {
 
 function ROISection() {
   const stats = [
-    { value: "4-day", label: "Average Turnaround" },
+    { value: "In 7 Days", label: "Publish Ready Content" },
     { value: "2 → 15", label: "Videos a Month, No New Hires" },
-    { value: "40+", label: "B2Bs Across North America" },
+    { value: "40+", label: "Trusted by B2Bs Across North America" },
   ];
 
   return (
@@ -554,19 +543,19 @@ function TestimonialsSection() {
       quote: "We went from 2 videos a month to 15 without adding anyone to the team. The ROI is absurd.",
       name: "VP Marketing",
       title: "Mid-Market B2B Company",
-      initials: "VM",
+      image: "/images/client/grace-feeney.webp",
     },
     {
       quote: "We went from publishing one product video a quarter to four per month. Our demo request rate doubled.",
       name: "Head of Marketing",
       title: "Series B SaaS",
-      initials: "HM",
+      image: "/images/client/ivan-ong.webp",
     },
     {
       quote: "Our managing partners went from invisible online to regularly getting inbound from their LinkedIn videos.",
       name: "Head of Marketing",
       title: "Management Consulting Firm",
-      initials: "MC",
+      image: "/images/client/james-mcgrath.webp",
     },
   ];
 
@@ -648,9 +637,13 @@ function TestimonialsSection() {
                 </div>
                 <div className="pt-5 border-t border-gray-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-spark-100 flex items-center justify-center">
-                      <span className="text-sl font-bold text-spark-700">{t.initials}</span>
-                    </div>
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
                     <div>
                       <p className="text-sm-body font-semibold text-gray-900">{t.name}</p>
                       <p className="text-sl text-gray-500">{t.title}</p>
@@ -701,7 +694,7 @@ function WhyChooseUsSection() {
     {
       icon: UserCheck,
       title: "Vetted Talent Only",
-      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check. We hire less than 1% of applicants.",
+      desc: "Every editor passes a portfolio review, a skills test, and an English fluency check. We hire under 1% of applicants, so their skill is never something you have to worry about.",
     },
     {
       icon: Rocket,
@@ -778,11 +771,11 @@ function FAQSection() {
 
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
+      <FaqSchema faqs={faqs} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Common{" "}
-            <span className="text-[#51B027]">Questions</span>
+            Frequently Asked <span className="text-[#51B027]">Questions</span>
           </h2>
         </AnimatedSection>
 

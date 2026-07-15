@@ -140,9 +140,13 @@ function HeroSection() {
                 <span className="text-spark-400 font-semibold not-italic">$12K monthly recurring</span>.&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">MK</span>
-                </div>
+                <img
+                  src="/images/client/miles-kaiburn.webp"
+                  alt="Miles Kaiburn"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-white">Miles Kaiburn</p>
                   <p className="text-xs text-gray-400">CEO | Old Town Media</p>
@@ -167,9 +171,6 @@ function HeroSection() {
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">
                   Claim Free Custom Pricing
                 </h3>
-                <p className="text-sm-body text-gray-500">
-                  Custom pricing + team structure in 24 hours. Zero obligation.
-                </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
@@ -202,11 +203,6 @@ function HeroSection() {
                   Get Your White-Label Video Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" />No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" />No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" />Cancel anytime</span>
-                </div>
               </form>
             </div>
           </HeroFormIntro>

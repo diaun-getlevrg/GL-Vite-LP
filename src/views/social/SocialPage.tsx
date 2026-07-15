@@ -20,7 +20,6 @@ import {
   Quote,
   Briefcase,
   Building2,
-  Shield,
   XCircle,
   Clock,
   Smartphone,
@@ -28,8 +27,6 @@ import {
   ChevronLeft,
   ChevronRight,
   CheckCircle,
-  Lock,
-  Mail,
   Check,
   MessageCircle,
   Heart,
@@ -48,6 +45,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { AnimatedSection, StaggerContainer, StaggerItem, CountUp } from "@/components/shared/AnimatedSection";
 import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
+import { FaqSchema } from "@/components/shared/FaqSchema";
 import { PageShell } from "@/components/layout/PageShell";
 
 
@@ -115,42 +113,8 @@ export function ToolsWeUseSection() {
 
 // â”€â”€â”€ Inline WorkSampleBentoGrid (Social Only) â”€â”€â”€
 export function WorkSampleBentoGrid() {
-  const samples = [
-    { src: "/images/work-samples/multi-channel-social-media-operations-hub.webp", alt: "Multi-channel social media operations hub showing content calendar and publishing workflow", label: "Content Calendar" },
-    { src: "/images/work-samples/social-media-production-pipeline.webp", alt: "Social media production pipeline with post designs and creative assets for professional firms", label: "Post Designs" },
-    { src: "/images/work-samples/your-dedicated-social-media-department.webp", alt: "Dedicated social media department delivering engagement analytics and reporting", label: "Engagement Analytics" },
-  ];
-  const title = { before: "See Our Social Media", accent: "Content Work", after: "" };
-  const carouselItems = [...samples, ...samples, ...samples, ...samples];
-  return (
-    <section className="py-16 sm:py-24 bg-white">
-      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">{title.before} <span className="text-[#51B027]">{title.accent}</span>{title.after ? ` ${title.after}` : ""}</h2>
-          <p className="text-body text-gray-500 max-w-xl mx-auto">Real results from real clients. Here&apos;s a glimpse of what we deliver.</p>
-        </AnimatedSection>
-      </div>
-      <div className="relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-        <div className="flex w-max animate-marquee-left-slow will-change-transform">
-          {[...carouselItems, ...carouselItems].map((sample, i) => (
-            <div key={i} className="flex-shrink-0 mx-3 sm:mx-4 w-[320px] sm:w-[400px] lg:w-[480px] group">
-              <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                <div className="relative h-[220px] sm:h-[260px] lg:h-[300px]">
-                  <img src={sample.src} alt={sample.alt} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/90 backdrop-blur-sm text-sm-body font-semibold text-gray-900">{sample.label}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  // "Real results" title/subtitle + carousel removed from all pages.
+  return null;
 }
 
 // â”€â”€â”€ Inline HeroFormIntro (Social Only) â”€â”€â”€
@@ -298,9 +262,13 @@ function HeroSection() {
                 &ldquo;Our LinkedIn presence went from invisible to the most visible firm in our market. Not one partner had to write a post. We&apos;re getting inquiries from businesses who&apos;ve been following our content for months.&rdquo;
               </p>
               <div className="flex items-center gap-3 pl-8">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">MP</span>
-                </div>
+                <img
+                  src="/images/client/marche-kaanehe.webp"
+                  alt="Managing Partner"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-white">Managing Partner</p>
                   <p className="text-xs text-gray-400">Regional CPA Firm (8 Employees)</p>
@@ -342,11 +310,6 @@ function HeroSection() {
                   Get Your Social Media Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" /> No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" /> No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" /> Cancel anytime</span>
-                </div>
               </form>
             </div>
           </HeroFormIntro>
@@ -864,6 +827,7 @@ export function TestimonialsSection() {
     {
       quote: "Our LinkedIn presence went from nonexistent to the most visible firm in our market. Not one partner had to write a post. We're getting inquiries from businesses who've been following our content for months.",
       name: "Sarah Thompson",
+      image: "/images/client/kim-hubbs.webp",
       title: "Partner",
       firm: "Thompson & Associates CPAs",
       size: "6 partners",
@@ -871,6 +835,7 @@ export function TestimonialsSection() {
     {
       quote: "We tried having one partner post occasionally. Never happened. Now we have consistent content that actually sounds like us. Our employment law expertise is finally visible to the people who need it.",
       name: "Michael Chen",
+      image: "/images/client/leslie-heller.webp",
       title: "Managing Partner",
       firm: "Chen Employment Law",
       size: "8-person firm",
@@ -878,6 +843,7 @@ export function TestimonialsSection() {
     {
       quote: "We were too busy doing client work to build our own brand. That changed completely. Our consultants are now recognized as thought leaders in organizational development, and the inbound speaks for itself.",
       name: "Patricia Martinez",
+      image: "/images/client/madalina-zaharia.webp",
       title: "Founder",
       firm: "Martinez Organizational Development",
       size: "5 consultants",
@@ -885,6 +851,7 @@ export function TestimonialsSection() {
     {
       quote: "Financial advisory is relationship-driven. But how do you start relationships before the first meeting? Content. Their team understands our compliance requirements and creates posts that build trust without crossing lines.",
       name: "David Rodriguez",
+      image: "/images/client/paul-de-la-garza.webp",
       title: "Wealth Advisor",
       firm: "Rodriguez Financial Group",
       size: "4 advisors",
@@ -892,6 +859,7 @@ export function TestimonialsSection() {
     {
       quote: "I was skeptical that anyone could capture our firm's voice. After reviewing the first batch of posts, I was convinced. Our authority positioning on LinkedIn has directly led to new client engagements.",
       name: "Jennifer Walsh",
+      image: "/images/client/phil-wittmer.webp",
       title: "Senior Partner",
       firm: "Walsh & Associates Law",
       size: "12 attorneys",
@@ -951,9 +919,13 @@ export function TestimonialsSection() {
                 <p className="text-sub sm:text-h3 text-gray-700 italic mb-6">&ldquo;{t.quote}&rdquo;</p>
                 <div className="pt-5 border-t border-gray-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-spark-100 flex items-center justify-center">
-                      <span className="text-sl font-bold text-spark-700">{t.name.split(" ").map((n: string) => n[0]).join("")}</span>
-                    </div>
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
                     <div>
                       <p className="text-sm-body font-semibold text-gray-900">{t.name}</p>
                       <p className="text-sl text-gray-500">{t.title} &middot; {t.size}</p>
@@ -1042,6 +1014,7 @@ export function FAQSection() {
 
   return (
     <section className="py-16 sm:py-24 bg-white">
+      <FaqSchema faqs={faqs} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">

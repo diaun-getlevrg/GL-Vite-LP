@@ -13,6 +13,7 @@ import {
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
 import { PageShell } from "@/components/layout/PageShell";
 import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
+import { FaqSchema } from "@/components/shared/FaqSchema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -145,9 +146,13 @@ function HeroSection() {
                 &ldquo;Straightforward, outstanding communication, exactly how I prefer to work.&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">JM</span>
-                </div>
+                <img
+                  src="/images/client/joseph-p-meyer.webp"
+                  alt="Joseph P. Meyer"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-white">Joseph P. Meyer</p>
                   <p className="text-xs text-gray-400">Founder &amp; CEO | DigitalVisor</p>
@@ -171,9 +176,6 @@ function HeroSection() {
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">
                   Claim Free Custom Pricing
                 </h3>
-                <p className="text-sm-body text-gray-500">
-                  Custom pricing + team structure in 24 hours. Zero obligation.
-                </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
@@ -206,11 +208,6 @@ function HeroSection() {
                   Get Pricing
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" />No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" />No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" />Cancel anytime</span>
-                </div>
               </form>
             </div>
           </HeroFormIntro>
@@ -331,7 +328,7 @@ function SolutionSection() {
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            We match you with a dedicated video editor who learns your brand once, then manage the workflow, deadlines, and quality checks, so your content keeps shipping without you touching every step.
+            Our team already has the editors: people with real B2B content experience who own the workflow, the deadlines, and the quality checks. You will get reliable output without putting one more person on your plate to manage.
           </p>
         </AnimatedSection>
 
@@ -371,10 +368,10 @@ function SEOSection() {
   ];
 
   const bentoImages = [
-    { src: "/images/work-samples/endless-stream-of-published-content.webp", alt: "Endless stream of published video content from a dedicated editing team", span: "row-span-2" },
+    { src: "/images/work-samples/socialvideo.webp", alt: "Endless stream of published video content from a dedicated editing team", span: "row-span-2" },
     { src: "/images/work-samples/high-volume-social-video-editing-team.webp", alt: "High-volume social video editing team delivering reels and short-form content", span: "" },
-    { src: "/images/hero/video-hero.webp", alt: "Professional video production workflow and editing studio setup", span: "" },
-    { src: "/images/work-samples/managed-video-editing-team-supporting-marketing-operations.webp", alt: "Managed video editing team supporting marketing operations and client campaigns", span: "col-span-2" },
+    { src: "/images/work-samples/podcast.webp", alt: "Professional video production workflow and editing studio setup", span: "" },
+    { src: "/images/work-samples/shots.webp", alt: "Managed video editing team supporting marketing operations and client campaigns", span: "col-span-2" },
   ];
 
   return (
@@ -594,19 +591,19 @@ function TestimonialsSection() {
       quote: "Levrg feels like part of our team, seamless, reliable, and essential for scaling.",
       name: "Sara Murray",
       title: "CEO · Sara Murray Inc.",
-      initials: "SM",
+      image: "/images/client/sara-murray.webp",
     },
     {
       quote: "A wave of sharp, strategic responses, executed flawlessly by Get Levrg.",
       name: "Jennifer King",
       title: "Co-founder & CEO · DeStor RevOps",
-      initials: "JK",
+      image: "/images/client/shahrokh-sheikh.webp",
     },
     {
       quote: "Get Levrg lets us scale outreach and iterate fast, without the need to build in-house.",
       name: "Aaron Levenstadt",
       title: "Founder · Agency Alliance",
-      initials: "AL",
+      image: "/images/client/shaina-cahill-phd.webp",
     },
   ];
 
@@ -688,9 +685,13 @@ function TestimonialsSection() {
                 </div>
                 <div className="pt-5 border-t border-gray-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-spark-100 flex items-center justify-center">
-                      <span className="text-sl font-bold text-spark-700">{t.initials}</span>
-                    </div>
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
                     <div>
                       <p className="text-sm-body font-semibold text-gray-900">{t.name}</p>
                       <p className="text-sl text-gray-500">{t.title}</p>
@@ -731,22 +732,22 @@ function WhyChooseUsSection() {
     {
       icon: Trophy,
       title: "Proven Track Record",
-      desc: "40+ B2B companies trust us with their video output. We've delivered videos with a 98% satisfaction and 99% on-time publish rate.",
+      desc: "40+ B2B companies trust us with their video output. We've delivered ready to publish videos with a 98% satisfaction rate.",
     },
     {
       icon: MessageCircle,
       title: "Direct Communication",
-      desc: "Your dedicated PM is a Slack message away. No ticket queues, no offshore call centers, real humans, real time.",
+      desc: "No juggling five freelancers. Your PM is a Slack message away, so your team never waits on ticket queues or offshore call centers; a real person solves it in real time.",
     },
     {
       icon: UserCheck,
       title: "Vetted Talent Only",
-      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check. We hire less than 1% of applicants.",
+      desc: "Every editor passes a portfolio review, a skills test, and an English fluency check. We hire under 1% of applicants, so their skill is never something you have to worry about.",
     },
     {
       icon: Rocket,
       title: "Built for Scale",
-      desc: "Start with one editor. Scale to a full team, same workflow, same PM, same quality.",
+      desc: "As your video starts performing, you'll want more of it. Add editors and expand your team on demand; same PM, same workflow, same quality, just more output.",
     },
   ];
 
@@ -818,11 +819,11 @@ function FAQSection() {
 
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
+      <FaqSchema faqs={faqs} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Common{" "}
-            <span className="text-[#51B027]">Questions</span>
+            Frequently Asked <span className="text-[#51B027]">Questions</span>
           </h2>
         </AnimatedSection>
 

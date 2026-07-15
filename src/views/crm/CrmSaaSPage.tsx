@@ -82,9 +82,13 @@ function HeroSection() {
                 &ldquo;We thought we needed to upgrade our HubSpot tier. Turned out we just needed someone to actually set it up properly.&rdquo;
               </p>
               <div className="flex items-center gap-3 pl-8">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">VP</span>
-                </div>
+                <img
+                  src="/images/client/jeff-klaumann.webp"
+                  alt="VP Revenue Operations"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-white">VP Revenue Operations</p>
                   <p className="text-xs text-gray-400">Series A SaaS</p>
@@ -126,11 +130,6 @@ function HeroSection() {
                   Get Your HubSpot Audit
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <div className="flex items-center justify-center gap-4 pt-1">
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Lock className="h-3 w-3" /> No contracts</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Mail className="h-3 w-3" /> No spam</span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-400"><Shield className="h-3 w-3" /> Cancel anytime</span>
-                </div>
               </form>
             </div>
           </HeroFormIntro>

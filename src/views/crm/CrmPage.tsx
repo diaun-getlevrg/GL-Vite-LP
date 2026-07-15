@@ -24,8 +24,6 @@ import {
   Clock,
   Layers,
   Phone,
-  Mail,
-  Lock,
   Quote,
   ChevronLeft,
   ChevronRight,
@@ -43,6 +41,7 @@ import {
 } from "@/components/ui/accordion";
 import { AnimatedSection, StaggerContainer, StaggerItem, CountUp } from "@/components/shared/AnimatedSection";
 import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
+import { FaqSchema } from "@/components/shared/FaqSchema";
 import { PageShell } from "@/components/layout/PageShell";
 
 // ─── Inline ToolsWeUseSection (CRM) ───
@@ -109,42 +108,8 @@ export function ToolsWeUseSection() {
 
 // ─── Inline WorkSampleBentoGrid (CRM) ───
 export function WorkSampleBentoGrid() {
-  const samples = [
-    { src: "/images/work-samples/workflow-automation.webp", alt: "CRM Dashboard Optimization", label: "Dashboard Optimization" },
-    { src: "/images/work-samples/hubspot-setup.webp", alt: "Sales Pipeline Analytics", label: "Pipeline Analytics" },
-    { src: "/images/work-samples/reporting-pipeline.webp", alt: "Data Cleanup Workflow", label: "Data Cleanup Process" },
-  ];
-  const title = { before: "See Our CRM", accent: "Optimization Work", after: "" };
-  const carouselItems = [...samples, ...samples, ...samples, ...samples];
-  return (
-    <section className="py-16 sm:py-24 bg-white">
-      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">{title.before} <span className="text-[#51B027]">{title.accent}</span>{title.after ? ` ${title.after}` : ""}</h2>
-          <p className="text-body text-gray-500 max-w-xl mx-auto">Real results from real clients. Here&apos;s a glimpse of what we deliver.</p>
-        </AnimatedSection>
-      </div>
-      <div className="relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-        <div className="flex w-max animate-marquee-left-slow will-change-transform">
-          {[...carouselItems, ...carouselItems].map((sample, i) => (
-            <div key={i} className="flex-shrink-0 mx-3 sm:mx-4 w-[320px] sm:w-[400px] lg:w-[480px] group">
-              <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-gray-50 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                <div className="relative h-[220px] sm:h-[260px] lg:h-[300px]">
-                  <img src={sample.src} alt={sample.alt} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/90 backdrop-blur-sm text-sm-body font-semibold text-gray-900">{sample.label}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  // "Real results" title/subtitle + carousel removed from all pages.
+  return null;
 }
 
 // ─── Inline HeroFormIntro (CRM) ───
@@ -361,9 +326,13 @@ function HeroSection() {
                 20% utilization to using 90% of features.&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">VP</span>
-                </div>
+                <img
+                  src="/images/client/jay-francis.webp"
+                  alt="VP Revenue Operations"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-9 h-9 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-white">
                     VP Revenue Operations
@@ -459,20 +428,6 @@ function HeroSection() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
 
-                  <div className="flex items-center justify-center gap-4 pt-1">
-                    <span className="flex items-center gap-1.5 text-xs text-gray-400">
-                      <Lock className="h-3 w-3" />
-                      No contracts
-                    </span>
-                    <span className="flex items-center gap-1.5 text-xs text-gray-400">
-                      <Mail className="h-3 w-3" />
-                      No spam
-                    </span>
-                    <span className="flex items-center gap-1.5 text-xs text-gray-400">
-                      <Shield className="h-3 w-3" />
-                      Cancel anytime
-                    </span>
-                  </div>
                 </form>
             </div>
           </HeroFormIntro>
@@ -1247,6 +1202,7 @@ const bentoTestimonials = [
     quote:
       "We found $1.2M in hidden pipeline within the first week of the audit. Deals that had been sitting in 'closed-lost' for 18 months were actually still active  our reps just stopped tracking them. That discovery alone paid for five years of service.",
     name: "Rachel Morrison",
+    image: "/images/client/aizat-paharodzi.webp",
     title: "VP of Sales",
     company: "SaaS Company, $20M ARR",
     metric: "$1.2M pipeline found",
@@ -1256,6 +1212,7 @@ const bentoTestimonials = [
     quote:
       "Our data was so bad that marketing couldn't trust a single list. After the cleanup, our email deliverability jumped 40% and we finally stopped sending to bounced addresses. Clean data is the foundation everything else is built on.",
     name: "Kevin Tran",
+    image: "/images/client/danny-bermant.webp",
     title: "Revenue Operations Manager",
     company: "B2B SaaS, $12M ARR",
     metric: "40% deliverability boost",
@@ -1265,6 +1222,7 @@ const bentoTestimonials = [
     quote:
       "Forecasting went from 'let me check my spreadsheet' to 'here's the real number' in two weeks. Our board meetings are completely different now  we actually trust the data we're presenting.",
     name: "Priya Sharma",
+    image: "/images/client/grace-feeney.webp",
     title: "CEO",
     company: "Fintech Startup, Series A",
     metric: "87% forecast accuracy",
@@ -1274,6 +1232,7 @@ const bentoTestimonials = [
     quote:
       "New reps used to take 6 weeks to get productive. Now they're closing deals in 2.5 weeks because the CRM actually guides them through the process instead of being a blank form they have to figure out.",
     name: "Tom Henderson",
+    image: "/images/client/ivan-ong.webp",
     title: "Sales Director",
     company: "Enterprise SaaS, 45 reps",
     metric: "60% faster ramp",
@@ -1283,6 +1242,7 @@ const bentoTestimonials = [
     quote:
       "We were budgeting $95K for a RevOps hire. Instead, we got a full team that started delivering in 14 days  no 6-month ramp, no benefits, no single point of failure. Better results at a third of the cost.",
     name: "Jennifer Park",
+    image: "/images/client/james-mcgrath.webp",
     title: "COO",
     company: "Healthcare Tech, Series B",
     metric: "1/3 cost of hiring",
@@ -1375,9 +1335,13 @@ export function TestimonialsSection() {
                 </div>
                 <div className="mt-5 pt-5 border-t border-gray-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-spark-100 flex items-center justify-center">
-                      <span className="text-sl font-bold text-spark-700">{t.name.split(' ').map(n => n[0]).join('')}</span>
-                    </div>
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
                     <div>
                       <p className="text-sm-body font-semibold text-gray-900">{t.name}</p>
                       <p className="text-sl text-gray-500">{t.title} &middot; {t.company}</p>
@@ -1529,6 +1493,7 @@ export function FaqSection() {
 
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
+      <FaqSchema faqs={faqItems.map((f) => ({ q: f.question, a: f.answer }))} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
