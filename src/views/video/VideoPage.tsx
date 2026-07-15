@@ -446,7 +446,7 @@ function HeroSection() {
               })}
             </motion.div>
 
-            {/* Power testimonial */}
+            {/*  */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -458,7 +458,7 @@ function HeroSection() {
                   <Star key={i} className="h-3.5 w-3.5 text-spark-500 fill-spark-500" />
                 ))}
                 <span className="ml-2 text-caption text-spark-300">
-                  Power Testimonial
+                  
                 </span>
               </div>
               <p className="text-sm-body sm:text-body text-gray-200 italic mb-3">
@@ -1281,7 +1281,7 @@ export function FAQSection() {
   const rightFaqs = faqs.slice(3, 6);
 
   return (
-    <section className="py-16 sm:py-24 bg-gray-50">
+    <section className="py-16 sm:py-24 bg-white">
       <FaqSchema faqs={faqs} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">

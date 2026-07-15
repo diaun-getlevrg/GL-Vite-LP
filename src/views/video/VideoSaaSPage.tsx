@@ -122,7 +122,7 @@ function HeroSection() {
               })}
             </motion.div>
 
-            {/* Power testimonial */}
+            {/*  */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ function HeroSection() {
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-3.5 w-3.5 text-spark-500 fill-spark-500" />
                 ))}
-                <span className="ml-2 text-caption text-spark-300">Power Testimonial</span>
+                <span className="ml-2 text-caption text-spark-300"></span>
               </div>
               <p className="text-sm-body sm:text-body text-gray-200 italic mb-3">
                 &ldquo;We went from publishing one product video a quarter to four per month. Clients have no idea the editing isn&apos;t in-house. This single service line generates{" "}

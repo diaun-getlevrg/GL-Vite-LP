@@ -460,7 +460,7 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section id="process" className="py-16 sm:py-24 bg-gray-50">
+    <section id="process" className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -704,7 +704,7 @@ function WhyChooseUsSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -770,7 +770,7 @@ function FAQSection() {
   const rightFaqs = faqs.slice(3, 6);
 
   return (
-    <section className="py-16 sm:py-24 bg-gray-50">
+    <section className="py-16 sm:py-24 bg-white">
       <FaqSchema faqs={faqs} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">

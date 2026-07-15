@@ -289,7 +289,7 @@ function HeroSection() {
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-3.5 w-3.5 text-spark-500 fill-spark-500" />
                 ))}
-                <span className="ml-2 text-caption text-spark-300">Power Testimonial</span>
+                <span className="ml-2 text-caption text-spark-300"></span>
               </div>
               <p className="text-sm-body sm:text-body text-gray-200 italic mb-3">
                 &ldquo;We got our Sundays back. Get Levrg took everything off our plate LinkedIn, content, CRM so our team could focus entirely on closing. We doubled output and{" "}
