@@ -187,18 +187,18 @@ function ProblemSection() {
   const problems = [
     {
       icon: ClipboardList,
-      title: "The Backlog Trap",
-      body: "The backlog never clears. Requests pile up faster than your team or your freelancers can turn them around; every unpublished asset is a campaign that's already late.",
+      title: "The backlog never clears",
+      body: "Requests pile up faster than your team or your freelancers can turn them around; every unpublished asset is a campaign that's already late.",
     },
     {
       icon: UserX,
-      title: "The Freelancer Problem",
-      body: "Freelancers aren't a system. Even the good ones work solo, so deadlines slip, styles drift, and the quality control lands back on you; that's a second job on top of the one you already have.",
+      title: "Freelancers aren't a system",
+      body: "Even the good ones work solo, so deadlines slip, styles drift, and the quality control lands back on you; that's a second job on top of the one you already have.",
     },
     {
       icon: Users,
-      title: "The Hiring Gap",
-      body: "Hiring doesn't fix it either. A full-time editor takes months to find and ramp; your backlog can't wait that long.",
+      title: "Hiring doesn't fix it either",
+      body: "A full-time editor takes months to find and ramp; your backlog can't wait that long.",
     },
   ];
 

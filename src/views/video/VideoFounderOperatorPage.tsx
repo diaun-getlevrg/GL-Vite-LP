@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, Zap, TrendingUp, Shield, Star, Lock, Mail,
   User, Film, Video, Sparkles, Palette,
-  AlertTriangle, UserX, Users,
+  UserX, Users,
   CheckCircle, Archive,
   Trophy, MessageCircle, UserCheck, Rocket,
   Quote, ChevronLeft, ChevronRight,
@@ -81,10 +81,10 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-h1 sm:text-display lg:text-display-sm text-white mb-6"
             >
-              Record It and Done
+              Record It
               <br />
               <span className="text-[#51B027]">
-                We&apos;ll Handle It From There
+                We Handle The Rest
               </span>
             </motion.h1>
 
@@ -92,18 +92,9 @@ function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-body sm:text-sub text-gray-300 max-w-2xl mb-4"
+              className="text-body sm:text-sub text-gray-300 max-w-2xl mb-8"
             >
-              One recording becomes a week of content, no need to step in.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-sm-body text-gray-400 max-w-2xl mb-8"
-            >
-              Raw footage in Monday. Full content week out by Friday. Footage Archive means we keep producing even when you take time off.
+              One recording becomes a week of content, and you don&apos;t touch a step after you hit stop.
             </motion.p>
 
             <motion.div
@@ -205,7 +196,7 @@ function HeroSection() {
                   type="submit"
                   className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-11 rounded-lg text-base transition-all"
                 >
-                  Get Pricing
+                  Get Your Video Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>
@@ -226,24 +217,18 @@ function ProblemSection() {
   const problems = [
     {
       icon: Video,
-      title: "The Bottleneck Trap",
-      headline: "You're Still the Bottleneck",
-      body: "Every piece of content runs through you first — record it, brief it, chase the edit, post it. The business can't produce content unless you're personally in the loop.",
-      painPoint: "Your content output is capped by your own bandwidth.",
+      title: "It All Relies Heavily on You",
+      body: "Every piece of content runs through you first, record it, brief it, chase the edit, post it. The business can't produce content unless you're personally in the loop.",
     },
     {
       icon: UserX,
-      title: "The Freelancer Problem",
-      headline: "Freelancers Need More Management, Not Less",
-      body: "A new freelancer means re-explaining your brand from scratch, chasing revisions, and quality that swings from good to inconsistent.",
-      painPoint: "You end up managing the manager.",
+      title: "Freelancers Need More Managing",
+      body: "A new freelancer means re-explaining your brand from scratch, chasing revisions, and quality that swings from good to inconsistent. You end up managing the manager.",
     },
     {
       icon: Users,
-      title: "The Hiring Gap",
-      headline: "A Full-Time Hire Is Premature",
-      body: "Payroll, benefits, and a 90-day ramp — for a backlog problem you need solved this month, not next quarter.",
-      painPoint: "You're not ready for headcount. You're ready for output.",
+      title: "A New Full-Time Hire Is Not a Fix",
+      body: "Payroll, benefits, and a 90-day ramp, for a backlog problem you need solved this month, not next quarter.",
     },
   ];
 
@@ -268,13 +253,8 @@ function ProblemSection() {
                       <Icon className="h-6 w-6" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-caption text-gray-400 mb-1">{problem.title}</p>
-                      <h3 className="text-sub font-bold text-gray-900 mb-3">{problem.headline}</h3>
-                      <p className="text-gray-600 mb-4 text-sm-body sm:text-body">{problem.body}</p>
-                      <div className="inline-flex items-start gap-2 px-4 py-3 rounded-lg bg-red-50/50 border border-red-100 text-red-700 text-sm-body">
-                        <AlertTriangle className="h-4 w-4 mt-0.5 shrink-0" />
-                        <span className="font-medium">{problem.painPoint}</span>
-                      </div>
+                      <p className="text-caption text-gray-400 mb-2">{problem.title}</p>
+                      <p className="text-gray-600 text-sm-body sm:text-body">{problem.body}</p>
                     </div>
                   </div>
                 </div>
@@ -295,8 +275,8 @@ function SolutionSection() {
   const differentiators = [
     {
       icon: Film,
-      title: "Record It Once, We Handle the Rest",
-      desc: "Send your raw footage. The same dedicated editor and PM learn your brand once and handle briefing, editing, and delivery from there.",
+      title: "Hand-off the Raw Footage and Walk Away",
+      desc: "The same dedicated editor and PM learn your brand once and handle briefing, editing, and delivery from there.",
     },
     {
       icon: Archive,
@@ -310,7 +290,7 @@ function SolutionSection() {
     },
     {
       icon: CheckCircle,
-      title: "You Approve, We Execute",
+      title: "You're In Control",
       desc: "Sign off on the final cut. Everything before that happens without you.",
     },
   ];
@@ -328,7 +308,7 @@ function SolutionSection() {
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            Our team already has the editors: people with real B2B content experience who own the workflow, the deadlines, and the quality checks. You will get reliable output without putting one more person on your plate to manage.
+            Our team already has the editors: people with real B2B content experience who own the workflow, the deadlines, and the quality checks. <br />You will get reliable output without putting one more person on your plate to manage.
           </p>
         </AnimatedSection>
 
@@ -386,7 +366,7 @@ function SEOSection() {
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            Need more videos without adding another hire? Get Levrg gives you a managed video editing team that supports recurring content production across social, YouTube, and paid media, so your business keeps producing content without you in the middle of it.
+            Get Levrg gives you a managed video editing team that supports recurring content production across social, YouTube, and paid media, so your business keeps producing content without you in the middle of it.
           </p>
         </AnimatedSection>
       </div>
@@ -443,9 +423,9 @@ function SEOSection() {
 
 function ROISection() {
   const stats = [
-    { value: "4 Days", label: "First Deliverable" },
-    { value: "48hr", label: "Average Turnaround" },
+    { value: "7 Days", label: "Publish-Ready Content" },
     { value: "99%", label: "On-Time Publish Rate" },
+    { value: "40+", label: "Trusted by B2Bs Across North America" },
   ];
 
   return (
@@ -453,7 +433,7 @@ function ROISection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            What Our <span className="text-[#51B027]">Clients</span> Have Already Proven
+            Why Our <span className="text-[#51B027]">Clients</span> Work With Us
           </h2>
         </AnimatedSection>
 
@@ -483,26 +463,26 @@ function HowItWorksSection() {
     {
       title: "Submit Your Brief",
       timeline: "Day 1",
-      desc: "10 minutes is all it takes. Share your footage, brand guidelines, and content goals.",
+      desc: "10 minutes is all it takes. Share your requirements, brand guidelines, and content goals.",
     },
     {
-      title: "Meet Your Team",
-      timeline: "Day 2–3",
-      desc: "Intro call with your dedicated PM. Workflow setup, tool access, and communication channels configured.",
+      title: "Meet Your PM",
+      timeline: "Day 2-3",
+      desc: "Intro call with your dedicated PM to set up the workflow, tool access, and communication channels.",
     },
     {
-      title: "First Deliverable",
-      timeline: "Day 5",
-      desc: "Your first edited piece lands, brand-compliant, revision rounds included.",
+      title: "Processes Go Live",
+      timeline: "End of Week 1",
+      desc: "Your project and processes are live.",
     },
     {
-      title: "Full Production Ramp",
-      timeline: "Day 6–14",
-      desc: "The team settles into your weekly content rhythm. By day 14, you're at full recurring output.",
+      title: "First Deliverables",
+      timeline: "Week 2",
+      desc: "Brand-compliant edits, production at full speed, revisions included.",
     },
     {
       title: "Scale On Your Terms",
-      timeline: "Week 3+",
+      timeline: "Week 2+",
       desc: "Monthly flexibility. Scale up for big campaigns or down during slow periods. No penalties.",
     },
   ];
@@ -512,8 +492,8 @@ function HowItWorksSection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Launch in 14 Days,{" "}
-            <span className="text-[#51B027]">First Deliverable in 48 Hours</span>
+            Two Weeks,{" "}
+            <span className="text-[#51B027]">Not Two Quarters</span>
           </h2>
         </AnimatedSection>
 
@@ -598,12 +578,6 @@ function TestimonialsSection() {
       name: "Jennifer King",
       title: "Co-founder & CEO · DeStor RevOps",
       image: "/images/client/shahrokh-sheikh.webp",
-    },
-    {
-      quote: "Get Levrg lets us scale outreach and iterate fast, without the need to build in-house.",
-      name: "Aaron Levenstadt",
-      title: "Founder · Agency Alliance",
-      image: "/images/client/shaina-cahill-phd.webp",
     },
   ];
 
@@ -732,17 +706,17 @@ function WhyChooseUsSection() {
     {
       icon: Trophy,
       title: "Proven Track Record",
-      desc: "40+ B2B companies trust us with their video output. We've delivered ready to publish videos with a 98% satisfaction rate.",
+      desc: "40+ B2B companies trust us with their video output. We've delivered videos with a 98% satisfaction and 99% on-time publish rate.",
     },
     {
       icon: MessageCircle,
       title: "Direct Communication",
-      desc: "No juggling five freelancers. Your PM is a Slack message away, so your team never waits on ticket queues or offshore call centers; a real person solves it in real time.",
+      desc: "Your dedicated PM is a Slack message away. No ticket queues, no offshore call centers, real humans, real time.",
     },
     {
       icon: UserCheck,
       title: "Vetted Talent Only",
-      desc: "Every editor passes a portfolio review, a skills test, and an English fluency check. We hire under 1% of applicants, so their skill is never something you have to worry about.",
+      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check. We hire less than 1% of applicants.",
     },
     {
       icon: Rocket,
@@ -889,7 +863,7 @@ function FinalCTASection() {
               onClick={scrollToHero}
               className="bg-white text-spark-800 hover:bg-spark-50 hover:text-spark-800 px-8 py-6 text-base rounded-xl shadow-lg transition-all hover:shadow-xl"
             >
-              Get Pricing
+              Get Your Video Team
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
@@ -923,7 +897,7 @@ export function VideoFounderOperatorPage() {
         { label: "Results", href: "#results" },
         { label: "Process", href: "#process" },
       ]}
-      ctaText="Get Pricing"
+      ctaText="Get Your Video Team"
       ctaTarget="#lead-form"
       meta={{
         title: "Video Editing for Founder-Led Businesses | Get Levrg",
