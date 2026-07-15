@@ -6,7 +6,7 @@ import {
   Monitor, Film, Video, Sparkles, Palette,
   AlertTriangle, UserX,
   CheckCircle, DollarSign, UserCheck,
-  Trophy, MessageCircle, Rocket,
+  Trophy, MessageCircle, Rocket, Clock,
   Quote, Phone,
 } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
@@ -28,7 +28,6 @@ import {
   ToolsWeUseSection,
   WorkSampleBentoGrid,
   ComparisonSection,
-  HowItWorksSection,
 } from "./VideoPage";
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -104,7 +103,7 @@ function HeroSection() {
               className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10"
             >
               {[
-                { icon: Zap, text: "Launch in 7 Days" },
+                { icon: Zap, text: "Launch in 14 Days" },
                 { icon: CalendarDays, text: "48-Hour Turnaround" },
                 { icon: TrendingUp, text: "80% Cost Savings" },
               ].map((m, i) => {
@@ -196,7 +195,7 @@ function HeroSection() {
                   type="submit"
                   className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-11 rounded-lg text-base transition-all"
                 >
-                  Get Your Video Editing Team
+                  Get Your Video Team
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>
@@ -217,24 +216,18 @@ function ProblemSection() {
   const problems = [
     {
       icon: Video,
-      title: "The Capacity Trap",
-      headline: "Prospects Can't Picture Your Product From Text Alone",
+      title: "Prospects Can't Picture Your Product",
       body: "Technical buyers want to see a walkthrough before they book a call, and most IT teams don't have time to produce one.",
-      painPoint: "Every missed walkthrough is a longer sales cycle and a prospect who self-qualifies out.",
     },
     {
       icon: UserX,
-      title: "The Hiring Nightmare",
-      headline: "In-House Production Isn't Worth the Overhead",
+      title: "In-House Production Isn't Worth It",
       body: "A full-time editor costs $6,500+/month before benefits, for output that's often one demo a quarter.",
-      painPoint: "That's budget committed before you see one real deliverable.",
     },
     {
       icon: AlertTriangle,
-      title: "The Freelancer Problem",
-      headline: "Freelancers Don't Know Your Product",
+      title: "Freelancers Need More Managing",
       body: "Every new freelancer means re-explaining the product, the use case, and the tone from scratch.",
-      painPoint: "You end up spending more time briefing than the edit itself saves.",
     },
   ];
 
@@ -259,13 +252,8 @@ function ProblemSection() {
                       <Icon className="h-6 w-6" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-caption text-gray-400 mb-1">{problem.title}</p>
-                      <h3 className="text-sub font-bold text-gray-900 mb-3">{problem.headline}</h3>
-                      <p className="text-gray-600 mb-4 text-sm-body sm:text-body">{problem.body}</p>
-                      <div className="inline-flex items-start gap-2 px-4 py-3 rounded-lg bg-red-50/50 border border-red-100 text-red-700 text-sm-body">
-                        <AlertTriangle className="h-4 w-4 mt-0.5 shrink-0" />
-                        <span className="font-medium">{problem.painPoint}</span>
-                      </div>
+                      <p className="text-caption text-gray-400 mb-2">{problem.title}</p>
+                      <p className="text-gray-600 text-sm-body sm:text-body">{problem.body}</p>
                     </div>
                   </div>
                 </div>
@@ -286,13 +274,13 @@ function SolutionSection() {
   const differentiators = [
     {
       icon: UserCheck,
-      title: "Dedicated Team That Learns Your Product Once",
+      title: "Dedicated Team That Learns Your Product",
       desc: "The same editor and PM work your account, so context doesn't get re-explained every request.",
     },
     {
       icon: Zap,
-      title: "Live in 7 Days",
-      desc: "Matched and onboarded within a week.",
+      title: "Launch in 14 Days",
+      desc: "Matched and onboarded within 2 weeks.",
     },
     {
       icon: Film,
@@ -315,12 +303,6 @@ function SolutionSection() {
             <br />
             <span className="text-[#51B027]">Get All Three</span>
           </h2>
-        </AnimatedSection>
-
-        <AnimatedSection className="text-center mb-16" delay={0.1}>
-          <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            We match you with pre-vetted video editors who understand how to communicate technical products clearly. Your dedicated PM manages the workflow, quality checks, and delivery so your team stays focused on the roadmap.
-          </p>
         </AnimatedSection>
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.08}>
@@ -395,12 +377,6 @@ function SEOSection() {
                 </StaggerItem>
               ))}
             </StaggerContainer>
-
-            <AnimatedSection className="mt-8" delay={0.2}>
-              <p className="text-body text-gray-600">
-                You bring the product expertise. We bring the editors, workflow, and production rhythm to turn that expertise into content your prospects can actually watch.
-              </p>
-            </AnimatedSection>
           </div>
 
           <AnimatedSection delay={0.15} direction="left">
@@ -436,7 +412,7 @@ function ROISection() {
   const stats = [
     { value: "Up to 80%", label: "Lower Cost Than an In-House Hire" },
     { value: "2×", label: "Demo Request Rate Doubled" },
-    { value: "40+", label: "B2Bs Across North America" },
+    { value: "40+", label: "Trusted by B2Bs Across North America" },
   ];
 
   return (
@@ -444,7 +420,7 @@ function ROISection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            What Our <span className="text-[#51B027]">Clients</span> Have Already Proven
+            Why Our <span className="text-[#51B027]">Clients</span> Work With Us
           </h2>
         </AnimatedSection>
 
@@ -460,6 +436,113 @@ function ROISection() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   6. HOW IT WORKS SECTION
+   ════════════════════════════════════════════════════════════════════════════ */
+
+function HowItWorksSection() {
+  const steps = [
+    {
+      title: "Submit Your Brief",
+      timeline: "Day 1",
+      desc: "10 minutes is all it takes. Share your requirements, brand guidelines, and content goals.",
+    },
+    {
+      title: "Meet Your PM",
+      timeline: "Day 2-3",
+      desc: "Intro call with your dedicated PM to set up the workflow, tool access, and communication channels.",
+    },
+    {
+      title: "Processes Go Live",
+      timeline: "End of Week 1",
+      desc: "Your project and processes are live.",
+    },
+    {
+      title: "First Deliverables",
+      timeline: "Week 2",
+      desc: "Brand-compliant edits, production at full speed, revisions included.",
+    },
+    {
+      title: "Scale On Your Terms",
+      timeline: "Week 2+",
+      desc: "Monthly flexibility. Scale up for big campaigns or down during slow periods. No penalties.",
+    },
+  ];
+
+  return (
+    <section id="process" className="py-16 sm:py-24 bg-white">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Two Weeks,{" "}
+            <span className="text-[#51B027]">Not Two Quarters</span>
+          </h2>
+        </AnimatedSection>
+
+        {/* Desktop: horizontal flow */}
+        <div className="hidden lg:flex items-start justify-between gap-0 items-stretch">
+          {steps.map((step, i) => {
+            return (
+              <React.Fragment key={i}>
+                <div className="flex-1 min-w-0">
+                  <div className="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-300 group h-full">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {i + 1}
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
+                        <Clock className="h-2.5 w-2.5" />
+                        {step.timeline}
+                      </span>
+                    </div>
+                    <h3 className="text-body font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-sl text-gray-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+                {i < steps.length - 1 && (
+                  <div className="flex items-center px-1 pt-8">
+                    <ArrowRight className="h-5 w-5 text-spark-300 shrink-0" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+
+        {/* Mobile/Tablet: vertical stack */}
+        <div className="lg:hidden space-y-4">
+          {steps.map((step, i) => {
+            return (
+              <React.Fragment key={i}>
+                <AnimatedSection direction="up" delay={i * 0.08}>
+                  <div className="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-300 group">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {i + 1}
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
+                        <Clock className="h-2.5 w-2.5" />
+                        {step.timeline}
+                      </span>
+                    </div>
+                    <h3 className="text-body font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-sl text-gray-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </AnimatedSection>
+                {i < steps.length - 1 && (
+                  <div className="flex justify-center py-1">
+                    <ArrowRight className="h-5 w-5 text-spark-300 rotate-90" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -493,9 +576,13 @@ function TestimonialsSection() {
             </div>
             <div className="pt-5 border-t border-gray-100">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-sl font-bold text-spark-700">HM</span>
-                </div>
+                <img
+                  src="/images/client/grace-feeney.webp"
+                  alt="Head of Marketing"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-10 h-10 rounded-full object-cover shrink-0"
+                />
                 <div>
                   <p className="text-sm-body font-semibold text-gray-900">Head of Marketing</p>
                   <p className="text-sl text-gray-500">Series B SaaS</p>
@@ -518,22 +605,22 @@ function WhyChooseUsSection() {
     {
       icon: Trophy,
       title: "Proven Track Record",
-      desc: "40+ B2B teams trust us with their video output. We've delivered thousands of videos with a 98% satisfaction and 99% on-time publish rate.",
+      desc: "40+ B2B teams trust us with their video output. We've delivered videos with a 98% satisfaction and 99% on-time publish rate.",
     },
     {
       icon: MessageCircle,
       title: "Direct Communication",
-      desc: "Your dedicated PM is a Slack message away. No ticket queues, no offshore call centers — real humans, real time.",
+      desc: "Your dedicated PM is a Slack message away.",
     },
     {
       icon: UserCheck,
       title: "Vetted Talent Only",
-      desc: "Every editor passes a portfolio review, a skills test, and an English fluency check. We hire under 1% of applicants, so their skill is never something you have to worry about.",
+      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check.",
     },
     {
       icon: Rocket,
       title: "Built for Scale",
-      desc: "Start with one editor. Scale to a full team. Same workflow, same PM, same quality.",
+      desc: "As your video starts performing, you'll want more of it. Add editors and expand your team on demand; same PM, same workflow, same quality, just more output.",
     },
   ];
 
