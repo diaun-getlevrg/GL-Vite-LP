@@ -48,7 +48,7 @@ function HeroSection() {
     >
       <div className="absolute inset-0">
         <img
-          src="/images/hero/video-hero.webp"
+          src="/images/hero/video-founder-operator.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           fetchPriority="high"
