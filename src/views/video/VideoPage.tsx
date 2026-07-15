@@ -997,25 +997,21 @@ export function ComparisonSection() {
 export function HowItWorksSection() {
   const steps = [
     {
-      icon: ClipboardList,
       title: "Submit Your Brief",
       timeline: "Day 1",
       desc: "10 minutes is all it takes. Share your requirements, brand guidelines, and content goals.",
     },
     {
-      icon: Users,
       title: "Meet Your Team",
       timeline: "Day 2-3",
       desc: "Intro call with your dedicated PM. Workflow setup, tool access, and communication channels configured.",
     },
     {
-      icon: CheckCircle,
       title: "First Deliverables",
       timeline: "Day 7",
       desc: "Brand-compliant edits delivered. Revision rounds included. Production-grade quality from day one.",
     },
     {
-      icon: TrendingUp,
       title: "Scale On Your Terms",
       timeline: "Week 2+",
       desc: "Monthly flexibility. Scale up for big campaigns or down during slow periods. No penalties.",
@@ -1035,7 +1031,6 @@ export function HowItWorksSection() {
         {/* Desktop: horizontal flow */}
         <div className="hidden lg:flex items-start justify-between gap-0 items-stretch">
           {steps.map((step, i) => {
-            const Icon = step.icon;
             return (
               <React.Fragment key={i}>
                 <div className="flex-1 min-w-0">
@@ -1043,9 +1038,6 @@ export function HowItWorksSection() {
                     <div className="flex items-center gap-2.5 mb-3">
                       <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
                         {i + 1}
-                      </div>
-                      <div className="w-8 h-8 rounded-lg bg-spark-50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="h-4 w-4 text-spark-600" />
                       </div>
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
                         <Clock className="h-2.5 w-2.5" />
@@ -1069,7 +1061,6 @@ export function HowItWorksSection() {
         {/* Mobile/Tablet: vertical stack */}
         <div className="lg:hidden space-y-4">
           {steps.map((step, i) => {
-            const Icon = step.icon;
             return (
               <React.Fragment key={i}>
                 <AnimatedSection direction="up" delay={i * 0.08}>
@@ -1077,9 +1068,6 @@ export function HowItWorksSection() {
                     <div className="flex items-center gap-2.5 mb-3">
                       <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
                         {i + 1}
-                      </div>
-                      <div className="w-8 h-8 rounded-lg bg-spark-50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="h-4 w-4 text-spark-600" />
                       </div>
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
                         <Clock className="h-2.5 w-2.5" />

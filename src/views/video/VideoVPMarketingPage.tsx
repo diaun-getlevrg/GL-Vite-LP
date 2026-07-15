@@ -248,7 +248,7 @@ function ProblemSection() {
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900 max-w-3xl mx-auto">
             You&apos;re Facing the Same Bottleneck{" "}
-            <span className="text-[#51B027]"><br />36+ B2B Companies Already Solved</span>
+            <span className="text-[#51B027]"><br />40+ B2B Companies Already Solved</span>
           </h2>
         </AnimatedSection>
 
@@ -616,7 +616,7 @@ function WhyChooseUsSection() {
     {
       icon: Trophy,
       title: "Proven Track Record",
-      desc: "36+ B2B companies trust us with their video output. We’ve delivered thousands of videos with a 98% satisfaction and 99% on-time publish rate.",
+      desc: "40+ B2B companies trust us with their video output. We’ve delivered thousands of videos with a 98% satisfaction and 99% on-time publish rate.",
     },
     {
       icon: MessageCircle,

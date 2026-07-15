@@ -50,7 +50,7 @@ export function TrustedByMarquee() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-8">
           <p className="text-caption text-gray-400 tracking-wider">
-            Trusted by {trustedLogos.length}+ B2B companies generating $50M+ in revenue
+            Trusted by 40+ B2B companies generating $50M+ in revenue
           </p>
         </AnimatedSection>
       </div>

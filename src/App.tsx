@@ -8,6 +8,7 @@ import { VideoLegalPage } from "@/views/video/VideoLegalPage";
 import { VideoSaaSPage } from "@/views/video/VideoSaaSPage";
 import { VideoVPMarketingPage } from "@/views/video/VideoVPMarketingPage";
 import { VideoMarketingOpsPage } from "@/views/video/VideoMarketingOpsPage";
+import { VideoFounderOperatorPage } from "@/views/video/VideoFounderOperatorPage";
 import { VideoAccountingPage } from "@/views/video/VideoAccountingPage";
 import { SocialPage } from "@/views/social/SocialPage";
 import { SocialAccountingPage } from "@/views/social/SocialAccountingPage";
@@ -68,6 +69,7 @@ export default function App() {
         <Route path="/video-saas" element={<VideoSaaSPage />} />
         <Route path="/video-vp-marketing" element={<VideoVPMarketingPage />} />
         <Route path="/video-marketing-ops" element={<VideoMarketingOpsPage />} />
+        <Route path="/video-founder-operator" element={<VideoFounderOperatorPage />} />
         <Route path="/video-accounting" element={<VideoAccountingPage />} />
         {/* Social main */}
         <Route path="/social" element={<SocialPage />} />
