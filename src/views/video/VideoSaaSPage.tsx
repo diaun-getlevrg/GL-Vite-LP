@@ -245,9 +245,9 @@ export function VideoSaaSPage() {
       <ROISection />
       <WorkSampleBentoGrid />
       <ComparisonSection />
+      <WhyChooseUsSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <WhyChooseUsSection />
       <FAQSection />
       <FinalCTASection />
     </PageShell>

@@ -172,9 +172,9 @@ export function SocialAccountingPage() {
       <CaseExamplesSection />
       <WorkSampleBentoGrid />
       <CostComparisonSection />
+      <WhyChooseUsSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <WhyChooseUsSection />
       <FAQSection />
       <FinalCTASection />
     </PageShell>

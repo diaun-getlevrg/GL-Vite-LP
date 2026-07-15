@@ -185,9 +185,9 @@ export function LinkedInITServicesPage() {
       <WorkSampleBentoGrid />
       <RoiSection />
       <ComparisonSection />
+      <WhyChooseUsSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <WhyChooseUsSection />
       <FAQSection />
       <FinalCTASection />
     </PageShell>

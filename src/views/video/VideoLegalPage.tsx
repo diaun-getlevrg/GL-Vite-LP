@@ -245,9 +245,9 @@ export function VideoLegalPage() {
       <ROISection />
       <WorkSampleBentoGrid />
       <ComparisonSection />
+      <WhyChooseUsSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <WhyChooseUsSection />
       <FAQSection />
       <FinalCTASection />
     </PageShell>

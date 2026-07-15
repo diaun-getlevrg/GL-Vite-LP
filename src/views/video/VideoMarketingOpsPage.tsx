@@ -105,7 +105,7 @@ function HeroSection() {
             >
               {[
                 { icon: Zap, text: "Launch in 14 Days" },
-                { icon: UserCheck, text: "A dedicated PM runs the workflow, not you" },
+                { icon: UserCheck, text: "A dedicated PM runs the workflow" },
                 { icon: TrendingUp, text: "Up to 80% less cost than in-house" },
               ].map((m, i) => {
                 const Icon = m.icon;
@@ -270,7 +270,7 @@ function SolutionSection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-6">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Stop Choosing Between Speed, Cost, and Quality
+            Why Choose Between Speed, Cost, and Quality?
             <br />
             <span className="text-[#51B027]">Get All Three</span>
           </h2>
@@ -405,7 +405,7 @@ function ROISection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Why Our <span className="text-[#51B027]">Clients</span> Work With Get Levrg
+            Why Our <span className="text-[#51B027]">Clients</span> Work With Us
           </h2>
         </AnimatedSection>
 
@@ -699,7 +699,7 @@ function WhyChooseUsSection() {
     {
       icon: Rocket,
       title: "Built for Scale",
-      desc: "Start with one editor. Scale to a full team. Same workflow, same PM, same quality, just more capacity when you need it.",
+      desc: "As your video starts performing, you'll want more of it. Add editors and expand your team on demand; same PM, same workflow, same quality, just more output.",
     },
   ];
 
@@ -894,9 +894,9 @@ export function VideoMarketingOpsPage() {
       <ROISection />
       <WorkSampleBentoGrid />
       <ComparisonSection />
+      <WhyChooseUsSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <WhyChooseUsSection />
       <FAQSection />
       <FinalCTASection />
     </PageShell>

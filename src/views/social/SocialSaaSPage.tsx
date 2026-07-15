@@ -172,9 +172,9 @@ export function SocialSaaSPage() {
       <CaseExamplesSection />
       <WorkSampleBentoGrid />
       <CostComparisonSection />
+      <WhyChooseUsSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <WhyChooseUsSection />
       <FAQSection />
       <FinalCTASection />
     </PageShell>

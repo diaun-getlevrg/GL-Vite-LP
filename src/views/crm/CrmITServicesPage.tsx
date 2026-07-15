@@ -172,9 +172,9 @@ export function CrmITServicesPage() {
       <WorkSampleBentoGrid />
       <RoiSection />
       <ComparisonSection />
+      <WhyChooseUsSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <WhyChooseUsSection />
       <FaqSection />
       <FinalCtaSection />
     </PageShell>

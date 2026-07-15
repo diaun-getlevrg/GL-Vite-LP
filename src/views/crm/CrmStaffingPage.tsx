@@ -172,9 +172,9 @@ export function CrmStaffingPage() {
       <WorkSampleBentoGrid />
       <RoiSection />
       <ComparisonSection />
+      <WhyChooseUsSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <WhyChooseUsSection />
       <FaqSection />
       <FinalCtaSection />
     </PageShell>
