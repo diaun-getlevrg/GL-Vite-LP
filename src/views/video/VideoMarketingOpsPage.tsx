@@ -221,7 +221,7 @@ function ProblemSection() {
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900 max-w-3xl mx-auto">
             You&apos;re Facing the Same Bottleneck That{" "}
-            <span className="text-[#51B027]"><br />35+ B2B Marketing Teams Already Solved</span>
+            <span className="text-[#51B027]"><br />36+ B2B Marketing Teams Already Solved</span>
           </h2>
         </AnimatedSection>
 
@@ -328,11 +328,11 @@ function SolutionSection() {
 function SEOSection() {
   const capabilities = [
     "Short-form video editing for Reels, Shorts, and TikTok",
-    "Long-form YouTube and podcast editing",
+    "Long-form videos for YouTube and Podcast",
     "B2B product demo videos",
     "Social media video production",
     "Motion graphics and branded video assets",
-    "Ongoing video editing support built around your publishing calendar",
+    "Ongoing video editing support built around your content calendar",
   ];
 
   const bentoImages = [
@@ -418,8 +418,8 @@ function SEOSection() {
 function ROISection() {
   const stats = [
     { value: "4-day", label: "Average Turnaround" },
-    { value: "2–15", label: "Videos a Month, No New Hires" },
-    { value: "35+", label: "B2B Teams Across North America and Europe" },
+    { value: "2 → 15", label: "Videos a Month, No New Hires" },
+    { value: "36+", label: "B2Bs Across North America" },
   ];
 
   return (
@@ -709,12 +709,12 @@ function WhyChooseUsSection() {
     {
       icon: Trophy,
       title: "Proven Track Record",
-      desc: "35+ B2B teams trust us with their video output. We've delivered thousands of edits with a 98% satisfaction rate.",
+      desc: "36+ B2B teams trust us with their video output. We've delivered thousands of edits with a 98% satisfaction rate.",
     },
     {
       icon: MessageCircle,
       title: "Direct Communication",
-      desc: "Your dedicated PM is a Slack message away. No ticket queues, no offshore call centers — real humans, real time.",
+      desc: "Your dedicated PM is a Slack message away. No ticket queues, no offshore call centers. Connect with real humans in real time.",
     },
     {
       icon: UserCheck,
@@ -767,11 +767,11 @@ function FAQSection() {
   const faqs = [
     {
       q: "How fast can my video editing team be up and running?",
-      a: "Most teams can start within 7 days. We use the first few days to understand your brand, content goals, editing style, review process, and publishing needs. From there, your project manager sets up the workflow and starts moving the first deliverables through production.",
+      a: "Most teams can start within 7 days. We make the best use of the first two days to understand your brand style, content goals, review process, and publishing needs. From there, your project manager sets up the workflow and starts moving the first deliverables through production.",
     },
     {
       q: "What types of videos can your team edit?",
-      a: "We support short-form social videos, YouTube videos, podcast clips, product demos, B2B explainers, promotional videos, motion graphics, thumbnails, and recurring social video content.",
+      a: "We support short-form social videos, YouTube Shorts, YouTube videos, podcast clips, product demos, B2B explainers, promotional videos, motion graphics, thumbnails, and recurring social video content.",
     },
     {
       q: "Is this the same as hiring a freelance video editor?",
@@ -858,7 +858,7 @@ function FinalCTASection() {
             Ready to Clear Your Backlog?
           </h2>
           <p className="text-body text-spark-200 max-w-2xl mx-auto mb-10">
-            Get custom pricing and a proposed team structure in 24 hours.
+            Get custom pricing and a proposed team structure in 12 hours.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button

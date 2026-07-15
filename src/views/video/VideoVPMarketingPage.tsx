@@ -94,7 +94,7 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-body sm:text-sub text-gray-300 max-w-2xl mb-8"
             >
-              Get a dedicated video editing team that handles your entire post-production pipeline from raw footage to polished, multi-platform content at a fraction of the cost of in-house editors.
+              Get a dedicated video editing team that handles your entire post-production pipeline, from raw footage to polished, multi-platform content, at a fraction of the cost of in-house editors.
             </motion.p>
 
             <motion.div
@@ -105,7 +105,7 @@ function HeroSection() {
             >
               {[
                 { icon: Zap, text: "Launch in 7 Days" },
-                { icon: CalendarDays, text: "48-Hour Standard Turnaround" },
+                { icon: CalendarDays, text: "48-Hour Turnaround" },
                 { icon: TrendingUp, text: "80% Cost Savings" },
               ].map((m, i) => {
                 const Icon = m.icon;
@@ -134,16 +134,15 @@ function HeroSection() {
                 <span className="ml-2 text-caption text-spark-300">Power Testimonial</span>
               </div>
               <p className="text-sm-body sm:text-body text-gray-200 italic mb-3">
-                &ldquo;We went from publishing one product video a quarter to four per month. Clients have no idea the editing isn&apos;t in-house. This single service line generates{" "}
-                <span className="text-spark-400 font-semibold not-italic">$12K monthly recurring</span>.&rdquo;
+                &ldquo;Having Get Levrg work with us is a game changer in terms of our online presence, our website presence, and &mdash; I can&apos;t emphasize this enough &mdash; my sanity.&rdquo;
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-spark-100 flex items-center justify-center">
-                  <span className="text-xs font-bold text-spark-700">MK</span>
+                  <span className="text-xs font-bold text-spark-700">HE</span>
                 </div>
                 <div>
-                  <p className="text-sm-body font-semibold text-white">Miles Kaiburn</p>
-                  <p className="text-xs text-gray-400">CEO | Old Town Media</p>
+                  <p className="text-sm-body font-semibold text-white">Hope Eyre</p>
+                  <p className="text-xs text-gray-400">VP of Marketing &amp; Alliances | Apiphani</p>
                 </div>
               </div>
             </motion.div>
@@ -249,7 +248,7 @@ function ProblemSection() {
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900 max-w-3xl mx-auto">
             You&apos;re Facing the Same Bottleneck{" "}
-            <span className="text-[#51B027]"><br />35+ B2B Companies Already Solved</span>
+            <span className="text-[#51B027]"><br />36+ B2B Companies Already Solved</span>
           </h2>
         </AnimatedSection>
 
@@ -440,8 +439,8 @@ function SEOSection() {
 function ROISection() {
   const stats = [
     { value: "80%", label: "Lower Cost Per Video" },
-    { value: "2–15", label: "Videos a Month, Zero New Headcount" },
-    { value: "2×", label: "Demo Request Rate" },
+    { value: "2 → 15", label: "Videos/Month, Zero New Headcount" },
+    { value: "2×", label: "Demo Request Rate Doubled" },
   ];
 
   return (
@@ -617,7 +616,7 @@ function WhyChooseUsSection() {
     {
       icon: Trophy,
       title: "Proven Track Record",
-      desc: "35+ B2B companies trust us with their video output. We’ve delivered thousands of edits with a 98% satisfaction rate.",
+      desc: "36+ B2B companies trust us with their video output. We’ve delivered thousands of videos with a 98% satisfaction and 99% on-time publish rate.",
     },
     {
       icon: MessageCircle,

@@ -27,7 +27,6 @@ import {
   Mail,
   ChevronLeft,
   ChevronRight,
-  Check,
   Film,
   Clapperboard,
   Palette,
@@ -78,76 +77,45 @@ const videoTools: ToolItem[] = [
   { src: "/logos/applogos/Audacity.webp", alt: "Audacity" },
 ];
 
-const videoToolsContent = {
-  title: "The Tools We Use to Edit Your Videos",
-  description:
-    "Professional-grade editing software combined with AI-powered tools for speed without sacrificing quality.",
-  bullets: [
-    "Adobe Creative Cloud full suite",
-    "AI-powered editing & caption tools",
-    "Professional motion graphics & VFX",
-    "Collaborative review & approval workflows",
-  ],
-};
-
 export function ToolsWeUseSection() {
   return (
-    <section className="py-16 sm:py-24 bg-spark-50">
-      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-          {/* LEFT  40%  CTA Info */}
-          <div className="lg:col-span-2">
-            <AnimatedSection>
-              <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
-                {videoToolsContent.title}
-              </h2>
-              <p className="text-body text-gray-600 mb-6">
-                {videoToolsContent.description}
-              </p>
-              <ul className="space-y-3">
-                {videoToolsContent.bullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-[#51B027] mt-0.5 shrink-0" />
-                    <span className="text-sm-body text-gray-700">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </AnimatedSection>
-          </div>
+    <section className="py-16 sm:py-24 bg-gray-100">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
+        <AnimatedSection>
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            The Tools We Use to Edit Your Videos
+          </h2>
+        </AnimatedSection>
+      </div>
 
-          {/* RIGHT  60%  3x4 Logo Marquee (bottom-to-top) */}
-          <div className="lg:col-span-3">
-            <div className="relative h-[420px] sm:h-[500px] overflow-hidden rounded-2xl bg-white border border-gray-200 p-6">
-              {/* Fade overlay  top */}
-              <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-spark-50 to-transparent z-10 pointer-events-none rounded-t-2xl" />
-              {/* Fade overlay  bottom */}
-              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-spark-50 to-transparent z-10 pointer-events-none rounded-b-2xl" />
+      <AnimatedSection delay={0.1}>
+        <div className="relative overflow-hidden">
+          {/* Left fade */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-gray-100 to-transparent z-10 pointer-events-none" />
+          {/* Right fade */}
+          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-gray-100 to-transparent z-10 pointer-events-none" />
 
-              {/* Logo grid  3 columns, scrolling up */}
-              <div className="animate-marquee-up will-change-transform">
-                <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                  {[...videoTools, ...videoTools, ...videoTools, ...videoTools].map((tool, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center justify-center rounded-xl bg-white border border-gray-100 p-3 sm:p-4 lg:p-5 hover:bg-gray-50 hover:border-gray-200 transition-all duration-300 group"
-                    >
-                      <img
-                        src={tool.src}
-                        alt={tool.alt}
-                        width={140}
-                        height={56}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-10 sm:h-14 lg:h-16 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                  ))}
-                </div>
+          <div className="flex w-max animate-marquee-left-slow will-change-transform">
+            {[...videoTools, ...videoTools].map((tool, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 flex items-center justify-center mx-3 px-6 rounded-xl bg-white border border-gray-200 shadow-sm"
+                style={{ width: 160, height: 80 }}
+              >
+                <img
+                  src={tool.src}
+                  alt={tool.alt}
+                  width={140}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
+                  className="max-h-12 w-auto object-contain"
+                />
               </div>
-            </div>
+            ))}
           </div>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }
