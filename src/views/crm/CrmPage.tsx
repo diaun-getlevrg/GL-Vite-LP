@@ -1394,7 +1394,7 @@ const whyUs = [
     icon: DollarSign,
     title: "Fraction of Hiring Cost",
     description:
-      "A RevOps hire costs $78-110K/year plus benefits. We deliver more value at a third of the cost, with zero ramp-up time and zero risk.",
+      "A RevOps hire costs $78-110K/year plus benefits. We deliver more value at a third of the Cost with zero ramp-up time and zero risk.",
   },
   {
     icon: CheckCircle,

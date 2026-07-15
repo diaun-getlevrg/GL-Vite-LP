@@ -270,7 +270,7 @@ function SolutionSection() {
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-6">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Why Choose Between Speed, Cost, and Quality?
+            Why Choose Between Speed, Cost and Quality?
             <br />
             <span className="text-[#51B027]">Get All Three</span>
           </h2>

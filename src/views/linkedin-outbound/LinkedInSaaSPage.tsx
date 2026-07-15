@@ -57,7 +57,7 @@ function HeroSection() {
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-body sm:text-sub text-gray-300 max-w-2xl mb-6">
-              We build a qualified pipeline through managed LinkedIn outreach, so you can grow demand without the cost, delay, and overhead of building internally first.
+              We build a qualified pipeline through managed LinkedIn outreach, so you can grow demand without the Cost delay, and overhead of building internally first.
             </motion.p>
 
             <motion.ul initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }} className="space-y-2 mb-8">
