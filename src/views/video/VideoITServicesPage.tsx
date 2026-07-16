@@ -412,7 +412,7 @@ function ROISection() {
   const stats = [
     { value: "Up to 80%", label: "Lower Cost Than an In-House Hire" },
     { value: "2×", label: "Demo Request Rate Doubled" },
-    { value: "40+", label: "Trusted by B2Bs Across North America" },
+    { value: "40+", label: "B2B Partnerships Across North America" },
   ];
 
   return (

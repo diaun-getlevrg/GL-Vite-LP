@@ -412,7 +412,7 @@ function SEOSection() {
 function ROISection() {
   const stats = [
     { value: "Up to 80%", label: "Lower Cost Per Video" },
-    { value: "2 → 15", label: "Videos/Month, No New Hires" },
+    { value: "5x More", label: "Videos/Month, No New Hires" },
     { value: "2X", label: "Demo Request" },
   ];
 

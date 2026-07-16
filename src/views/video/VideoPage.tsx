@@ -867,7 +867,7 @@ export function ComparisonSection() {
     { label: "Management", na: "Full supervision required", us: "Dedicated PM owns it" },
     { label: "Scalability", na: "Fixed headcount", us: "Add roles on demand" },
     { label: "Risk", na: "Single point of failure", us: "Managed team backup" },
-    { label: "Contracts", na: "2-year employment", us: "No lock-in" },
+    { label: "Contracts", na: "2-year contract", us: "No lock-in" },
   ];
 
   return (
