@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, TrendingUp, CalendarDays, Star, Volume2, VolumeX } from "lucide-react";
+import { ArrowRight, Zap, TrendingUp, CalendarDays, Star, Volume2, VolumeX, Play, Pause } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { PageShell } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/button";
@@ -232,6 +232,47 @@ function LeftColumnTrustMarquee() {
 
 function VideoShowcaseSection() {
   const [muted, setMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.muted = false;
+          setMuted(false);
+          video.play().catch(() => {
+            video.muted = true;
+            setMuted(true);
+            video.play().catch(() => {});
+          });
+        } else {
+          video.pause();
+          video.muted = true;
+          setMuted(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+      setIsPlaying(true);
+    } else {
+      v.pause();
+      setIsPlaying(false);
+    }
+  };
 
   return (
     <section className="py-16 sm:py-24 bg-white">
@@ -248,22 +289,34 @@ function VideoShowcaseSection() {
         <AnimatedSection delay={0.1}>
           <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-black">
             <video
+              ref={videoRef}
               autoPlay
               muted={muted}
               loop
               playsInline
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
               className="w-full h-full object-cover"
             >
               <source src="/video/intro1.mp4" type="video/mp4" />
             </video>
 
-            <button
-              onClick={() => setMuted((m) => !m)}
-              aria-label={muted ? "Unmute" : "Mute"}
-              className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-            >
-              {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-            </button>
+            <div className="absolute bottom-4 right-4 flex items-center gap-2">
+              <button
+                onClick={togglePlay}
+                aria-label={isPlaying ? "Pause" : "Play"}
+                className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+              >
+                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+              </button>
+              <button
+                onClick={() => setMuted((m) => !m)}
+                aria-label={muted ? "Unmute" : "Mute"}
+                className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+              >
+                {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+              </button>
+            </div>
           </div>
         </AnimatedSection>
       </div>

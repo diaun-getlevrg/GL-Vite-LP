@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, Clock, Volume2, VolumeX, Star } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Clock, Volume2, VolumeX, Star, Play, Pause } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,6 +16,27 @@ import { Label } from "@/components/ui/label";
    ════════════════════════════════════════════════════════════════════════════ */
 
 const videos = ["/video/intro1.mp4", "/video/intro2.mp4"];
+
+const testimonials = [
+  {
+    quote: "Always responsive and reliable, Levrg has been a tremendous partner to our team. Get Levrg handled our marketing so we could focus on growth.",
+    name: "James McGrath",
+    title: "Brand & Social Media Manager | Empellor CRM",
+    image: "/images/client/james-mcgrath.webp",
+  },
+  {
+    quote: "We added video as a service line without hiring a single editor. Our margins went up 40% on video projects in the first quarter.",
+    name: "Miles Kaiburn",
+    title: "CEO | Old Town Media",
+    image: "/images/client/miles-kaiburn.webp",
+  },
+  {
+    quote: "The quality is indistinguishable from our in-house team. Our clients never know the difference, and our margins have never been better.",
+    name: "Brendan Taylor",
+    title: "CEO | Maverick VFX",
+    image: "/images/client/brendan-taylor.webp",
+  },
+];
 
 const stats = [
   { value: "Up to 80%", label: "Lower Cost Than an In-House Hire" },
@@ -35,20 +56,70 @@ function HeroSection() {
   const navigate = useNavigate();
   const [clipIndex, setClipIndex] = useState(0);
   const [muted, setMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate("/thank-you?service=video-editing");
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTestimonialIndex((i) => (i + 1) % testimonials.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
   const handleEnded = () => {
     setClipIndex((i) => (i + 1) % videos.length);
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.muted = false;
+          setMuted(false);
+          video.play().catch(() => {
+            video.muted = true;
+            setMuted(true);
+            video.play().catch(() => {});
+          });
+        } else {
+          video.pause();
+          video.muted = true;
+          setMuted(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+    // re-observe whenever the clip changes, since `key={clipIndex}` remounts the <video> node
+  }, [clipIndex]);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+      setIsPlaying(true);
+    } else {
+      v.pause();
+      setIsPlaying(false);
+    }
   };
 
   return (
     <section
       id="lead-form"
-      className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] lg:h-[calc(100vh-5rem)] lg:overflow-hidden bg-[#061512]"
+      className="relative min-h-screen lg:h-screen lg:overflow-hidden bg-[#061512]"
     >
       <div className="absolute inset-0 opacity-40">
         <img
@@ -62,12 +133,24 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 lg:h-full flex flex-col">
-        {/* Top: centered headline */}
+        {/* Top: logo + centered headline */}
+        <motion.img
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          src="/Light Logo.webp"
+          alt="Get Levrg"
+          width={120}
+          height={32}
+          decoding="async"
+          className="shrink-0 h-7 w-auto mx-auto mt-6 sm:mt-8"
+        />
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="shrink-0 text-[clamp(1.5rem,3.6vh,2.75rem)] font-extrabold tracking-tight text-white text-center leading-tight px-6 pt-10 sm:pt-14 pb-3 sm:pb-4"
+          className="shrink-0 text-[clamp(1.5rem,3.6vh,2.75rem)] font-extrabold tracking-tight text-white text-center leading-tight px-6 pt-6 sm:pt-8 pb-3 sm:pb-4"
         >
           Product And Service Videos
           <br />
@@ -79,52 +162,74 @@ function HeroSection() {
           <div className="flex flex-col w-full">
             <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black">
               <video
+                ref={videoRef}
                 key={clipIndex}
                 autoPlay
                 muted={muted}
                 playsInline
                 onEnded={handleEnded}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
                 className="w-full h-full object-cover"
               >
                 <source src={videos[clipIndex]} type="video/mp4" />
               </video>
 
-              <button
-                onClick={() => setMuted((m) => !m)}
-                aria-label={muted ? "Unmute" : "Mute"}
-                className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-              >
-                {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-              </button>
+              <div className="absolute bottom-3 right-3 flex items-center gap-2">
+                <button
+                  onClick={togglePlay}
+                  aria-label={isPlaying ? "Pause" : "Play"}
+                  className="w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+                >
+                  {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                </button>
+                <button
+                  onClick={() => setMuted((m) => !m)}
+                  aria-label={muted ? "Unmute" : "Mute"}
+                  className="w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+                >
+                  {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+                </button>
+              </div>
             </div>
 
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="w-full mt-2.5 p-3 rounded-xl bg-white/5 border border-white/10"
+              className="w-full mt-2.5 p-3 rounded-xl bg-white/5 border border-white/10 overflow-hidden min-h-[104px]"
             >
-              <div className="flex items-center gap-1 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-3 w-3 text-spark-500 fill-spark-500" />
-                ))}
-              </div>
-              <p className="text-xs sm:text-sm-body text-gray-300 italic mb-2.5">
-                &ldquo;Always responsive and reliable, Levrg has been a tremendous partner to our team. Get Levrg handled our marketing so we could focus on growth.&rdquo;
-              </p>
-              <div className="flex items-center gap-2.5">
-                <img
-                  src="/images/client/james-mcgrath.webp"
-                  alt="James McGrath"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-7 h-7 rounded-full object-cover shrink-0"
-                />
-                <div>
-                  <p className="text-xs font-semibold text-white leading-tight">James McGrath</p>
-                  <p className="text-[10px] text-gray-400 leading-tight">Brand &amp; Social Media Manager | Empellor CRM</p>
-                </div>
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={testimonialIndex}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+                >
+                  <div className="flex items-center gap-1 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3 w-3 text-spark-500 fill-spark-500" />
+                    ))}
+                  </div>
+                  <p className="text-xs sm:text-sm-body text-gray-300 italic mb-2.5">
+                    &ldquo;{testimonials[testimonialIndex].quote}&rdquo;
+                  </p>
+                  <div className="flex items-center gap-2.5">
+                    <img
+                      src={testimonials[testimonialIndex].image}
+                      alt={testimonials[testimonialIndex].name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-7 h-7 rounded-full object-cover shrink-0"
+                    />
+                    <div>
+                      <p className="text-xs font-semibold text-white leading-tight">{testimonials[testimonialIndex].name}</p>
+                      <p className="text-[10px] text-gray-400 leading-tight">{testimonials[testimonialIndex].title}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </motion.div>
           </div>
 
@@ -135,7 +240,7 @@ function HeroSection() {
             className="w-full"
           >
             <div className="w-full rounded-2xl border border-gray-200 bg-white shadow-2xl p-4 sm:p-5">
-              <h3 className="text-sub font-bold text-gray-900 mb-2.5">
+              <h3 className="text-sub font-bold text-gray-900 mb-2.5 text-center">
                 Claim Free Custom Pricing
               </h3>
               <form onSubmit={handleSubmit} className="space-y-2">
@@ -207,9 +312,19 @@ function HeroSection() {
               {processSteps.map((step, i) => (
                 <React.Fragment key={i}>
                   <div className="flex items-center gap-2 shrink-0">
-                    <div className="w-6 h-6 rounded-full bg-spark-600 text-white flex items-center justify-center text-[11px] font-bold shrink-0">
+                    <motion.div
+                      animate={{ opacity: [1, 0.35, 1], scale: [1, 1.15, 1] }}
+                      transition={{
+                        duration: 1.6,
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        ease: "easeInOut",
+                        delay: i * 0.3,
+                      }}
+                      className="w-6 h-6 rounded-full bg-spark-600 text-white flex items-center justify-center text-[11px] font-bold shrink-0"
+                    >
                       {i + 1}
-                    </div>
+                    </motion.div>
                     <div>
                       <p className="text-xs sm:text-sm-body font-semibold text-white leading-tight">{step.title}</p>
                       <p className="text-[10px] sm:text-[11px] text-gray-400 flex items-center gap-1">
@@ -235,10 +350,7 @@ export function VideoITServicesPageV1() {
   return (
     <PageShell
       navItems={[]}
-      ctaText="Get Your Video Team"
-      ctaTarget="#lead-form"
-      centerLogo
-      hideCta
+      showHeader={false}
       showFooter={false}
       meta={{
         title: "Video Editing for IT Service Providers | Get Levrg",
