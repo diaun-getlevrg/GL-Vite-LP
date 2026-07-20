@@ -4,6 +4,9 @@ import { VideoAgenciesPage } from "@/views/video/VideoAgenciesPage";
 import { VideoConsultingPage } from "@/views/video/VideoConsultingPage";
 import { VideoFinancialAdvisoryPage } from "@/views/video/VideoFinancialAdvisoryPage";
 import { VideoITServicesPage } from "@/views/video/VideoITServicesPage";
+import { VideoITServicesPageV1 } from "@/views/video/VideoITServicesPageV1";
+import { VideoITServicesPageV2 } from "@/views/video/VideoITServicesPageV2";
+import { VideoITServicesPageV3 } from "@/views/video/VideoITServicesPageV3";
 import { VideoLegalPage } from "@/views/video/VideoLegalPage";
 import { VideoSaaSPage } from "@/views/video/VideoSaaSPage";
 import { VideoVPMarketingPage } from "@/views/video/VideoVPMarketingPage";
@@ -65,6 +68,9 @@ export default function App() {
         <Route path="/video-consulting" element={<VideoConsultingPage />} />
         <Route path="/video-financial-advisory" element={<VideoFinancialAdvisoryPage />} />
         <Route path="/video-it-services" element={<VideoITServicesPage />} />
+        <Route path="/video-it-services-v1" element={<VideoITServicesPageV1 />} />
+        <Route path="/video-it-services-v2" element={<VideoITServicesPageV2 />} />
+        <Route path="/video-it-services-v3" element={<VideoITServicesPageV3 />} />
         <Route path="/video-legal" element={<VideoLegalPage />} />
         <Route path="/video-saas" element={<VideoSaaSPage />} />
         <Route path="/video-vp-marketing" element={<VideoVPMarketingPage />} />

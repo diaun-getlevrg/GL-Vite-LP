@@ -212,7 +212,7 @@ function HeroSection() {
    2. PROBLEMS SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
-function ProblemSection() {
+export function ProblemSection() {
   const problems = [
     {
       icon: Video,
@@ -270,7 +270,7 @@ function ProblemSection() {
    3. SOLUTION SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
-function SolutionSection() {
+export function SolutionSection() {
   const differentiators = [
     {
       icon: UserCheck,
@@ -330,7 +330,7 @@ function SolutionSection() {
    3b. SEO SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
-function SEOSection() {
+export function SEOSection() {
   const capabilities = [
     "B2B product demo videos",
     "Social media video production",
@@ -408,7 +408,7 @@ function SEOSection() {
    4. ROI / RESULTS SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
-function ROISection() {
+export function ROISection() {
   const stats = [
     { value: "Up to 80%", label: "Lower Cost Than an In-House Hire" },
     { value: "2×", label: "Demo Request Rate Doubled" },
@@ -445,7 +445,7 @@ function ROISection() {
    6. HOW IT WORKS SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
-function HowItWorksSection() {
+export function HowItWorksSection() {
   const steps = [
     {
       title: "Submit Your Brief",
@@ -552,7 +552,7 @@ function HowItWorksSection() {
    7. TESTIMONIALS SECTION — static single card
    ════════════════════════════════════════════════════════════════════════════ */
 
-function TestimonialsSection() {
+export function TestimonialsSection() {
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -600,7 +600,7 @@ function TestimonialsSection() {
    8. WHY CHOOSE US SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
-function WhyChooseUsSection() {
+export function WhyChooseUsSection() {
   const items = [
     {
       icon: Trophy,
@@ -659,7 +659,7 @@ function WhyChooseUsSection() {
    9. FAQ SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
-function FAQSection() {
+export function FAQSection() {
   const faqs = [
     {
       q: "How fast can my video editing team be up and running?",
@@ -741,7 +741,7 @@ function FAQSection() {
    10. FINAL CTA SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
-function FinalCTASection() {
+export function FinalCTASection() {
   const scrollToHero = () => {
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };

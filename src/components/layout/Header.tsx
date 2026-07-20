@@ -12,12 +12,16 @@ interface HeaderProps {
   navItems?: NavItem[];
   ctaText?: string;
   ctaTarget?: string;
+  centerLogo?: boolean;
+  hideCta?: boolean;
 }
 
 export function Header({
   navItems = [],
   ctaText = "Book My Call",
   ctaTarget = "#lead-form",
+  centerLogo = false,
+  hideCta = false,
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -36,6 +40,10 @@ export function Header({
     setMobileOpen(false);
   };
 
+  const showNav = navItems.length > 0;
+  const showCta = !hideCta;
+  const showMobileToggle = showNav || showCta;
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -48,44 +56,58 @@ export function Header({
       }`}
     >
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className={`relative flex items-center h-16 ${centerLogo ? "justify-center" : "justify-between"}`}>
           <img src="/logo.webp" alt="Get Levrg" width={120} height={32} decoding="async" />
 
-          <nav className="hidden md:flex items-center gap-0.5">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => scrollToSection(item.href)}
-                className="px-3 py-1.5 text-sm-body font-medium text-gray-500 hover:text-spark-800 rounded-md hover:bg-spark-50/60 transition-colors"
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-
-          <div className="hidden md:flex items-center">
-            <Button
-              variant="ghost"
-              onClick={() => scrollToSection(ctaTarget)}
-              className="bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-9 px-5 rounded-lg transition-all hover:shadow-md hover:shadow-spark-600/20"
+          {showNav && (
+            <nav
+              className={`hidden md:flex items-center gap-0.5 ${
+                centerLogo ? "absolute left-4 sm:left-6 lg:left-8" : ""
+              }`}
             >
-              {ctaText}
-              <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-            </Button>
-          </div>
+              {navItems.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => scrollToSection(item.href)}
+                  className="px-3 py-1.5 text-sm-body font-medium text-gray-500 hover:text-spark-800 rounded-md hover:bg-spark-50/60 transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+          )}
 
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-gray-900"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {showCta && (
+            <div
+              className={`hidden md:flex items-center ${
+                centerLogo ? "absolute right-4 sm:right-6 lg:right-8" : ""
+              }`}
+            >
+              <Button
+                variant="ghost"
+                onClick={() => scrollToSection(ctaTarget)}
+                className="bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-9 px-5 rounded-lg transition-all hover:shadow-md hover:shadow-spark-600/20"
+              >
+                {ctaText}
+                <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+              </Button>
+            </div>
+          )}
+
+          {showMobileToggle && (
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className={`md:hidden p-2 text-gray-600 hover:text-gray-900 ${centerLogo ? "absolute right-4" : ""}`}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          )}
         </div>
       </div>
 
       <AnimatePresence>
-        {mobileOpen && (
+        {showMobileToggle && mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -102,16 +124,18 @@ export function Header({
                   {item.label}
                 </button>
               ))}
-              <div className="pt-2 px-3">
-                <Button
-                  variant="ghost"
-                  onClick={() => scrollToSection(ctaTarget)}
-                  className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold py-2.5 rounded-lg"
-                >
-                  {ctaText}
-                  <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                </Button>
-              </div>
+              {showCta && (
+                <div className="pt-2 px-3">
+                  <Button
+                    variant="ghost"
+                    onClick={() => scrollToSection(ctaTarget)}
+                    className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold py-2.5 rounded-lg"
+                  >
+                    {ctaText}
+                    <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                  </Button>
+                </div>
+              )}
             </div>
           </motion.div>
         )}

@@ -1,7 +1,7 @@
 import React from "react";
 import { AnimatedSection } from "./AnimatedSection";
 
-const trustedLogos = [
+export const trustedLogos = [
   { src: "/logos/b2b/Airtera.webp", alt: "Airtera" },
   { src: "/logos/b2b/Apiphany.webp", alt: "Apiphany" },
   { src: "/logos/b2b/Atlus.webp", alt: "Atlus" },

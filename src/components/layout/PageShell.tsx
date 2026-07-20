@@ -21,7 +21,11 @@ interface PageShellProps {
   navItems?: NavItem[];
   ctaText?: string;
   ctaTarget?: string;
+  centerLogo?: boolean;
+  hideCta?: boolean;
+  showHeader?: boolean;
   showCapabilities?: boolean;
+  showFooter?: boolean;
   meta?: PageMetaProps;
 }
 
@@ -30,7 +34,11 @@ export function PageShell({
   navItems,
   ctaText,
   ctaTarget,
+  centerLogo,
+  hideCta,
+  showHeader = true,
   showCapabilities = true,
+  showFooter = true,
   meta,
 }: PageShellProps) {
   return (
@@ -46,10 +54,12 @@ export function PageShell({
           <meta property="og:site_name" content="Get Levrg" />
         </>
       )}
-      <Header navItems={navItems} ctaText={ctaText} ctaTarget={ctaTarget} />
-      <main className="flex-1 pt-16 sm:pt-20">{children}</main>
+      {showHeader && (
+        <Header navItems={navItems} ctaText={ctaText} ctaTarget={ctaTarget} centerLogo={centerLogo} hideCta={hideCta} />
+      )}
+      <main className={`flex-1 ${showHeader ? "pt-16 sm:pt-20" : ""}`}>{children}</main>
       {showCapabilities && <ServiceCapabilities />}
-      <Footer />
+      {showFooter && <Footer />}
     </div>
   );
 }
