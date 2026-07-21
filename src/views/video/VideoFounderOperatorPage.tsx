@@ -286,7 +286,7 @@ function SolutionSection() {
     {
       icon: Zap,
       title: "Launch in 14 Days, No Hiring Required",
-      desc: "Talent matched to your content and brand fast. No job posts, no interviews, no ramp.",
+      desc: "Fast talent onboarding to your brand and content guidelines. No job posts, no interviews, no ramp.",
     },
     {
       icon: CheckCircle,

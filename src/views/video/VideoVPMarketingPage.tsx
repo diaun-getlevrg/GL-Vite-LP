@@ -281,7 +281,7 @@ function SolutionSection() {
     {
       icon: Zap,
       title: "From Launch to Live in 14 Days",
-      desc: "Talent matched and onboarded in a week, deliverable start flowing in from the 2nd week.",
+      desc: "Talent onboarded in a week, deliverable start flowing in from the 2nd week.",
     },
     {
       icon: UserCheck,

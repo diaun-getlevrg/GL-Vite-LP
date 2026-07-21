@@ -242,7 +242,7 @@ function HeroSection() {
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-body sm:text-sub text-gray-300 max-w-2xl mb-8">
-              Get a dedicated social media team that handles strategy, copy, design, scheduling, and reporting across LinkedIn, Instagram, and Facebook. Your team focuses on strategy while we keep your social media presence consistent to your market.
+              Get a dedicated social media team to handle strategy, copy, design, scheduling, and reporting across LinkedIn, Instagram, and Facebook. You focus on the business. We keep your presence consistent.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10">
@@ -399,17 +399,17 @@ function GeneralProblemSection() {
     {
       icon: Eye,
       headline: "Buyers Research You Online Before They Contact You",
-      body: "Your competitors publish every week. They show up in the feed and build familiarity long before the first sales call. When your company stays quiet, buyers assume you are small, inactive, or not worth the risk.",
+      body: "Your competitors post every week and build familiarity long before the first call. Stay quiet, and buyers assume you are small, inactive, or not worth the risk.",
     },
     {
       icon: UserX,
       headline: "Your Best People Shouldn’t Become Content Managers",
-      body: "Founders, marketers, and subject-matter experts should not chase post ideas, write captions, size graphics, and babysit a publishing calendar. Their knowledge should shape the content. Your social media team should turn that knowledge into steady output.",
+      body: "Your experts should shape the content, not chase post ideas, write captions, and babysit a calendar. Give them a team that turns their knowledge into steady output.",
     },
     {
       icon: BookOpen,
       headline: "Your Expertise Needs a System to Reach the Market",
-      body: "Your team holds real insight, hard-won experience, and strong points of view. Most of it stays trapped in meetings, proposals, and client work. A managed social media system pulls that thinking out and turns it into content buyers see.",
+      body: "Your best thinking sits trapped in meetings, proposals, and client work. A managed system pulls it out and turns it into content buyers see.",
     },
   ];
 
@@ -424,7 +424,7 @@ function GeneralProblemSection() {
 
         <AnimatedSection className="text-center mb-14">
           <p className="text-body text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            <span className="font-semibold text-gray-900">57% of B2B buyers research providers online</span> before they ever reach out. If you are not visible, you are not on their list.
+            <span className="font-semibold text-gray-900">57% of B2B buyers research providers online</span> before they ever reach out. If you are not visible, you are not on their list. (Emarketer)
           </p>
         </AnimatedSection>
 
@@ -513,7 +513,7 @@ export function SolutionSection() {
    3b. SEO SECTION  2-col: checklist left + bento image grid right
    ════════════════════════════════════════════════════════════════════════════ */
 /* ════════════════════════════════════════════════════════════════════════════
-   2. STRATEGY & QUALITY SOLUTION SECTION (General targeting — SocialPage only)
+   3. STRATEGY & QUALITY SOLUTION SECTION (General targeting — SocialPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralSolutionSection() {
   const differentiators = [
@@ -540,7 +540,7 @@ function GeneralSolutionSection() {
   ];
 
   return (
-    <section id="solution" className="py-16 sm:py-24 bg-gray-50">
+    <section id="solution" className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-6">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -659,7 +659,7 @@ export function SEOSection() {
    SECTION 4  CLIENT IMPACT
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* ════════════════════════════════════════════════════════════════════════════
-   4. CAPABILITIES / BUILT FOR VISIBILITY SECTION (General targeting — SocialPage only)
+   2. CAPABILITIES / BUILT FOR VISIBILITY SECTION (General targeting — SocialPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralSEOSection() {
   const capabilities = [
@@ -741,7 +741,7 @@ function GeneralSEOSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   5. TOOLS BEHIND THE WORKFLOW SECTION (General targeting — SocialPage only)
+   7. TOOLS BEHIND THE WORKFLOW SECTION (General targeting — SocialPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralToolsWeUseSection() {
   const tools = [
@@ -766,7 +766,7 @@ function GeneralToolsWeUseSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
         <AnimatedSection>
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -778,9 +778,9 @@ function GeneralToolsWeUseSection() {
       <AnimatedSection delay={0.1}>
         <div className="relative overflow-hidden">
           {/* Left fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
           {/* Right fade */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
 
           <div className="flex w-max animate-marquee-left-slow will-change-transform">
             {[...tools, ...tools].map((tool, i) => (
@@ -1026,7 +1026,7 @@ export function CostComparisonSection() {
    SECTION 7  HOW IT WORKS
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* ════════════════════════════════════════════════════════════════════════════
-   9. WHY OUR CLIENTS WORK WITH US SECTION (General targeting — SocialPage only)
+   9. WHY OUR CLIENTS WORK WITH US SECTION (General targeting — SocialPage only, hidden)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralROISection() {
   const stats = [
@@ -1165,7 +1165,7 @@ function ComparisonBars() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   3. VISIBILITY IMPACT / RESULTS SECTION (General targeting — SocialPage only)
+   4. VISIBILITY IMPACT / RESULTS SECTION (General targeting — SocialPage only, hidden)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralClientImpactSection() {
   const stats = [
@@ -1187,7 +1187,7 @@ function GeneralClientImpactSection() {
   ];
 
   return (
-    <section id="results" className="py-16 sm:py-24 bg-white">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
@@ -1212,11 +1212,11 @@ function GeneralClientImpactSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   7. COST OF STAYING INVISIBLE SECTION (General targeting — SocialPage only)
+   5. COST OF STAYING INVISIBLE SECTION (General targeting — SocialPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralCostComparisonSection() {
   return (
-    <section className="py-16 sm:py-24 bg-gray-50">
+    <section id="results" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
@@ -1379,7 +1379,7 @@ export function HowItWorksSection() {
    SECTION 9  TESTIMONIALS
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* ════════════════════════════════════════════════════════════════════════════
-   8. IDEA TO IDENTITY / HOW IT WORKS SECTION (General targeting — SocialPage only)
+   6. IDEA TO IDENTITY / HOW IT WORKS SECTION (General targeting — SocialPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralHowItWorksSection() {
   const steps = [
@@ -1608,7 +1608,7 @@ export function TestimonialsSection() {
    SECTION 10  WHY CHOOSE US
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* ════════════════════════════════════════════════════════════════════════════
-   10. TESTIMONIALS SECTION (General targeting — SocialPage only)
+   11. TESTIMONIALS SECTION (General targeting — SocialPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralTestimonialsSection() {
   const testimonials = [
@@ -1665,7 +1665,7 @@ function GeneralTestimonialsSection() {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-gray-50">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -1765,7 +1765,7 @@ export function WhyChooseUsSection() {
    SECTION 11  FAQ
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* ════════════════════════════════════════════════════════════════════════════
-   6. WHY CHOOSE US / DEDICATED TEAM SECTION (General targeting — SocialPage only)
+   8. WHY CHOOSE US / DEDICATED TEAM SECTION (General targeting — SocialPage only, hidden)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralWhyChooseUsSection() {
   const items = [
@@ -1883,7 +1883,7 @@ export function FAQSection() {
    SECTION 12  FINAL CTA
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* ════════════════════════════════════════════════════════════════════════════
-   11. FAQ SECTION (General targeting — SocialPage only)
+   12. FAQ SECTION (General targeting — SocialPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralFAQSection() {
   const faqs = [
@@ -1917,7 +1917,7 @@ function GeneralFAQSection() {
   const rightFaqs = faqs.slice(3, 6);
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section className="py-16 sm:py-24 bg-gray-50">
       <FaqSchema faqs={faqs} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">
@@ -2072,7 +2072,7 @@ export function FinalCTASection() {
    MAIN EXPORT
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* ════════════════════════════════════════════════════════════════════════════
-   12. FINAL CTA SECTION (General targeting — SocialPage only)
+   10. FINAL CTA SECTION (General targeting — SocialPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralFinalCTASection() {
   return (
@@ -2090,10 +2090,6 @@ function GeneralFinalCTASection() {
               <Button variant="ghost" size="lg" className="bg-white text-spark-800 hover:bg-spark-50 hover:text-spark-800 px-8 py-6 text-base font-semibold rounded-xl shadow-lg transition-all" onClick={() => document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })}>
                 Get Your Social Media Team
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="lg" className="bg-void hover:bg-surface-dark text-white hover:text-white px-8 py-6 text-base font-semibold rounded-xl border-0 transition-all" onClick={() => document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })}>
-                <CalendarCheck className="mr-2 h-5 w-5" />
-                Schedule a Strategy Call
               </Button>
             </div>
             <p className="mt-6 text-sm-body text-spark-300">No contracts. No spam. Cancel anytime.</p>
@@ -2129,17 +2125,17 @@ export function SocialPage() {
       <HeroSection />
       <TrustedByMarquee />
       <GeneralProblemSection />
-      <GeneralSolutionSection />
-      <GeneralClientImpactSection />
       <GeneralSEOSection />
-      <GeneralToolsWeUseSection />
-      {/* <GeneralWhyChooseUsSection /> */}
+      <GeneralSolutionSection />
+      {/* <GeneralClientImpactSection /> */}
       <GeneralCostComparisonSection />
       <GeneralHowItWorksSection />
+      <GeneralToolsWeUseSection />
+      {/* <GeneralWhyChooseUsSection /> */}
       {/* <GeneralROISection /> */}
+      <GeneralFinalCTASection />
       <GeneralTestimonialsSection />
       <GeneralFAQSection />
-      <GeneralFinalCTASection />
     </PageShell>
   );
 }

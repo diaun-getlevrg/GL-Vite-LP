@@ -643,7 +643,7 @@ export function ProblemSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   2b. PROBLEMS SECTION (General targeting — VideoPage only)
+   1. PROBLEMS SECTION (General targeting — VideoPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralProblemSection() {
   const problems = [
@@ -665,7 +665,7 @@ function GeneralProblemSection() {
   ];
 
   return (
-    <section id="problems" className="py-16 sm:py-24 bg-gray-50">
+    <section id="problems" className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900 max-w-3xl mx-auto">
@@ -767,7 +767,7 @@ export function SolutionSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   3a. SOLUTION SECTION (General targeting — VideoPage only)
+   3. SOLUTION SECTION (General targeting — VideoPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralSolutionSection() {
   const differentiators = [
@@ -929,7 +929,7 @@ export function SEOSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   3c. SEO SECTION (General targeting — VideoPage only)
+   2. CAPABILITIES / SEO SECTION (General targeting — VideoPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralSEOSection() {
   const capabilities = [
@@ -1073,7 +1073,7 @@ export function ROISection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   4b. RESULTS / STATS SECTION (General targeting — VideoPage only)
+   4. WHY OUR CLIENTS WORK WITH US SECTION (General targeting — VideoPage only, hidden)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralROISection() {
   const stats = [
@@ -1092,7 +1092,7 @@ function GeneralROISection() {
   ];
 
   return (
-    <section id="results" className="py-16 sm:py-24 bg-gray-50">
+    <section className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -1183,6 +1183,89 @@ export function ComparisonSection() {
             </table>
           </div>
         </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   5. THE REAL COST OF HIRING SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralComparisonSection() {
+  const hireInHouse = [
+    { title: "$6,500+ per month", desc: "Before benefits and payroll" },
+    { title: "3 months to hire", desc: "Plus a 90-day ramp to output" },
+    { title: "Full supervision required", desc: "You manage the work daily" },
+    { title: "2-year contract, fixed headcount", desc: "One person, single point of failure" },
+  ];
+
+  const partnerWithUs = [
+    { title: "Up to 80% lower cost", desc: "No benefits, payroll, or overhead" },
+    { title: "Live in 14 days", desc: "Full team onboarded in week one" },
+    { title: "Dedicated PM owns delivery", desc: "No supervision on your side" },
+    { title: "Scale on demand, no lock-in", desc: "Add roles as you grow" },
+  ];
+
+  return (
+    <section id="results" className="py-16 sm:py-24 bg-white">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-14">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            The Real Cost of <span className="text-[#51B027]">Hiring</span>
+          </h2>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <AnimatedSection direction="left">
+            <div className="p-6 sm:p-8 rounded-xl border border-red-200 bg-white h-full">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-red-50 text-red-500">
+                  <X className="h-5 w-5" />
+                </div>
+                <h3 className="text-sub font-bold text-red-600">Hire In-House</h3>
+              </div>
+              <ul className="space-y-4">
+                {hireInHouse.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <X className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-gray-900 font-medium">{item.title}</p>
+                      <p className="text-sm-body text-gray-500">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 p-4 rounded-xl bg-red-50/50 border border-red-100">
+                <p className="text-sm text-red-600 font-medium">High fixed cost, slow to start, hard to scale.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection direction="right">
+            <div className="p-6 sm:p-8 rounded-xl border border-spark-200 bg-white h-full">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-spark-50 text-spark-600">
+                  <CheckCircle className="h-5 w-5" />
+                </div>
+                <h3 className="text-sub font-bold text-[#51B027]">Partner With Us</h3>
+              </div>
+              <ul className="space-y-4">
+                {partnerWithUs.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-spark-500 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-gray-900 font-medium">{item.title}</p>
+                      <p className="text-sm-body text-gray-500">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 p-4 rounded-xl bg-spark-50/50 border border-spark-100">
+                <p className="text-sm-body text-[#51B027] font-medium">One managed team for less than a single hire.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
       </div>
     </section>
   );
@@ -1290,7 +1373,7 @@ export function HowItWorksSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   6b. HOW IT WORKS SECTION (General targeting — VideoPage only)
+   7. HOW IT WORKS SECTION (General targeting — VideoPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralHowItWorksSection() {
   const steps = [
@@ -1322,7 +1405,7 @@ function GeneralHowItWorksSection() {
   ];
 
   return (
-    <section id="process" className="py-16 sm:py-24 bg-white">
+    <section id="process" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -1557,7 +1640,7 @@ export function TestimonialsSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   7b. TESTIMONIALS SECTION (General targeting — VideoPage only)
+   9. TESTIMONIALS SECTION (General targeting — VideoPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralTestimonialsSection() {
   const testimonials = [
@@ -1614,7 +1697,7 @@ function GeneralTestimonialsSection() {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-gray-50">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-14">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -1762,7 +1845,7 @@ export function WhyChooseUsSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   8b. WHY CHOOSE US SECTION (General targeting — VideoPage only)
+   6. WHY CHOOSE US / DEDICATED TEAM SECTION (General targeting — VideoPage only, hidden)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralWhyChooseUsSection() {
   const items = [
@@ -1901,7 +1984,7 @@ export function FAQSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   9b. FAQ SECTION (General targeting — VideoPage only)
+   10. FAQ SECTION (General targeting — VideoPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralFAQSection() {
   const faqs = [
@@ -1935,7 +2018,7 @@ function GeneralFAQSection() {
   const rightFaqs = faqs.slice(3, 6);
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section className="py-16 sm:py-24 bg-gray-50">
       <FaqSchema faqs={faqs} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-12">
@@ -2029,7 +2112,7 @@ export function FinalCTASection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
-   10b. FINAL CTA SECTION (General targeting — VideoPage only)
+   8. FINAL CTA SECTION (General targeting — VideoPage only)
    ════════════════════════════════════════════════════════════════════════════ */
 function GeneralFinalCTASection() {
   const scrollToHero = () => {
@@ -2057,14 +2140,7 @@ function GeneralFinalCTASection() {
               Get Your Video Editing Team
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button
-              variant="ghost"
-              onClick={scrollToHero}
-              className="bg-void hover:bg-surface-dark text-white hover:text-white px-8 py-6 text-base rounded-xl border-0 transition-all"
-            >
-              <Phone className="mr-2 h-4 w-4" />
-              Schedule a Call
-            </Button>
+
           </div>
           <p className="text-sm-body text-spark-300 mt-6">
             No contracts. No spam. Cancel anytime.
@@ -2085,7 +2161,7 @@ export function VideoPage() {
       navItems={[
         { label: "Problems", href: "#problems" },
         { label: "Solution", href: "#solution" },
-        { label: "Results", href: "#results" },
+        { label: "Why Us", href: "#results" },
         { label: "Process", href: "#process" },
       ]}
       ctaText="See How It Works"
@@ -2104,17 +2180,17 @@ export function VideoPage() {
       <HeroSection />
       <TrustedByMarquee />
       <GeneralProblemSection />
-      <GeneralSolutionSection />
       <GeneralSEOSection />
+      <GeneralSolutionSection />
       <ToolsWeUseSection />
-      <GeneralROISection />
+      {/* <GeneralROISection /> */}
       <WorkSampleBentoGrid />
-      <ComparisonSection />
-      <GeneralWhyChooseUsSection />
+      <GeneralComparisonSection />
+      {/* <GeneralWhyChooseUsSection /> */}
       <GeneralHowItWorksSection />
+      <GeneralFinalCTASection />
       <GeneralTestimonialsSection />
       <GeneralFAQSection />
-      <GeneralFinalCTASection />
     </PageShell>
   );
 }
