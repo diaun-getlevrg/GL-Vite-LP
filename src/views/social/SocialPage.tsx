@@ -33,6 +33,13 @@ import {
   Share2,
   TrendingUp,
   RotateCcw,
+  AlertTriangle,
+  Zap,
+  Shield,
+  Trophy,
+  Rocket,
+  UserCheck,
+  X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -227,17 +234,17 @@ function HeroSection() {
           <div className="lg:col-span-3">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-8">
               <Briefcase className="h-3.5 w-3.5 text-spark-300" />
-              <span className="text-sm-body font-medium text-white">Social Media Management Services</span>
+              <span className="text-sm-body font-medium text-white">Social Media Management</span>
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-h1 sm:text-display lg:text-display-sm text-white mb-6">
-              Your Firm Should Be Visible
+              Show Up Consistently on Social Without Building an
               <br />
-              <span className="text-spark-400">Your Partners Shouldn&apos;t Have to Post</span>
+              <span className="text-spark-400">In-House Team</span>
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-body sm:text-sub text-gray-300 max-w-2xl mb-8">
-              Get a dedicated social media team to optimize your LinkedIn, Facebook, and Instagram. We handle the strategy, copy, design, scheduling, reporting, and workflow, so your team can stay visible without adding another internal role.
+              Get a dedicated social media team that handles strategy, copy, design, scheduling, and reporting across LinkedIn, Instagram, and Facebook. You approve the direction. We keep your brand publishing.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10">
@@ -259,19 +266,19 @@ function HeroSection() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }} className="relative p-5 sm:p-6 rounded-xl bg-white/10 border border-white/20 backdrop-blur-sm max-w-2xl">
               <Quote className="absolute top-4 left-5 h-5 w-5 text-spark-300" />
               <p className="text-sm-body sm:text-body text-gray-200 italic mb-3 pl-8">
-                &ldquo;Our LinkedIn presence went from invisible to the most visible firm in our market. Not one partner had to write a post. We&apos;re getting inquiries from businesses who&apos;ve been following our content for months.&rdquo;
+                &ldquo;Get Levrg handled our marketing so we could focus on growth.&rdquo;
               </p>
               <div className="flex items-center gap-3 pl-8">
                 <img
-                  src="/images/client/marche-kaanehe.webp"
-                  alt="Managing Partner"
+                  src="/images/client/james-mcgrath.webp"
+                  alt="James McGrath"
                   loading="lazy"
                   decoding="async"
                   className="w-9 h-9 rounded-full object-cover shrink-0"
                 />
                 <div>
-                  <p className="text-sm-body font-semibold text-white">Managing Partner</p>
-                  <p className="text-xs text-gray-400">Regional CPA Firm (8 Employees)</p>
+                  <p className="text-sm-body font-semibold text-white">James McGrath</p>
+                  <p className="text-xs text-gray-400">Brand & Social Media Manager | Empellor CRM</p>
                 </div>
               </div>
             </motion.div>
@@ -281,7 +288,7 @@ function HeroSection() {
             <div className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 sm:p-8">
               <div className="mb-6">
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">Claim Free Content Calendar</h3>
-                <p className="text-sm-body text-gray-500">Custom content calendar + pricing in 24 hours. Zero obligation.</p>
+                <p className="text-sm-body text-gray-500"></p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
@@ -386,6 +393,59 @@ export function ProblemSection() {
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 3  SOLUTION
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ════════════════════════════════════════════════════════════════════════════
+   2b. PROBLEMS SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralProblemSection() {
+  const problems = [
+    {
+      icon: Clock,
+      headline: "Consistency Breaks the Moment Things Get Busy",
+      body: "Posting is the first thing to slip when the team is stretched. The feed goes quiet, momentum resets, and every restart costs you the audience you were building.",
+    },
+    {
+      icon: UserX,
+      headline: "One In-House Hire Can’t Cover the Whole Stack",
+      body: "Strategy, copywriting, design, scheduling, and reporting is a full team’s worth of work. A single social manager gets buried, and output stays thin.",
+    },
+    {
+      icon: AlertTriangle,
+      headline: "Freelancers Need More Managing",
+      body: "Every new freelancer means re-explaining your brand, chasing drafts, and quality that swings post to post. You end up managing the manager.",
+    },
+  ];
+
+  return (
+    <section id="problems" className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900 max-w-3xl mx-auto">
+            You&apos;re Facing the Same Bottleneck{" "}
+            <span className="text-[#51B027]"> <br />40+ B2B Teams Already Solved</span>
+          </h2>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {problems.map((problem, i) => {
+            const Icon = problem.icon;
+            return (
+              <AnimatedSection key={i} direction="up" delay={i * 0.1}>
+                <div className="h-full rounded-xl border border-gray-100 bg-white p-6 border-l-4 border-l-red-400">
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-red-50 text-red-500 mb-4">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-sub font-bold text-gray-900 mb-3">{problem.headline}</h3>
+                  <p className="text-sm-body text-gray-600">{problem.body}</p>
+                </div>
+              </AnimatedSection>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function SolutionSection() {
   const differentiators = [
     {
@@ -449,6 +509,71 @@ export function SolutionSection() {
 /* ════════════════════════════════════════════════════════════════════════════
    3b. SEO SECTION  2-col: checklist left + bento image grid right
    ════════════════════════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════════════════════
+   3a. SOLUTION SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralSolutionSection() {
+  const differentiators = [
+    {
+      icon: Shield,
+      title: "A Team That Learns Your Brand",
+      desc: "The same strategist, writer, designer, and account manager own your account, so your voice stays consistent across every post.",
+    },
+    {
+      icon: Zap,
+      title: "Live in 14 Days",
+      desc: "Strategy and calendar built in the first week. First posts publishing within two.",
+    },
+    {
+      icon: LayoutGrid,
+      title: "Strategy and Creative, Handled",
+      desc: "Planning, copy, design, scheduling, and reporting run on one workflow. You review and approve; we do the rest.",
+    },
+    {
+      icon: PiggyBank,
+      title: "Lower Overhead Than In-House",
+      desc: "A full social team for less than the cost and commitment of a single full-time hire. No recruiting, no ramp, no payroll.",
+    },
+  ];
+
+  return (
+    <section id="solution" className="py-16 sm:py-24 bg-white">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-6">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Why Choose Between Strategy, Consistency and Quality?
+            <br />
+            <span className="text-[#51B027]">Get All Three</span>
+          </h2>
+        </AnimatedSection>
+
+        <AnimatedSection className="text-center mb-16" delay={0.1}>
+          <p className="text-body text-gray-600 max-w-2xl mx-auto">
+            We build the strategy, produce the content, and run the calendar, so your brand stays visible without one more person to manage. You bring the direction. We handle the output.
+          </p>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.08}>
+          {differentiators.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <StaggerItem key={i}>
+                <div className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-lg hover:shadow-gray-100/80 transition-all duration-300 group h-full border-l-4 border-l-spark-400">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-spark-50 text-spark-600 mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-sub font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-sm-body text-gray-600">{item.desc}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
 export function SEOSection() {
   const capabilities = [
     "LinkedIn content strategy and posting",
@@ -530,6 +655,155 @@ export function SEOSection() {
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 4  CLIENT IMPACT
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ════════════════════════════════════════════════════════════════════════════
+   3c. SEO SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralSEOSection() {
+  const capabilities = [
+    "LinkedIn content strategy and posting",
+    "Instagram and Facebook content management",
+    "Content calendars planned around your goals",
+    "Post copywriting and creative design",
+    "Thought leadership and founder or personal-brand content",
+    "Short-form and social video editing",
+    "Monthly reporting and optimization",
+    "Social media management for SaaS, B2B services, agencies, and professional firms",
+  ];
+
+  const bentoImages = [
+    { src: "/images/work-samples/socialvideo.webp", alt: "Endless stream of published social content across LinkedIn, Instagram, YouTube, and Facebook", span: "row-span-2" },
+    { src: "/images/work-samples/shots.webp", alt: "Short-form social video and platform-specific creative for LinkedIn and Instagram", span: "" },
+    { src: "/images/work-samples/linkedincontent.webp", alt: "Founder and thought leadership content built for social distribution", span: "" },
+    { src: "/images/work-samples/linkedinreport.webp", alt: "Monthly reporting and content calendar planning for B2B social media teams", span: "col-span-2" },
+  ];
+
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-6">
+          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-5">
+            Social Media Management Built for <br />
+            <span className="text-[#51B027]">Teams That Need to Stay Visible</span>
+          </h2>
+        </AnimatedSection>
+
+        <AnimatedSection className="text-center mb-16" delay={0.1}>
+          <p className="text-body text-gray-600 max-w-2xl mx-auto">
+            Whether you&apos;re a SaaS company, a B2B service business, an agency, or a professional firm, staying consistent on social is a full-time job. Get Levrg gives you a managed social media team that turns your ideas and expertise into a steady, on-brand presence.
+          </p>
+        </AnimatedSection>
+      </div>
+
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div>
+            <AnimatedSection className="mb-8" delay={0.2}>
+              <p className="text-body text-gray-600">
+                Get Levrg gives you a professional social media team that can support:
+              </p>
+            </AnimatedSection>
+
+            <StaggerContainer className="space-y-3" staggerDelay={0.06}>
+              {capabilities.map((cap, i) => (
+                <StaggerItem key={i}>
+                  <div className="flex items-start gap-3 px-4 py-3.5 rounded-xl bg-spark-50 border border-spark-100 hover:border-spark-300 hover:shadow-sm transition-all duration-200">
+                    <CheckCircle className="h-5 w-5 text-spark-500 mt-0.5 shrink-0" />
+                    <span className="text-sm-body text-gray-700">{cap}</span>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+
+            <AnimatedSection className="mt-8" delay={0.2}>
+              <p className="text-body text-gray-600">
+                You bring the goals and the point of view. We bring the strategy, content, design, and publishing rhythm to keep your brand showing up.
+              </p>
+            </AnimatedSection>
+          </div>
+
+          <AnimatedSection delay={0.15} direction="left">
+            <div className="grid grid-cols-2 grid-rows-3 gap-3 sm:gap-4 h-[480px] sm:h-[560px]">
+              {bentoImages.map((img, i) => (
+                <div key={i} className={`relative rounded-2xl overflow-hidden border border-gray-100 bg-gray-50 group ${img.span}`}>
+                  <img src={img.src} alt={img.alt} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   3d. TOOLS WE USE SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralToolsWeUseSection() {
+  const tools = [
+    { src: "/logos/applogos/Canva.webp", alt: "Canva" },
+    { src: "/logos/applogos/Figma.webp", alt: "Figma" },
+    { src: "/logos/applogos/ChatGPT.webp", alt: "ChatGPT" },
+    { src: "/logos/applogos/Gemini-Pro.webp", alt: "Gemini Pro" },
+    { src: "/logos/applogos/Taplio.webp", alt: "Taplio" },
+    { src: "/logos/applogos/High-Level.webp", alt: "GoHighLevel" },
+    { src: "/logos/applogos/Hubspot.webp", alt: "HubSpot" },
+    { src: "/logos/applogos/Ahrefs.webp", alt: "Ahrefs" },
+    { src: "/logos/applogos/Semrush.webp", alt: "Semrush" },
+    { src: "/logos/applogos/Slack.webp", alt: "Slack" },
+    { src: "/logos/applogos/Calendly.webp", alt: "Calendly" },
+    { src: "/logos/applogos/Zapier.webp", alt: "Zapier" },
+    { src: "/logos/applogos/Klaviyo.webp", alt: "Klaviyo" },
+    { src: "/logos/applogos/Livestorm.webp", alt: "Livestorm" },
+    { src: "/logos/applogos/Google-Chat.webp", alt: "Google Chat" },
+    { src: "/logos/applogos/Google-Meet.webp", alt: "Google Meet" },
+    { src: "/logos/applogos/Email.webp", alt: "Email" },
+    { src: "/logos/applogos/Freepik.webp", alt: "Freepik" },
+  ];
+
+  return (
+    <section className="py-16 sm:py-24 bg-gray-100">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
+        <AnimatedSection>
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            The Tools Behind the Workflow
+          </h2>
+        </AnimatedSection>
+      </div>
+
+      <AnimatedSection delay={0.1}>
+        <div className="relative overflow-hidden">
+          {/* Left fade */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-gray-100 to-transparent z-10 pointer-events-none" />
+          {/* Right fade */}
+          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-gray-100 to-transparent z-10 pointer-events-none" />
+
+          <div className="flex w-max animate-marquee-left-slow will-change-transform">
+            {[...tools, ...tools].map((tool, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 flex items-center justify-center mx-3 px-6 rounded-xl bg-white border border-gray-200 shadow-sm"
+                style={{ width: 160, height: 80 }}
+              >
+                <img
+                  src={tool.src}
+                  alt={tool.alt}
+                  width={140}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
+                  className="max-h-12 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
+    </section>
+  );
+}
+
 export function ClientImpactSection() {
   const stats = [
     {
@@ -748,6 +1022,122 @@ export function CostComparisonSection() {
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 7  HOW IT WORKS
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ════════════════════════════════════════════════════════════════════════════
+   4b. RESULTS / STATS SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralROISection() {
+  const stats = [
+    {
+      value: "12-20",
+      label: "Posts Published Every Month",
+    },
+    {
+      value: "3-5x",
+      label: "Higher Engagement on Educational Content",
+    },
+    {
+      value: "40+",
+      label: "B2B Partnerships Across North America",
+    },
+  ];
+
+  return (
+    <section id="results" className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Why <span className="text-[#51B027]">Our Clients</span> Work With Us
+          </h2>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
+          {stats.map((stat, i) => (
+            <StaggerItem key={i}>
+              <div className="h-full p-8 rounded-xl border border-gray-100 bg-white text-center group hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center">
+                <div className="text-h1 sm:text-h2 lg:text-display-sm text-[#51B027] mb-4">
+                  {stat.value}
+                </div>
+                <p className="text-gray-900 text-sub font-semibold">{stat.label}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   5b. COMPARISON SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralComparisonSection() {
+  const rows = [
+    { label: "Monthly Cost", na: "$5,000+ (one social manager)", us: "Up to 80% less for a full team" },
+    { label: "Setup Timeline", na: "2-3 months", us: "14 days" },
+    { label: "Coverage", na: "One person, one skill set", us: "Strategy, copy, design, reporting" },
+    { label: "Ramp-Up", na: "60-90 days", us: "Week 1" },
+    { label: "Management", na: "You manage the hire", us: "Dedicated account manager owns it" },
+    { label: "Scalability", na: "Fixed output", us: "Scale posts on demand" },
+    { label: "Risk", na: "Single point of failure", us: "Managed team backup" },
+    { label: "Contracts", na: "Full-time commitment", us: "No lock-in" },
+  ];
+
+  return (
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-12">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Hire In-House vs{" "}
+            <span className="text-[#51B027]">Partner With Us</span>
+          </h2>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.1}>
+          <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+            <table className="w-full text-sm">
+              <thead>
+                <tr>
+                  <th className="text-left px-6 py-4 bg-gray-50 text-gray-600 font-semibold w-1/3 border-b border-gray-200">
+                    Factor
+                  </th>
+                  <th className="text-left px-6 py-4 bg-gray-50 text-gray-600 font-semibold w-1/3 border-b border-gray-200">
+                    Hire In-House
+                  </th>
+                  <th className="text-left px-6 py-4 bg-spark-50 text-sm-body text-[#51B027] font-semibold w-1/3 border-b border-spark-200">
+                    Partner With Us
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((row, i) => (
+                  <tr
+                    key={i}
+                    className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50/50 transition-colors"
+                  >
+                    <td className="px-6 py-4 font-medium text-gray-900">{row.label}</td>
+                    <td className="px-6 py-4 text-left text-gray-500">
+                      <div className="flex items-left justify-left gap-2">
+                        <X className="h-4 w-4 text-red-400 shrink-0" />
+                        <span>{row.na}</span>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 text-left text-sm-body text-[#51B027] font-medium bg-spark-50/50">
+                      <div className="flex items-left justify-left gap-2">
+                        <CheckCircle className="h-4 w-4 text-spark-500 shrink-0" />
+                        <span>{row.us}</span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
 export function HowItWorksSection() {
   const steps = [
     { icon: Phone, title: "Kickoff Interview (Day 1-2)", desc: "30-min call with partners to understand your firm's expertise, ideal clients, voice, and positioning." },
@@ -822,6 +1212,107 @@ export function HowItWorksSection() {
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 9  TESTIMONIALS
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ════════════════════════════════════════════════════════════════════════════
+   7b. HOW IT WORKS SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralHowItWorksSection() {
+  const steps = [
+    {
+      title: "Kickoff",
+      timeline: "Day 1-2",
+      desc: "A short call to capture your brand, voice, audience, and goals. No lengthy setup required.",
+    },
+    {
+      title: "Strategy + Calendar",
+      timeline: "Day 3-7",
+      desc: "We build a 90-day content plan aligned to your positioning, channels, and growth goals.",
+    },
+    {
+      title: "First Posts Live",
+      timeline: "Day 8-14",
+      desc: "Your first posts are scheduled and published. Your brand starts building visibility immediately.",
+    },
+    {
+      title: "Ongoing + Optimization",
+      timeline: "Week 3+",
+      desc: "12-20 posts monthly, plus monthly performance reviews and continuous improvement.",
+    },
+  ];
+
+  return (
+    <section id="process" className="py-16 sm:py-24 bg-white">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Live In Two Weeks,{" "}
+            <span className="text-[#51B027]">Not Two Quarters</span>
+          </h2>
+        </AnimatedSection>
+
+        {/* Desktop: horizontal flow */}
+        <div className="hidden lg:flex items-start justify-between gap-0 items-stretch">
+          {steps.map((step, i) => {
+            return (
+              <React.Fragment key={i}>
+                <div className="flex-1 min-w-0">
+                  <div className="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-300 group h-full">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {i + 1}
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
+                        <Clock className="h-2.5 w-2.5" />
+                        {step.timeline}
+                      </span>
+                    </div>
+                    <h3 className="text-body font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-sl text-gray-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+                {i < steps.length - 1 && (
+                  <div className="flex items-center px-1 pt-8">
+                    <ArrowRight className="h-5 w-5 text-spark-300 shrink-0" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+
+        {/* Mobile/Tablet: vertical stack */}
+        <div className="lg:hidden space-y-4">
+          {steps.map((step, i) => {
+            return (
+              <React.Fragment key={i}>
+                <AnimatedSection direction="up" delay={i * 0.08}>
+                  <div className="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-300 group">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {i + 1}
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
+                        <Clock className="h-2.5 w-2.5" />
+                        {step.timeline}
+                      </span>
+                    </div>
+                    <h3 className="text-body font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-sl text-gray-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </AnimatedSection>
+                {i < steps.length - 1 && (
+                  <div className="flex justify-center py-1">
+                    <ArrowRight className="h-5 w-5 text-spark-300 rotate-90" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function TestimonialsSection() {
   const testimonials = [
     {
@@ -950,6 +1441,116 @@ export function TestimonialsSection() {
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 10  WHY CHOOSE US
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ════════════════════════════════════════════════════════════════════════════
+   9b. TESTIMONIALS SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralTestimonialsSection() {
+  const testimonials = [
+    {
+      quote: "The team elevated our content game and streamlined publishing across platforms.",
+      name: "Leslie Heller",
+      image: "/images/client/leslie-heller.webp",
+      title: "Director of Marketing",
+      company: "Factor AE",
+    },
+    {
+      quote: "We got our Sundays back. Levrg took LinkedIn tasks completely off our plate.",
+      name: "Thomas Buchanan",
+      image: "/images/client/thomas-buchanan.webp",
+      title: "CRO",
+      company: "Sales Tempo",
+    },
+    {
+      quote: "A responsive and insightful team that meaningfully elevated our brand strategy.",
+      name: "Shahrokh Sheikh",
+      image: "/images/client/shahrokh-sheikh.webp",
+      title: "Partner & Litigation Attorney",
+      company: "Wgcounsel",
+    },
+  ];
+
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const goNext = () => {
+    setDirection(1);
+    setCurrent((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const goPrev = () => {
+    setDirection(-1);
+    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const t = testimonials[current];
+
+  const slideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0 }),
+  };
+
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-14">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Companies That Don&apos;t{" "}
+            <span className="text-[#51B027]">Look Back</span>
+          </h2>
+        </AnimatedSection>
+
+        <div className="relative">
+          <button onClick={goPrev} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center hover:bg-spark-50 hover:border-spark-200 transition-colors" aria-label="Previous testimonial">
+            <ChevronLeft className="h-5 w-5 text-gray-600" />
+          </button>
+          <button onClick={goNext} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center hover:bg-spark-50 hover:border-spark-200 transition-colors" aria-label="Next testimonial">
+            <ChevronRight className="h-5 w-5 text-gray-600" />
+          </button>
+
+          <div className="overflow-hidden rounded-2xl">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div key={current} custom={direction} variants={slideVariants} initial="enter" animate="center" exit="exit" transition={{ duration: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }} className="p-8 sm:p-10 rounded-2xl border border-gray-100 bg-white shadow-sm">
+                <Quote className="h-10 w-10 text-spark-300 mb-5" />
+                <p className="text-sub sm:text-h3 text-gray-700 italic mb-6">&ldquo;{t.quote}&rdquo;</p>
+                <div className="pt-5 border-t border-gray-100">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
+                    <div>
+                      <p className="text-sm-body font-semibold text-gray-900">{t.name}</p>
+                      <p className="text-sl text-gray-500">{t.title} &middot; {t.company}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {testimonials.map((_, i) => (
+              <button key={i} onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }} className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-spark-500" : "w-2 bg-gray-300 hover:bg-gray-400"}`} aria-label={`Go to testimonial ${i + 1}`} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function WhyChooseUsSection() {
   const items = [
     { icon: Scale, title: "Built for Professional Services", desc: "We don't work with restaurants, e-commerce, or lifestyle brands. Every strategy, post, and calendar is designed for firms like yours." },
@@ -997,6 +1598,64 @@ export function WhyChooseUsSection() {
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 11  FAQ
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ════════════════════════════════════════════════════════════════════════════
+   10b. WHY CHOOSE US SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralWhyChooseUsSection() {
+  const items = [
+    {
+      icon: Trophy,
+      title: "Proven Track Record",
+      desc: "40+ B2B teams trust us with their social presence. We’ve delivered content with a 98% satisfaction and 99% on-time publish rate.",
+    },
+    {
+      icon: MessageCircle,
+      title: "Direct Communication",
+      desc: "Your dedicated account manager is a Slack message away. No ticket queues, no call centers, real humans in real time.",
+    },
+    {
+      icon: UserCheck,
+      title: "Vetted Talent Only",
+      desc: "Every strategist, writer, and designer passes a rigorous portfolio review, skills test, and English fluency check. We hire less than 1% of applicants.",
+    },
+    {
+      icon: Rocket,
+      title: "Built for Scale",
+      desc: "As your content starts performing, you’ll want more of it. Add channels and output on demand; same team, same workflow, same voice.",
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Not Another Freelancer Marketplace{" "}
+            <span className="text-[#51B027]"><br />This Is Your Dedicated Team</span>
+          </h2>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.08}>
+          {items.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <StaggerItem key={i}>
+                <div className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-lg transition-shadow duration-300 group h-full border-l-4 border-l-spark-400 bg-spark-50/30">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-spark-50 text-spark-600 mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-sub font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-sm-body text-gray-600">{item.desc}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
 export function FAQSection() {
   const faqs = [
     { q: "How much partner time is required?", a: "Your partners do not need to write posts or manage the content process. We usually need a short kickoff conversation, occasional input on key topics, and quick approval on planned content. The goal is to capture your firm\u2019s expertise without turning your experts into content managers." },
@@ -1057,6 +1716,87 @@ export function FAQSection() {
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SECTION 12  FINAL CTA
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ════════════════════════════════════════════════════════════════════════════
+   11b. FAQ SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralFAQSection() {
+  const faqs = [
+    {
+      q: "How much of my team’s time is required?",
+      a: "Very little. We usually need a short kickoff call, occasional input on key topics, and quick approval on planned content. We handle the strategy, writing, design, scheduling, and reporting.",
+    },
+    {
+      q: "What platforms do you post on?",
+      a: "We typically support LinkedIn, Instagram, and Facebook. For most B2B teams, LinkedIn is the primary channel because that’s where buyers, partners, and peers are most active.",
+    },
+    {
+      q: "How quickly will we see results?",
+      a: "Your first posts usually go live within 14 days. Visibility, engagement, and inbound interest build over time as you publish consistently and your audience gets familiar with your brand.",
+    },
+    {
+      q: "Is this the same as hiring a freelancer or one in-house manager?",
+      a: "No. A freelancer or single hire gives you one person and one skill set to manage. Get Levrg gives you a managed team across strategy, copy, design, publishing, and reporting, with the workflow already built in.",
+    },
+    {
+      q: "What kind of content do you create?",
+      a: "Thought leadership posts, educational carousels, founder and team content, product and service posts, client-problem breakdowns, platform-specific graphics, and short-form social video.",
+    },
+    {
+      q: "Can I scale posting up or down?",
+      a: "Yes. Output scales with your goals and calendar, so you get more flexibility than a fixed in-house hire.",
+    },
+  ];
+
+  const leftFaqs = faqs.slice(0, 3);
+  const rightFaqs = faqs.slice(3, 6);
+
+  return (
+    <section className="py-16 sm:py-24 bg-white">
+      <FaqSchema faqs={faqs} />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-12">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Frequently Asked <span className="text-[#51B027]">Questions</span>
+          </h2>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.1}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
+              <Accordion type="single" collapsible className="w-full">
+                {leftFaqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-left-${i}`}>
+                    <AccordionTrigger className="px-6 text-left text-gray-900 font-medium hover:no-underline hover:text-spark-600 transition-colors">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 text-gray-600 leading-relaxed">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
+              <Accordion type="single" collapsible className="w-full">
+                {rightFaqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-right-${i}`}>
+                    <AccordionTrigger className="px-6 text-left text-gray-900 font-medium hover:no-underline hover:text-spark-600 transition-colors">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 text-gray-600 leading-relaxed">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
 export function FinalCTASection() {
   return (
     <section className="py-16 sm:py-24 bg-spark-800">
@@ -1165,6 +1905,39 @@ export function FinalCTASection() {
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    MAIN EXPORT
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ════════════════════════════════════════════════════════════════════════════
+   12b. FINAL CTA SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralFinalCTASection() {
+  return (
+    <section className="py-16 sm:py-24 bg-spark-800">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection direction="up">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-h2 sm:text-h1 text-white mb-4">
+              Ready to Show Up <span><br />Consistently on Social?</span>
+            </h2>
+            <p className="text-body text-spark-200 leading-relaxed mb-8 max-w-xl mx-auto">
+              Turn your ideas and expertise into consistent content, stronger visibility, and more informed inbound conversations. It starts with a focused strategy call.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button variant="ghost" size="lg" className="bg-white text-spark-800 hover:bg-spark-50 hover:text-spark-800 px-8 py-6 text-base font-semibold rounded-xl shadow-lg transition-all" onClick={() => document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })}>
+                Get Your Social Media Team
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button variant="ghost" size="lg" className="bg-void hover:bg-surface-dark text-white hover:text-white px-8 py-6 text-base font-semibold rounded-xl border-0 transition-all" onClick={() => document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })}>
+                <CalendarCheck className="mr-2 h-5 w-5" />
+                Schedule a Strategy Call
+              </Button>
+            </div>
+            <p className="mt-6 text-sm-body text-spark-300">No contracts. No spam. Cancel anytime.</p>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
 export function SocialPage() {
   return (
     <PageShell
@@ -1177,31 +1950,30 @@ export function SocialPage() {
       ctaText="See How It Works"
       ctaTarget="#lead-form"
       meta={{
-        title: "Social Media Management for Law Firms & B2B Professionals | Get Levrg",
+        title: "Managed Social Media Management | Get Levrg",
         description:
-          "Done-for-you social media management for law firms, CPAs, consultants and B2B firms. 12–20 posts monthly, zero partner time, first posts live in 14 days.",
+          "A dedicated social media team that handles strategy, copy, design, scheduling, and reporting across LinkedIn, Instagram, and Facebook. First posts live in 14 days, no in-house hire required.",
         keywords:
-          "social media management for law firms, social media for accountants, B2B social media management, LinkedIn management for professionals, social media for consultants",
-        ogTitle: "Social Media Management for Professional Firms | Get Levrg",
+          "social media management, social media management services, outsource social media, B2B social media management, managed social media team, LinkedIn management",
+        ogTitle: "Managed Social Media Management | Get Levrg",
         ogDescription:
-          "12–20 posts monthly for law firms, CPAs & consultants. No partner time required. First posts live in 14 days.",
+          "A dedicated social media team that handles strategy, copy, design, scheduling, and reporting across LinkedIn, Instagram, and Facebook. First posts live in 14 days, no in-house hire required.",
       }}
     >
       <HeroSection />
       <TrustedByMarquee />
-      <ProblemSection />
-      <SolutionSection />
-      <SEOSection />
-      <ToolsWeUseSection />
-      <ClientImpactSection />
-      <CaseExamplesSection />
+      <GeneralProblemSection />
+      <GeneralSolutionSection />
+      <GeneralSEOSection />
+      <GeneralToolsWeUseSection />
+      <GeneralROISection />
       <WorkSampleBentoGrid />
-      <CostComparisonSection />
-      <WhyChooseUsSection />
-      <HowItWorksSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <FinalCTASection />
+      <GeneralComparisonSection />
+      <GeneralWhyChooseUsSection />
+      <GeneralHowItWorksSection />
+      <GeneralTestimonialsSection />
+      <GeneralFAQSection />
+      <GeneralFinalCTASection />
     </PageShell>
   );
 }

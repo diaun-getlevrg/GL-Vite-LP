@@ -403,11 +403,11 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-h1 sm:text-display lg:text-display-sm text-white mb-6"
             >
-              Managed Video Editing Services for Teams That
+              Managed Video Editing for Teams That Need More
 
               <br />
               <span className="text-[#51B027]">
-                Need More Content <br /> Out the Door
+                Content Out the Door
               </span>
             </motion.h1>
 
@@ -418,7 +418,7 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-body sm:text-sub text-gray-300 max-w-2xl mb-8"
             >
-              Get a dedicated video editing team for all your social video needs. We handle the editors, project management, quality checks, and turnaround, so your team can publish more.
+              Get a dedicated video editing team that handles the editors, project management, quality checks, and turnaround. You bring the footage and the goals. We keep the content shipping.
             </motion.p>
 
             {/* Metrics bar */}
@@ -429,8 +429,8 @@ function HeroSection() {
               className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10"
             >
               {[
-                { icon: Zap, text: "Launch in 7 Days" },
-                { icon: CalendarDays, text: "48-Hour Standard Turnaround" },
+                { icon: Zap, text: "Launch in 14 Days" },
+                { icon: CalendarDays, text: "48-Hour Turnaround" },
                 { icon: TrendingUp, text: "80% Cost Savings" },
               ].map((m, i) => {
                 const Icon = m.icon;
@@ -462,22 +462,20 @@ function HeroSection() {
                 </span>
               </div>
               <p className="text-sm-body sm:text-body text-gray-200 italic mb-3">
-                &ldquo;We went from publishing one product video a quarter to four
-                per month. Clients have no idea the editing isn&apos;t in-house. This
-                single service line generates{" "}
-                <span className="text-spark-400 font-semibold not-italic">$12K monthly recurring</span>.&rdquo;
+                &ldquo;Levrg feels like part of our team. Seamless, reliable, and
+                essential for scaling.&rdquo;
               </p>
               <div className="flex items-center gap-3">
                 <img
-                  src="/images/client/miles-kaiburn.webp"
-                  alt="Miles Kaiburn"
+                  src="/images/client/sara-murray.webp"
+                  alt="Sara Murray"
                   loading="lazy"
                   decoding="async"
                   className="w-9 h-9 rounded-full object-cover shrink-0"
                 />
                 <div>
-                  <p className="text-sm-body font-semibold text-white">Miles Kaiburn</p>
-                  <p className="text-xs text-gray-400">CEO | Old Town Media</p>
+                  <p className="text-sm-body font-semibold text-white">Sara Murray</p>
+                  <p className="text-xs text-gray-400">CEO | Sara Murray Inc.</p>
                 </div>
               </div>
             </motion.div>
@@ -645,6 +643,65 @@ export function ProblemSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
+   2b. PROBLEMS SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralProblemSection() {
+  const problems = [
+    {
+      icon: Video,
+      headline: "Video Demand Is Outpacing Your Team",
+      body: "Every channel on your plan now expects video. It’s the most requested, least resourced format on the calendar, so good ideas sit unpublished while the backlog grows.",
+    },
+    {
+      icon: UserX,
+      headline: "In-House Hiring Doesn’t Fix It Fast Enough",
+      body: "A full-time editor runs $6,500+/month before benefits, plus a 90-day ramp. That’s budget committed long before you see a single deliverable.",
+    },
+    {
+      icon: AlertTriangle,
+      headline: "Freelancers Need More Managing",
+      body: "Every new freelancer means re-explaining your brand, chasing revisions, and quality that swings from project to project. You end up managing the manager.",
+    },
+  ];
+
+  return (
+    <section id="problems" className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900 max-w-3xl mx-auto">
+            You&apos;re Facing the Same Bottleneck{" "}
+            <span className="text-[#51B027]"> <br />40+ B2B Companies Already Solved</span>
+          </h2>
+        </AnimatedSection>
+
+        <StaggerContainer className="space-y-6" staggerDelay={0.1}>
+          {problems.map((problem, i) => {
+            const Icon = problem.icon;
+            return (
+              <StaggerItem key={i}>
+                <div className="relative p-6 sm:p-8 rounded-xl bg-white border border-gray-100 border-l-4 border-l-red-400 hover:shadow-lg transition-shadow duration-300 group">
+                  <div className="flex items-start gap-5">
+                    <div className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-red-50 text-red-500 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sub font-bold text-gray-900 mb-3">{problem.headline}</h3>
+                      <p className="text-gray-600 text-sm-body sm:text-body">
+                        {problem.body}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
    3. SOLUTION SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 export function SolutionSection() {
@@ -685,6 +742,71 @@ export function SolutionSection() {
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
             We recruit the top 1% of offshore video editors with agency experience, strong portfolios, and clear communication skills. Then we manage the workflow, deadlines, and quality checks, so you get reliable output without managing another team.
+          </p>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.08}>
+          {differentiators.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <StaggerItem key={i}>
+                <div className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-lg hover:shadow-gray-100/80 transition-all duration-300 group h-full border-l-4 border-l-spark-400">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-spark-50 text-spark-600 mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-sub font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-sm-body text-gray-600">{item.desc}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   3a. SOLUTION SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralSolutionSection() {
+  const differentiators = [
+    {
+      icon: Shield,
+      title: "Dedicated Team That Learns Your Brand",
+      desc: "The same editor and PM own your account, so context doesn’t get re-explained on every request.",
+    },
+    {
+      icon: Zap,
+      title: "Launch in 14 Days",
+      desc: "Talent matched and onboarded in the first week. Deliverables start flowing from week two.",
+    },
+    {
+      icon: UserCheck,
+      title: "One Owner, Full Accountability",
+      desc: "A dedicated PM runs briefs, quality, and delivery, so your output never depends on any single person’s calendar.",
+    },
+    {
+      icon: DollarSign,
+      title: "Lower Overhead Than In-House",
+      desc: "Reliable editing capacity without payroll, benefits, recruiting delays, or a full-time commitment.",
+    },
+  ];
+
+  return (
+    <section id="solution" className="py-16 sm:py-24 bg-white">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-6">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Why Choose Between Speed, Cost and Quality?
+            <br />
+            <span className="text-[#51B027]">Get All Three</span>
+          </h2>
+        </AnimatedSection>
+
+        <AnimatedSection className="text-center mb-16" delay={0.1}>
+          <p className="text-body text-gray-600 max-w-2xl mx-auto">
+            We recruit the top 1% of video editors with real B2B content experience, then run the workflow, deadlines, and quality checks. <br />You get reliable output without putting one more person on your plate to manage.
           </p>
         </AnimatedSection>
 
@@ -807,6 +929,102 @@ export function SEOSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
+   3c. SEO SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralSEOSection() {
+  const capabilities = [
+    "Short-form video editing for Reels, Shorts, and TikTok",
+    "Long-form YouTube and podcast editing",
+    "Social media video production",
+    "B2B product demo and explainer videos",
+    "Motion graphics and branded video assets",
+    "White-label video editing for agencies",
+  ];
+
+  const bentoImages = [
+    { src: "/images/work-samples/socialvideo.webp", alt: "Endless stream of published video content from a dedicated editing team", span: "row-span-2" },
+    { src: "/images/work-samples/high-volume-social-video-editing-team.webp", alt: "High-volume social video editing team delivering reels and short-form content", span: "" },
+    { src: "/images/work-samples/podcast.webp", alt: "Professional video production workflow and editing studio setup", span: "" },
+    { src: "/images/work-samples/shots.webp", alt: "Managed video editing team supporting marketing operations and client campaigns", span: "col-span-2" },
+  ];
+
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+
+        <AnimatedSection className="text-center mb-6">
+          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-5">
+            Video Editing Services Built for <br />
+            <span className="text-[#51B027]">High-Volume Content Teams</span>
+          </h2>
+        </AnimatedSection>
+
+        <AnimatedSection className="text-center mb-16" delay={0.1}>
+          <p className="text-body text-gray-600 max-w-2xl mx-auto">
+            Get Levrg gives you a
+            managed video editing team for recurring production across social, YouTube,
+            paid media, sales enablement, and campaigns.
+          </p>
+        </AnimatedSection>
+      </div>
+
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* LEFT content + checklist */}
+          <div>
+            <AnimatedSection className="mb-8" delay={0.2}>
+              <p className="text-body text-gray-600">
+                Get Levrg gives you a professional video team that can support:
+              </p>
+            </AnimatedSection>
+
+            <StaggerContainer className="space-y-3" staggerDelay={0.06}>
+              {capabilities.map((cap, i) => (
+                <StaggerItem key={i}>
+                  <div className="flex items-start gap-3 px-4 py-3.5 rounded-xl bg-spark-50 border border-spark-100 hover:border-spark-300 hover:shadow-sm transition-all duration-200">
+                    <CheckCircle className="h-5 w-5 text-spark-500 mt-0.5 shrink-0" />
+                    <span className="text-sm-body text-gray-700">{cap}</span>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+
+            <AnimatedSection className="mt-8" delay={0.2}>
+              <p className="text-body text-gray-600">
+                You bring the content goals. We bring the editors, workflow, project management,
+                and production rhythm to keep publishing consistent.
+              </p>
+            </AnimatedSection>
+          </div>
+
+          {/* RIGHT bento image grid */}
+          <AnimatedSection delay={0.15} direction="left">
+            <div className="grid grid-cols-2 grid-rows-3 gap-3 sm:gap-4 h-[480px] sm:h-[560px]">
+              {bentoImages.map((img, i) => (
+                <div
+                  key={i}
+                  className={`relative rounded-2xl overflow-hidden border border-gray-100 bg-gray-50 group ${img.span}`}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
    4. ROI / RESULTS SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 export function ROISection() {
@@ -846,6 +1064,51 @@ export function ROISection() {
                 </div>
                 <p className="text-gray-900 text-sub font-semibold mb-3">{stat.label}</p>
                 <p className="text-gray-500 text-sm-body">&mdash; {stat.author}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   4b. RESULTS / STATS SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralROISection() {
+  const stats = [
+    {
+      value: "Up to 80%",
+      label: "Lower Cost Than an In-House Hire",
+    },
+    {
+      value: "5x",
+      label: "More Videos Per Month, No New Hires",
+    },
+    {
+      value: "40+",
+      label: "B2B Partnerships Across North America",
+    },
+  ];
+
+  return (
+    <section id="results" className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Why <span className="text-[#51B027]">Our Clients</span> Work With Us
+          </h2>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
+          {stats.map((stat, i) => (
+            <StaggerItem key={i}>
+              <div className="h-full p-8 rounded-xl border border-gray-100 bg-white text-center group hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center">
+                <div className="text-h1 sm:text-h2 lg:text-display-sm text-[#51B027] mb-4">
+                  {stat.value}
+                </div>
+                <p className="text-gray-900 text-sub font-semibold">{stat.label}</p>
               </div>
             </StaggerItem>
           ))}
@@ -960,6 +1223,112 @@ export function HowItWorksSection() {
           <h2 className="text-h2 sm:text-h1 text-gray-900">
             Live in One Week{" "}
             <span className="text-[#51B027]">Not One Quarter</span>
+          </h2>
+        </AnimatedSection>
+
+        {/* Desktop: horizontal flow */}
+        <div className="hidden lg:flex items-start justify-between gap-0 items-stretch">
+          {steps.map((step, i) => {
+            return (
+              <React.Fragment key={i}>
+                <div className="flex-1 min-w-0">
+                  <div className="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-300 group h-full">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {i + 1}
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
+                        <Clock className="h-2.5 w-2.5" />
+                        {step.timeline}
+                      </span>
+                    </div>
+                    <h3 className="text-body font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-sl text-gray-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+                {i < steps.length - 1 && (
+                  <div className="flex items-center px-1 pt-8">
+                    <ArrowRight className="h-5 w-5 text-spark-300 shrink-0" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+
+        {/* Mobile/Tablet: vertical stack */}
+        <div className="lg:hidden space-y-4">
+          {steps.map((step, i) => {
+            return (
+              <React.Fragment key={i}>
+                <AnimatedSection direction="up" delay={i * 0.08}>
+                  <div className="p-5 rounded-xl border border-gray-200 bg-white hover:shadow-lg transition-shadow duration-300 group">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-9 h-9 rounded-full bg-spark-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
+                        {i + 1}
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-spark-100 text-spark-700 text-[11px] font-semibold">
+                        <Clock className="h-2.5 w-2.5" />
+                        {step.timeline}
+                      </span>
+                    </div>
+                    <h3 className="text-body font-bold text-gray-900 mb-2">{step.title}</h3>
+                    <p className="text-sl text-gray-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </AnimatedSection>
+                {i < steps.length - 1 && (
+                  <div className="flex justify-center py-1">
+                    <ArrowRight className="h-5 w-5 text-spark-300 rotate-90" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   6b. HOW IT WORKS SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralHowItWorksSection() {
+  const steps = [
+    {
+      title: "Submit Your Brief",
+      timeline: "Day 1",
+      desc: "10 minutes is all it takes. Share your requirements, brand guidelines, and content goals.",
+    },
+    {
+      title: "Meet Your PM",
+      timeline: "Day 2-3",
+      desc: "Intro call with your dedicated PM to set up the workflow, tool access, and communication channels.",
+    },
+    {
+      title: "Processes Go Live",
+      timeline: "End of Week 1",
+      desc: "Your project and processes are live.",
+    },
+    {
+      title: "First Deliverables",
+      timeline: "Week 2",
+      desc: "Brand-compliant edits, production at full speed, revisions included.",
+    },
+    {
+      title: "Scale On Your Terms",
+      timeline: "Week 2+",
+      desc: "Monthly flexibility. Scale up for big campaigns or down during slow periods. No penalties.",
+    },
+  ];
+
+  return (
+    <section id="process" className="py-16 sm:py-24 bg-white">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Two Weeks,{" "}
+            <span className="text-[#51B027]">Not Two Quarters</span>
           </h2>
         </AnimatedSection>
 
@@ -1189,6 +1558,153 @@ export function TestimonialsSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
+   7b. TESTIMONIALS SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralTestimonialsSection() {
+  const testimonials = [
+    {
+      quote: "The team elevated our content game and streamlined publishing across platforms.",
+      name: "Leslie Heller",
+      image: "/images/client/leslie-heller.webp",
+      title: "Director of Marketing",
+      company: "Factor AE",
+    },
+    {
+      quote: "We started on Wednesday and Get Levrg was delivering real value by Monday. That speed changed everything.",
+      name: "Phil Wittmer",
+      image: "/images/client/phil-wittmer.webp",
+      title: "Director of Marketing",
+      company: "Velosio",
+    },
+    {
+      quote: "Flawless teamwork. Get Levrg made everything smooth and effortless.",
+      name: "Aizat Paharodzi",
+      image: "/images/client/aizat-paharodzi.webp",
+      title: "Creative Video Lead",
+      company: "2X",
+    },
+  ];
+
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  const goNext = () => {
+    setDirection(1);
+    setCurrent((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const goPrev = () => {
+    setDirection(-1);
+    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const t = testimonials[current];
+
+  const slideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0 }),
+  };
+
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-14">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Companies That Don&apos;t{" "}
+            <span className="text-[#51B027]">Look Back</span>
+          </h2>
+        </AnimatedSection>
+
+        <div className="relative">
+          {/* Arrow buttons */}
+          <button
+            onClick={goPrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center hover:bg-spark-50 hover:border-spark-200 transition-colors"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="h-5 w-5 text-gray-600" />
+          </button>
+          <button
+            onClick={goNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center hover:bg-spark-50 hover:border-spark-200 transition-colors"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="h-5 w-5 text-gray-600" />
+          </button>
+
+          {/* Testimonial card */}
+          <div className="overflow-hidden rounded-2xl">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={current}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="p-8 sm:p-10 rounded-2xl border border-gray-100 bg-white shadow-sm"
+              >
+                <Quote className="h-10 w-10 text-spark-300 mb-5" />
+                <p className="text-sub sm:text-h3 text-gray-700 italic mb-6">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="flex items-center gap-0.5 mb-5">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="h-4 w-4 text-spark-500 fill-spark-500" />
+                  ))}
+                </div>
+                <div className="pt-5 border-t border-gray-100">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-10 h-10 rounded-full object-cover shrink-0"
+                    />
+                    <div>
+                      <p className="text-sm-body font-semibold text-gray-900">{t.name}</p>
+                      <p className="text-sl text-gray-500">{t.title} &middot; {t.company}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setDirection(i > current ? 1 : -1);
+                  setCurrent(i);
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === current ? "w-6 bg-spark-500" : "w-2 bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
    8. WHY CHOOSE US SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 export function WhyChooseUsSection() {
@@ -1212,6 +1728,64 @@ export function WhyChooseUsSection() {
       icon: Rocket,
       title: "Built for Scale",
       desc: "Start with one editor. Scale to a full team. Same workflow, same PM, same quality  just more capacity when you need it.",
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Not Another Freelancer Marketplace{" "}
+            <span className="text-[#51B027]"><br />This Is Your Dedicated Team</span>
+          </h2>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.08}>
+          {items.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <StaggerItem key={i}>
+                <div className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-lg transition-shadow duration-300 group h-full border-l-4 border-l-spark-400 bg-spark-50/30">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-spark-50 text-spark-600 mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-sub font-bold text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-sm-body text-gray-600">{item.desc}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   8b. WHY CHOOSE US SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralWhyChooseUsSection() {
+  const items = [
+    {
+      icon: Trophy,
+      title: "Proven Track Record",
+      desc: "40+ B2B teams trust us with their video output. We’ve delivered videos with a 98% satisfaction and 99% on-time publish rate.",
+    },
+    {
+      icon: MessageCircle,
+      title: "Direct Communication",
+      desc: "Your dedicated PM is a Slack message away. No ticket queues, no call centers, real humans in real time.",
+    },
+    {
+      icon: UserCheck,
+      title: "Vetted Talent Only",
+      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check. We hire less than 1% of applicants.",
+    },
+    {
+      icon: Rocket,
+      title: "Built for Scale",
+      desc: "As your video starts performing, you’ll want more of it. Add editors and expand your team on demand; same PM, same workflow, same quality, just more output.",
     },
   ];
 
@@ -1328,6 +1902,87 @@ export function FAQSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
+   9b. FAQ SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralFAQSection() {
+  const faqs = [
+    {
+      q: "How fast can my video editing team be up and running?",
+      a: "Most teams start within 7 days. Full production ramps to a steady weekly rhythm by day 14. We use the first few days to learn your brand, content goals, editing style, and review process.",
+    },
+    {
+      q: "What types of videos can your team edit?",
+      a: "Short-form social videos, YouTube videos, podcast clips, product demos, explainers, promotional videos, motion graphics, thumbnails, and recurring social content. The service is built for teams that need consistent output, not one-off help.",
+    },
+    {
+      q: "Is this the same as hiring a freelance video editor?",
+      a: "No. A freelancer gives you one person to manage. Get Levrg gives you a managed video editing service with vetted editors, project management, quality checks, and backup capacity, so you’re not the one chasing revisions.",
+    },
+    {
+      q: "Does this replace our in-house team?",
+      a: "It extends it. Most teams use us for overflow and recurring production so in-house staff can stay focused on strategy and higher-priority work.",
+    },
+    {
+      q: "Can agencies use this as white-label video editing?",
+      a: "Yes. Agencies use Get Levrg as a white-label partner for client campaigns, social content, YouTube, podcast clips, and recurring deliverables. Clients see your brand, not ours.",
+    },
+    {
+      q: "Can I scale video output up or down?",
+      a: "Yes. The team scales with your campaign volume and monthly production needs, so you get more flexibility than fixed in-house hiring.",
+    },
+  ];
+
+  const leftFaqs = faqs.slice(0, 3);
+  const rightFaqs = faqs.slice(3, 6);
+
+  return (
+    <section className="py-16 sm:py-24 bg-white">
+      <FaqSchema faqs={faqs} />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-12">
+          <h2 className="text-h2 sm:text-h1 text-gray-900">
+            Frequently Asked <span className="text-[#51B027]">Questions</span>
+          </h2>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.1}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
+              <Accordion type="single" collapsible className="w-full">
+                {leftFaqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-left-${i}`}>
+                    <AccordionTrigger className="px-6 text-left text-gray-900 font-medium hover:no-underline hover:text-spark-600 transition-colors">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 text-gray-600 leading-relaxed">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+            <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
+              <Accordion type="single" collapsible className="w-full">
+                {rightFaqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-right-${i}`}>
+                    <AccordionTrigger className="px-6 text-left text-gray-900 font-medium hover:no-underline hover:text-spark-600 transition-colors">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 text-gray-600 leading-relaxed">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
    10. FINAL CTA SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 export function FinalCTASection() {
@@ -1342,6 +1997,53 @@ export function FinalCTASection() {
           <h2 className="text-h2 sm:text-h1 text-white mb-6">
             Ready to Stop{" "}
             <span>Managing Freelancers?</span>
+          </h2>
+          <p className="text-body text-spark-200 max-w-2xl mx-auto mb-10">
+            Your dedicated video editing team is one form away. Get custom pricing
+            and a proposed team structure in 24 hours.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              variant="ghost"
+              onClick={scrollToHero}
+              className="bg-white text-spark-800 hover:bg-spark-50 hover:text-spark-800 px-8 py-6 text-base rounded-xl shadow-lg transition-all hover:shadow-xl"
+            >
+              Get Your Video Editing Team
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={scrollToHero}
+              className="bg-void hover:bg-surface-dark text-white hover:text-white px-8 py-6 text-base rounded-xl border-0 transition-all"
+            >
+              <Phone className="mr-2 h-4 w-4" />
+              Schedule a Call
+            </Button>
+          </div>
+          <p className="text-sm-body text-spark-300 mt-6">
+            No contracts. No spam. Cancel anytime.
+          </p>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   10b. FINAL CTA SECTION (General targeting — VideoPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralFinalCTASection() {
+  const scrollToHero = () => {
+    document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <section className="py-16 sm:py-24 bg-spark-800">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <AnimatedSection>
+          <h2 className="text-h2 sm:text-h1 text-white mb-6">
+            Ready to Get More{" "}
+            <span>Content Out the Door?</span>
           </h2>
           <p className="text-body text-spark-200 max-w-2xl mx-auto mb-10">
             Your dedicated video editing team is one form away. Get custom pricing
@@ -1390,30 +2092,30 @@ export function VideoPage() {
       ctaText="See How It Works"
       ctaTarget="#lead-form"
       meta={{
-        title: "White-Label Video Editing Services | Get Levrg",
+        title: "Managed Video Editing Services | Get Levrg",
         description:
-          "Dedicated white-label video editing teams for agencies and content studios. 48-hour turnaround, client-ready quality, 80% cost savings vs hiring.",
+          "A dedicated video editing team that handles the editors, project management, quality checks, and turnaround, so your team publishes more.",
         keywords:
-          "white label video editing, video editing outsourcing, agency video editing, white label video production, dedicated video editors",
-        ogTitle: "White-Label Video Editing | Get Levrg",
+          "video editing services, video editing outsourcing, hire a video editor, social media video editing, managed video editing team",
+        ogTitle: "Managed Video Editing Services | Get Levrg",
         ogDescription:
-          "Dedicated video editors for agencies. 48-hour turnaround, client-ready quality, 80% cheaper than hiring.",
+          "A dedicated video editing team that handles the editors, project management, quality checks, and turnaround, so your team publishes more.",
       }}
     >
       <HeroSection />
       <TrustedByMarquee />
-      <ProblemSection />
-      <SolutionSection />
-      <SEOSection />
+      <GeneralProblemSection />
+      <GeneralSolutionSection />
+      <GeneralSEOSection />
       <ToolsWeUseSection />
-      <ROISection />
+      <GeneralROISection />
       <WorkSampleBentoGrid />
       <ComparisonSection />
-      <WhyChooseUsSection />
-      <HowItWorksSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <FinalCTASection />
+      <GeneralWhyChooseUsSection />
+      <GeneralHowItWorksSection />
+      <GeneralTestimonialsSection />
+      <GeneralFAQSection />
+      <GeneralFinalCTASection />
     </PageShell>
   );
 }

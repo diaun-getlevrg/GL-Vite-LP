@@ -101,7 +101,7 @@ function HeroSection() {
             <div className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 sm:p-8">
               <div className="mb-6">
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">Claim Free Content Calendar</h3>
-                <p className="text-sm-body text-gray-500">Custom content calendar + pricing in 24 hours. Zero obligation.</p>
+                <p className="text-sm-body text-gray-500"></p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
