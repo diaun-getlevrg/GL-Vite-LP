@@ -39,7 +39,7 @@ function HeroSection() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/thank-you?service=video-editing");
+    navigate("/thank-you");
   };
 
   return (
@@ -704,7 +704,7 @@ function WhyChooseUsSection() {
     {
       icon: UserCheck,
       title: "Vetted Talent Only",
-      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check. We hire less than 1% of applicants.",
+      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check.",
     },
     {
       icon: Rocket,

@@ -225,7 +225,7 @@ function HeroSection() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/thank-you?service=crm");
+    navigate("/thank-you");
   };
 
   return (

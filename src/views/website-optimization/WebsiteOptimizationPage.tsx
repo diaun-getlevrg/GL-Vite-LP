@@ -202,7 +202,7 @@ function HeroSection() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/thank-you?service=website-optimization");
+    navigate("/thank-you");
   };
 
   return (

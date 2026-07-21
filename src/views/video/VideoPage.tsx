@@ -355,7 +355,7 @@ function HeroSection() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/thank-you?service=video-editing");
+    navigate("/thank-you");
   };
 
   return (
@@ -418,7 +418,7 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-body sm:text-sub text-gray-300 max-w-2xl mb-8"
             >
-              Get a dedicated video editing team that handles the editors, project management, quality checks, and turnaround. You bring the footage and the goals. We keep the content shipping.
+              Get a dedicated video editing team that handles the editing, project management, quality checks, and turnaround. You bring the footage and the goals. We keep the content shipping.
             </motion.p>
 
             {/* Metrics bar */}
@@ -650,12 +650,12 @@ function GeneralProblemSection() {
     {
       icon: Video,
       headline: "Video Demand Is Outpacing Your Team",
-      body: "Every channel on your plan now expects video. It’s the most requested, least resourced format on the calendar, so good ideas sit unpublished while the backlog grows.",
+      body: "Every channel in your plan now expects video. It’s the most requested, least resourced format on the calendar, so good ideas sit unpublished while the backlog grows.",
     },
     {
       icon: UserX,
       headline: "In-House Hiring Doesn’t Fix It Fast Enough",
-      body: "A full-time editor runs $6,500+/month before benefits, plus a 90-day ramp. That’s budget committed long before you see a single deliverable.",
+      body: "A full-time editor runs $6,500+/month before benefits, plus a 90-day ramp. That’s a budget committed long before you see a single deliverable.",
     },
     {
       icon: AlertTriangle,
@@ -774,12 +774,12 @@ function GeneralSolutionSection() {
     {
       icon: Shield,
       title: "Dedicated Team That Learns Your Brand",
-      desc: "The same editor and PM own your account, so context doesn’t get re-explained on every request.",
+      desc: "The same PM and video team own your account, so context doesn’t get re-explained on every request.",
     },
     {
       icon: Zap,
       title: "Launch in 14 Days",
-      desc: "Talent matched and onboarded in the first week. Deliverables start flowing from week two.",
+      desc: "Talent onboarded in the first week. Deliverables start flowing from week two.",
     },
     {
       icon: UserCheck,
@@ -961,9 +961,8 @@ function GeneralSEOSection() {
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
           <p className="text-body text-gray-600 max-w-2xl mx-auto">
-            Get Levrg gives you a
-            managed video editing team for recurring production across social, YouTube,
-            paid media, sales enablement, and campaigns.
+            Need more video without adding another full-time hire? Get Levrg gives you a
+            managed video editing team for recurring production across all your social platforms.
           </p>
         </AnimatedSection>
       </div>
@@ -1770,17 +1769,17 @@ function GeneralWhyChooseUsSection() {
     {
       icon: Trophy,
       title: "Proven Track Record",
-      desc: "40+ B2B teams trust us with their video output. We’ve delivered videos with a 98% satisfaction and 99% on-time publish rate.",
+      desc: "40+ B2B teams trust us with their video output. We've delivered videos with a 98% satisfaction and 99% on-time publish rate.",
     },
     {
       icon: MessageCircle,
       title: "Direct Communication",
-      desc: "Your dedicated PM is a Slack message away. No ticket queues, no call centers, real humans in real time.",
+      desc: "Your dedicated PM is a Slack message away.",
     },
     {
       icon: UserCheck,
       title: "Vetted Talent Only",
-      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check. We hire less than 1% of applicants.",
+      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check.",
     },
     {
       icon: Rocket,

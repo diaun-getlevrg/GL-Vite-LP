@@ -34,7 +34,7 @@ function LeftColumn() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/thank-you?service=video-editing");
+    navigate("/thank-you");
   };
 
   return (

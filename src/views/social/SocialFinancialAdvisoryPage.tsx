@@ -32,7 +32,7 @@ function HeroSection() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/thank-you?service=social-media");
+    navigate("/thank-you");
   };
 
   return (

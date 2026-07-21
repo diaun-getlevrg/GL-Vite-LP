@@ -212,7 +212,7 @@ function HeroSection() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/thank-you?service=fractional-marketing-team");
+    navigate("/thank-you");
   };
 
   return (
@@ -1293,7 +1293,7 @@ function MidPageCTASection() {
   const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/thank-you?service=fractional-marketing-team");
+    navigate("/thank-you");
   };
 
   return (
