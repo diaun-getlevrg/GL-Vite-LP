@@ -33,13 +33,11 @@ import {
   Share2,
   TrendingUp,
   RotateCcw,
-  AlertTriangle,
   Zap,
   Shield,
   Trophy,
   Rocket,
   UserCheck,
-  X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -238,13 +236,13 @@ function HeroSection() {
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-h1 sm:text-display lg:text-display-sm text-white mb-6">
-              Show Up Consistently on Social Without Building an
+              Stay Consistent on Social Platforms Without
               <br />
-              <span className="text-spark-400">In-House Team</span>
+              <span className="text-spark-400">Hiring a Team</span>
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-body sm:text-sub text-gray-300 max-w-2xl mb-8">
-              Get a dedicated social media team that handles strategy, copy, design, scheduling, and reporting across LinkedIn, Instagram, and Facebook. You approve the direction. We keep your brand publishing.
+              Get a dedicated social media team that handles strategy, copy, design, scheduling, and reporting across LinkedIn, Instagram, and Facebook. Your team handles the growth while we keep your presence visible to the market.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10">
@@ -399,30 +397,36 @@ export function ProblemSection() {
 function GeneralProblemSection() {
   const problems = [
     {
-      icon: Clock,
-      headline: "Consistency Breaks the Moment Things Get Busy",
-      body: "Posting is the first thing to slip when the team is stretched. The feed goes quiet, momentum resets, and every restart costs you the audience you were building.",
+      icon: Eye,
+      headline: "Buyers Research You Before They Contact You",
+      body: "Your competitors publish every week. They show up in the feed and build familiarity long before the first sales call. When your company stays quiet, buyers assume you are small, inactive, or not worth the risk.",
     },
     {
       icon: UserX,
-      headline: "One In-House Hire Can’t Cover the Whole Stack",
-      body: "Strategy, copywriting, design, scheduling, and reporting is a full team’s worth of work. A single social manager gets buried, and output stays thin.",
+      headline: "Your Best People Shouldn’t Become Content Managers",
+      body: "Founders, marketers, and subject-matter experts should not chase post ideas, write captions, size graphics, and babysit a publishing calendar. Their knowledge should shape the content. Your social media team should turn that knowledge into steady output.",
     },
     {
-      icon: AlertTriangle,
-      headline: "Freelancers Need More Managing",
-      body: "Every new freelancer means re-explaining your brand, chasing drafts, and quality that swings post to post. You end up managing the manager.",
+      icon: BookOpen,
+      headline: "Your Expertise Needs a System to Reach the Market",
+      body: "Your team holds real insight, hard-won experience, and strong points of view. Most of it stays trapped in meetings, proposals, and client work. A managed social media system pulls that thinking out and turns it into content buyers see.",
     },
   ];
 
   return (
-    <section id="problems" className="py-16 sm:py-24 bg-gray-50">
+    <section id="problems" className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-16">
-          <h2 className="text-h2 sm:text-h1 text-gray-900 max-w-3xl mx-auto">
-            You&apos;re Facing the Same Bottleneck{" "}
-            <span className="text-[#51B027]"> <br />40+ B2B Teams Already Solved</span>
+        <AnimatedSection className="text-center mb-6">
+          <h2 className="text-h2 sm:text-h1 text-gray-900 max-w-4xl mx-auto">
+            Most Companies Deal With a Visibility Problem{" "}
+            <span className="text-[#51B027]"><br />Even When They Have the Expertise</span>
           </h2>
+        </AnimatedSection>
+
+        <AnimatedSection className="text-center mb-14">
+          <p className="text-body text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <span className="font-semibold text-gray-900">57% of B2B buyers research providers online</span> before they ever reach out. If you are not visible, you are not on the list.
+          </p>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -537,7 +541,7 @@ function GeneralSolutionSection() {
   ];
 
   return (
-    <section id="solution" className="py-16 sm:py-24 bg-white">
+    <section id="solution" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-6">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -548,7 +552,7 @@ function GeneralSolutionSection() {
         </AnimatedSection>
 
         <AnimatedSection className="text-center mb-16" delay={0.1}>
-          <p className="text-body text-gray-600 max-w-2xl mx-auto">
+          <p className="text-body text-gray-600 max-w-3xl mx-auto">
             We build the strategy, produce the content, and run the calendar, so your brand stays visible without one more person to manage. You bring the direction. We handle the output.
           </p>
         </AnimatedSection>
@@ -678,7 +682,7 @@ function GeneralSEOSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-gray-50">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-6">
           <h2 className="text-h2 sm:text-h1 text-gray-900 mb-5">
@@ -763,7 +767,7 @@ function GeneralToolsWeUseSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-gray-100">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
         <AnimatedSection>
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -775,9 +779,9 @@ function GeneralToolsWeUseSection() {
       <AnimatedSection delay={0.1}>
         <div className="relative overflow-hidden">
           {/* Left fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-gray-100 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           {/* Right fade */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-gray-100 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
           <div className="flex w-max animate-marquee-left-slow will-change-transform">
             {[...tools, ...tools].map((tool, i) => (
@@ -1032,8 +1036,8 @@ function GeneralROISection() {
       label: "Posts Published Every Month",
     },
     {
-      value: "3-5x",
-      label: "Higher Engagement on Educational Content",
+      value: "1",
+      label: "POC Oversees the Entire Workflow",
     },
     {
       value: "40+",
@@ -1042,7 +1046,7 @@ function GeneralROISection() {
   ];
 
   return (
-    <section id="results" className="py-16 sm:py-24 bg-gray-50">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -1067,72 +1071,235 @@ function GeneralROISection() {
   );
 }
 
-/* ════════════════════════════════════════════════════════════════════════════
-   5b. COMPARISON SECTION (General targeting — SocialPage only)
-   ════════════════════════════════════════════════════════════════════════════ */
-function GeneralComparisonSection() {
-  const rows = [
-    { label: "Monthly Cost", na: "$5,000+ (one social manager)", us: "Up to 80% less for a full team" },
-    { label: "Setup Timeline", na: "2-3 months", us: "14 days" },
-    { label: "Coverage", na: "One person, one skill set", us: "Strategy, copy, design, reporting" },
-    { label: "Ramp-Up", na: "60-90 days", us: "Week 1" },
-    { label: "Management", na: "You manage the hire", us: "Dedicated account manager owns it" },
-    { label: "Scalability", na: "Fixed output", us: "Scale posts on demand" },
-    { label: "Risk", na: "Single point of failure", us: "Managed team backup" },
-    { label: "Contracts", na: "Full-time commitment", us: "No lock-in" },
+/* ── Visual: radial ring meter (share of buyers researching online) ── */
+function RadialMeter({ percent }: { percent: number }) {
+  const size = 112;
+  const stroke = 10;
+  const r = (size - stroke) / 2;
+  const circumference = 2 * Math.PI * r;
+
+  return (
+    <div className="relative" style={{ width: size, height: size }}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="-rotate-90">
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#E2F5DC" strokeWidth={stroke} />
+        <motion.circle
+          cx={size / 2}
+          cy={size / 2}
+          r={r}
+          fill="none"
+          stroke="#51B027"
+          strokeWidth={stroke}
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          initial={{ strokeDashoffset: circumference }}
+          whileInView={{ strokeDashoffset: circumference * (1 - percent / 100) }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        />
+      </svg>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-h2 font-bold text-gray-900">
+          <CountUp target={percent} suffix="%" />
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ── Visual: range timeline (month window where revenue impact shows up) ── */
+function TimelineMeter({ startMonth, endMonth, totalMonths }: { startMonth: number; endMonth: number; totalMonths: number }) {
+  const startPct = (startMonth / totalMonths) * 100;
+  const widthPct = ((endMonth - startMonth) / totalMonths) * 100;
+
+  return (
+    <div className="w-full max-w-[220px]">
+      <div className="flex justify-center mb-2">
+        <span className="text-h3 font-bold text-gray-900">
+          Month {startMonth}&ndash;{endMonth}
+        </span>
+      </div>
+      <div className="relative h-2.5 rounded-full bg-spark-100">
+        <motion.div
+          className="absolute top-0 h-2.5 rounded-full bg-spark-600"
+          style={{ left: `${startPct}%` }}
+          initial={{ width: 0 }}
+          whileInView={{ width: `${widthPct}%` }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        />
+      </div>
+      <div className="flex justify-between mt-1.5">
+        <span className="text-caption text-gray-400 normal-case tracking-normal">Month 0</span>
+        <span className="text-caption text-gray-400 normal-case tracking-normal">Month {totalMonths}</span>
+      </div>
+    </div>
+  );
+}
+
+/* ── Visual: comparison bars (educational vs promotional engagement) ── */
+function ComparisonBars() {
+  const bars = [
+    { label: "Promotional", value: "1x", heightPct: 22, color: "bg-gray-300" },
+    { label: "Educational", value: "3-5x", heightPct: 100, color: "bg-spark-600" },
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Hire In-House vs{" "}
-            <span className="text-[#51B027]">Partner With Us</span>
+    <div className="flex items-end justify-center gap-6 h-24 w-full">
+      {bars.map((bar) => (
+        <div key={bar.label} className="flex flex-col items-center justify-end h-full">
+          <span className={`text-sm-body font-bold mb-1.5 ${bar.color === "bg-spark-600" ? "text-gray-900" : "text-gray-500"}`}>
+            {bar.value}
+          </span>
+          <motion.div
+            className={`w-9 rounded-t-md ${bar.color}`}
+            initial={{ height: 0 }}
+            whileInView={{ height: `${bar.heightPct}%` }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            style={{ maxHeight: "72px" }}
+          />
+          <span className="text-caption text-gray-400 normal-case tracking-normal mt-2">{bar.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   4c. CLIENT IMPACT SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralClientImpactSection() {
+  const stats = [
+    {
+      visual: <RadialMeter percent={57} />,
+      label: "of Buyers Research Online First",
+      source: "Hinge Research Institute, 2025",
+    },
+    {
+      visual: <TimelineMeter startMonth={4} endMonth={6} totalMonths={6} />,
+      label: "Average Revenue Impact Timeline",
+      source: "One client added 8 new accounts within 6 months",
+    },
+    {
+      visual: <ComparisonBars />,
+      label: "Engagement on Educational Content",
+      source: "Educational posts outperform promotional ones",
+    },
+  ];
+
+  return (
+    <section id="results" className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-14">
+          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
+            Visibility That Turns Into <br /> <span className="text-[#51B027]">Inquiries, Trust, and Revenue</span>
           </h2>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.1}>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
-            <table className="w-full text-sm">
-              <thead>
-                <tr>
-                  <th className="text-left px-6 py-4 bg-gray-50 text-gray-600 font-semibold w-1/3 border-b border-gray-200">
-                    Factor
-                  </th>
-                  <th className="text-left px-6 py-4 bg-gray-50 text-gray-600 font-semibold w-1/3 border-b border-gray-200">
-                    Hire In-House
-                  </th>
-                  <th className="text-left px-6 py-4 bg-spark-50 text-sm-body text-[#51B027] font-semibold w-1/3 border-b border-spark-200">
-                    Partner With Us
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, i) => (
-                  <tr
-                    key={i}
-                    className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50/50 transition-colors"
-                  >
-                    <td className="px-6 py-4 font-medium text-gray-900">{row.label}</td>
-                    <td className="px-6 py-4 text-left text-gray-500">
-                      <div className="flex items-left justify-left gap-2">
-                        <X className="h-4 w-4 text-red-400 shrink-0" />
-                        <span>{row.na}</span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-left text-sm-body text-[#51B027] font-medium bg-spark-50/50">
-                      <div className="flex items-left justify-left gap-2">
-                        <CheckCircle className="h-4 w-4 text-spark-500 shrink-0" />
-                        <span>{row.us}</span>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch" staggerDelay={0.12}>
+          {stats.map((stat, i) => (
+            <StaggerItem key={i} className="h-full">
+              <div className="h-full p-8 rounded-xl border border-gray-100 bg-white text-center hover:shadow-md transition-shadow flex flex-col items-center">
+                <div className="flex items-center justify-center flex-1 mb-4">{stat.visual}</div>
+                <h3 className="text-sub font-semibold text-gray-900 mb-2">{stat.label}</h3>
+                <p className="text-sm-body text-gray-500">{stat.source}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   6b. COST COMPARISON SECTION (General targeting — SocialPage only)
+   ════════════════════════════════════════════════════════════════════════════ */
+function GeneralCostComparisonSection() {
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-14">
+          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
+            The Cost of Staying <span className="text-red-500">Invisible</span>
+          </h2>
         </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <AnimatedSection direction="left">
+            <div className="p-6 sm:p-8 rounded-xl border border-spark-200 bg-white h-full">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-spark-50 text-spark-600">
+                  <Eye className="h-5 w-5" />
+                </div>
+                <h3 className="text-sub font-bold text-[#51B027]">The Visible Company</h3>
+              </div>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-spark-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-gray-900 font-medium">$2,500/month</p>
+                    <p className="text-sm-body text-gray-500">A dedicated social media team</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-spark-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-gray-900 font-medium">10 hours a month</p>
+                    <p className="text-sm-body text-gray-500">Review and approval only</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-spark-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-gray-900 font-medium">10-20x ROI</p>
+                    <p className="text-sm-body text-gray-500">Warm inbound leads and stronger positioning</p>
+                  </div>
+                </li>
+              </ul>
+              <div className="mt-6 p-4 rounded-xl bg-spark-50/50 border border-spark-100">
+                <p className="text-sm-body text-[#51B027] font-medium">Total: about $2,500/mo, with returns that compound.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection direction="right">
+            <div className="p-6 sm:p-8 rounded-xl border border-red-200 bg-white h-full">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-red-50 text-red-500">
+                  <XCircle className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-bold text-red-600">The Invisible Company</h3>
+              </div>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <XCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-gray-900 font-medium">$0 social spend</p>
+                    <p className="text-sm-body text-gray-500">But 5x more going to outbound and ads</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <XCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-gray-900 font-medium">Endless internal hours</p>
+                    <p className="text-sm-body text-gray-500">Posts drafted, never shipped</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <XCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-gray-900 font-medium">Shrinking market share</p>
+                    <p className="text-sm-body text-gray-500">Competitors show up, you don&apos;t</p>
+                  </div>
+                </li>
+              </ul>
+              <div className="mt-6 p-4 rounded-xl bg-red-50/50 border border-red-100">
+                <p className="text-sm text-red-600 font-medium">Hidden cost: $10K to $25K a month in lost deals and wasted ad spend.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
       </div>
     </section>
   );
@@ -1240,12 +1407,12 @@ function GeneralHowItWorksSection() {
   ];
 
   return (
-    <section id="process" className="py-16 sm:py-24 bg-white">
+    <section id="process" className="py-16 sm:py-24 bg-gray-50">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Live In Two Weeks,{" "}
-            <span className="text-[#51B027]">Not Two Quarters</span>
+            From Idea to{" "}
+            <span className="text-[#51B027]">Identity in 14 Days</span>
           </h2>
         </AnimatedSection>
 
@@ -1626,7 +1793,7 @@ function GeneralWhyChooseUsSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-gray-50">
+    <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
@@ -1965,12 +2132,12 @@ export function SocialPage() {
       <GeneralProblemSection />
       <GeneralSolutionSection />
       <GeneralSEOSection />
-      <GeneralToolsWeUseSection />
-      <GeneralROISection />
-      <WorkSampleBentoGrid />
-      <GeneralComparisonSection />
-      <GeneralWhyChooseUsSection />
       <GeneralHowItWorksSection />
+      <GeneralToolsWeUseSection />
+      <GeneralClientImpactSection />
+      <GeneralWhyChooseUsSection />
+      <GeneralCostComparisonSection />
+      <GeneralROISection />
       <GeneralTestimonialsSection />
       <GeneralFAQSection />
       <GeneralFinalCTASection />
