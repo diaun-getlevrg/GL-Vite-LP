@@ -23,6 +23,7 @@ interface PageShellProps {
   ctaTarget?: string;
   centerLogo?: boolean;
   hideCta?: boolean;
+  dynamicCta?: boolean;
   showHeader?: boolean;
   showCapabilities?: boolean;
   showFooter?: boolean;
@@ -36,6 +37,7 @@ export function PageShell({
   ctaTarget,
   centerLogo,
   hideCta,
+  dynamicCta,
   showHeader = true,
   showCapabilities = true,
   showFooter = true,
@@ -55,7 +57,7 @@ export function PageShell({
         </>
       )}
       {showHeader && (
-        <Header navItems={navItems} ctaText={ctaText} ctaTarget={ctaTarget} centerLogo={centerLogo} hideCta={hideCta} />
+        <Header navItems={navItems} ctaText={ctaText} ctaTarget={ctaTarget} centerLogo={centerLogo} hideCta={hideCta} dynamicCta={dynamicCta} />
       )}
       <main className={`flex-1 ${showHeader ? "pt-16 sm:pt-20" : ""}`}>{children}</main>
       {showCapabilities && <ServiceCapabilities />}

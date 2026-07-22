@@ -487,7 +487,7 @@ function HeroSection() {
 
               <div className="mb-6">
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">
-                  Claim Free Custom Pricing
+                  Let's Start Here
                 </h3>
 
               </div>
@@ -751,10 +751,12 @@ export function SolutionSection() {
             return (
               <StaggerItem key={i}>
                 <div className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-lg hover:shadow-gray-100/80 transition-all duration-300 group h-full border-l-4 border-l-spark-400">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-spark-50 text-spark-600 mb-5 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="h-6 w-6" />
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-xl bg-spark-50 text-spark-600 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-sub font-bold text-gray-900">{item.title}</h3>
                   </div>
-                  <h3 className="text-sub font-bold text-gray-900 mb-3">{item.title}</h3>
                   <p className="text-sm-body text-gray-600">{item.desc}</p>
                 </div>
               </StaggerItem>
@@ -816,10 +818,12 @@ function GeneralSolutionSection() {
             return (
               <StaggerItem key={i}>
                 <div className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-lg hover:shadow-gray-100/80 transition-all duration-300 group h-full border-l-4 border-l-spark-400">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-spark-50 text-spark-600 mb-5 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="h-6 w-6" />
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-xl bg-spark-50 text-spark-600 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-sub font-bold text-gray-900">{item.title}</h3>
                   </div>
-                  <h3 className="text-sub font-bold text-gray-900 mb-3">{item.title}</h3>
                   <p className="text-sm-body text-gray-600">{item.desc}</p>
                 </div>
               </StaggerItem>
@@ -2164,8 +2168,9 @@ export function VideoPage() {
         { label: "Why Us", href: "#results" },
         { label: "Process", href: "#process" },
       ]}
-      ctaText="See How It Works"
+      ctaText="Get Your Video Editing Team"
       ctaTarget="#lead-form"
+      dynamicCta
       meta={{
         title: "Managed Video Editing Services | Get Levrg",
         description:

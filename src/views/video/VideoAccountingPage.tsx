@@ -169,7 +169,7 @@ function HeroSection() {
             <div className="rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-xl shadow-2xl p-6 sm:p-8">
               <div className="mb-6">
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">
-                  Claim Free Custom Pricing
+                  Let's Start Here
                 </h3>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">

@@ -86,7 +86,7 @@ function LeftColumn() {
           >
             <div className="rounded-2xl border border-gray-200 bg-white shadow-2xl p-4">
               <h3 className="text-body font-bold text-gray-900 mb-3 text-center">
-                Claim Free Custom Pricing
+                Let's Start Here
               </h3>
               <form onSubmit={handleSubmit} className="space-y-3">
                 <div className="grid grid-cols-2 gap-3">

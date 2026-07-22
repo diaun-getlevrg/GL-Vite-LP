@@ -14,6 +14,8 @@ interface HeaderProps {
   ctaTarget?: string;
   centerLogo?: boolean;
   hideCta?: boolean;
+  /** When true, the CTA button hides while ctaTarget is in view and reappears once it scrolls off-screen (in either direction). */
+  dynamicCta?: boolean;
 }
 
 export function Header({
@@ -22,15 +24,29 @@ export function Header({
   ctaTarget = "#lead-form",
   centerLogo = false,
   hideCta = false,
+  dynamicCta = false,
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isTargetVisible, setIsTargetVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!dynamicCta || !ctaTarget.startsWith("#")) return;
+    const el = document.getElementById(ctaTarget.slice(1));
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsTargetVisible(entry.isIntersecting),
+      { rootMargin: "-64px 0px 0px 0px", threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [dynamicCta, ctaTarget]);
 
   const scrollToSection = (href: string) => {
     if (href.startsWith("#")) {
@@ -41,8 +57,8 @@ export function Header({
   };
 
   const showNav = navItems.length > 0;
-  const showCta = !hideCta;
-  const showMobileToggle = showNav || showCta;
+  const showCta = !hideCta && (!dynamicCta || !isTargetVisible);
+  const showMobileToggle = showNav || !hideCta;
 
   return (
     <motion.header
@@ -60,7 +76,9 @@ export function Header({
           <img src="/logo.webp" alt="Get Levrg" width={120} height={32} decoding="async" />
 
           {showNav && (
-            <nav
+            <motion.nav
+              layout
+              transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
               className={`hidden md:flex items-center gap-0.5 ${
                 centerLogo ? "absolute left-4 sm:left-6 lg:left-8" : ""
               }`}
@@ -74,25 +92,33 @@ export function Header({
                   {item.label}
                 </button>
               ))}
-            </nav>
+            </motion.nav>
           )}
 
-          {showCta && (
-            <div
-              className={`hidden md:flex items-center ${
-                centerLogo ? "absolute right-4 sm:right-6 lg:right-8" : ""
-              }`}
-            >
-              <Button
-                variant="ghost"
-                onClick={() => scrollToSection(ctaTarget)}
-                className="bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-9 px-5 rounded-lg transition-all hover:shadow-md hover:shadow-spark-600/20"
+          <AnimatePresence>
+            {showCta && (
+              <motion.div
+                key="nav-cta"
+                layout
+                initial={{ opacity: 0, x: 12 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 12 }}
+                transition={{ duration: 0.25, layout: { duration: 0.3, ease: "easeInOut" } }}
+                className={`hidden md:flex items-center ${
+                  centerLogo ? "absolute right-4 sm:right-6 lg:right-8" : ""
+                }`}
               >
-                {ctaText}
-                <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-              </Button>
-            </div>
-          )}
+                <Button
+                  variant="ghost"
+                  onClick={() => scrollToSection(ctaTarget)}
+                  className="bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-9 px-5 rounded-lg transition-all hover:shadow-md hover:shadow-spark-600/20"
+                >
+                  {ctaText}
+                  <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                </Button>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {showMobileToggle && (
             <button
