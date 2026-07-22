@@ -525,7 +525,7 @@ function GeneralSolutionSection() {
     {
       icon: Zap,
       title: "Live in 14 Days",
-      desc: "Strategy and calendar built in the first week. First posts publishing within two.",
+      desc: "Strategy and calendar built in the first week. First posts published within two weeks..",
     },
     {
       icon: LayoutGrid,
