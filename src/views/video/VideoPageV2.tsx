@@ -207,40 +207,8 @@ function HeroSection() {
    ──────────────────────────────────────────────────────────────────────── */
 
 function VideoSection() {
-  const [muted, setMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const tryUnmutedPlay = () => {
-      video.muted = false;
-      setMuted(false);
-      video.play().catch(() => {
-        video.muted = true;
-        setMuted(true);
-      });
-    };
-
-    // Browsers block unmuted autoplay until the user has interacted with the
-    // page, so retry unmuted the instant that first gesture happens.
-    tryUnmutedPlay();
-
-    const gestureEvents = ["pointerdown", "keydown", "touchstart"] as const;
-    const handleGesture = (e: Event) => {
-      // Don't hijack a deliberate click on the video's own controls.
-      if ((e.target as HTMLElement | null)?.closest("[data-video-controls]")) return;
-      tryUnmutedPlay();
-      gestureEvents.forEach((evt) => window.removeEventListener(evt, handleGesture));
-    };
-    gestureEvents.forEach((evt) => window.addEventListener(evt, handleGesture, { passive: true }));
-
-    return () => {
-      gestureEvents.forEach((evt) => window.removeEventListener(evt, handleGesture));
-    };
-  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -315,7 +283,6 @@ function VideoSection() {
                 <video
                   ref={videoRef}
                   autoPlay
-                  muted={muted}
                   loop
                   playsInline
                   onPlay={() => setIsPlaying(true)}
@@ -324,7 +291,7 @@ function VideoSection() {
                 >
                   <source src="/video/video-general-targeting.mp4" type="video/mp4" />
                 </video>
-                <div data-video-controls className="absolute bottom-3 right-3 flex items-center gap-2">
+                <div className="absolute bottom-3 right-3 flex items-center gap-2">
                   <button
                     onClick={togglePlay}
                     aria-label={isPlaying ? "Pause" : "Play"}
