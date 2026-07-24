@@ -273,9 +273,9 @@ function HeroSection() {
               {metrics.map((m, i) => {
                 const Icon = m.icon;
                 return (
-                  <div key={i} className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center gap-1">
-                    <Icon className="h-4 w-4 text-spark-400" />
-                    <p className="text-[10px] text-gray-300 leading-snug font-medium">{m.text}</p>
+                  <div key={i} className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center gap-1.5">
+                    <Icon className="h-5 w-5 text-spark-400" />
+                    <p className="text-xs text-gray-300 leading-snug font-medium">{m.text}</p>
                   </div>
                 );
               })}
