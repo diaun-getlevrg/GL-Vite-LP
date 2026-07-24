@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, Zap, TrendingUp, Star, CalendarDays, CheckCircle,
-  Shield, DollarSign, MessageCircle, UserCheck, Rocket, Play, Pause,
+  Shield, DollarSign, MessageCircle, UserCheck, Rocket, Play, Pause, VolumeX,
 } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
 import { PageShell } from "@/components/layout/PageShell";
@@ -207,8 +207,24 @@ function HeroSection() {
    ──────────────────────────────────────────────────────────────────────── */
 
 function VideoSection() {
+  const [muted, setMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    // Unmuted autoplay succeeds automatically if the browser already has
+    // "user activation" from the click that navigated here; otherwise it's
+    // blocked, so fall back to muted and let the visitor tap to unmute.
+    video.muted = false;
+    video.play()
+      .then(() => setMuted(false))
+      .catch(() => {
+        video.muted = true;
+        setMuted(true);
+      });
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -239,6 +255,15 @@ function VideoSection() {
       v.pause();
       setIsPlaying(false);
     }
+  };
+
+  const unmute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.currentTime = 0;
+    v.muted = false;
+    setMuted(false);
+    v.play().catch(() => {});
   };
 
   const capabilities = [
@@ -283,6 +308,7 @@ function VideoSection() {
                 <video
                   ref={videoRef}
                   autoPlay
+                  muted={muted}
                   loop
                   playsInline
                   onPlay={() => setIsPlaying(true)}
@@ -291,6 +317,19 @@ function VideoSection() {
                 >
                   <source src="/video/video-general-targeting.mp4" type="video/mp4" />
                 </video>
+
+                {muted && (
+                  <button
+                    onClick={unmute}
+                    aria-label="Unmute video"
+                    className="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/20 transition-colors group"
+                  >
+                    <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/60 backdrop-blur-sm border-2 border-white/40 flex items-center justify-center text-white shadow-2xl group-hover:bg-black/70 group-hover:scale-110 transition-all duration-300">
+                      <VolumeX className="h-7 w-7 sm:h-8 sm:w-8" />
+                    </span>
+                  </button>
+                )}
+
                 <div className="absolute bottom-3 right-3 flex items-center gap-2">
                   <button
                     onClick={togglePlay}

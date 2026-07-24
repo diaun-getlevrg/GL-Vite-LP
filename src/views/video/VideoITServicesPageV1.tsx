@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Clock, Star, Play, Pause, Zap, CalendarDays, TrendingUp } from "lucide-react";
+import { ArrowRight, Clock, Star, Play, Pause, Zap, CalendarDays, TrendingUp, VolumeX } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -46,6 +46,7 @@ const processSteps = [
 
 function HeroSection() {
   const navigate = useNavigate();
+  const [muted, setMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -62,6 +63,21 @@ function HeroSection() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    // Unmuted autoplay succeeds automatically if the browser already has
+    // "user activation" from the click that navigated here; otherwise it's
+    // blocked, so fall back to muted and let the visitor tap to unmute.
+    video.muted = false;
+    video.play()
+      .then(() => setMuted(false))
+      .catch(() => {
+        video.muted = true;
+        setMuted(true);
+      });
+  }, []);
+
   const togglePlay = () => {
     const v = videoRef.current;
     if (!v) return;
@@ -72,6 +88,15 @@ function HeroSection() {
       v.pause();
       setIsPlaying(false);
     }
+  };
+
+  const unmute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.currentTime = 0;
+    v.muted = false;
+    setMuted(false);
+    v.play().catch(() => {});
   };
 
   return (
@@ -122,6 +147,7 @@ function HeroSection() {
               <video
                 ref={videoRef}
                 autoPlay
+                muted={muted}
                 loop
                 playsInline
                 onPlay={() => setIsPlaying(true)}
@@ -130,6 +156,18 @@ function HeroSection() {
               >
                 <source src="/video/intro1.mp4" type="video/mp4" />
               </video>
+
+              {muted && (
+                <button
+                  onClick={unmute}
+                  aria-label="Unmute video"
+                  className="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/20 transition-colors group"
+                >
+                  <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/60 backdrop-blur-sm border-2 border-white/40 flex items-center justify-center text-white shadow-2xl group-hover:bg-black/70 group-hover:scale-110 transition-all duration-300">
+                    <VolumeX className="h-7 w-7 sm:h-8 sm:w-8" />
+                  </span>
+                </button>
+              )}
 
               <div className="absolute bottom-3 right-3 flex items-center gap-2">
                 <button
