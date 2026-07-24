@@ -1,5 +1,7 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { VideoPage } from "@/views/video/VideoPage";
+import { VideoPageV1 } from "@/views/video/VideoPageV1";
+import { VideoPageV2 } from "@/views/video/VideoPageV2";
 import { VideoAgenciesPage } from "@/views/video/VideoAgenciesPage";
 import { VideoConsultingPage } from "@/views/video/VideoConsultingPage";
 import { VideoFinancialAdvisoryPage } from "@/views/video/VideoFinancialAdvisoryPage";
@@ -14,6 +16,8 @@ import { VideoMarketingOpsPage } from "@/views/video/VideoMarketingOpsPage";
 import { VideoFounderOperatorPage } from "@/views/video/VideoFounderOperatorPage";
 import { VideoAccountingPage } from "@/views/video/VideoAccountingPage";
 import { SocialPage } from "@/views/social/SocialPage";
+import { SocialPageV1 } from "@/views/social/SocialPageV1";
+import { SocialPageV2 } from "@/views/social/SocialPageV2";
 import { SocialAccountingPage } from "@/views/social/SocialAccountingPage";
 import { SocialArchitecturePage } from "@/views/social/SocialArchitecturePage";
 import { SocialCommercialREPage } from "@/views/social/SocialCommercialREPage";
@@ -63,6 +67,8 @@ export default function App() {
       <Routes>
         {/* Video main */}
         <Route path="/video" element={<VideoPage />} />
+        <Route path="/video-v1" element={<VideoPageV1 />} />
+        <Route path="/video-v2" element={<VideoPageV2 />} />
         {/* Video LP variants */}
         <Route path="/video-agencies" element={<VideoAgenciesPage />} />
         <Route path="/video-consulting" element={<VideoConsultingPage />} />
@@ -79,6 +85,8 @@ export default function App() {
         <Route path="/video-accounting" element={<VideoAccountingPage />} />
         {/* Social main */}
         <Route path="/social" element={<SocialPage />} />
+        <Route path="/social-v1" element={<SocialPageV1 />} />
+        <Route path="/social-v2" element={<SocialPageV2 />} />
         {/* Social LP variants */}
         <Route path="/social-accounting" element={<SocialAccountingPage />} />
         <Route path="/social-architecture" element={<SocialArchitecturePage />} />

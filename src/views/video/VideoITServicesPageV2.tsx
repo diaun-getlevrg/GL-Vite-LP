@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowRight, Zap, TrendingUp, Star, CalendarDays,
-  Trophy, MessageCircle, UserCheck, Rocket, Volume2, VolumeX, Play, Pause,
+  ArrowRight, Zap, TrendingUp, Star, CalendarDays, CheckCircle,
+  UserCheck, DollarSign, Film, MessageCircle, Rocket, Play, Pause,
 } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
 import { PageShell } from "@/components/layout/PageShell";
@@ -26,16 +26,10 @@ const testimonials = [
     image: "/images/client/james-mcgrath.webp",
   },
   {
-    quote: "We added video as a service line without hiring a single editor. Our margins went up 40% on video projects in the first quarter.",
-    name: "Miles Kaiburn",
-    title: "CEO | Old Town Media",
-    image: "/images/client/miles-kaiburn.webp",
-  },
-  {
-    quote: "The quality is indistinguishable from our in-house team. Our clients never know the difference, and our margins have never been better.",
-    name: "Brendan Taylor",
-    title: "CEO | Maverick VFX",
-    image: "/images/client/brendan-taylor.webp",
+    quote: "We went from publishing one product video a quarter to four per month. Our demo request rate doubled.",
+    name: "Head of Marketing",
+    title: "Series B SaaS",
+    image: "/images/client/grace-feeney.webp",
   },
 ];
 
@@ -69,7 +63,7 @@ function HeroSection() {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#061512]/95 via-[#061512]/85 to-[#061512]/95" />
 
-      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-20 sm:pb-28 text-center">
         <motion.img
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,7 +105,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-body sm:text-sub text-gray-300 max-w-2xl mx-auto mb-8"
+          className="text-body sm:text-sub text-gray-300 max-w-6xl mx-auto mb-8"
         >
           Get a dedicated video team that creates product walkthroughs, service explainers, and client testimonial videos so prospects understand your value before the first call.
         </motion.p>
@@ -193,7 +187,7 @@ function HeroSection() {
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           <p className="text-caption text-gray-400 tracking-wide mt-6">
-            Trusted by 40+ B2B companies generating $50M+ in revenue
+            Trusted by 40+ companies generating $50M+ in revenue
           </p>
         </motion.div>
       </div>
@@ -202,15 +196,46 @@ function HeroSection() {
 }
 
 /* ────────────────────────────────────────────────────────────────────────────
-   Video Showcase — tilted, floating video card with proof chips orbiting it,
-   paired with a short quantified pitch. A deliberately different treatment
-   from the plain centered video block used elsewhere.
+   Video Showcase — matches "Video Editing Services Built for IT and
+   Technical Teams" from the main IT services page, video + CTA instead of
+   the bento grid.
    ──────────────────────────────────────────────────────────────────────── */
 
 function VideoSection() {
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const tryUnmutedPlay = () => {
+      video.muted = false;
+      setMuted(false);
+      video.play().catch(() => {
+        video.muted = true;
+        setMuted(true);
+      });
+    };
+
+    // Browsers block unmuted autoplay until the user has interacted with the
+    // page, so retry unmuted the instant that first gesture happens.
+    tryUnmutedPlay();
+
+    const gestureEvents = ["pointerdown", "keydown", "touchstart"] as const;
+    const handleGesture = (e: Event) => {
+      // Don't hijack a deliberate click on the video's own controls.
+      if ((e.target as HTMLElement | null)?.closest("[data-video-controls]")) return;
+      tryUnmutedPlay();
+      gestureEvents.forEach((evt) => window.removeEventListener(evt, handleGesture));
+    };
+    gestureEvents.forEach((evt) => window.addEventListener(evt, handleGesture, { passive: true }));
+
+    return () => {
+      gestureEvents.forEach((evt) => window.removeEventListener(evt, handleGesture));
+    };
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -219,17 +244,9 @@ function VideoSection() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          video.muted = false;
-          setMuted(false);
-          video.play().catch(() => {
-            video.muted = true;
-            setMuted(true);
-            video.play().catch(() => {});
-          });
+          video.play().catch(() => {});
         } else {
           video.pause();
-          video.muted = true;
-          setMuted(true);
         }
       },
       { threshold: 0.5 }
@@ -251,37 +268,40 @@ function VideoSection() {
     }
   };
 
-  const quickStats = [
-    { label: "Product Demos Produced", value: "6/mo" },
-    { label: "Average Turnaround", value: "48 Hrs" },
-    { label: "Client Satisfaction", value: "98%" },
+  const capabilities = [
+    "B2B product demo videos",
+    "Social media video production",
+    "Client and prospect testimonial videos",
+    "Short-form video editing for Reels, Shorts, and TikTok",
+    "Long-form YouTube and podcast editing",
+    "Motion graphics and branded video assets",
   ];
 
-  return (
-    <section className="py-16 sm:py-24 bg-white overflow-hidden">
-      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          <AnimatedSection>
-            <h2 className="text-h2 sm:text-h1 text-gray-900 mb-4">
-              See The Quality <span className="text-[#51B027]">For Yourself</span>
-            </h2>
-            <p className="text-body text-gray-600 mb-8 max-w-md">
-              A real sample of the product and service videos our team produces for IT and technical companies &mdash; no stock footage, no templates.
-            </p>
-            <div className="space-y-3">
-              {quickStats.map((stat, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between p-4 rounded-xl border border-gray-100 bg-gray-50"
-                >
-                  <span className="text-sm-body text-gray-600 font-medium">{stat.label}</span>
-                  <span className="text-sub font-bold text-[#51B027]">{stat.value}</span>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
+  const scrollToForm = () => {
+    document.getElementById("get-started")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
-          <AnimatedSection delay={0.15} direction="left">
+  return (
+    <section className="py-16 sm:py-24 bg-gray-50 overflow-hidden">
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-6">
+          <h2 className="text-h2 sm:text-h1 text-gray-900 mb-5">
+            Video Editing Services Built for <br />
+            <span className="text-[#51B027]">IT and Technical Teams</span>
+          </h2>
+        </AnimatedSection>
+
+        <AnimatedSection className="text-center mb-16" delay={0.1}>
+          <p className="text-body text-gray-600 max-w-2xl mx-auto">
+            Get Levrg gives you a professional video team that can support:
+          </p>
+        </AnimatedSection>
+      </div>
+
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* RIGHT (desktop) / first (mobile): video showcase + CTA, in place of the bento image grid */}
+          <AnimatedSection delay={0.15} direction="left" className="order-1 lg:order-2">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="absolute -inset-8 bg-gradient-to-tr from-spark-200/50 via-spark-100/30 to-transparent rounded-[2.5rem] blur-2xl -z-10" />
 
@@ -298,7 +318,7 @@ function VideoSection() {
                 >
                   <source src="/video/intro2.mp4" type="video/mp4" />
                 </video>
-                <div className="absolute bottom-3 right-3 flex items-center gap-2">
+                <div data-video-controls className="absolute bottom-3 right-3 flex items-center gap-2">
                   <button
                     onClick={togglePlay}
                     aria-label={isPlaying ? "Pause" : "Play"}
@@ -306,39 +326,41 @@ function VideoSection() {
                   >
                     {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
                   </button>
-                  <button
-                    onClick={() => setMuted((m) => !m)}
-                    aria-label={muted ? "Unmute" : "Mute"}
-                    className="w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-                  >
-                    {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-                  </button>
                 </div>
               </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute -top-5 -left-5 sm:-left-8 bg-white rounded-xl shadow-lg border border-gray-100 px-3.5 py-2.5 flex items-center gap-2"
-              >
-                <Zap className="h-4 w-4 text-spark-500 shrink-0" />
-                <p className="text-xs font-bold text-gray-900 whitespace-nowrap">14-Day Launch</p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="absolute -bottom-5 -right-3 sm:-right-6 bg-white rounded-xl shadow-lg border border-gray-100 px-3.5 py-2.5 flex items-center gap-2"
-              >
-                <Star className="h-4 w-4 text-spark-500 fill-spark-500 shrink-0" />
-                <p className="text-xs font-bold text-gray-900 whitespace-nowrap">40+ Clients Trust Us</p>
-              </motion.div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-10 sm:mt-12 flex justify-center"
+            >
+              <Button
+                variant="ghost"
+                onClick={scrollToForm}
+                className="bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold px-8 py-6 text-base rounded-xl shadow-lg transition-all hover:shadow-xl"
+              >
+                Get Your Video Team
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </motion.div>
           </AnimatedSection>
+
+          {/* LEFT (desktop) / second (mobile): checklist */}
+          <div className="order-2 lg:order-1">
+            <StaggerContainer className="space-y-3" staggerDelay={0.06}>
+              {capabilities.map((cap, i) => (
+                <StaggerItem key={i}>
+                  <div className="flex items-start gap-3 px-4 py-3.5 rounded-xl bg-spark-50 border border-spark-100 hover:border-spark-300 hover:shadow-sm transition-all duration-200">
+                    <CheckCircle className="h-5 w-5 text-spark-500 mt-0.5 shrink-0" />
+                    <span className="text-sm-body text-gray-700">{cap}</span>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
         </div>
       </div>
     </section>
@@ -346,69 +368,57 @@ function VideoSection() {
 }
 
 /* ────────────────────────────────────────────────────────────────────────────
-   Proof + Reasoning — one section, stats row on top, differentiators below
+   Proof + Reasoning — matches "Why Choose Between Speed, Cost and Quality?
+   Get All Three" from the main IT services page.
    ──────────────────────────────────────────────────────────────────────── */
 
 function ProofAndReasonsSection() {
-  const stats = [
-    { value: "Up to 80%", label: "Lower Cost Than an In-House Hire" },
-    { value: "2×", label: "Demo Request Rate Doubled" },
-    { value: "40+", label: "B2B Partnerships Across North America" },
-  ];
-
-  const reasons = [
-    {
-      icon: Trophy,
-      title: "Proven Track Record",
-      desc: "40+ B2B teams trust us with their video output. We've delivered videos with a 98% satisfaction and 99% on-time publish rate.",
-    },
-    {
-      icon: MessageCircle,
-      title: "Direct Communication",
-      desc: "Your dedicated PM is a Slack message away.",
-    },
+  const differentiators = [
     {
       icon: UserCheck,
-      title: "Vetted Talent Only",
-      desc: "Every editor passes a rigorous portfolio review, skills test, and English fluency check.",
+      title: "Dedicated Team That Learns Your Product",
+      desc: "The same editor and PM work your account, so context doesn't get re-explained every request.",
     },
     {
-      icon: Rocket,
-      title: "Built for Scale",
-      desc: "As your video starts performing, you'll want more of it. Add editors and expand your team on demand; same PM, same workflow, same quality, just more output.",
+      icon: Zap,
+      title: "Launch in 14 Days",
+      desc: "Matched and onboarded within 2 weeks.",
+    },
+    {
+      icon: Film,
+      title: "Built for Product and Service Content",
+      desc: "Walkthroughs, explainers, and testimonial videos handled on a repeatable workflow.",
+    },
+    {
+      icon: DollarSign,
+      title: "Lower Overhead Than In-House",
+      desc: "No payroll, no recruiting delay, no full-time commitment.",
     },
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-gray-50">
+    <section id="solution" className="py-16 sm:py-24 bg-white">
       <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-12">
+        <AnimatedSection className="text-center mb-16">
           <h2 className="text-h2 sm:text-h1 text-gray-900">
-            Why Our <span className="text-[#51B027]">Clients</span> Work With Us
+            Why Choose Between Speed, Cost and Quality?
+            <br />
+            <span className="text-[#51B027]">Get All Three</span>
           </h2>
         </AnimatedSection>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14" staggerDelay={0.1}>
-          {stats.map((stat, i) => (
-            <StaggerItem key={i}>
-              <div className="h-full p-6 rounded-xl border border-gray-100 bg-white text-center hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center">
-                <div className="text-h1 sm:text-h2 text-[#51B027] mb-2">{stat.value}</div>
-                <p className="text-gray-900 text-sm-body font-semibold">{stat.label}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.08}>
-          {reasons.map((item, i) => {
+          {differentiators.map((item, i) => {
             const Icon = item.icon;
             return (
               <StaggerItem key={i}>
-                <div className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-lg transition-shadow duration-300 group h-full border-l-4 border-l-spark-400">
-                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-spark-50 text-spark-600 mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="h-5 w-5" />
+                <div className="p-6 rounded-xl border border-gray-100 bg-white hover:shadow-lg hover:shadow-gray-100/80 transition-all duration-300 group h-full border-l-4 border-l-spark-400">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-xl bg-spark-50 text-spark-600 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-sub font-bold text-gray-900">{item.title}</h3>
                   </div>
-                  <h3 className="text-sub font-bold text-gray-900 mb-2">{item.title}</h3>
                   <p className="text-sm-body text-gray-600">{item.desc}</p>
                 </div>
               </StaggerItem>
@@ -421,7 +431,8 @@ function ProofAndReasonsSection() {
 }
 
 /* ────────────────────────────────────────────────────────────────────────────
-   Dedicated Form Section — undistracted, risk-reducer right at the CTA
+   Dedicated Form Section — undistracted, process content pulled from
+   "Two Weeks, Not Two Quarters" on the main IT services page.
    ──────────────────────────────────────────────────────────────────────── */
 
 function FormSection() {
@@ -436,25 +447,31 @@ function FormSection() {
       icon: Zap,
       timeframe: "Day 1",
       title: "Submit Your Brief",
-      desc: "10 minutes is all it takes. Share your goals, brand guidelines, and content targets.",
+      desc: "10 minutes is all it takes. Share your requirements, brand guidelines, and content goals.",
     },
     {
       icon: MessageCircle,
       timeframe: "Day 2-3",
-      title: "Meet Your Dedicated PM",
-      desc: "We set up your workflow, tool access, and communication channels together.",
-    },
-    {
-      icon: UserCheck,
-      timeframe: "Week 1",
-      title: "First Deliverables Land",
-      desc: "Brand-compliant edits hit your inbox, revisions included, production-grade from day one.",
+      title: "Meet Your PM",
+      desc: "Intro call with your dedicated PM to set up the workflow, tool access, and communication channels.",
     },
     {
       icon: Rocket,
+      timeframe: "End of Week 1",
+      title: "Processes Go Live",
+      desc: "Your project and processes are live.",
+    },
+    {
+      icon: UserCheck,
+      timeframe: "Week 2",
+      title: "First Deliverables",
+      desc: "Brand-compliant edits, production at full speed, revisions included.",
+    },
+    {
+      icon: TrendingUp,
       timeframe: "Week 2+",
       title: "Scale On Your Terms",
-      desc: "Add editors for big campaigns or scale down in slow periods. No penalties, no lock-in.",
+      desc: "Monthly flexibility. Scale up for big campaigns or down during slow periods. No penalties.",
     },
   ];
 
@@ -472,14 +489,11 @@ function FormSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#061512]/95 via-[#061512]/90 to-[#061512]/95" />
 
       <div className="relative z-10 max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <AnimatedSection>
-            <h2 className="text-h2 sm:text-h1 text-white mb-3">
-              What Happens <span className="text-[#51B027]">After You Submit</span>
+            <h2 className="text-h2 sm:text-h1 text-white mb-8">
+              Two Weeks, <span className="text-[#51B027]">Not Two Quarters</span>
             </h2>
-            <p className="text-body text-gray-300 mb-10 max-w-md">
-              No black box. Here&apos;s exactly what to expect once your brief comes in.
-            </p>
 
             <StaggerContainer className="space-y-5" staggerDelay={0.1}>
               {nextSteps.map((step, i) => {
@@ -510,7 +524,7 @@ function FormSection() {
             <div className="rounded-2xl border border-gray-200 bg-white shadow-xl p-6 sm:p-8">
               <div className="text-center mb-6">
                 <h3 className="text-sub font-bold text-gray-900">
-                  Claim Your Free Custom Pricing
+                  Let's Start Here
                 </h3>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">

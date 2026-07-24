@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Clock, Volume2, VolumeX, Star, Play, Pause } from "lucide-react";
+import { ArrowRight, Clock, Star, Play, Pause, Zap, CalendarDays, TrendingUp } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,8 +15,6 @@ import { Label } from "@/components/ui/label";
    in one screen — no footer, no scrolling. The reel loops in the background.
    ════════════════════════════════════════════════════════════════════════════ */
 
-const videos = ["/video/intro1.mp4", "/video/intro2.mp4"];
-
 const testimonials = [
   {
     quote: "Always responsive and reliable, Levrg has been a tremendous partner to our team. Get Levrg handled our marketing so we could focus on growth.",
@@ -25,23 +23,17 @@ const testimonials = [
     image: "/images/client/james-mcgrath.webp",
   },
   {
-    quote: "We added video as a service line without hiring a single editor. Our margins went up 40% on video projects in the first quarter.",
-    name: "Miles Kaiburn",
-    title: "CEO | Old Town Media",
-    image: "/images/client/miles-kaiburn.webp",
-  },
-  {
-    quote: "The quality is indistinguishable from our in-house team. Our clients never know the difference, and our margins have never been better.",
-    name: "Brendan Taylor",
-    title: "CEO | Maverick VFX",
-    image: "/images/client/brendan-taylor.webp",
+    quote: "We went from publishing one product video a quarter to four per month. Our demo request rate doubled.",
+    name: "Head of Marketing",
+    title: "Series B SaaS",
+    image: "/images/client/grace-feeney.webp",
   },
 ];
 
-const stats = [
-  { value: "Up to 80%", label: "Lower Cost Than an In-House Hire" },
-  { value: "2×", label: "Demo Request Rate Doubled" },
-  { value: "40+", label: "B2Bs Across North America" },
+const metrics = [
+  { icon: Zap, text: "Launch in 14 Days" },
+  { icon: CalendarDays, text: "48-Hour Turnaround" },
+  { icon: TrendingUp, text: "80% Cost Savings" },
 ];
 
 const processSteps = [
@@ -54,8 +46,7 @@ const processSteps = [
 
 function HeroSection() {
   const navigate = useNavigate();
-  const [clipIndex, setClipIndex] = useState(0);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -72,37 +63,36 @@ function HeroSection() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleEnded = () => {
-    setClipIndex((i) => (i + 1) % videos.length);
-  };
-
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.muted = false;
-          setMuted(false);
-          video.play().catch(() => {
-            video.muted = true;
-            setMuted(true);
-            video.play().catch(() => {});
-          });
-        } else {
-          video.pause();
-          video.muted = true;
-          setMuted(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
+    const tryUnmutedPlay = () => {
+      video.muted = false;
+      setMuted(false);
+      video.play().catch(() => {
+        video.muted = true;
+        setMuted(true);
+      });
+    };
 
-    observer.observe(video);
-    return () => observer.disconnect();
-    // re-observe whenever the clip changes, since `key={clipIndex}` remounts the <video> node
-  }, [clipIndex]);
+    // Browsers block unmuted autoplay until the user has interacted with the
+    // page, so retry unmuted the instant that first gesture happens.
+    tryUnmutedPlay();
+
+    const gestureEvents = ["pointerdown", "keydown", "touchstart"] as const;
+    const handleGesture = (e: Event) => {
+      // Don't hijack a deliberate click on the video's own controls.
+      if ((e.target as HTMLElement | null)?.closest("[data-video-controls]")) return;
+      tryUnmutedPlay();
+      gestureEvents.forEach((evt) => window.removeEventListener(evt, handleGesture));
+    };
+    gestureEvents.forEach((evt) => window.addEventListener(evt, handleGesture, { passive: true }));
+
+    return () => {
+      gestureEvents.forEach((evt) => window.removeEventListener(evt, handleGesture));
+    };
+  }, []);
 
   const togglePlay = () => {
     const v = videoRef.current;
@@ -163,32 +153,24 @@ function HeroSection() {
             <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black">
               <video
                 ref={videoRef}
-                key={clipIndex}
                 autoPlay
                 muted={muted}
+                loop
                 playsInline
-                onEnded={handleEnded}
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
                 className="w-full h-full object-cover"
               >
-                <source src={videos[clipIndex]} type="video/mp4" />
+                <source src="/video/intro1.mp4" type="video/mp4" />
               </video>
 
-              <div className="absolute bottom-3 right-3 flex items-center gap-2">
+              <div data-video-controls className="absolute bottom-3 right-3 flex items-center gap-2">
                 <button
                   onClick={togglePlay}
                   aria-label={isPlaying ? "Pause" : "Play"}
                   className="w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
                 >
                   {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-                </button>
-                <button
-                  onClick={() => setMuted((m) => !m)}
-                  aria-label={muted ? "Unmute" : "Mute"}
-                  className="w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-                >
-                  {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
                 </button>
               </div>
             </div>
@@ -278,12 +260,15 @@ function HeroSection() {
             </div>
 
             <div className="grid grid-cols-3 gap-2.5 mt-2.5">
-              {stats.map((stat, i) => (
-                <div key={i} className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-center">
-                  <div className="text-sub sm:text-h3 text-[#51B027] font-bold">{stat.value}</div>
-                  <p className="text-[10px] text-gray-400 leading-snug mt-0.5">{stat.label}</p>
-                </div>
-              ))}
+              {metrics.map((m, i) => {
+                const Icon = m.icon;
+                return (
+                  <div key={i} className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-center flex flex-col items-center justify-center gap-1">
+                    <Icon className="h-4 w-4 text-spark-400" />
+                    <p className="text-[10px] text-gray-300 leading-snug font-medium">{m.text}</p>
+                  </div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
@@ -297,7 +282,7 @@ function HeroSection() {
         >
           Get a dedicated video team that creates product walkthroughs, service explainers,
           <br />
-          and client testimonial videos.
+          and client testimonial videos so prospects understand your value before the first call.
         </motion.p>
 
         {/* Bottom: the whole process, left to right, one row */}
