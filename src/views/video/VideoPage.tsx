@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -351,10 +351,85 @@ export function HeroFormIntro({ children, animation }: { children: React.ReactNo
    1. HERO SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
+const FORM_VALIDATOR_CSS_URL = "https://form-field-validator.vercel.app/widget/dist/form-validator.css";
+const FORM_VALIDATOR_JS_URL = "https://form-field-validator.vercel.app/widget/dist/form-validator.js";
+let formValidatorLoadPromise: Promise<void> | null = null;
+
+function loadFormValidator(): Promise<void> {
+  if ((window as any).FormValidator) return Promise.resolve();
+  if (formValidatorLoadPromise) return formValidatorLoadPromise;
+
+  if (!document.querySelector(`link[href="${FORM_VALIDATOR_CSS_URL}"]`)) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = FORM_VALIDATOR_CSS_URL;
+    document.head.appendChild(link);
+  }
+
+  formValidatorLoadPromise = new Promise((resolve) => {
+    const existingScript = document.querySelector(
+      `script[src="${FORM_VALIDATOR_JS_URL}"]`
+    ) as HTMLScriptElement | null;
+
+    if (existingScript) {
+      if ((window as any).FormValidator) {
+        resolve();
+      } else {
+        existingScript.addEventListener("load", () => resolve());
+      }
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = FORM_VALIDATOR_JS_URL;
+    script.async = true;
+    script.onload = () => resolve();
+    document.body.appendChild(script);
+  });
+
+  return formValidatorLoadPromise;
+}
+
+interface FormValidatorController {
+  validate: () => Promise<boolean>;
+}
+
+// Runs on every mount of the hero form's DOM node (including intro replays,
+// which unmount/remount the form), since FormValidator attaches to the
+// concrete <form> element rather than tracking React state.
+function useFormValidator() {
+  const controllerRef = useRef<FormValidatorController | null>(null);
+
+  const formRef = useCallback((node: HTMLFormElement | null) => {
+    // Guards against StrictMode's dev-only double ref invocation re-wrapping
+    // the same node (and its already-injected widget markup) a second time.
+    if (!node || node.dataset.fvAttached === "true") return;
+    node.dataset.fvAttached = "true";
+    loadFormValidator().then(() => {
+      controllerRef.current = (window as any).FormValidator?.attachForm(node, { defaultCountry: "US" }) ?? null;
+    });
+  }, []);
+
+  return { formRef, controllerRef };
+}
+
 function HeroSection() {
   const navigate = useNavigate();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { formRef, controllerRef } = useFormValidator();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Fall back to native validity if the widget hasn't finished loading yet.
+    const isValid = controllerRef.current
+      ? await controllerRef.current.validate()
+      : form.checkValidity();
+
+    if (!isValid) {
+      if (!controllerRef.current) form.reportValidity();
+      return;
+    }
+
     navigate("/thank-you");
   };
 
@@ -492,7 +567,7 @@ function HeroSection() {
 
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form id="video-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <Label htmlFor="hero-firstName" className="text-sm-body text-gray-700 mb-1.5">
@@ -500,8 +575,10 @@ function HeroSection() {
                     </Label>
                     <Input
                       id="hero-firstName"
-                      placeholder="John"
+                      name="firstname"
+                      placeholder=""
                       className="h-10"
+                      required
                     />
                   </div>
                   <div>
@@ -510,8 +587,10 @@ function HeroSection() {
                     </Label>
                     <Input
                       id="hero-lastName"
-                      placeholder="Smith"
+                      name="lastname"
+                      placeholder=""
                       className="h-10"
+                      required
                     />
                   </div>
                 </div>
@@ -522,9 +601,11 @@ function HeroSection() {
                   </Label>
                   <Input
                     id="hero-workEmail"
+                    name="email"
                     type="email"
-                    placeholder="john@company.com"
+                    placeholder=""
                     className="h-10"
+                    required
                   />
                 </div>
 
@@ -534,9 +615,11 @@ function HeroSection() {
                   </Label>
                   <Input
                     id="hero-phoneNumber"
+                    name="phone"
                     type="tel"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder=""
                     className="h-10"
+                    required
                   />
                 </div>
 
@@ -546,8 +629,10 @@ function HeroSection() {
                   </Label>
                   <Input
                     id="hero-company"
-                    placeholder="Acme Inc."
+                    name="company"
+                    placeholder=""
                     className="h-10"
+                    required
                   />
                 </div>
 
