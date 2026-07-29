@@ -108,7 +108,7 @@ function HeroSection() {
   return (
     <section
       id="lead-form"
-      className="relative min-h-screen lg:h-screen lg:overflow-hidden bg-[#061512]"
+      className="relative min-h-screen lg:flex lg:flex-col bg-[#061512]"
     >
       <div className="absolute inset-0 opacity-40">
         <img
@@ -121,7 +121,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#061512]/90 via-[#061512]/70 to-[#061512]" />
       </div>
 
-      <div className="relative z-10 lg:h-full flex flex-col">
+      <div className="relative z-10 flex flex-col lg:flex-1 lg:min-h-0">
         {/* Top: logo + centered headline */}
         <motion.img
           initial={{ opacity: 0, y: -10 }}
@@ -289,7 +289,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="shrink-0 text-center text-[clamp(0.9375rem,2vh,1.25rem)] text-gray-300 px-6 pb-3 sm:pb-4"
+          className="shrink-0 text-center text-[clamp(0.9375rem,2vh,1.25rem)] text-gray-300 px-6 pt-2 pb-3 sm:pb-4"
         >
           Get a dedicated video editing team that handles the editing, project management,
           <br />
@@ -301,7 +301,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="shrink-0 mt-2 pt-2 border-t border-white/10 px-6 sm:px-10 lg:px-16 pb-3 sm:pb-4"
+          className="shrink-0 mt-2 pt-2 border-t border-white/10 px-6 sm:px-10 lg:px-16 pb-3 sm:pb-4 lg:sticky lg:bottom-0 lg:z-20 lg:bg-[#061512]"
         >
           <div className="max-w-container mx-auto">
             <div className="flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-4 lg:justify-between">
