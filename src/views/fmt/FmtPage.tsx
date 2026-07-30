@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFormValidator } from "@/hooks/useFormValidator";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -210,8 +211,21 @@ function HeroFormIntro({ children }: { children: React.ReactNode }) {
 
 function HeroSection() {
   const navigate = useNavigate();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { formRef, controllerRef } = useFormValidator();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Fall back to native validity if the widget hasn't finished loading yet.
+    const isValid = controllerRef.current
+      ? await controllerRef.current.validate()
+      : form.checkValidity();
+
+    if (!isValid) {
+      if (!controllerRef.current) form.reportValidity();
+      return;
+    }
+
     navigate("/thank-you");
   };
 
@@ -313,35 +327,34 @@ function HeroSection() {
 
           <HeroFormIntro>
             <div className="rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-xl shadow-2xl p-6 sm:p-8">
-              <div className="mb-6">
-                <h3 className="text-sub font-bold text-gray-900 mb-1.5">Build Your Execution Team</h3>
-                <p className="text-sm-body text-gray-500">Custom team structure &amp; pricing in 24 hours. Zero obligation.</p>
+              <div className="mb-6 text-center">
+                <h3 className="text-sub font-bold text-gray-900 mb-1.5">Let's Start Today</h3>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form id="fmt-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <Label htmlFor="fmt-firstName" className="text-sm-body text-gray-700 mb-1.5">First Name</Label>
-                    <Input id="fmt-firstName" placeholder="John" className="h-10" />
+                    <Input id="fmt-firstName" name="firstname" placeholder="" className="h-10" required />
                   </div>
                   <div>
                     <Label htmlFor="fmt-lastName" className="text-sm-body text-gray-700 mb-1.5">Last Name</Label>
-                    <Input id="fmt-lastName" placeholder="Smith" className="h-10" />
+                    <Input id="fmt-lastName" name="lastname" placeholder="" className="h-10" required />
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="fmt-workEmail" className="text-sm-body text-gray-700 mb-1.5">Work Email</Label>
-                  <Input id="fmt-workEmail" type="email" placeholder="john@company.com" className="h-10" />
+                  <Label htmlFor="fmt-workEmail" className="text-sm-body text-gray-700 mb-1.5">Email</Label>
+                  <Input id="fmt-workEmail" name="email" type="email" placeholder="" className="h-10" required />
                 </div>
                 <div>
                   <Label htmlFor="fmt-phoneNumber" className="text-sm-body text-gray-700 mb-1.5">Phone Number</Label>
-                  <Input id="fmt-phoneNumber" type="tel" placeholder="+1 (555) 000-0000" className="h-10" />
+                  <Input id="fmt-phoneNumber" name="phone" type="tel" placeholder="" className="h-10" required />
                 </div>
                 <div>
                   <Label htmlFor="fmt-company" className="text-sm-body text-gray-700 mb-1.5">Company</Label>
-                  <Input id="fmt-company" placeholder="Acme Inc." className="h-10" />
+                  <Input id="fmt-company" name="company" placeholder="" className="h-10" />
                 </div>
                 <Button variant="ghost" type="submit" className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-11 rounded-lg text-base transition-all">
-                  Get Your Fractional Team
+                  Get a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>
@@ -1291,8 +1304,21 @@ function TestimonialsSection() {
 
 function MidPageCTASection() {
   const navigate = useNavigate();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { formRef, controllerRef } = useFormValidator();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Fall back to native validity if the widget hasn't finished loading yet.
+    const isValid = controllerRef.current
+      ? await controllerRef.current.validate()
+      : form.checkValidity();
+
+    if (!isValid) {
+      if (!controllerRef.current) form.reportValidity();
+      return;
+    }
+
     navigate("/thank-you");
   };
 
@@ -1338,35 +1364,34 @@ function MidPageCTASection() {
           {/* Right: Full form (same structure as hero) */}
           <AnimatedSection direction="left" delay={0.1}>
             <div className="rounded-2xl border border-gray-200 bg-white shadow-2xl p-6 sm:p-8">
-              <div className="mb-6">
-                <h3 className="text-sub font-bold text-gray-900 mb-1.5">Build Your Execution Team</h3>
-                <p className="text-sm-body text-gray-500">Custom team structure &amp; pricing in 24 hours. Zero obligation.</p>
+              <div className="mb-6 text-center">
+                <h3 className="text-sub font-bold text-gray-900 mb-1.5">Let's Start Today</h3>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form id="fmt-midcta-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <Label htmlFor="midcta-firstName" className="text-sm-body text-gray-700 mb-1.5">First Name</Label>
-                    <Input id="midcta-firstName" placeholder="John" className="h-10" />
+                    <Input id="midcta-firstName" name="firstname" placeholder="" className="h-10" required />
                   </div>
                   <div>
                     <Label htmlFor="midcta-lastName" className="text-sm-body text-gray-700 mb-1.5">Last Name</Label>
-                    <Input id="midcta-lastName" placeholder="Smith" className="h-10" />
+                    <Input id="midcta-lastName" name="lastname" placeholder="" className="h-10" required />
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="midcta-workEmail" className="text-sm-body text-gray-700 mb-1.5">Work Email</Label>
-                  <Input id="midcta-workEmail" type="email" placeholder="john@company.com" className="h-10" />
+                  <Label htmlFor="midcta-workEmail" className="text-sm-body text-gray-700 mb-1.5">Email</Label>
+                  <Input id="midcta-workEmail" name="email" type="email" placeholder="" className="h-10" required />
                 </div>
                 <div>
                   <Label htmlFor="midcta-phoneNumber" className="text-sm-body text-gray-700 mb-1.5">Phone Number</Label>
-                  <Input id="midcta-phoneNumber" type="tel" placeholder="+1 (555) 000-0000" className="h-10" />
+                  <Input id="midcta-phoneNumber" name="phone" type="tel" placeholder="" className="h-10" required />
                 </div>
                 <div>
                   <Label htmlFor="midcta-company" className="text-sm-body text-gray-700 mb-1.5">Company</Label>
-                  <Input id="midcta-company" placeholder="Acme Inc." className="h-10" />
+                  <Input id="midcta-company" name="company" placeholder="" className="h-10" />
                 </div>
                 <Button variant="ghost" type="submit" className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-11 rounded-lg text-base transition-all">
-                  Get Your Fractional Team
+                  Get a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>

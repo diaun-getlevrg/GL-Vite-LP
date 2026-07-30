@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFormValidator } from "@/hooks/useFormValidator";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Clock, Star, Play, Pause, Smartphone, Briefcase, VolumeX } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
@@ -51,13 +52,26 @@ const processSteps = [
 
 function HeroSection() {
   const navigate = useNavigate();
+  const { formRef, controllerRef } = useFormValidator();
   const [muted, setMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Fall back to native validity if the widget hasn't finished loading yet.
+    const isValid = controllerRef.current
+      ? await controllerRef.current.validate()
+      : form.checkValidity();
+
+    if (!isValid) {
+      if (!controllerRef.current) form.reportValidity();
+      return;
+    }
+
     navigate("/thank-you");
   };
 
@@ -232,38 +246,40 @@ function HeroSection() {
             className="w-full"
           >
             <div className="w-full rounded-2xl border border-gray-200 bg-white shadow-2xl p-4 sm:p-5">
-              <h3 className="text-sub font-bold text-gray-900 mb-2.5 text-center">
-                Let's Start Here
-              </h3>
-              <form onSubmit={handleSubmit} className="space-y-2">
+              <div className="mb-6 text-center">
+                <h3 className="text-sub font-bold text-gray-900 mb-1.5">
+                  Let's Start Today
+                </h3>
+              </div>
+              <form id="social-v1-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <Label htmlFor="hero-firstName" className="text-sm-body text-gray-700 mb-1">First Name</Label>
-                    <Input id="hero-firstName" placeholder="John" className="h-9" />
+                    <Label htmlFor="hero-firstName" className="text-sm-body text-gray-700 mb-1.5">First Name</Label>
+                    <Input id="hero-firstName" name="firstname" placeholder="" className="h-10" required />
                   </div>
                   <div>
-                    <Label htmlFor="hero-lastName" className="text-sm-body text-gray-700 mb-1">Last Name</Label>
-                    <Input id="hero-lastName" placeholder="Smith" className="h-9" />
+                    <Label htmlFor="hero-lastName" className="text-sm-body text-gray-700 mb-1.5">Last Name</Label>
+                    <Input id="hero-lastName" name="lastname" placeholder="" className="h-10" required />
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="hero-workEmail" className="text-sm-body text-gray-700 mb-1">Work Email</Label>
-                  <Input id="hero-workEmail" type="email" placeholder="john@company.com" className="h-9" />
+                  <Label htmlFor="hero-workEmail" className="text-sm-body text-gray-700 mb-1.5">Email</Label>
+                  <Input id="hero-workEmail" name="email" type="email" placeholder="" className="h-10" required />
                 </div>
                 <div>
-                  <Label htmlFor="hero-phoneNumber" className="text-sm-body text-gray-700 mb-1">Phone Number</Label>
-                  <Input id="hero-phoneNumber" type="tel" placeholder="+1 (555) 000-0000" className="h-9" />
+                  <Label htmlFor="hero-phoneNumber" className="text-sm-body text-gray-700 mb-1.5">Phone Number</Label>
+                  <Input id="hero-phoneNumber" name="phone" type="tel" placeholder="" className="h-10" required />
                 </div>
                 <div>
-                  <Label htmlFor="hero-company" className="text-sm-body text-gray-700 mb-1">Company</Label>
-                  <Input id="hero-company" placeholder="Acme Inc." className="h-9" />
+                  <Label htmlFor="hero-company" className="text-sm-body text-gray-700 mb-1.5">Company</Label>
+                  <Input id="hero-company" name="company" placeholder="" className="h-10" />
                 </div>
                 <Button
                   variant="ghost"
                   type="submit"
-                  className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-10 rounded-lg text-base transition-all"
+                  className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-11 rounded-lg text-base transition-all"
                 >
-                  Get Your Social Media Team
+                  Get a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>

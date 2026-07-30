@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFormValidator } from "@/hooks/useFormValidator";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, Zap, TrendingUp, Star, CalendarDays, CheckCircle,
@@ -466,8 +467,21 @@ function ProofAndReasonsSection() {
 
 function FormSection() {
   const navigate = useNavigate();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { formRef, controllerRef } = useFormValidator();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Fall back to native validity if the widget hasn't finished loading yet.
+    const isValid = controllerRef.current
+      ? await controllerRef.current.validate()
+      : form.checkValidity();
+
+    if (!isValid) {
+      if (!controllerRef.current) form.reportValidity();
+      return;
+    }
+
     navigate("/thank-you");
   };
 
@@ -553,38 +567,38 @@ function FormSection() {
             <div className="rounded-2xl border border-gray-200 bg-white shadow-xl p-6 sm:p-8">
               <div className="text-center mb-6">
                 <h3 className="text-sub font-bold text-gray-900">
-                  Let's Start Here
+                  Let's Start Today
                 </h3>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form id="video-v2-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <Label htmlFor="form-firstName" className="text-sm-body text-gray-700 mb-1.5">First Name</Label>
-                    <Input id="form-firstName" placeholder="John" className="h-10" />
+                    <Input id="form-firstName" name="firstname" placeholder="" className="h-10" required />
                   </div>
                   <div>
                     <Label htmlFor="form-lastName" className="text-sm-body text-gray-700 mb-1.5">Last Name</Label>
-                    <Input id="form-lastName" placeholder="Smith" className="h-10" />
+                    <Input id="form-lastName" name="lastname" placeholder="" className="h-10" required />
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="form-workEmail" className="text-sm-body text-gray-700 mb-1.5">Work Email</Label>
-                  <Input id="form-workEmail" type="email" placeholder="john@company.com" className="h-10" />
+                  <Label htmlFor="form-workEmail" className="text-sm-body text-gray-700 mb-1.5">Email</Label>
+                  <Input id="form-workEmail" name="email" type="email" placeholder="" className="h-10" required />
                 </div>
                 <div>
                   <Label htmlFor="form-phoneNumber" className="text-sm-body text-gray-700 mb-1.5">Phone Number</Label>
-                  <Input id="form-phoneNumber" type="tel" placeholder="+1 (555) 000-0000" className="h-10" />
+                  <Input id="form-phoneNumber" name="phone" type="tel" placeholder="" className="h-10" required />
                 </div>
                 <div>
                   <Label htmlFor="form-company" className="text-sm-body text-gray-700 mb-1.5">Company</Label>
-                  <Input id="form-company" placeholder="Acme Inc." className="h-10" />
+                  <Input id="form-company" name="company" placeholder="" className="h-10" />
                 </div>
                 <Button
                   variant="ghost"
                   type="submit"
                   className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-11 rounded-lg text-base transition-all"
                 >
-                  Get Your Video Editing Team
+                  Get a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>

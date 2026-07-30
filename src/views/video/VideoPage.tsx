@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -32,6 +32,7 @@ import {
   Play,
   RotateCcw,
 } from "lucide-react";
+import { useFormValidator } from "@/hooks/useFormValidator";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
 import { TrustedByMarquee } from "@/components/shared/TrustedByMarquee";
 import { FaqSchema } from "@/components/shared/FaqSchema";
@@ -351,68 +352,6 @@ export function HeroFormIntro({ children, animation }: { children: React.ReactNo
    1. HERO SECTION
    ════════════════════════════════════════════════════════════════════════════ */
 
-const FORM_VALIDATOR_CSS_URL = "https://form-field-validator.vercel.app/widget/dist/form-validator.css";
-const FORM_VALIDATOR_JS_URL = "https://form-field-validator.vercel.app/widget/dist/form-validator.js";
-let formValidatorLoadPromise: Promise<void> | null = null;
-
-function loadFormValidator(): Promise<void> {
-  if ((window as any).FormValidator) return Promise.resolve();
-  if (formValidatorLoadPromise) return formValidatorLoadPromise;
-
-  if (!document.querySelector(`link[href="${FORM_VALIDATOR_CSS_URL}"]`)) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = FORM_VALIDATOR_CSS_URL;
-    document.head.appendChild(link);
-  }
-
-  formValidatorLoadPromise = new Promise((resolve) => {
-    const existingScript = document.querySelector(
-      `script[src="${FORM_VALIDATOR_JS_URL}"]`
-    ) as HTMLScriptElement | null;
-
-    if (existingScript) {
-      if ((window as any).FormValidator) {
-        resolve();
-      } else {
-        existingScript.addEventListener("load", () => resolve());
-      }
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = FORM_VALIDATOR_JS_URL;
-    script.async = true;
-    script.onload = () => resolve();
-    document.body.appendChild(script);
-  });
-
-  return formValidatorLoadPromise;
-}
-
-interface FormValidatorController {
-  validate: () => Promise<boolean>;
-}
-
-// Runs on every mount of the hero form's DOM node (including intro replays,
-// which unmount/remount the form), since FormValidator attaches to the
-// concrete <form> element rather than tracking React state.
-function useFormValidator() {
-  const controllerRef = useRef<FormValidatorController | null>(null);
-
-  const formRef = useCallback((node: HTMLFormElement | null) => {
-    // Guards against StrictMode's dev-only double ref invocation re-wrapping
-    // the same node (and its already-injected widget markup) a second time.
-    if (!node || node.dataset.fvAttached === "true") return;
-    node.dataset.fvAttached = "true";
-    loadFormValidator().then(() => {
-      controllerRef.current = (window as any).FormValidator?.attachForm(node, { defaultCountry: "US" }) ?? null;
-    });
-  }, []);
-
-  return { formRef, controllerRef };
-}
-
 function HeroSection() {
   const navigate = useNavigate();
   const { formRef, controllerRef } = useFormValidator();
@@ -560,9 +499,9 @@ function HeroSection() {
           <HeroFormIntro>
             <div className="rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-xl shadow-2xl p-6 sm:p-8">
 
-              <div className="mb-6">
+              <div className="mb-6 text-center">
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">
-                  Let's Start Here
+                  Let's Start Today
                 </h3>
 
               </div>
@@ -597,7 +536,7 @@ function HeroSection() {
 
                 <div>
                   <Label htmlFor="hero-workEmail" className="text-sm-body text-gray-700 mb-1.5">
-                    Work Email
+                    Email
                   </Label>
                   <Input
                     id="hero-workEmail"
@@ -632,7 +571,7 @@ function HeroSection() {
                     name="company"
                     placeholder=""
                     className="h-10"
-                    required
+                    
                   />
                 </div>
 
@@ -641,7 +580,7 @@ function HeroSection() {
                   type="submit"
                   className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-11 rounded-lg text-base transition-all"
                 >
-                  Get Your Video Editing Team
+                  Get a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
 

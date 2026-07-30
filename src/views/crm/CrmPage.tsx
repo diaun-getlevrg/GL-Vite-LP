@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFormValidator } from "@/hooks/useFormValidator";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   AlertOctagon,
@@ -223,8 +224,21 @@ function DualHeading({
 function HeroSection() {
 
   const navigate = useNavigate();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { formRef, controllerRef } = useFormValidator();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Fall back to native validity if the widget hasn't finished loading yet.
+    const isValid = controllerRef.current
+      ? await controllerRef.current.validate()
+      : form.checkValidity();
+
+    if (!isValid) {
+      if (!controllerRef.current) form.reportValidity();
+      return;
+    }
+
     navigate("/thank-you");
   };
 
@@ -350,9 +364,9 @@ function HeroSection() {
 
           <HeroFormIntro>
             <div className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 sm:p-8">
-              <div className="mb-6">
+              <div className="mb-6 text-center">
                 <h3 className="text-sub font-bold text-gray-900 mb-1.5">
-                  Claim Free HubSpot Audit
+                  Let's Start Today
                 </h3>
                 <p className="text-sm-body text-gray-500">
                   See what&apos;s broken and how much revenue you&apos;re missing.
@@ -360,7 +374,7 @@ function HeroSection() {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form id="crm-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <Label htmlFor="firstName" className="text-sm-body text-gray-700 mb-1.5">
@@ -368,8 +382,10 @@ function HeroSection() {
                       </Label>
                       <Input
                         id="firstName"
-                        placeholder="John"
+                        name="firstname"
+                        placeholder=""
                         className="h-10"
+                        required
                       />
                     </div>
                     <div>
@@ -378,21 +394,25 @@ function HeroSection() {
                       </Label>
                       <Input
                         id="lastName"
-                        placeholder="Smith"
+                        name="lastname"
+                        placeholder=""
                         className="h-10"
+                        required
                       />
                     </div>
                   </div>
 
                   <div>
                     <Label htmlFor="workEmail" className="text-sm-body text-gray-700 mb-1.5">
-                      Work Email
+                      Email
                     </Label>
                     <Input
                       id="workEmail"
+                      name="email"
                       type="email"
-                      placeholder="john@company.com"
+                      placeholder=""
                       className="h-10"
+                      required
                     />
                   </div>
 
@@ -402,9 +422,11 @@ function HeroSection() {
                     </Label>
                     <Input
                       id="phoneNumber"
+                      name="phone"
                       type="tel"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder=""
                       className="h-10"
+                      required
                     />
                   </div>
 
@@ -414,7 +436,8 @@ function HeroSection() {
                     </Label>
                     <Input
                       id="company"
-                      placeholder="Acme Inc."
+                      name="company"
+                      placeholder=""
                       className="h-10"
                     />
                   </div>
@@ -424,7 +447,7 @@ function HeroSection() {
                     type="submit"
                     className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-11 rounded-lg text-base transition-all"
                   >
-                    Get Your HubSpot Audit
+                    Get a Quote
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
 

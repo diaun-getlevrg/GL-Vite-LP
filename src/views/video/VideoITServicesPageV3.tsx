@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFormValidator } from "@/hooks/useFormValidator";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, TrendingUp, CalendarDays, Star, Volume2, VolumeX, Play, Pause } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
@@ -32,8 +33,21 @@ import {
 
 function LeftColumn() {
   const navigate = useNavigate();
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { formRef, controllerRef } = useFormValidator();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+
+    // Fall back to native validity if the widget hasn't finished loading yet.
+    const isValid = controllerRef.current
+      ? await controllerRef.current.validate()
+      : form.checkValidity();
+
+    if (!isValid) {
+      if (!controllerRef.current) form.reportValidity();
+      return;
+    }
+
     navigate("/thank-you");
   };
 
@@ -86,37 +100,37 @@ function LeftColumn() {
           >
             <div className="rounded-2xl border border-gray-200 bg-white shadow-2xl p-4">
               <h3 className="text-body font-bold text-gray-900 mb-3 text-center">
-                Let's Start Here
+                Let's Start Today
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-3">
+              <form id="video-it-services-v3-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-3">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <Label htmlFor="v3-firstName" className="text-xs text-gray-700 mb-1">First Name</Label>
-                    <Input id="v3-firstName" placeholder="John" className="h-9 text-sm" />
+                    <Input id="v3-firstName" name="firstname" placeholder="" className="h-9 text-sm" required />
                   </div>
                   <div>
                     <Label htmlFor="v3-lastName" className="text-xs text-gray-700 mb-1">Last Name</Label>
-                    <Input id="v3-lastName" placeholder="Smith" className="h-9 text-sm" />
+                    <Input id="v3-lastName" name="lastname" placeholder="" className="h-9 text-sm" required />
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="v3-workEmail" className="text-xs text-gray-700 mb-1">Work Email</Label>
-                  <Input id="v3-workEmail" type="email" placeholder="john@company.com" className="h-9 text-sm" />
+                  <Label htmlFor="v3-workEmail" className="text-xs text-gray-700 mb-1">Email</Label>
+                  <Input id="v3-workEmail" name="email" type="email" placeholder="" className="h-9 text-sm" required />
                 </div>
                 <div>
                   <Label htmlFor="v3-phoneNumber" className="text-xs text-gray-700 mb-1">Phone Number</Label>
-                  <Input id="v3-phoneNumber" type="tel" placeholder="+1 (555) 000-0000" className="h-9 text-sm" />
+                  <Input id="v3-phoneNumber" name="phone" type="tel" placeholder="" className="h-9 text-sm" required />
                 </div>
                 <div>
                   <Label htmlFor="v3-company" className="text-xs text-gray-700 mb-1">Company</Label>
-                  <Input id="v3-company" placeholder="Acme Inc." className="h-9 text-sm" />
+                  <Input id="v3-company" name="company" placeholder="" className="h-9 text-sm" />
                 </div>
                 <Button
                   variant="ghost"
                   type="submit"
                   className="w-full bg-spark-600 hover:bg-spark-800 text-white hover:text-white font-semibold h-10 rounded-lg text-sm transition-all"
                 >
-                  Get Your Video Team
+                  Get a Quote
                   <ArrowRight className="ml-2 h-3.5 w-3.5" />
                 </Button>
               </form>
