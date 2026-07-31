@@ -65,7 +65,7 @@ function HeroSection() {
           poster="/images/hero/social-hero.webp"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/video/social-general-targeting.mp4" type="video/mp4" />
+          <source src="/video/social-general-targeting.webm" type="video/webm" />
         </video>
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#061512]/95 via-[#061512]/85 to-[#061512]/95" />
@@ -317,7 +317,7 @@ function VideoSection() {
                   onPause={() => setIsPlaying(false)}
                   className="w-full h-full object-cover"
                 >
-                  <source src="/video/social-general-targeting.mp4" type="video/mp4" />
+                  <source src="/video/social-general-targeting.webm" type="video/webm" />
                 </video>
 
                 {muted && (

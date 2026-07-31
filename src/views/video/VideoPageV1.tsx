@@ -174,7 +174,7 @@ function HeroSection() {
                 onPause={() => setIsPlaying(false)}
                 className="w-full h-full object-cover"
               >
-                <source src="/video/video-general-targeting.mp4" type="video/mp4" />
+                <source src="/video/video-general-targeting.webm" type="video/webm" />
               </video>
 
               {muted && (
