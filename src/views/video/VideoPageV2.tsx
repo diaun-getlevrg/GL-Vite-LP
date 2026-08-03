@@ -305,7 +305,7 @@ function VideoSection() {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="absolute -inset-8 bg-gradient-to-tr from-spark-200/50 via-spark-100/30 to-transparent rounded-[2.5rem] blur-2xl -z-10" />
 
-              <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-black rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-black rotate-0 hover:rotate-0 transition-transform duration-500">
                 <video
                   ref={videoRef}
                   autoPlay
