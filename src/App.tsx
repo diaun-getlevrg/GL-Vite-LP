@@ -2,6 +2,8 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { VideoPage } from "@/views/video/VideoPage";
 import { VideoPageV1 } from "@/views/video/VideoPageV1";
 import { VideoPageV2 } from "@/views/video/VideoPageV2";
+import { SampleVideoPageV1 } from "@/views/sample/SampleVideoPageV1";
+import { SampleVideoPageV2 } from "@/views/sample/SampleVideoPageV2";
 import { VideoAgenciesPage } from "@/views/video/VideoAgenciesPage";
 import { VideoConsultingPage } from "@/views/video/VideoConsultingPage";
 import { VideoFinancialAdvisoryPage } from "@/views/video/VideoFinancialAdvisoryPage";
@@ -69,6 +71,9 @@ export default function App() {
         <Route path="/video" element={<VideoPage />} />
         <Route path="/video-v1" element={<VideoPageV1 />} />
         <Route path="/video-v2" element={<VideoPageV2 />} />
+        {/* Sample sandbox — new page ideas, in progress */}
+        <Route path="/sample-video-v1" element={<SampleVideoPageV1 />} />
+        <Route path="/sample-video-v2" element={<SampleVideoPageV2 />} />
         {/* Video LP variants */}
         <Route path="/video-agencies" element={<VideoAgenciesPage />} />
         <Route path="/video-consulting" element={<VideoConsultingPage />} />
