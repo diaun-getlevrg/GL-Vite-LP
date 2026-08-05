@@ -4,6 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/webp" href="/favicon.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var heroByHash = {
+          "#/video": "/images/hero/video-hero.webp",
+          "#/video-v1": "/images/hero/video-hero.webp",
+          "#/video-v2": "/images/hero/video-hero.webp",
+          "#/video-agencies": "/images/hero/video-agencies-hero.webp",
+          "#/video-consulting": "/images/hero/video-consulting-hero.webp",
+          "#/video-financial-advisory": "/images/hero/video-financial-advisory-hero.webp",
+          "#/video-it-services": "/images/hero/video-it-services-hero.webp",
+          "#/video-it-services-v1": "/images/hero/video-it-services-hero.webp",
+          "#/video-it-services-v2": "/images/hero/video-it-services-hero.webp",
+          "#/video-legal": "/images/hero/video-legal-hero.webp",
+          "#/video-saas": "/images/hero/video-saas-hero.webp",
+          "#/video-vp-marketing": "/images/hero/video-vp-marketing-hero.webp",
+          "#/video-marketing-ops": "/images/hero/video-marketing-ops-hero.webp",
+          "#/video-founder-operator": "/images/hero/video-founder-operator.webp",
+          "#/video-accounting": "/images/hero/video-accounting-hero.webp"
+        };
+        var src = heroByHash[window.location.hash];
+        if (src) {
+          var link = document.createElement("link");
+          link.rel = "preload";
+          link.as = "image";
+          link.href = src;
+          link.fetchPriority = "high";
+          document.head.appendChild(link);
+        }
+      })();
+    </script>
     <title>Get Levrg | Scale Your Business Without the Hiring Headaches</title>
     <meta name="description" content="White-label video editing, social media management for professional services, and CRM optimization. 48-hour turnaround, no contracts, 80% cost savings vs hiring." />
     <meta name="keywords" content="Get Levrg, white label video editing, social media management for law firms, HubSpot CRM optimization, video editing outsourcing, professional services social media, CRM data cleanup, revenue operations" />
