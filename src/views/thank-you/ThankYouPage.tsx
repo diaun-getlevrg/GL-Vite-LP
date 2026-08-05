@@ -382,11 +382,15 @@ function TestimonialsSection() {
                   setDirection(i > current ? 1 : -1);
                   setCurrent(i);
                 }}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className="p-2.5 flex items-center justify-center"
+                aria-label={`Go to testimonial ${i + 1}`}
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 ${
                   i === current ? "w-6 bg-spark-500" : "w-2 bg-gray-300 hover:bg-gray-400"
                 }`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
+                />
+              </button>
             ))}
           </div>
         </div>

@@ -182,9 +182,9 @@ function HeroSection() {
           }} />}>
             <div className="rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-xl shadow-2xl p-6 sm:p-8">
               <div className="mb-6 text-center">
-                <h3 className="text-sub font-bold text-gray-900 mb-1.5">
+                <h2 className="text-sub font-bold text-gray-900 mb-1.5">
                   Let's Start Today
-                </h3>
+                </h2>
               </div>
               <form id="video-legal-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">

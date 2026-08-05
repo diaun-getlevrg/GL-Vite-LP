@@ -148,9 +148,9 @@ function HeroSection() {
           }} />}>
             <div className="rounded-2xl border border-gray-200 bg-white/95 backdrop-blur-xl shadow-2xl p-6 sm:p-8">
               <div className="mb-6 text-center">
-                <h3 className="text-sub font-bold text-gray-900 mb-1.5">
+                <h2 className="text-sub font-bold text-gray-900 mb-1.5">
                   Let's Start Today
-                </h3>
+                </h2>
               </div>
               <form id="video-marketing-ops-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
@@ -678,11 +678,15 @@ function TestimonialsSection() {
                   setDirection(i > current ? 1 : -1);
                   setCurrent(i);
                 }}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className="p-2.5 flex items-center justify-center"
+                aria-label={`Go to testimonial ${i + 1}`}
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 ${
                   i === current ? "w-6 bg-spark-500" : "w-2 bg-gray-300 hover:bg-gray-400"
                 }`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
+                />
+              </button>
             ))}
           </div>
         </div>

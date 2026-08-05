@@ -365,9 +365,9 @@ function HeroSection() {
           <HeroFormIntro>
             <div className="rounded-2xl border border-gray-200 bg-white shadow-lg p-6 sm:p-8">
               <div className="mb-6 text-center">
-                <h3 className="text-sub font-bold text-gray-900 mb-1.5">
+                <h2 className="text-sub font-bold text-gray-900 mb-1.5">
                   Let's Start Today
-                </h3>
+                </h2>
                 <p className="text-sm-body text-gray-500">
                   See what&apos;s broken and how much revenue you&apos;re missing.
                   Free audit in 24 hours.
@@ -1384,11 +1384,15 @@ export function TestimonialsSection() {
                   setDirection(i > current ? 1 : -1);
                   setCurrent(i);
                 }}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className="p-2.5 flex items-center justify-center"
+                aria-label={`Go to testimonial ${i + 1}`}
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 ${
                   i === current ? "w-6 bg-spark-500" : "w-2 bg-gray-300 hover:bg-gray-400"
                 }`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
+                />
+              </button>
             ))}
           </div>
         </div>

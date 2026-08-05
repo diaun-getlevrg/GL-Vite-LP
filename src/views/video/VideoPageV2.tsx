@@ -566,9 +566,9 @@ function FormSection() {
           <AnimatedSection delay={0.15}>
             <div className="rounded-2xl border border-gray-200 bg-white shadow-xl p-6 sm:p-8">
               <div className="text-center mb-6">
-                <h3 className="text-sub font-bold text-gray-900">
+                <h2 className="text-sub font-bold text-gray-900">
                   Let's Start Today
-                </h3>
+                </h2>
               </div>
               <form id="video-v2-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">

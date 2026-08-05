@@ -242,9 +242,9 @@ function HeroSection() {
           >
             <div className="w-full rounded-2xl border border-gray-200 bg-white shadow-2xl p-4 sm:p-5">
               <div className="mb-6 text-center">
-                <h3 className="text-sub font-bold text-gray-900 mb-1.5">
+                <h2 className="text-sub font-bold text-gray-900 mb-1.5">
                   Let's Start Today
-                </h3>
+                </h2>
               </div>
               <form id="video-it-services-v1-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">

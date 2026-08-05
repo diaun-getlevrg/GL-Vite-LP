@@ -87,16 +87,21 @@ export function useFormValidator() {
     loadFormValidatorWithTimeout().then(() => {
       controllerRef.current = (window as any).FormValidator?.attachForm(node, { defaultCountry: "US" }) ?? null;
 
+      // The widget hides the original (labeled) phone input and renders its
+      // own, unlabeled one — give it an accessible name so it isn't flagged
+      // as an unlabeled form field.
+      const cpNumber = node.querySelector<HTMLInputElement>(".cp-container .cp-number");
+      if (cpNumber && !cpNumber.getAttribute("aria-label")) {
+        cpNumber.setAttribute("aria-label", "Phone Number");
+      }
+
       // The widget hides the original phone input and renders its own empty
       // one, so anything the user typed before attach finished would
       // otherwise vanish mid-typing. Carry it over and let the widget
       // recompute (E.164, country) from it.
-      if (typedPhone && controllerRef.current) {
-        const cpNumber = node.querySelector<HTMLInputElement>(".cp-container .cp-number");
-        if (cpNumber) {
-          cpNumber.value = typedPhone;
-          cpNumber.dispatchEvent(new Event("input", { bubbles: true }));
-        }
+      if (typedPhone && controllerRef.current && cpNumber) {
+        cpNumber.value = typedPhone;
+        cpNumber.dispatchEvent(new Event("input", { bubbles: true }));
       }
 
       if (submitEl) submitEl.disabled = false;

@@ -99,9 +99,9 @@ function LeftColumn() {
             className="text-left mb-5"
           >
             <div className="rounded-2xl border border-gray-200 bg-white shadow-2xl p-4">
-              <h3 className="text-body font-bold text-gray-900 mb-3 text-center">
+              <h2 className="text-body font-bold text-gray-900 mb-3 text-center">
                 Let's Start Today
-              </h3>
+              </h2>
               <form id="video-it-services-v3-hero-form" ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-3">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
