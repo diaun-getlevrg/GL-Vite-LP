@@ -81,14 +81,18 @@ export function useFormValidator() {
     );
     if (submitEl) submitEl.disabled = true;
 
-    const phoneEl = node.querySelector<HTMLInputElement>('[name="phone"]');
-    const typedPhone = phoneEl?.value ?? "";
-    // attachForm() flips phoneEl to type="hidden", which drops focus as a
-    // side effect — capture this now, before that happens, not after.
-    const hadFocus = phoneEl != null && document.activeElement === phoneEl;
-
     loadFormValidatorWithTimeout().then(() => {
       try {
+        // Read the phone input fresh right before attach, not at mount time —
+        // the load wait can take seconds on a cold start, and the user may
+        // start typing at any point during it. Capturing this earlier would
+        // silently miss whatever they typed after mount but before attach.
+        const phoneEl = node.querySelector<HTMLInputElement>('[name="phone"]');
+        const typedPhone = phoneEl?.value ?? "";
+        // attachForm() flips phoneEl to type="hidden", which drops focus as a
+        // side effect — capture this now, before that happens, not after.
+        const hadFocus = phoneEl != null && document.activeElement === phoneEl;
+
         controllerRef.current = (window as any).FormValidator?.attachForm(node, { defaultCountry: "US" }) ?? null;
 
         // The widget hides the original (labeled) phone input and renders its
