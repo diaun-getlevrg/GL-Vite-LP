@@ -83,28 +83,42 @@ export function useFormValidator() {
 
     const phoneEl = node.querySelector<HTMLInputElement>('[name="phone"]');
     const typedPhone = phoneEl?.value ?? "";
+    // attachForm() flips phoneEl to type="hidden", which drops focus as a
+    // side effect — capture this now, before that happens, not after.
+    const hadFocus = phoneEl != null && document.activeElement === phoneEl;
 
     loadFormValidatorWithTimeout().then(() => {
-      controllerRef.current = (window as any).FormValidator?.attachForm(node, { defaultCountry: "US" }) ?? null;
+      try {
+        controllerRef.current = (window as any).FormValidator?.attachForm(node, { defaultCountry: "US" }) ?? null;
 
-      // The widget hides the original (labeled) phone input and renders its
-      // own, unlabeled one — give it an accessible name so it isn't flagged
-      // as an unlabeled form field.
-      const cpNumber = node.querySelector<HTMLInputElement>(".cp-container .cp-number");
-      if (cpNumber && !cpNumber.getAttribute("aria-label")) {
-        cpNumber.setAttribute("aria-label", "Phone Number");
+        // The widget hides the original (labeled) phone input and renders its
+        // own, unlabeled one — give it an accessible name so it isn't flagged
+        // as an unlabeled form field.
+        const cpNumber = node.querySelector<HTMLInputElement>(".cp-container .cp-number");
+        if (cpNumber && !cpNumber.getAttribute("aria-label")) {
+          cpNumber.setAttribute("aria-label", "Phone Number");
+        }
+
+        // The widget hides the original phone input and renders its own empty
+        // one, so anything the user typed before attach finished would
+        // otherwise vanish mid-typing. Carry it over and let the widget
+        // recompute (E.164, country) from it.
+        if (typedPhone && controllerRef.current && cpNumber) {
+          cpNumber.value = typedPhone;
+          cpNumber.dispatchEvent(new Event("input", { bubbles: true }));
+          if (hadFocus) {
+            cpNumber.focus();
+            cpNumber.setSelectionRange(cpNumber.value.length, cpNumber.value.length);
+          }
+        }
+      } catch {
+        // A throwing widget must degrade to native validation, not brick the
+        // form — controllerRef staying null is what makes handleSubmit's
+        // existing fallback (form.checkValidity()) kick in.
+        controllerRef.current = null;
+      } finally {
+        if (submitEl) submitEl.disabled = false;
       }
-
-      // The widget hides the original phone input and renders its own empty
-      // one, so anything the user typed before attach finished would
-      // otherwise vanish mid-typing. Carry it over and let the widget
-      // recompute (E.164, country) from it.
-      if (typedPhone && controllerRef.current && cpNumber) {
-        cpNumber.value = typedPhone;
-        cpNumber.dispatchEvent(new Event("input", { bubbles: true }));
-      }
-
-      if (submitEl) submitEl.disabled = false;
     });
   }, []);
 
