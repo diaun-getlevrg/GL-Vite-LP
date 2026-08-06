@@ -152,7 +152,7 @@ function TestimonialCard({ index, className = "" }: { index: number; className?:
         >
           <div className="flex items-center gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-3 w-3 text-spark-500 fill-spark-500" />
+              <Star key={i} className="h-3 w-3 text-yellow-400 fill-yellow-400" />
             ))}
           </div>
           <p className="text-xs sm:text-sm-body text-gray-300 italic mb-2.5">

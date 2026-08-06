@@ -288,7 +288,7 @@ function HeroSection({ onOpenForm }: { onOpenForm: () => void }) {
             >
               <div className="flex items-center justify-center gap-1 mb-3">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 text-spark-500 fill-spark-500" />
+                  <Star key={i} className="h-3.5 w-3.5 text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
               <p className="text-sm-body sm:text-body text-gray-200 italic mb-3">
