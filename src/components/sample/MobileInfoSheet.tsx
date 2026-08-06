@@ -1,6 +1,8 @@
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
+
+const DESKTOP_QUERY = "(min-width: 1024px)"; // matches Tailwind's lg: breakpoint
 
 /* ════════════════════════════════════════════════════════════════════════════
    MobileInfoSheet — a native-style bottom sheet: dims the page, slides up
@@ -52,25 +54,39 @@ export function MobileInfoSheet({ open, onClose, title, children }: MobileInfoSh
   const titleId = useId();
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const reduceMotion = useReducedMotion();
+  // Distinct from `open`: this sheet is CSS-hidden at lg+ (desktop keeps its
+  // own inline content instead), but desktop-visible buttons still call the
+  // same onOpenForm/setXOpen — a CTA in the hero, say. If we mounted the
+  // lock/focus/Escape effects purely off `open`, clicking one of those on
+  // desktop would lock page scroll with no visible sheet or close button to
+  // undo it with. `shouldShow` only goes true once we've actually confirmed
+  // we're below the breakpoint where the sheet renders.
+  const [shouldShow, setShouldShow] = useState(false);
 
   useEffect(() => {
-    if (!open) return;
-    closeBtnRef.current?.focus();
+    if (!open || window.matchMedia(DESKTOP_QUERY).matches) {
+      setShouldShow(false);
+      return;
+    }
+    setShouldShow(true);
     lockBodyScroll();
+    return () => unlockBodyScroll();
+  }, [open]);
+
+  useEffect(() => {
+    if (!shouldShow) return;
+    closeBtnRef.current?.focus();
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKeyDown);
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      unlockBodyScroll();
-    };
-  }, [open, onClose]);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [shouldShow, onClose]);
 
   return (
     <AnimatePresence>
-      {open && (
+      {shouldShow && (
         <div className="lg:hidden fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-labelledby={titleId}>
           <motion.div
             initial={{ opacity: 0 }}
