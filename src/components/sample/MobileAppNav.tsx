@@ -126,7 +126,7 @@ function NavTabButton({
               aria-hidden="true"
               className="absolute inset-0 rounded-full bg-spark-500"
               animate={{ scale: [1, 1.9], opacity: [0.6, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 1.2, ease: "easeOut" }}
+              transition={{ duration: 0.45, repeat: Infinity, repeatDelay: 0.15, ease: "easeOut" }}
             />
           )}
           <span
