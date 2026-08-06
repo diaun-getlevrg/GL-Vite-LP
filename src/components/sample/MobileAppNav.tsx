@@ -6,6 +6,12 @@ import type { LucideIcon } from "lucide-react";
    MobileAppNav — a fixed bottom tab bar that reads like a native mobile app.
    Mobile/tablet only (hidden lg+). Flat bar, no raised FAB.
 
+   Bright/white, not dark — this site's own content (the hero, the "get
+   started" section) is itself near-black, so a dark bar had almost no
+   visible seam against it. White + a crisp shadow reads as a distinct UI
+   layer regardless of what's scrolled underneath, light or dark, the same
+   way most native app tab bars stay light-chrome even over dark content.
+
    Each tab is either:
    - a scroll target (`id` set) — the bar scroll-spies it and highlights it
      automatically as the page scrolls past, tapping it scrolls there; or
@@ -70,7 +76,7 @@ export function MobileAppNav({ tabs }: MobileAppNavProps) {
   };
 
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 pb-[env(safe-area-inset-bottom)] bg-void/95 backdrop-blur-xl border-t border-white/10 shadow-[0_-6px_28px_rgba(0,0,0,0.45)]">
+    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 pb-[env(safe-area-inset-bottom)] bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-[0_-6px_24px_rgba(0,0,0,0.12)]">
       <div className="flex items-stretch h-16 max-w-md mx-auto px-1">
         {tabs.map((tab, i) => (
           <NavTabButton
@@ -108,7 +114,7 @@ function NavTabButton({
         style={{ touchAction: "manipulation" }}
         aria-label={tab.label}
         aria-current={isActive ? "true" : undefined}
-        className="relative flex-1 flex flex-col items-center justify-center gap-1 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spark-400 focus-visible:ring-inset rounded-lg"
+        className="relative flex-1 flex flex-col items-center justify-center gap-1 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spark-600 focus-visible:ring-inset rounded-lg"
       >
         <span className="relative flex items-center justify-center w-9 h-5">
           {/* Attention ping — a soft ring radiating out from the badge and
@@ -118,20 +124,20 @@ function NavTabButton({
           {!isActive && !reduceMotion && (
             <motion.span
               aria-hidden="true"
-              className="absolute inset-0 rounded-full bg-spark-400"
-              animate={{ scale: [1, 1.9], opacity: [0.55, 0] }}
+              className="absolute inset-0 rounded-full bg-spark-500"
+              animate={{ scale: [1, 1.9], opacity: [0.6, 0] }}
               transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 1.2, ease: "easeOut" }}
             />
           )}
           <span
             className={`relative flex items-center justify-center w-9 h-5 rounded-full transition-colors ${
-              isActive ? "bg-white text-spark-700" : "bg-spark-500 text-void"
+              isActive ? "bg-white text-spark-700 ring-2 ring-spark-600" : "bg-spark-600 text-white"
             }`}
           >
             <Icon className="h-3.5 w-3.5" />
           </span>
         </span>
-        <span className="text-[10px] font-semibold leading-none truncate text-white">
+        <span className={`text-[10px] font-semibold leading-none truncate ${isActive ? "text-spark-700" : "text-gray-700"}`}>
           {tab.label}
         </span>
       </motion.button>
@@ -144,18 +150,18 @@ function NavTabButton({
       onClick={onTap}
       whileTap={reduceMotion ? undefined : { scale: 0.88 }}
       style={{ touchAction: "manipulation" }}
-      className="relative flex-1 flex flex-col items-center justify-center gap-0.5 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spark-400 focus-visible:ring-inset rounded-lg"
+      className="relative flex-1 flex flex-col items-center justify-center gap-0.5 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-spark-600 focus-visible:ring-inset rounded-lg"
       aria-label={tab.label}
       aria-current={isActive ? "true" : undefined}
     >
-      <Icon className={`h-5 w-5 transition-colors ${isActive ? "text-white" : "text-white/40"}`} />
-      <span className={`text-[10px] font-medium leading-none transition-colors truncate ${isActive ? "text-white" : "text-white/40"}`}>
+      <Icon className={`h-5 w-5 transition-colors ${isActive ? "text-spark-700" : "text-gray-400"}`} />
+      <span className={`text-[10px] font-medium leading-none transition-colors truncate ${isActive ? "text-spark-700" : "text-gray-400"}`}>
         {tab.label}
       </span>
       {isActive && (
         <motion.span
           layoutId="mobile-app-nav-indicator"
-          className="absolute top-0 w-8 h-0.5 rounded-full bg-spark-400"
+          className="absolute top-0 w-8 h-0.5 rounded-full bg-spark-600"
           transition={reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 500, damping: 35 }}
         />
       )}

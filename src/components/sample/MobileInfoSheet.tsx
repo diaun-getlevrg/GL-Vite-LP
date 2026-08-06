@@ -14,6 +14,33 @@ import { X } from "lucide-react";
    somewhere sensible instead of the sheet opening silently underneath them.
    ════════════════════════════════════════════════════════════════════════════ */
 
+// Reference-counted body scroll lock, shared across every sheet instance.
+// Without this, the page behind a fixed-position sheet can still scroll on
+// touch devices — on iOS Safari in particular, background scroll under a
+// fixed overlay can make other fixed elements (like the bottom nav) repaint
+// in the wrong stacking order mid-scroll. Counted rather than a plain
+// boolean because two sheets can hand off in the same tick (the "Decide"
+// sheet's CTA closes itself and opens the form sheet at once) — a naive
+// set/unset would have the closing sheet's cleanup clobber the lock the
+// opening sheet just took, depending on which mounted first.
+let lockCount = 0;
+let previousBodyOverflow = "";
+
+function lockBodyScroll() {
+  if (lockCount === 0) {
+    previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+  }
+  lockCount++;
+}
+
+function unlockBodyScroll() {
+  lockCount = Math.max(0, lockCount - 1);
+  if (lockCount === 0) {
+    document.body.style.overflow = previousBodyOverflow;
+  }
+}
+
 interface MobileInfoSheetProps {
   open: boolean;
   onClose: () => void;
@@ -29,12 +56,16 @@ export function MobileInfoSheet({ open, onClose, title, children }: MobileInfoSh
   useEffect(() => {
     if (!open) return;
     closeBtnRef.current?.focus();
+    lockBodyScroll();
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      unlockBodyScroll();
+    };
   }, [open, onClose]);
 
   return (
@@ -60,7 +91,7 @@ export function MobileInfoSheet({ open, onClose, title, children }: MobileInfoSh
             onDragEnd={(_, info) => {
               if (info.offset.y > 120 || info.velocity.y > 600) onClose();
             }}
-            className="absolute bottom-0 left-0 right-0 rounded-t-3xl bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl max-h-[80vh] overflow-y-auto"
+            className="absolute bottom-0 left-0 right-0 rounded-t-3xl bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl max-h-[80vh] overflow-y-auto overscroll-contain"
           >
             <div className="pt-3 pb-1 flex justify-center">
               <div className="w-10 h-1.5 rounded-full bg-gray-200" />
